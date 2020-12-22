@@ -1,0 +1,281 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+public class DragResources : MonoBehaviour
+{
+    public Camera cam;
+
+    public GameObject resourceRed;
+    public GameObject resourceBlue;
+    public GameObject resourceYellow;
+    public GameObject resourceWhite;
+    public GameObject resourceLadan;
+    public GameObject resourceEye;
+    public GameObject resourceStone;
+    public GameObject resourceSand;
+
+    public GameObject spawnerRed;
+    public GameObject spawnerBlue;
+    public GameObject spawnerYellow;
+    public GameObject spawnerWhite;
+    public GameObject spawnerLadan;
+    public GameObject spawnerEye;
+    public GameObject spawnerStone;
+    public GameObject spawnerSand;
+
+    private Touch touch;
+    private Transform toDrag;
+    private Rigidbody2D toDragRB;
+
+    private bool isDragging = false;
+    public bool canTake = true;
+
+    private void Start()
+    {
+        canTake = true;
+    }
+
+    private void Update()
+    {
+        if (Input.touchCount > 0)
+        {
+            if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+                return;
+
+            touch = Input.GetTouch(0);
+
+            if (touch.phase == TouchPhase.Began && canTake)
+            {
+                isDragging = true;
+
+                Vector3 pos = cam.ScreenToWorldPoint(touch.position);
+                RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
+
+                if (Physics2D.Raycast(pos,Vector2.zero) && hit.collider.gameObject.layer == LayerMask.NameToLayer("Platform"))
+                {
+                    switch (hit.transform.tag)
+                    {
+                        case "ResourceRed":
+                            if (GetComponent<ResourceSystem>().GetAmount(Resource.Red) > 0)
+                            {
+                                canTake = false;
+                                toDrag = Instantiate(resourceRed, spawnerRed.transform.position, transform.rotation).transform;
+                                GetComponent<ResourceSystem>().RemoveResource(Resource.Red, 1);
+                            }
+                            break;
+
+                        case "ResourceBlue":
+                            if (GetComponent<ResourceSystem>().GetAmount(Resource.Blue) > 0)
+                            {
+                                canTake = false;
+                                toDrag = Instantiate(resourceBlue, spawnerBlue.transform.position, transform.rotation).transform;
+                                GetComponent<ResourceSystem>().RemoveResource(Resource.Blue, 1);
+                            }
+                            break;
+
+                        case "ResourceYellow":
+                            if (GetComponent<ResourceSystem>().GetAmount(Resource.Yellow) > 0)
+                            {
+                                canTake = false;
+                                toDrag = Instantiate(resourceYellow, spawnerYellow.transform.position, transform.rotation).transform;
+                                GetComponent<ResourceSystem>().RemoveResource(Resource.Yellow, 1);
+                            }
+                            break;
+
+                        case "ResourceWhite":
+                            if (GetComponent<ResourceSystem>().GetAmount(Resource.White) > 0)
+                            {
+                                canTake = false;
+                                toDrag = Instantiate(resourceWhite, spawnerWhite.transform.position, transform.rotation).transform;
+                                GetComponent<ResourceSystem>().RemoveResource(Resource.White, 1);
+                            }
+                            break;
+
+                        case "ResourceLadan":
+                            if (GetComponent<ResourceSystem>().GetAmount(Resource.Ladan) > 0)
+                            {
+                                canTake = false;
+                                toDrag = Instantiate(resourceLadan, spawnerLadan.transform.position, transform.rotation).transform;
+                                GetComponent<ResourceSystem>().RemoveResource(Resource.Ladan, 1);
+                            }
+                            break;
+
+                        case "ResourceEye":
+                            if (GetComponent<ResourceSystem>().GetAmount(Resource.Eye) > 0)
+                            {
+                                canTake = false;
+                                toDrag = Instantiate(resourceEye, spawnerEye.transform.position, transform.rotation).transform;
+                                GetComponent<ResourceSystem>().RemoveResource(Resource.Eye, 1);
+                            }
+                            break;
+
+                        case "ResourceStone":
+                            if (GetComponent<ResourceSystem>().GetAmount(Resource.Stone) > 0)
+                            {
+                                canTake = false;
+                                toDrag = Instantiate(resourceStone, spawnerStone.transform.position, transform.rotation).transform;
+                                GetComponent<ResourceSystem>().RemoveResource(Resource.Stone, 1);
+                            }
+                            break;
+
+                        case "ResourceSand":
+                            if (GetComponent<ResourceSystem>().GetAmount(Resource.Sand) > 0)
+                            {
+                                canTake = false;
+                                toDrag = Instantiate(resourceSand, spawnerSand.transform.position, transform.rotation).transform;
+                                GetComponent<ResourceSystem>().RemoveResource(Resource.Sand, 1);
+                            }
+                            break;
+
+                        default:
+                            break;
+                    }
+
+                    if (toDrag!=null)
+                        toDragRB = toDrag.GetComponent<Rigidbody2D>();
+                }
+            }
+
+            if (touch.phase == TouchPhase.Moved && isDragging)
+            {
+                if (toDrag != null)
+                {
+                    toDragRB.simulated = false;
+                    toDrag.position = cam.ScreenToWorldPoint(touch.position);
+                }
+            }
+
+            if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
+            {
+                isDragging = false;
+                if (toDrag != null && toDragRB != null)
+                {
+                    StartCoroutine(Wait());
+                    toDragRB.simulated = true;
+                    toDrag = null;
+                    toDragRB = null;
+
+                    GameObject[] goArray = FindObjectsOfType<GameObject>();
+                    for (int i = 0; i < goArray.Length; i++)
+                    {
+                        if (goArray[i].layer == LayerMask.NameToLayer("Resource"))
+                            toDrag = goArray[i].transform;
+                    }
+                }
+            }
+        }
+
+        if (Input.touchCount == 0 && toDrag)
+        {
+            switch (toDrag.tag)
+            {
+                case "ResourceRed":
+                    toDrag.position = Vector3.MoveTowards(toDrag.position, spawnerRed.transform.position, 0.3f);
+                    if (toDrag.position == spawnerRed.transform.position)
+                    {
+                        Destroy(toDrag.gameObject);
+                        GetComponent<ResourceSystem>().AddResource(Resource.Red, 1);
+                        canTake = true;
+                    }
+                    break;
+
+                case "ResourceBlue":
+                    toDrag.position = Vector3.MoveTowards(toDrag.position, spawnerBlue.transform.position, 0.3f);
+                    if (toDrag.position == spawnerBlue.transform.position)
+                    {
+                        Destroy(toDrag.gameObject);
+                        GetComponent<ResourceSystem>().AddResource(Resource.Blue, 1);
+                        canTake = true;
+                    }
+                    break;
+
+                case "ResourceYellow":
+                    toDrag.position = Vector3.MoveTowards(toDrag.position, spawnerYellow.transform.position, 0.3f);
+                    if (toDrag.position == spawnerYellow.transform.position)
+                    {
+                        Destroy(toDrag.gameObject);
+                        GetComponent<ResourceSystem>().AddResource(Resource.Yellow, 1);
+                        canTake = true;
+                    }
+                    break;
+
+                case "ResourceWhite":
+                    toDrag.position = Vector3.MoveTowards(toDrag.position, spawnerWhite.transform.position, 0.3f);
+                    if (toDrag.position == spawnerWhite.transform.position)
+                    {
+                        Destroy(toDrag.gameObject);
+                        GetComponent<ResourceSystem>().AddResource(Resource.White, 1);
+                        canTake = true;
+                    }
+                    break;
+
+                case "ResourceLadan":
+                    toDrag.position = Vector3.MoveTowards(toDrag.position, spawnerLadan.transform.position, 0.3f);
+                    if (toDrag.position == spawnerLadan.transform.position)
+                    {
+                        Destroy(toDrag.gameObject);
+                        GetComponent<ResourceSystem>().AddResource(Resource.Ladan, 1);
+                        canTake = true;
+                    }
+                    break;
+
+                case "ResourceEye":
+                    toDrag.position = Vector3.MoveTowards(toDrag.position, spawnerEye.transform.position, 0.3f);
+                    if (toDrag.position == spawnerEye.transform.position)
+                    {
+                        Destroy(toDrag.gameObject);
+                        GetComponent<ResourceSystem>().AddResource(Resource.Eye, 1);
+                        canTake = true;
+                    }
+                    break;
+
+                case "ResourceStone":
+                    toDrag.position = Vector3.MoveTowards(toDrag.position, spawnerStone.transform.position, 0.3f);
+                    if (toDrag.position == spawnerStone.transform.position)
+                    {
+                        Destroy(toDrag.gameObject);
+                        GetComponent<ResourceSystem>().AddResource(Resource.Stone, 1);
+                        canTake = true;
+                    }
+                    break;
+
+                case "ResourceSand":
+                    toDrag.position = Vector3.MoveTowards(toDrag.position, spawnerSand.transform.position, 0.3f);
+                    if (toDrag.position == spawnerSand.transform.position)
+                    {
+                        Destroy(toDrag.gameObject);
+                        GetComponent<ResourceSystem>().AddResource(Resource.Sand, 1);
+                        canTake = true;
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+        }
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(0.02f);
+        if (toDrag != null)
+        {
+            toDrag.GetComponent<Collider2D>().enabled = false;
+            toDrag.GetComponent<SpriteRenderer>().sortingOrder = 4;
+        }
+        else
+            canTake = true;
+    }
+
+    public void StartMixing()
+    {
+        canTake = false;
+    }
+
+    public void StopMixing()
+    {
+        canTake = true;
+    }
+}
