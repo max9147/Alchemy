@@ -29,11 +29,8 @@ public class GuildsMenu : MonoBehaviour
     public Button buyRepPriests;
     public Button buyRepMagicians;
 
-    public TextMeshProUGUI moneyText;
-
     private void OnEnable()
     {
-        moneyText.text = "Деньги: " + moneySystem.GetComponent<MoneySystem>().GetMoney();
         repWarriorsGuilds.value = repWarriors.value;
         repBanditsGuilds.value = repBandits.value;
         repPriestsGuilds.value = repPriests.value;
@@ -65,7 +62,6 @@ public class GuildsMenu : MonoBehaviour
         if (moneySystem.GetComponent<MoneySystem>().GetMoney() >= 500)
         {
             moneySystem.GetComponent<MoneySystem>().SpendMoney(500);
-            moneyText.text = "Деньги: " + moneySystem.GetComponent<MoneySystem>().GetMoney();
 
             switch (guildID)
             {
@@ -113,7 +109,6 @@ public class GuildsMenu : MonoBehaviour
                     if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Eye) < 2)
                     {
                         moneySystem.GetComponent<MoneySystem>().SpendMoney(300);
-                        moneyText.text = "Деньги: " + moneySystem.GetComponent<MoneySystem>().GetMoney();
                         resourceSystem.GetComponent<ResourceSystem>().AddResource(Resource.Eye, 1);
                         if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Eye) == 2)
                             buyEye.interactable = false;
@@ -124,7 +119,6 @@ public class GuildsMenu : MonoBehaviour
                     if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Sand) < 2)
                     {
                         moneySystem.GetComponent<MoneySystem>().SpendMoney(300);
-                        moneyText.text = "Деньги: " + moneySystem.GetComponent<MoneySystem>().GetMoney();
                         resourceSystem.GetComponent<ResourceSystem>().AddResource(Resource.Sand, 1);
                         if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Sand) == 2)
                             buySand.interactable = false;
@@ -135,7 +129,6 @@ public class GuildsMenu : MonoBehaviour
                     if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Ladan) < 2)
                     {
                         moneySystem.GetComponent<MoneySystem>().SpendMoney(300);
-                        moneyText.text = "Деньги: " + moneySystem.GetComponent<MoneySystem>().GetMoney();
                         resourceSystem.GetComponent<ResourceSystem>().AddResource(Resource.Ladan, 1);
                         if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Ladan) == 2)
                             buyLadan.interactable = false;
@@ -146,7 +139,6 @@ public class GuildsMenu : MonoBehaviour
                     if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Stone) < 2)
                     {
                         moneySystem.GetComponent<MoneySystem>().SpendMoney(300);
-                        moneyText.text = "Деньги: " + moneySystem.GetComponent<MoneySystem>().GetMoney();
                         resourceSystem.GetComponent<ResourceSystem>().AddResource(Resource.Stone, 1);
                         if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Stone) == 2)
                             buyStone.interactable = false;

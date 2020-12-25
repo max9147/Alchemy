@@ -8,7 +8,7 @@ public class WaterColor : MonoBehaviour
 
     private Color startColor;
     public Color targetColor;
-    private float time = 0.01f;
+    private float time = 0.02f;
 
     private void Start()
     {
