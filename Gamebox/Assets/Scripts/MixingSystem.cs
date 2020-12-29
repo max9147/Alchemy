@@ -69,7 +69,7 @@ public class MixingSystem : MonoBehaviour
         {
             if (isReady)
                 return;
-            drainButton.gameObject.SetActive(true);
+            drainButton.interactable = true;
             buyCauldron.interactable = false;
             Destroy(collision.gameObject);
         }
@@ -151,7 +151,7 @@ public class MixingSystem : MonoBehaviour
     public void Brew()
     {
         cooldownTime = cauldrons[cauldronId].cooldown;
-        drainButton.gameObject.SetActive(false);
+        drainButton.interactable = false;
         resourceSystem.GetComponent<DragResources>().StartMixing();
 
         if (!isRare && inCauldron.Count < 2 || isRare && inCauldron.Count < 3)
@@ -246,7 +246,7 @@ public class MixingSystem : MonoBehaviour
 
     public void DrainCauldron()
     {
-        drainButton.gameObject.SetActive(false);
+        drainButton.interactable = false;
 
         foreach (var item in inCauldron)
         {

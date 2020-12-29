@@ -1011,6 +1011,45 @@ Transform:
   m_Father: {fileID: 2086474486}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &164073296
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 164073297}
+  m_Layer: 5
+  m_Name: Timers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &164073297
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164073296}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 898658389}
+  - {fileID: 1439868741}
+  - {fileID: 227027787}
+  - {fileID: 1044103718}
+  m_Father: {fileID: 597144651}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &202142968
 GameObject:
   m_ObjectHideFlags: 0
@@ -1652,17 +1691,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 227027786}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1816529218}
+  m_Father: {fileID: 164073297}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -657.9, y: 779}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 245.40002, y: -80.8}
+  m_SizeDelta: {x: 150, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &227027788
 MonoBehaviour:
@@ -5162,7 +5201,6 @@ RectTransform:
   m_Children:
   - {fileID: 482247074}
   - {fileID: 1108670125}
-  - {fileID: 898658389}
   m_Father: {fileID: 1168651678}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5808,6 +5846,7 @@ RectTransform:
   - {fileID: 578058036}
   - {fileID: 1311946648}
   - {fileID: 301880609}
+  - {fileID: 164073297}
   m_Father: {fileID: 285314856}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6799,7 +6838,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &737813398
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6858,7 +6897,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 737813400}
   m_OnClick:
     m_PersistentCalls:
@@ -7999,17 +8038,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 898658388}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 552352985}
-  m_RootOrder: 2
+  m_Father: {fileID: 164073297}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -657.9, y: 779}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -267.9, y: -83.1}
+  m_SizeDelta: {x: 150, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &898658390
 MonoBehaviour:
@@ -8435,7 +8474,6 @@ RectTransform:
   m_Children:
   - {fileID: 1792185630}
   - {fileID: 121162734}
-  - {fileID: 1439868741}
   m_Father: {fileID: 1168651678}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9485,7 +9523,6 @@ RectTransform:
   m_Children:
   - {fileID: 1276605945}
   - {fileID: 1153284335}
-  - {fileID: 1044103718}
   m_Father: {fileID: 1168651678}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9726,17 +9763,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1044103717}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 996030169}
-  m_RootOrder: 2
+  m_Father: {fileID: 164073297}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -657.9, y: 779}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 529.9, y: -80.900024}
+  m_SizeDelta: {x: 150, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1044103719
 MonoBehaviour:
@@ -14035,17 +14072,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1439868740}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 921639406}
-  m_RootOrder: 2
+  m_Father: {fileID: 164073297}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -657.9, y: 779}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -21.399994, y: -81.40001}
+  m_SizeDelta: {x: 150, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1439868742
 MonoBehaviour:
@@ -17014,6 +17051,11 @@ MonoBehaviour:
   priest: {fileID: 1134544492}
   magician: {fileID: 1165603972}
   questTime: 20
+  delayWarriors: 0
+  delayBandits: 0
+  delayPriests: 0
+  delayMagicians: 0
+  potionName: 
 --- !u!1 &1724132462
 GameObject:
   m_ObjectHideFlags: 0
@@ -18472,7 +18514,6 @@ RectTransform:
   m_Children:
   - {fileID: 909934892}
   - {fileID: 963443838}
-  - {fileID: 227027787}
   m_Father: {fileID: 1168651678}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -20754,6 +20795,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1638070127}
+  drainButton: {fileID: 737813399}
   bottleFull: {fileID: 21300000, guid: ec3355740b4735443899c19687488c2f, type: 3}
   bottleEmpty: {fileID: 21300000, guid: 106296a26d776a947936641678a7d4b4, type: 3}
   bottle1Pos: {fileID: 163836331}
@@ -20775,6 +20817,7 @@ MonoBehaviour:
   cauldron: {fileID: 2086809713}
   UIControls: {fileID: 1487778714}
   water: {fileID: 1243597816}
+  potionSystem: {fileID: 1331031178}
   bottleCount: 2
 --- !u!1 &2086809713
 GameObject:

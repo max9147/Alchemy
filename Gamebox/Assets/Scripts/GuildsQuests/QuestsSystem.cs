@@ -57,6 +57,13 @@ public class QuestsSystem : MonoBehaviour
 
     public float questTime = 20;
 
+    public int delayWarriors = 0;
+    public int delayBandits = 0;
+    public int delayPriests = 0;
+    public int delayMagicians = 0;
+
+    public string potionName;
+
     private void Start()
     {
         timePassed = 0;
@@ -81,12 +88,12 @@ public class QuestsSystem : MonoBehaviour
                         timePassed = 0;
                         warriorsReady = true;
 
-                        if (GetComponent<GuildSystem>().GetRep(Guild.Warriors) >= 75)
+                        if (GetComponent<GuildSystem>().GetRep(Guild.Warriors) >= 75 && delayWarriors == 0)
                             warriorsQuest = CreateQuest(Difficulty.Hard, Guild.Warriors);
                         else
                             warriorsQuest = CreateQuest(Difficulty.Easy, Guild.Warriors);
 
-                        textWarriors.text = warriorsQuest.color.ToString() + " " + warriorsQuest.effect.ToString();
+                        textWarriors.text = GetPotionName(warriorsQuest) + " зелье";
                         rewardWarriors.text = warriorsQuest.reward.ToString();
                         timerWarriors.text = warriorsQuest.time + " секунд";
                         timeWarriors = warriorsQuest.time;
@@ -99,12 +106,12 @@ public class QuestsSystem : MonoBehaviour
                         timePassed = 0;
                         banditsReady = true;
 
-                        if (GetComponent<GuildSystem>().GetRep(Guild.Bandits) >= 75)
+                        if (GetComponent<GuildSystem>().GetRep(Guild.Bandits) >= 75 && delayBandits == 0)
                             banditsQuest = CreateQuest(Difficulty.Hard, Guild.Bandits);
                         else
                             banditsQuest = CreateQuest(Difficulty.Easy, Guild.Bandits);
 
-                        textBandits.text = banditsQuest.color.ToString() + " " + banditsQuest.effect.ToString();
+                        textBandits.text = GetPotionName(banditsQuest) + " зелье";
                         rewardBandits.text = banditsQuest.reward.ToString();
                         timerBandits.text = banditsQuest.time + " секунд";
                         timeBandits = banditsQuest.time;
@@ -117,12 +124,12 @@ public class QuestsSystem : MonoBehaviour
                         timePassed = 0;
                         priestsReady = true;
 
-                        if (GetComponent<GuildSystem>().GetRep(Guild.Priests) >= 75)
+                        if (GetComponent<GuildSystem>().GetRep(Guild.Priests) >= 75 && delayPriests == 0)
                             priestsQuest = CreateQuest(Difficulty.Hard, Guild.Priests);
                         else
                             priestsQuest = CreateQuest(Difficulty.Easy, Guild.Priests);
 
-                        textPriests.text = priestsQuest.color.ToString() + " " + priestsQuest.effect.ToString();
+                        textPriests.text = GetPotionName(priestsQuest) + " зелье";
                         rewardPriests.text = priestsQuest.reward.ToString();
                         timerPriests.text = priestsQuest.time + " секунд";
                         timePriests = priestsQuest.time;
@@ -135,12 +142,12 @@ public class QuestsSystem : MonoBehaviour
                         timePassed = 0;
                         magiciansReady = true;
 
-                        if (GetComponent<GuildSystem>().GetRep(Guild.Magicians) >= 75)
+                        if (GetComponent<GuildSystem>().GetRep(Guild.Magicians) >= 75 && delayMagicians == 0)
                             magiciansQuest = CreateQuest(Difficulty.Hard, Guild.Magicians);
                         else
                             magiciansQuest = CreateQuest(Difficulty.Easy, Guild.Magicians);
 
-                        textMagicians.text = magiciansQuest.color.ToString() + " " + magiciansQuest.effect.ToString();
+                        textMagicians.text = GetPotionName(magiciansQuest) + " зелье";
                         rewardMagicians.text = magiciansQuest.reward.ToString();
                         timerMagicians.text = magiciansQuest.time + " секунд";
                         timeMagicians = magiciansQuest.time;
@@ -162,6 +169,7 @@ public class QuestsSystem : MonoBehaviour
                 textWarriors.text = "";
                 rewardWarriors.text = "";
                 timerWarriors.text = "";
+                delayWarriors = 3;
                 questTime = 20;
             }
             else
@@ -181,6 +189,7 @@ public class QuestsSystem : MonoBehaviour
                 textBandits.text = "";
                 rewardBandits.text = "";
                 timerBandits.text = "";
+                delayBandits = 3;
                 questTime = 20;
             }
             else
@@ -200,6 +209,7 @@ public class QuestsSystem : MonoBehaviour
                 textPriests.text = "";
                 rewardPriests.text = "";
                 timerPriests.text = "";
+                delayPriests = 3;
                 questTime = 20;
             }
             else
@@ -219,6 +229,7 @@ public class QuestsSystem : MonoBehaviour
                 textMagicians.text = "";
                 rewardMagicians.text = "";
                 timerMagicians.text = "";
+                delayMagicians = 3;
                 questTime = 20;
             }
             else
@@ -349,5 +360,67 @@ public class QuestsSystem : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    public string GetPotionName(Quest quest)
+    {
+        switch (quest.color)
+        {
+            case PotionColor.Black:
+                potionName = "Черное";
+                break;
+            case PotionColor.Gray:
+                potionName = "Серое";
+                break;
+            case PotionColor.Purple:
+                potionName = "Пурпурное";
+                break;
+            case PotionColor.Orange:
+                potionName = "Оранжевое";
+                break;
+            case PotionColor.Green:
+                potionName = "Зеленое";
+                break;
+            case PotionColor.Violet:
+                potionName = "Фиолетовое";
+                break;
+            case PotionColor.LightOrange:
+                potionName = "Светло-оранжевое";
+                break;
+            case PotionColor.Lime:
+                potionName = "Лаймовое";
+                break;
+            case PotionColor.Pink:
+                potionName = "Розовое";
+                break;
+            case PotionColor.LightBlue:
+                potionName = "Голубое";
+                break;
+            case PotionColor.Gold:
+                potionName = "Золотое";
+                break;
+            default:
+                break;
+        }
+
+        switch (quest.effect)
+        {
+            case PotionEffect.Glowing:
+                potionName += " светящееся";
+                break;
+            case PotionEffect.Boiling:
+                potionName += " бурлящее";
+                break;
+            case PotionEffect.Burning:
+                potionName += " горящее";
+                break;
+            case PotionEffect.Smoking:
+                potionName += " дымящееся";
+                break;
+            default:
+                break;
+        }
+
+        return potionName;
     }
 }

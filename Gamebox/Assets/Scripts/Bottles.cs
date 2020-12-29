@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Bottles : MonoBehaviour
 {
     public Camera cam;
+
+    public Button drainButton;
 
     public Sprite bottleFull;
     public Sprite bottleEmpty;
@@ -29,6 +32,7 @@ public class Bottles : MonoBehaviour
     public GameObject cauldron;
     public GameObject UIControls;
     public GameObject water;
+    public GameObject potionSystem;
 
     private Touch touch;
     private Transform toDrag;
@@ -36,6 +40,7 @@ public class Bottles : MonoBehaviour
 
     private bool isDragging = false;
     private bool canTake = true;
+    private bool justTook = false;
 
     private float time = 1;
 
@@ -96,12 +101,173 @@ public class Bottles : MonoBehaviour
         {
             if (cauldron.GetComponent<MixingSystem>().isReady && cauldron.GetComponent<MixingSystem>().bottleIn)
             {
+                justTook = true;
                 toDrag.GetComponent<BottlePotion>().AddPotion(cauldron.GetComponent<MixingSystem>().inCauldron, 
                     cauldron.GetComponent<MixingSystem>().inCauldronColored, cauldron.GetComponent<MixingSystem>().isRare);
 
                 toDrag.GetComponent<SpriteRenderer>().sprite = bottleFull;
                 toDrag.GetComponent<SpriteRenderer>().color = water.GetComponent<SpriteRenderer>().color;
                 cauldron.GetComponent<MixingSystem>().TakePotion();
+            }
+
+            if (cauldron.GetComponent<MixingSystem>().bottleIn && cauldron.GetComponent<MixingSystem>().inCauldron.Count == 0 && toDrag.GetComponent<BottlePotion>().potionColor != PotionColor.Empty && !justTook)
+            {
+                switch (toDrag.GetComponent<BottlePotion>().potionColor)
+                {
+                    case PotionColor.Black:
+                        cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.Red);
+                        cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.Blue);
+                        cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.Yellow);
+                        cauldron.GetComponent<MixingSystem>().inCauldronColored.Add(Resource.Red);
+                        cauldron.GetComponent<MixingSystem>().inCauldronColored.Add(Resource.Blue);
+                        cauldron.GetComponent<MixingSystem>().inCauldronColored.Add(Resource.Yellow);
+                        water.GetComponent<WaterColor>().targetColor = water.GetComponent<WaterColor>().colors[4];
+                        break;
+                    case PotionColor.Gray:
+                        cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.Red);
+                        cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.Blue);
+                        cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.Yellow);
+                        cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.White);
+                        cauldron.GetComponent<MixingSystem>().inCauldronColored.Add(Resource.Red);
+                        cauldron.GetComponent<MixingSystem>().inCauldronColored.Add(Resource.Blue);
+                        cauldron.GetComponent<MixingSystem>().inCauldronColored.Add(Resource.Yellow);
+                        cauldron.GetComponent<MixingSystem>().inCauldronColored.Add(Resource.White);
+                        water.GetComponent<WaterColor>().targetColor = water.GetComponent<WaterColor>().colors[5];
+                        break;
+                    case PotionColor.Purple:
+                        cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.Red);
+                        cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.Blue);
+                        cauldron.GetComponent<MixingSystem>().inCauldronColored.Add(Resource.Red);
+                        cauldron.GetComponent<MixingSystem>().inCauldronColored.Add(Resource.Blue);
+                        water.GetComponent<WaterColor>().targetColor = water.GetComponent<WaterColor>().colors[6];
+                        break;
+                    case PotionColor.Orange:
+                        cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.Red);
+                        cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.Yellow);
+                        cauldron.GetComponent<MixingSystem>().inCauldronColored.Add(Resource.Red);
+                        cauldron.GetComponent<MixingSystem>().inCauldronColored.Add(Resource.Yellow);
+                        water.GetComponent<WaterColor>().targetColor = water.GetComponent<WaterColor>().colors[7];
+                        break;
+                    case PotionColor.Green:
+                        cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.Blue);
+                        cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.Yellow);
+                        cauldron.GetComponent<MixingSystem>().inCauldronColored.Add(Resource.Blue);
+                        cauldron.GetComponent<MixingSystem>().inCauldronColored.Add(Resource.Yellow);
+                        water.GetComponent<WaterColor>().targetColor = water.GetComponent<WaterColor>().colors[8];
+                        break;
+                    case PotionColor.Violet:
+                        cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.Red);
+                        cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.Blue);
+                        cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.White);
+                        cauldron.GetComponent<MixingSystem>().inCauldronColored.Add(Resource.Red);
+                        cauldron.GetComponent<MixingSystem>().inCauldronColored.Add(Resource.Blue);
+                        cauldron.GetComponent<MixingSystem>().inCauldronColored.Add(Resource.White);
+                        water.GetComponent<WaterColor>().targetColor = water.GetComponent<WaterColor>().colors[9];
+                        break;
+                    case PotionColor.LightOrange:
+                        cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.Red);
+                        cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.Yellow);
+                        cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.White);
+                        cauldron.GetComponent<MixingSystem>().inCauldronColored.Add(Resource.Red);
+                        cauldron.GetComponent<MixingSystem>().inCauldronColored.Add(Resource.Yellow);
+                        cauldron.GetComponent<MixingSystem>().inCauldronColored.Add(Resource.White);
+                        water.GetComponent<WaterColor>().targetColor = water.GetComponent<WaterColor>().colors[10];
+                        break;
+                    case PotionColor.Lime:
+                        cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.Blue);
+                        cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.Yellow);
+                        cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.White);
+                        cauldron.GetComponent<MixingSystem>().inCauldronColored.Add(Resource.Blue);
+                        cauldron.GetComponent<MixingSystem>().inCauldronColored.Add(Resource.Yellow);
+                        cauldron.GetComponent<MixingSystem>().inCauldronColored.Add(Resource.White);
+                        water.GetComponent<WaterColor>().targetColor = water.GetComponent<WaterColor>().colors[11];
+                        break;
+                    case PotionColor.Pink:
+                        cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.Red);
+                        cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.White);
+                        cauldron.GetComponent<MixingSystem>().inCauldronColored.Add(Resource.Red);
+                        cauldron.GetComponent<MixingSystem>().inCauldronColored.Add(Resource.White);
+                        water.GetComponent<WaterColor>().targetColor = water.GetComponent<WaterColor>().colors[12];
+                        break;
+                    case PotionColor.LightBlue:
+                        cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.Blue);
+                        cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.White);
+                        cauldron.GetComponent<MixingSystem>().inCauldronColored.Add(Resource.Blue);
+                        cauldron.GetComponent<MixingSystem>().inCauldronColored.Add(Resource.White);
+                        water.GetComponent<WaterColor>().targetColor = water.GetComponent<WaterColor>().colors[13];
+                        break;
+                    case PotionColor.Gold:
+                        cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.Yellow);
+                        cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.White);
+                        cauldron.GetComponent<MixingSystem>().inCauldronColored.Add(Resource.Yellow);
+                        cauldron.GetComponent<MixingSystem>().inCauldronColored.Add(Resource.White);
+                        water.GetComponent<WaterColor>().targetColor = water.GetComponent<WaterColor>().colors[14];
+                        break;
+                    default:
+                        break;
+                }
+
+                switch (toDrag.GetComponent<BottlePotion>().potionEffect)
+                {
+                    case PotionEffect.Glowing:
+                        cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.Ladan);
+                        break;
+                    case PotionEffect.Boiling:
+                        cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.Eye);
+                        break;
+                    case PotionEffect.Burning:
+                        cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.Stone);
+                        break;
+                    case PotionEffect.Smoking:
+                        cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.Sand);
+                        break;
+                    default:
+                        break;
+                }
+
+                toDrag.GetComponent<SpriteRenderer>().sprite = bottleEmpty;
+                toDrag.GetComponent<SpriteRenderer>().color = Color.white;
+                toDrag.GetComponent<BottlePotion>().potionColor = PotionColor.Empty;
+                toDrag.GetComponent<BottlePotion>().potionEffect = PotionEffect.Empty;
+                drainButton.interactable = true;
+
+                switch (toDrag.tag)
+                {
+                    case "Bottle1":
+                        potionSystem.GetComponent<PotionSystem>().SetColor(0, PotionColor.Empty);
+                        potionSystem.GetComponent<PotionSystem>().SetEffect(0, PotionEffect.Empty);
+                        break;
+                    case "Bottle2":
+                        potionSystem.GetComponent<PotionSystem>().SetColor(1, PotionColor.Empty);
+                        potionSystem.GetComponent<PotionSystem>().SetEffect(1, PotionEffect.Empty);
+                        break;
+                    case "Bottle3":
+                        potionSystem.GetComponent<PotionSystem>().SetColor(2, PotionColor.Empty);
+                        potionSystem.GetComponent<PotionSystem>().SetEffect(2, PotionEffect.Empty);
+                        break;
+                    case "Bottle4":
+                        potionSystem.GetComponent<PotionSystem>().SetColor(3, PotionColor.Empty);
+                        potionSystem.GetComponent<PotionSystem>().SetEffect(3, PotionEffect.Empty);
+                        break;
+                    case "Bottle5":
+                        potionSystem.GetComponent<PotionSystem>().SetColor(4, PotionColor.Empty);
+                        potionSystem.GetComponent<PotionSystem>().SetEffect(4, PotionEffect.Empty);
+                        break;
+                    case "Bottle6":
+                        potionSystem.GetComponent<PotionSystem>().SetColor(5, PotionColor.Empty);
+                        potionSystem.GetComponent<PotionSystem>().SetEffect(5, PotionEffect.Empty);
+                        break;
+                    case "Bottle7":
+                        potionSystem.GetComponent<PotionSystem>().SetColor(6, PotionColor.Empty);
+                        potionSystem.GetComponent<PotionSystem>().SetEffect(6, PotionEffect.Empty);
+                        break;
+                    case "Bottle8":
+                        potionSystem.GetComponent<PotionSystem>().SetColor(7, PotionColor.Empty);
+                        potionSystem.GetComponent<PotionSystem>().SetEffect(7, PotionEffect.Empty);
+                        break;
+                    default:
+                        break;
+                }
             }
 
             switch (toDrag.tag)
@@ -114,6 +280,7 @@ public class Bottles : MonoBehaviour
                         toDrag = null;
                         toDragRB.simulated = true;
                         toDragRB = null;
+                        justTook = false;
                     }
                     break;
 
@@ -125,6 +292,7 @@ public class Bottles : MonoBehaviour
                         toDrag = null;
                         toDragRB.simulated = true;
                         toDragRB = null;
+                        justTook = false;
                     }
                     break;
 
@@ -136,6 +304,7 @@ public class Bottles : MonoBehaviour
                         toDrag = null;
                         toDragRB.simulated = true;
                         toDragRB = null;
+                        justTook = false;
                     }
                     break;
 
@@ -147,6 +316,7 @@ public class Bottles : MonoBehaviour
                         toDrag = null;
                         toDragRB.simulated = true;
                         toDragRB = null;
+                        justTook = false;
                     }
                     break;
 
@@ -158,6 +328,7 @@ public class Bottles : MonoBehaviour
                         toDrag = null;
                         toDragRB.simulated = true;
                         toDragRB = null;
+                        justTook = false;
                     }
                     break;
 
@@ -169,6 +340,7 @@ public class Bottles : MonoBehaviour
                         toDrag = null;
                         toDragRB.simulated = true;
                         toDragRB = null;
+                        justTook = false;
                     }
                     break;
 
@@ -180,6 +352,7 @@ public class Bottles : MonoBehaviour
                         toDrag = null;
                         toDragRB.simulated = true;
                         toDragRB = null;
+                        justTook = false;
                     }
                     break;
 
@@ -191,6 +364,7 @@ public class Bottles : MonoBehaviour
                         toDrag = null;
                         toDragRB.simulated = true;
                         toDragRB = null;
+                        justTook = false;
                     }
                     break;
 
