@@ -63,33 +63,49 @@ public class GuildsMenu : MonoBehaviour
         {
             moneySystem.GetComponent<MoneySystem>().SpendMoney(500);
 
+            if (moneySystem.GetComponent<MoneySystem>().GetMoney() < 500)
+            {
+                buyRepWarriors.interactable = false;
+                buyRepBandits.interactable = false;
+                buyRepPriests.interactable = false;
+                buyRepMagicians.interactable = false;
+            }
+
+            if (moneySystem.GetComponent<MoneySystem>().GetMoney() < 300)
+            {
+                buyEye.interactable = false;
+                buySand.interactable = false;
+                buyLadan.interactable = false;
+                buyStone.interactable = false;
+            }
+
             switch (guildID)
             {
                 case 0:
                     guildSystem.GetComponent<GuildSystem>().addRep(Guild.Warriors, 5);
                     repWarriorsGuilds.value = repWarriors.value;
-                    if (repWarriors.value >= 25)
+                    if (repWarriors.value >= 30)
                         buyRepWarriors.interactable = false;
                     break;
 
                 case 1:
                     guildSystem.GetComponent<GuildSystem>().addRep(Guild.Bandits, 5);
                     repBanditsGuilds.value = repBandits.value;
-                    if (repBandits.value >= 25)
+                    if (repBandits.value >= 30)
                         buyRepBandits.interactable = false;
                     break;
 
                 case 2:
                     guildSystem.GetComponent<GuildSystem>().addRep(Guild.Priests, 5);
                     repPriestsGuilds.value = repPriests.value;
-                    if (repPriests.value >= 25)
+                    if (repPriests.value >= 30)
                         buyRepPriests.interactable = false;
                     break;
 
                 case 3:
                     guildSystem.GetComponent<GuildSystem>().addRep(Guild.Magicians, 5);
                     repMagiciansGuilds.value = repMagicians.value;
-                    if (repMagicians.value >= 25)
+                    if (repMagicians.value >= 30)
                         buyRepMagicians.interactable = false;
                     break;
 
@@ -103,12 +119,29 @@ public class GuildsMenu : MonoBehaviour
     {
         if (moneySystem.GetComponent<MoneySystem>().GetMoney() >= 300)
         {
+            moneySystem.GetComponent<MoneySystem>().SpendMoney(300);
+
+            if (moneySystem.GetComponent<MoneySystem>().GetMoney() < 500)
+            {
+                buyRepWarriors.interactable = false;
+                buyRepBandits.interactable = false;
+                buyRepPriests.interactable = false;
+                buyRepMagicians.interactable = false;
+            }
+
+            if (moneySystem.GetComponent<MoneySystem>().GetMoney() < 300)
+            {
+                buyEye.interactable = false;
+                buySand.interactable = false;
+                buyLadan.interactable = false;
+                buyStone.interactable = false;
+            }
+
             switch (resID)
             {
                 case 0:
                     if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Eye) < 2)
                     {
-                        moneySystem.GetComponent<MoneySystem>().SpendMoney(300);
                         resourceSystem.GetComponent<ResourceSystem>().AddResource(Resource.Eye, 1);
                         if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Eye) == 2)
                             buyEye.interactable = false;
@@ -118,7 +151,6 @@ public class GuildsMenu : MonoBehaviour
                 case 1:
                     if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Sand) < 2)
                     {
-                        moneySystem.GetComponent<MoneySystem>().SpendMoney(300);
                         resourceSystem.GetComponent<ResourceSystem>().AddResource(Resource.Sand, 1);
                         if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Sand) == 2)
                             buySand.interactable = false;
@@ -128,7 +160,6 @@ public class GuildsMenu : MonoBehaviour
                 case 2:
                     if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Ladan) < 2)
                     {
-                        moneySystem.GetComponent<MoneySystem>().SpendMoney(300);
                         resourceSystem.GetComponent<ResourceSystem>().AddResource(Resource.Ladan, 1);
                         if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Ladan) == 2)
                             buyLadan.interactable = false;
@@ -138,7 +169,6 @@ public class GuildsMenu : MonoBehaviour
                 case 3:
                     if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Stone) < 2)
                     {
-                        moneySystem.GetComponent<MoneySystem>().SpendMoney(300);
                         resourceSystem.GetComponent<ResourceSystem>().AddResource(Resource.Stone, 1);
                         if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Stone) == 2)
                             buyStone.interactable = false;
