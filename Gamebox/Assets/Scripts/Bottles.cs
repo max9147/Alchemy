@@ -55,14 +55,14 @@ public class Bottles : MonoBehaviour
 
             touch = Input.GetTouch(0);
 
-            if (touch.phase == TouchPhase.Began)
+            if (touch.phase == TouchPhase.Began && canTake)
             {
                 isDragging = true;
 
                 Vector3 pos = cam.ScreenToWorldPoint(touch.position);
                 RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
 
-                if (Physics2D.Raycast(pos, Vector2.zero) && hit.collider.gameObject.layer == LayerMask.NameToLayer("Bottle") && canTake)
+                if (Physics2D.Raycast(pos, Vector2.zero) && hit.collider.gameObject.layer == LayerMask.NameToLayer("Bottle"))
                 {
                     time = 0;
                     canTake = false;
@@ -269,7 +269,10 @@ public class Bottles : MonoBehaviour
                         break;
                 }
             }
+        }
 
+        if (toDrag && !isDragging)
+        {
             switch (toDrag.tag)
             {
                 case "Bottle1":

@@ -222,6 +222,7 @@ public class MixingSystem : MonoBehaviour
         else
         {
             yield return new WaitForSeconds(time / speed);
+            drainButton.interactable = true;
             isReady = true;
         }
 
@@ -241,6 +242,7 @@ public class MixingSystem : MonoBehaviour
         buyCauldron.interactable = true;
         progressBar.value = 0;
         brewButton.interactable = true;
+        drainButton.interactable = false;
         water.GetComponent<WaterColor>().ClearWater();
     }
 
@@ -296,6 +298,7 @@ public class MixingSystem : MonoBehaviour
         inCauldronColored.Clear();
         isWrong = false;
         isRare = false;
+        isReady = false;
         brewButton.interactable = true;
         water.GetComponent<WaterColor>().ClearWater();
     }

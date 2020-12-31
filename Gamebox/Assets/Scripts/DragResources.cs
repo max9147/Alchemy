@@ -167,7 +167,7 @@ public class DragResources : MonoBehaviour
             }
         }
 
-        if (Input.touchCount == 0 && toDrag)
+        if (toDrag && !isDragging)
         {
             switch (toDrag.tag)
             {
