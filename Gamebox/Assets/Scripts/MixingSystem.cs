@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class MixingSystem : MonoBehaviour
 {
     public TextMeshProUGUI brewButtonText;
+    public TextMeshProUGUI wrongBrewText;
     public Button brewButton;
     public Button drainButton;
     public Button fuelButton;
@@ -203,6 +204,7 @@ public class MixingSystem : MonoBehaviour
         if (isWrong)
         {
             water.GetComponent<WaterColor>().ClearWater();
+            wrongBrewText.gameObject.SetActive(true);
 
             if (isFueled)
             {
@@ -231,6 +233,8 @@ public class MixingSystem : MonoBehaviour
         isWrong = false;
         showTimer = false;
         brewButtonText.text = "Смешать";
+        wrongBrewText.gameObject.SetActive(false);
+
     }
 
     public void TakePotion()
@@ -300,6 +304,7 @@ public class MixingSystem : MonoBehaviour
         isRare = false;
         isReady = false;
         brewButton.interactable = true;
+        progressBar.value = 0;
         water.GetComponent<WaterColor>().ClearWater();
     }
 
