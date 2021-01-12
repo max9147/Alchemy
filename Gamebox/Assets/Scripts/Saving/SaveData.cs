@@ -46,7 +46,9 @@ public class SaveData
     public int repPriests;
     public int repMagicians;
 
-    public SaveData(MoneySystem moneySystem, Bottles bottles, ShopSystem shopSystem, Fuel fuel, ResourceSystem resourceSystem, MixingSystem mixingSystem, PotionSystem potionSystem, GuildSystem guildSystem)
+    public bool[] added = new bool[55];
+
+    public SaveData(MoneySystem moneySystem, Bottles bottles, ShopSystem shopSystem, Fuel fuel, ResourceSystem resourceSystem, MixingSystem mixingSystem, PotionSystem potionSystem, GuildSystem guildSystem, RecipesMenu recipesMenu)
     {
         money = moneySystem.money;
 
@@ -88,5 +90,7 @@ public class SaveData
         repBandits = guildSystem.repBandits;
         repPriests = guildSystem.repPriests;
         repMagicians = guildSystem.repMagicians;
+
+        added = recipesMenu.addedArr;
     }
 }

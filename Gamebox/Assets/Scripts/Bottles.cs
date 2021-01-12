@@ -12,6 +12,10 @@ public class Bottles : MonoBehaviour
 
     public Sprite bottleFull;
     public Sprite bottleEmpty;
+    public Sprite effectFire;
+    public Sprite effectSmoke;
+    public Sprite effectGlow;
+    public Sprite effectBoil;
 
     public GameObject bottle1Pos;
     public GameObject bottle2Pos;
@@ -107,6 +111,25 @@ public class Bottles : MonoBehaviour
 
                 toDrag.GetComponent<SpriteRenderer>().sprite = bottleFull;
                 toDrag.GetComponent<SpriteRenderer>().color = water.GetComponent<SpriteRenderer>().color;
+
+                switch (cauldron.GetComponent<MixingSystem>().GetBrewEffect())
+                {
+                    case PotionEffect.Glowing:
+                        toDrag.Find("Effect").GetComponent<SpriteRenderer>().sprite = effectGlow;
+                        break;
+                    case PotionEffect.Boiling:
+                        toDrag.Find("Effect").GetComponent<SpriteRenderer>().sprite = effectBoil;
+                        break;
+                    case PotionEffect.Burning:
+                        toDrag.Find("Effect").GetComponent<SpriteRenderer>().sprite = effectFire;
+                        break;
+                    case PotionEffect.Smoking:
+                        toDrag.Find("Effect").GetComponent<SpriteRenderer>().sprite = effectSmoke;
+                        break;
+                    default:
+                        break;
+                }
+
                 cauldron.GetComponent<MixingSystem>().TakePotion();
             }
 
@@ -225,6 +248,7 @@ public class Bottles : MonoBehaviour
                         break;
                 }
 
+                toDrag.Find("Effect").GetComponent<SpriteRenderer>().sprite = null;
                 toDrag.GetComponent<SpriteRenderer>().sprite = bottleEmpty;
                 toDrag.GetComponent<SpriteRenderer>().color = Color.white;
                 toDrag.GetComponent<BottlePotion>().potionColor = PotionColor.Empty;

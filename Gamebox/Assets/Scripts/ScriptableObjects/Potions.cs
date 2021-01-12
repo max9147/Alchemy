@@ -7,6 +7,7 @@ public class Potions : ScriptableObject
 {
     public string potionName;
     public Sprite image;
-    public Sprite[] recipe;
-    public bool status = false;
+    public Sprite[] colored;
+    public Sprite rare;
+    public int id;
 }

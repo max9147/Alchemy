@@ -16,11 +16,16 @@ public class MixingSystem : MonoBehaviour
     public GameObject resourceSystem;
     public GameObject fire;
     public GameObject water;
+    public GameObject recipes;
+
+    public Potions[] potions;
 
     public List<Resource> inCauldron;
     public List<Resource> inCauldronColored;
 
     public Cauldrons[] cauldrons;
+
+    public Settings settings;
 
     public int cauldronId;
 
@@ -171,22 +176,22 @@ public class MixingSystem : MonoBehaviour
         float time = 0;     
 
         if (isRare)
-            time = 8f;
+            time = settings.timeBrewRare;
 
         else
         {
             switch (inCauldron.Count)
             {
                 case 2:
-                    time = 4f;
+                    time = settings.timeBrew2;
                     break;
 
                 case 3:
-                    time = 5f;
+                    time = settings.timeBrew3;
                     break;
 
                 case 4:
-                    time = 6f;
+                    time = settings.timeBrew4;
                     break;
 
                 default:
@@ -235,6 +240,216 @@ public class MixingSystem : MonoBehaviour
         brewButtonText.text = "Смешать";
         wrongBrewText.gameObject.SetActive(false);
 
+        switch (GetBrewEffect())
+        {
+            case PotionEffect.Normal:
+                switch (GetBrewColor())
+                {
+                    case PotionColor.Black:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[3]);
+                        break;
+                    case PotionColor.Gray:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[13]);
+                        break;
+                    case PotionColor.Purple:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[48]);
+                        break;
+                    case PotionColor.Orange:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[38]);
+                        break;
+                    case PotionColor.Green:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[18]);
+                        break;
+                    case PotionColor.Violet:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[53]);
+                        break;
+                    case PotionColor.LightOrange:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[28]);
+                        break;
+                    case PotionColor.Lime:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[33]);
+                        break;
+                    case PotionColor.Pink:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[43]);
+                        break;
+                    case PotionColor.LightBlue:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[23]);
+                        break;
+                    case PotionColor.Gold:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[8]);
+                        break;
+                    default:
+                        break;
+                }
+                break;
+
+            case PotionEffect.Glowing:
+                switch (GetBrewColor())
+                {
+                    case PotionColor.Black:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[2]);
+                        break;
+                    case PotionColor.Gray:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[12]);
+                        break;
+                    case PotionColor.Purple:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[47]);
+                        break;
+                    case PotionColor.Orange:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[37]);
+                        break;
+                    case PotionColor.Green:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[17]);
+                        break;
+                    case PotionColor.Violet:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[52]);
+                        break;
+                    case PotionColor.LightOrange:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[27]);
+                        break;
+                    case PotionColor.Lime:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[32]);
+                        break;
+                    case PotionColor.Pink:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[42]);
+                        break;
+                    case PotionColor.LightBlue:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[22]);
+                        break;
+                    case PotionColor.Gold:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[7]);
+                        break;
+                    default:
+                        break;
+                }
+                break;
+
+            case PotionEffect.Boiling:
+                switch (GetBrewColor())
+                {
+                    case PotionColor.Black:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[0]);
+                        break;
+                    case PotionColor.Gray:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[10]);
+                        break;
+                    case PotionColor.Purple:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[45]);
+                        break;
+                    case PotionColor.Orange:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[35]);
+                        break;
+                    case PotionColor.Green:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[15]);
+                        break;
+                    case PotionColor.Violet:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[50]);
+                        break;
+                    case PotionColor.LightOrange:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[25]);
+                        break;
+                    case PotionColor.Lime:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[30]);
+                        break;
+                    case PotionColor.Pink:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[40]);
+                        break;
+                    case PotionColor.LightBlue:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[20]);
+                        break;
+                    case PotionColor.Gold:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[5]);
+                        break;
+                    default:
+                        break;
+                }
+                break;
+
+            case PotionEffect.Burning:
+                switch (GetBrewColor())
+                {
+                    case PotionColor.Black:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[1]);
+                        break;
+                    case PotionColor.Gray:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[11]);
+                        break;
+                    case PotionColor.Purple:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[46]);
+                        break;
+                    case PotionColor.Orange:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[36]);
+                        break;
+                    case PotionColor.Green:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[16]);
+                        break;
+                    case PotionColor.Violet:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[51]);
+                        break;
+                    case PotionColor.LightOrange:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[26]);
+                        break;
+                    case PotionColor.Lime:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[31]);
+                        break;
+                    case PotionColor.Pink:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[41]);
+                        break;
+                    case PotionColor.LightBlue:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[21]);
+                        break;
+                    case PotionColor.Gold:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[6]);
+                        break;
+                    default:
+                        break;
+                }
+                break;
+
+            case PotionEffect.Smoking:
+                switch (GetBrewColor())
+                {
+                    case PotionColor.Black:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[4]);
+                        break;
+                    case PotionColor.Gray:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[14]);
+                        break;
+                    case PotionColor.Purple:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[49]);
+                        break;
+                    case PotionColor.Orange:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[39]);
+                        break;
+                    case PotionColor.Green:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[19]);
+                        break;
+                    case PotionColor.Violet:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[54]);
+                        break;
+                    case PotionColor.LightOrange:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[29]);
+                        break;
+                    case PotionColor.Lime:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[34]);
+                        break;
+                    case PotionColor.Pink:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[44]);
+                        break;
+                    case PotionColor.LightBlue:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[24]);
+                        break;
+                    case PotionColor.Gold:
+                        recipes.GetComponent<RecipesMenu>().AddPotionData(potions[9]);
+                        break;
+                    default:
+                        break;
+                }
+                break;
+
+            default:
+                break;
+        }
     }
 
     public void TakePotion()
@@ -333,7 +548,7 @@ public class MixingSystem : MonoBehaviour
     public void fuelSpeedUp()
     {
         fuelButton.interactable = false;
-        speed *= 2;
+        speed *= settings.woodSpeedup;
         fire.SetActive(true);
         isFueled = true;
         StartCoroutine(FuelCombustion());
@@ -341,10 +556,10 @@ public class MixingSystem : MonoBehaviour
 
     IEnumerator FuelCombustion()
     {
-        yield return new WaitForSeconds(30 / (speed / 2));
+        yield return new WaitForSeconds(settings.timeWood / (speed / settings.woodSpeedup));
         if (resourceSystem.GetComponent<Fuel>().GetFuelCount() > 0)
             fuelButton.interactable = true;
-        speed /= 2;
+        speed /= settings.woodSpeedup;
         fire.SetActive(false);
         isFueled = false;
     }
@@ -352,5 +567,68 @@ public class MixingSystem : MonoBehaviour
     public int GetCauldron()
     {
         return cauldronId;
+    }
+
+    public PotionEffect GetBrewEffect()
+    {
+        foreach (var item in inCauldron)
+        {
+            if (item==Resource.Ladan)
+                return PotionEffect.Glowing;
+            if (item == Resource.Eye)
+                return PotionEffect.Boiling;
+            if (item == Resource.Stone)
+                return PotionEffect.Burning;
+            if (item == Resource.Sand)
+                return PotionEffect.Smoking;
+        }
+        return PotionEffect.Normal;
+    }
+
+    public PotionColor GetBrewColor()
+    {
+        switch (inCauldronColored.Count)
+        {
+            case 2:
+                if (inCauldronColored.Contains(Resource.Red) && inCauldronColored.Contains(Resource.Blue))
+                    return PotionColor.Purple;
+
+                if (inCauldronColored.Contains(Resource.Red) && inCauldronColored.Contains(Resource.Yellow))
+                    return PotionColor.Orange;
+
+                if (inCauldronColored.Contains(Resource.Blue) && inCauldronColored.Contains(Resource.Yellow))
+                    return PotionColor.Green;
+
+                if (inCauldronColored.Contains(Resource.Red) && inCauldronColored.Contains(Resource.White))
+                    return PotionColor.Pink;
+
+                if (inCauldronColored.Contains(Resource.Blue) && inCauldronColored.Contains(Resource.White))
+                    return PotionColor.LightBlue;
+
+                if (inCauldronColored.Contains(Resource.Yellow) && inCauldronColored.Contains(Resource.White))
+                    return PotionColor.Gold;
+                break;
+
+            case 3:
+                if (inCauldronColored.Contains(Resource.Red) && inCauldronColored.Contains(Resource.Blue) && inCauldronColored.Contains(Resource.White))
+                    return PotionColor.Violet;
+
+                if (inCauldronColored.Contains(Resource.Red) && inCauldronColored.Contains(Resource.Yellow) && inCauldronColored.Contains(Resource.White))
+                    return PotionColor.LightOrange;
+
+                if (inCauldronColored.Contains(Resource.Blue) && inCauldronColored.Contains(Resource.Yellow) && inCauldronColored.Contains(Resource.White))
+                    return PotionColor.Lime;
+
+                if (inCauldronColored.Contains(Resource.Red) && inCauldronColored.Contains(Resource.Blue) && inCauldronColored.Contains(Resource.Yellow))
+                    return PotionColor.Black;
+                break;
+
+            case 4:
+                return PotionColor.Gray;
+
+            default:
+                break;
+        }
+        return PotionColor.Empty;
     }
 }

@@ -4,13 +4,13 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public static class SaveGameSystem
 {
-    public static void SaveGame(MoneySystem moneySystem, Bottles bottles, ShopSystem shopSystem, Fuel fuel, ResourceSystem resourceSystem, MixingSystem mixingSystem, PotionSystem potionSystem, GuildSystem guildSystem)
+    public static void SaveGame(MoneySystem moneySystem, Bottles bottles, ShopSystem shopSystem, Fuel fuel, ResourceSystem resourceSystem, MixingSystem mixingSystem, PotionSystem potionSystem, GuildSystem guildSystem, RecipesMenu recipesMenu)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/data.save";
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        SaveData data = new SaveData(moneySystem, bottles, shopSystem, fuel, resourceSystem, mixingSystem, potionSystem, guildSystem);
+        SaveData data = new SaveData(moneySystem, bottles, shopSystem, fuel, resourceSystem, mixingSystem, potionSystem, guildSystem, recipesMenu);
 
         formatter.Serialize(stream, data);
         stream.Close();

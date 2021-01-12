@@ -12,6 +12,8 @@ public class AutoSave : MonoBehaviour
     public GameObject mixingSystem;
     public GameObject potionSystem;
     public GameObject guildSystem;
+    public GameObject recipes;
+    public Settings settings;
 
     private void Awake()
     {
@@ -62,14 +64,27 @@ public class AutoSave : MonoBehaviour
             guildSystem.GetComponent<GuildSystem>().repBandits = save.repBandits;
             guildSystem.GetComponent<GuildSystem>().repPriests = save.repPriests;
             guildSystem.GetComponent<GuildSystem>().repMagicians = save.repMagicians;
+
+            recipes.GetComponent<RecipesMenu>().addedArr = save.added;
+        }
+
+        else
+        {
+            guildSystem.GetComponent<GuildSystem>().repWarriors = settings.rep;
+            guildSystem.GetComponent<GuildSystem>().repBandits = settings.rep;
+            guildSystem.GetComponent<GuildSystem>().repPriests = settings.rep;
+            guildSystem.GetComponent<GuildSystem>().repMagicians = settings.rep;
+
+            moneySystem.GetComponent<MoneySystem>().money = settings.money;
         }
     }
 
     IEnumerator AutoSaveDelay()
     {
         yield return new WaitForSeconds(1);
-        SaveGameSystem.SaveGame(moneySystem.GetComponent<MoneySystem>(), bottles.GetComponent<Bottles>(), moneySystem.GetComponent<ShopSystem>(), resourceSystem.GetComponent<Fuel>(), 
-            resourceSystem.GetComponent<ResourceSystem>(), mixingSystem.GetComponent<MixingSystem>(), potionSystem.GetComponent<PotionSystem>(), guildSystem.GetComponent<GuildSystem>());
+        SaveGameSystem.SaveGame(moneySystem.GetComponent<MoneySystem>(), bottles.GetComponent<Bottles>(), moneySystem.GetComponent<ShopSystem>(), resourceSystem.GetComponent<Fuel>(),
+            resourceSystem.GetComponent<ResourceSystem>(), mixingSystem.GetComponent<MixingSystem>(),
+            potionSystem.GetComponent<PotionSystem>(), guildSystem.GetComponent<GuildSystem>(), recipes.GetComponent<RecipesMenu>());
         StartCoroutine(AutoSaveDelay());
     }
 }

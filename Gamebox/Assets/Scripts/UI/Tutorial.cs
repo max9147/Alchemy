@@ -24,6 +24,13 @@ public class Tutorial : MonoBehaviour
         }
     }
 
+    public void TutorialShow()
+    {
+        part1.gameObject.SetActive(true);
+        part2.gameObject.SetActive(false);
+        tutorial.SetActive(true);
+    }
+
     public void TutorialNext()
     {
         if (part1.IsActive())

@@ -11,6 +11,7 @@ public class QuestComplete : MonoBehaviour
     public PotionEffect potionEffect;
     public bool haveQuest = false;
     public Sprite bottleEmpty;
+    public Settings settings;
 
     private int reward;
 
@@ -35,13 +36,14 @@ public class QuestComplete : MonoBehaviour
             {
                 moneySystem.GetComponent<MoneySystem>().AddMoney(reward);
 
-                if (guildSystem.GetComponent<QuestsSystem>().questTime > 10)
-                    guildSystem.GetComponent<QuestsSystem>().questTime--;
+                if (guildSystem.GetComponent<QuestsSystem>().questTime > settings.questLimit)
+                    guildSystem.GetComponent<QuestsSystem>().questTime -= settings.questSpeedup;
 
                 collision.GetComponent<SpriteRenderer>().sprite = bottleEmpty;
                 collision.GetComponent<SpriteRenderer>().color = Color.white;
                 collision.GetComponent<BottlePotion>().potionColor = PotionColor.Empty;
                 collision.GetComponent<BottlePotion>().potionEffect = PotionEffect.Empty;
+                collision.transform.Find("Effect").GetComponent<SpriteRenderer>().sprite = null;
 
                 switch (collision.tag)
                 {
@@ -101,7 +103,7 @@ public class QuestComplete : MonoBehaviour
                         if (guildSystem.GetComponent<QuestsSystem>().delayWarriors > 0)
                             guildSystem.GetComponent<QuestsSystem>().delayWarriors -= 1;
                         if (potionEffect != PotionEffect.Normal)
-                            guildSystem.GetComponent<QuestsSystem>().delayWarriors = 2;
+                            guildSystem.GetComponent<QuestsSystem>().delayWarriors = settings.questPenalty;
                         break;
 
                     case "Bandit":
@@ -113,7 +115,7 @@ public class QuestComplete : MonoBehaviour
                         if (guildSystem.GetComponent<QuestsSystem>().delayBandits > 0)
                             guildSystem.GetComponent<QuestsSystem>().delayBandits -= 1;
                         if (potionEffect != PotionEffect.Normal)
-                            guildSystem.GetComponent<QuestsSystem>().delayBandits = 2;
+                            guildSystem.GetComponent<QuestsSystem>().delayBandits = settings.questPenalty;
                         break;
 
                     case "Priest":
@@ -125,7 +127,7 @@ public class QuestComplete : MonoBehaviour
                         if (guildSystem.GetComponent<QuestsSystem>().delayPriests > 0)
                             guildSystem.GetComponent<QuestsSystem>().delayPriests -= 1;
                         if (potionEffect != PotionEffect.Normal)
-                            guildSystem.GetComponent<QuestsSystem>().delayPriests = 2;
+                            guildSystem.GetComponent<QuestsSystem>().delayPriests = settings.questPenalty;
                         break;
 
                     case "Magician":
@@ -137,7 +139,7 @@ public class QuestComplete : MonoBehaviour
                         if (guildSystem.GetComponent<QuestsSystem>().delayMagicians > 0)
                             guildSystem.GetComponent<QuestsSystem>().delayMagicians -= 1;
                         if (potionEffect != PotionEffect.Normal)
-                            guildSystem.GetComponent<QuestsSystem>().delayMagicians = 2;
+                            guildSystem.GetComponent<QuestsSystem>().delayMagicians = settings.questPenalty;
                         break;
 
                     default:

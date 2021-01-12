@@ -23,10 +23,12 @@ public class GuildSystem : MonoBehaviour
     public Button buyRepPriests;
     public Button buyRepMagicians;
 
-    public int repWarriors = 50;
-    public int repBandits = 50;
-    public int repPriests = 50;
-    public int repMagicians = 50;
+    public Settings settings;
+
+    public int repWarriors;
+    public int repBandits;
+    public int repPriests;
+    public int repMagicians;
 
     private void Start()
     {

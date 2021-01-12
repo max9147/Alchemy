@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a39856ca112f89449c4fbd48b16d77a, type: 3}
+  m_Name: Settings
+  m_EditorClassIdentifier: 
+  questTimeEasy: 20
+  questTimeHard: 40
+  questDelay: 20
+  questSpeedup: 1
+  questLimit: 15
+  questFirst: 10
+  questPenalty: 3
+  questRewardEasy: 600
+  questRewardHard: 1200
+  rep: 100
+  money: 20000
+  timeBrew2: 4
+  timeBrew3: 5
+  timeBrew4: 6
+  timeBrewRare: 8
+  timeWood: 30
+  woodSpeedup: 2

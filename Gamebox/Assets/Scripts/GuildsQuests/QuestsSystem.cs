@@ -39,6 +39,8 @@ public class QuestsSystem : MonoBehaviour
     public GameObject priest;
     public GameObject magician;
 
+    public Settings settings;
+
     private float timePassed;
     private float timeWarriors;
     private float timeBandits;
@@ -55,7 +57,7 @@ public class QuestsSystem : MonoBehaviour
     public Quest priestsQuest;
     public Quest magiciansQuest;
 
-    public float questTime = 20;
+    public float questTime;
 
     public int delayWarriors = 0;
     public int delayBandits = 0;
@@ -66,7 +68,8 @@ public class QuestsSystem : MonoBehaviour
 
     private void Start()
     {
-        timePassed = 0;
+        questTime = settings.questDelay;
+        timePassed = questTime - settings.questFirst;
     }
 
     private void Update()
@@ -169,8 +172,8 @@ public class QuestsSystem : MonoBehaviour
                 textWarriors.text = "";
                 rewardWarriors.text = "";
                 timerWarriors.text = "";
-                delayWarriors = 3;
-                questTime = 20;
+                delayWarriors = settings.questPenalty;
+                questTime = settings.questDelay; ;
             }
             else
             {
@@ -189,8 +192,8 @@ public class QuestsSystem : MonoBehaviour
                 textBandits.text = "";
                 rewardBandits.text = "";
                 timerBandits.text = "";
-                delayBandits = 3;
-                questTime = 20;
+                delayBandits = settings.questPenalty;
+                questTime = settings.questDelay; ;
             }
             else
             {
@@ -209,8 +212,8 @@ public class QuestsSystem : MonoBehaviour
                 textPriests.text = "";
                 rewardPriests.text = "";
                 timerPriests.text = "";
-                delayPriests = 3;
-                questTime = 20;
+                delayPriests = settings.questPenalty;
+                questTime = settings.questDelay; ;
             }
             else
             {
@@ -229,8 +232,8 @@ public class QuestsSystem : MonoBehaviour
                 textMagicians.text = "";
                 rewardMagicians.text = "";
                 timerMagicians.text = "";
-                delayMagicians = 3;
-                questTime = 20;
+                delayMagicians = settings.questPenalty;
+                questTime = settings.questDelay; ;
             }
             else
             {
@@ -253,8 +256,8 @@ public class QuestsSystem : MonoBehaviour
         {
             case Difficulty.Easy:
                 quest.effect = PotionEffect.Normal;
-                quest.reward = 600;
-                quest.time = 20;
+                quest.reward = settings.questRewardEasy;
+                quest.time = settings.questTimeEasy;
                 break;
 
             case Difficulty.Hard:
@@ -292,8 +295,8 @@ public class QuestsSystem : MonoBehaviour
                     default:
                         break;
                 }
-                quest.reward = 1800;
-                quest.time = 40;
+                quest.reward = settings.questRewardHard;
+                quest.time = settings.questTimeHard;
                 break;
 
             default:
