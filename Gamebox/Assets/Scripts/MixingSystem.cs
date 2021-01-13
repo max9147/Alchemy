@@ -73,11 +73,11 @@ public class MixingSystem : MonoBehaviour
     {
         if (collision.gameObject.layer != LayerMask.NameToLayer("Bottle"))
         {
-            if (isReady)
-                return;
+            isReady = false;
             drainButton.interactable = true;
             buyCauldron.interactable = false;
             Destroy(collision.gameObject);
+            brewButton.interactable = true;
         }
 
         switch (collision.transform.tag)
@@ -221,7 +221,6 @@ public class MixingSystem : MonoBehaviour
                 yield return new WaitForSeconds(cooldownTime / speed);
 
             isReady = false;
-            brewButton.interactable = true;
             inCauldron.Clear();
             inCauldronColored.Clear();
         }
@@ -460,7 +459,6 @@ public class MixingSystem : MonoBehaviour
         inCauldronColored.Clear();
         buyCauldron.interactable = true;
         progressBar.value = 0;
-        brewButton.interactable = true;
         drainButton.interactable = false;
         water.GetComponent<WaterColor>().ClearWater();
     }
@@ -518,7 +516,7 @@ public class MixingSystem : MonoBehaviour
         isWrong = false;
         isRare = false;
         isReady = false;
-        brewButton.interactable = true;
+        brewButton.interactable = false;
         progressBar.value = 0;
         water.GetComponent<WaterColor>().ClearWater();
     }

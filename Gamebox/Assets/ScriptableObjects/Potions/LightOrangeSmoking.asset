@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LightOrangeSmoking
   m_EditorClassIdentifier: 
   potionName: "\u0421\u0432\u0435\u0442\u043B\u043E-\u043E\u0440\u0430\u043D\u0436\u0435\u043D\u043E\u0435
-    \u0431\u0443\u0440\u043B\u044F\u0449\u0435\u0435 \u0437\u0435\u043B\u044C\u0435"
+    \u0434\u044B\u043C\u044F\u0449\u0435\u0435\u0441\u044F \u0437\u0435\u043B\u044C\u0435"
   image: {fileID: 21300000, guid: ec3355740b4735443899c19687488c2f, type: 3}
   colored:
   - {fileID: 21300000, guid: e27a1dcb508f6cb4b9170ba95af69664, type: 3}

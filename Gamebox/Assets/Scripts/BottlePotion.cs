@@ -59,13 +59,13 @@ public class BottlePotion : MonoBehaviour
         }
 
         if (potionEffect == PotionEffect.Burning)
-            GameObject.Find("Effect").GetComponent<SpriteRenderer>().sprite = effectFire;
+            transform.Find("Effect").GetComponent<SpriteRenderer>().sprite = effectFire;
         if (potionEffect == PotionEffect.Boiling)
-            GameObject.Find("Effect").GetComponent<SpriteRenderer>().sprite = effectBoil;
+            transform.Find("Effect").GetComponent<SpriteRenderer>().sprite = effectBoil;
         if (potionEffect == PotionEffect.Smoking)
-            GameObject.Find("Effect").GetComponent<SpriteRenderer>().sprite = effectSmoke;
+            transform.Find("Effect").GetComponent<SpriteRenderer>().sprite = effectSmoke;
         if (potionEffect == PotionEffect.Glowing)
-            GameObject.Find("Effect").GetComponent<SpriteRenderer>().sprite = effectGlow;
+            transform.Find("Effect").GetComponent<SpriteRenderer>().sprite = effectGlow;
     }
 
     public void AddPotion(List<Resource> inCauldron, List<Resource> inCauldronColored, bool isRare)

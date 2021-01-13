@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b448fc9078f69a409b898c3c383fdaf, type: 3}
   m_Name: PurpleSmoking
   m_EditorClassIdentifier: 
-  potionName: "\u041F\u0443\u0440\u043F\u0443\u0440\u043D\u043E\u0435 \u0431\u0443\u0440\u043B\u044F\u0449\u0435\u0435
+  potionName: "\u041F\u0443\u0440\u043F\u0443\u0440\u043D\u043E\u0435 \u0434\u044B\u043C\u044F\u0449\u0435\u0435\u0441\u044F
     \u0437\u0435\u043B\u044C\u0435"
   image: {fileID: 21300000, guid: ec3355740b4735443899c19687488c2f, type: 3}
   colored:

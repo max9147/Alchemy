@@ -45,6 +45,7 @@ public class Bottles : MonoBehaviour
     private bool isDragging = false;
     private bool canTake = true;
     private bool justTook = false;
+    private bool justReturned = false;
 
     private float time = 1;
 
@@ -103,7 +104,7 @@ public class Bottles : MonoBehaviour
 
         if (Input.touchCount == 0 && toDrag)
         {
-            if (cauldron.GetComponent<MixingSystem>().isReady && cauldron.GetComponent<MixingSystem>().bottleIn)
+            if (cauldron.GetComponent<MixingSystem>().isReady && cauldron.GetComponent<MixingSystem>().bottleIn && !justReturned)
             {
                 justTook = true;
                 toDrag.GetComponent<BottlePotion>().AddPotion(cauldron.GetComponent<MixingSystem>().inCauldron, 
@@ -135,6 +136,8 @@ public class Bottles : MonoBehaviour
 
             if (cauldron.GetComponent<MixingSystem>().bottleIn && cauldron.GetComponent<MixingSystem>().inCauldron.Count == 0 && toDrag.GetComponent<BottlePotion>().potionColor != PotionColor.Empty && !justTook)
             {
+                justReturned = true;
+                cauldron.GetComponent<MixingSystem>().isReady = true;
                 switch (toDrag.GetComponent<BottlePotion>().potionColor)
                 {
                     case PotionColor.Black:
@@ -234,15 +237,19 @@ public class Bottles : MonoBehaviour
                 {
                     case PotionEffect.Glowing:
                         cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.Ladan);
+                        cauldron.GetComponent<MixingSystem>().isRare = true;
                         break;
                     case PotionEffect.Boiling:
                         cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.Eye);
+                        cauldron.GetComponent<MixingSystem>().isRare = true;
                         break;
                     case PotionEffect.Burning:
                         cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.Stone);
+                        cauldron.GetComponent<MixingSystem>().isRare = true;
                         break;
                     case PotionEffect.Smoking:
                         cauldron.GetComponent<MixingSystem>().inCauldron.Add(Resource.Sand);
+                        cauldron.GetComponent<MixingSystem>().isRare = true;
                         break;
                     default:
                         break;
@@ -308,6 +315,7 @@ public class Bottles : MonoBehaviour
                         toDragRB.simulated = true;
                         toDragRB = null;
                         justTook = false;
+                        justReturned = false;
                     }
                     break;
 
@@ -320,6 +328,7 @@ public class Bottles : MonoBehaviour
                         toDragRB.simulated = true;
                         toDragRB = null;
                         justTook = false;
+                        justReturned = false;
                     }
                     break;
 
@@ -332,6 +341,7 @@ public class Bottles : MonoBehaviour
                         toDragRB.simulated = true;
                         toDragRB = null;
                         justTook = false;
+                        justReturned = false;
                     }
                     break;
 
@@ -344,6 +354,7 @@ public class Bottles : MonoBehaviour
                         toDragRB.simulated = true;
                         toDragRB = null;
                         justTook = false;
+                        justReturned = false;
                     }
                     break;
 
@@ -356,6 +367,7 @@ public class Bottles : MonoBehaviour
                         toDragRB.simulated = true;
                         toDragRB = null;
                         justTook = false;
+                        justReturned = false;
                     }
                     break;
 
@@ -368,6 +380,7 @@ public class Bottles : MonoBehaviour
                         toDragRB.simulated = true;
                         toDragRB = null;
                         justTook = false;
+                        justReturned = false;
                     }
                     break;
 
@@ -380,6 +393,7 @@ public class Bottles : MonoBehaviour
                         toDragRB.simulated = true;
                         toDragRB = null;
                         justTook = false;
+                        justReturned = false;
                     }
                     break;
 
@@ -392,6 +406,7 @@ public class Bottles : MonoBehaviour
                         toDragRB.simulated = true;
                         toDragRB = null;
                         justTook = false;
+                        justReturned = false;
                     }
                     break;
 
