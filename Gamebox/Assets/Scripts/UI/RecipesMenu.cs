@@ -8,23 +8,10 @@ public class RecipesMenu : MonoBehaviour
 {
     public GameObject potionData;
     public GameObject content;
-
     public Potions[] potions;
 
     public bool[] addedArr = new bool[55];
-
     public bool pass = false;
-
-    private void Start()
-    {
-        pass = true;
-
-        for (int i = 0; i < addedArr.Length; i++)
-            if (addedArr[i])
-                AddPotionData(potions[i]);
-
-        pass = false;
-    }
 
     public void AddPotionData(Potions potion)
     {

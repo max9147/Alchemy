@@ -29,6 +29,7 @@ public class Tutorial : MonoBehaviour
         part1.gameObject.SetActive(true);
         part2.gameObject.SetActive(false);
         tutorial.SetActive(true);
+        buttonNextText.text = "Дальше";
     }
 
     public void TutorialNext()

@@ -66,6 +66,12 @@ public class AutoSave : MonoBehaviour
             guildSystem.GetComponent<GuildSystem>().repMagicians = save.repMagicians;
 
             recipes.GetComponent<RecipesMenu>().addedArr = save.added;
+
+            recipes.GetComponent<RecipesMenu>().pass = true;
+            for (int i = 0; i < recipes.GetComponent<RecipesMenu>().addedArr.Length; i++)
+                if (recipes.GetComponent<RecipesMenu>().addedArr[i])
+                    recipes.GetComponent<RecipesMenu>().AddPotionData(recipes.GetComponent<RecipesMenu>().potions[i]);
+            recipes.GetComponent<RecipesMenu>().pass = false;
         }
 
         else
