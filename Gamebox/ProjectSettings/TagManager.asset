@@ -24,6 +24,7 @@ TagManager:
   - Warrior
   - Magician
   - Bandit
+  - TouchDetect
   layers:
   - Default
   - TransparentFX

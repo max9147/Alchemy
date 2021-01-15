@@ -13,6 +13,7 @@ public class CameraMovement : MonoBehaviour
 
     public AnimationCurve curve;
 
+    public int dir = 1;
     public float moveTime = 0.3f;
 
     private Vector3 tablePos;
@@ -21,7 +22,6 @@ public class CameraMovement : MonoBehaviour
 
     private float timer = 0f;
     private bool isMoving = false;
-    private int dir = 1;
 
     private Touch touch;
 
@@ -54,6 +54,8 @@ public class CameraMovement : MonoBehaviour
 
     private void Update()
     {
+        GetComponent<SwipeDetection>().Swipe();
+
         if (isMoving)
         {
             timer += Time.deltaTime;
