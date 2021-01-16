@@ -21,8 +21,8 @@ MonoBehaviour:
   questPenalty: 3
   questRewardEasy: 600
   questRewardHard: 1200
-  rep: 100
-  money: 20000
+  rep: 50
+  money: 2000
   timeBrew2: 4
   timeBrew3: 5
   timeBrew4: 6

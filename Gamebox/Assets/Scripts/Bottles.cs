@@ -42,8 +42,8 @@ public class Bottles : MonoBehaviour
     private Transform toDrag;
     private Rigidbody2D toDragRB;
 
+    public bool canTake = true;
     private bool isDragging = false;
-    private bool canTake = true;
     private bool justTook = false;
     private bool justReturned = false;
 

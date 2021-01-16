@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class ShopMenu : MonoBehaviour
 {
     public GameObject moneySystem;
+    public GameObject cauldron;
+    public GameObject bottles;
 
     public Button[] buyResX1;
     public Button[] buyResX5;
@@ -54,12 +56,12 @@ public class ShopMenu : MonoBehaviour
         else
             buyFuel.interactable = true;
 
-        if (moneySystem.GetComponent<MoneySystem>().GetMoney() < moneySystem.GetComponent<ShopSystem>().bottleCost)
+        if (moneySystem.GetComponent<MoneySystem>().GetMoney() < moneySystem.GetComponent<ShopSystem>().bottleCost || bottles.GetComponent<Bottles>().GetBottleCount() == 8)
             buyBottle.interactable = false;
         else
             buyBottle.interactable = true;
 
-        if (moneySystem.GetComponent<MoneySystem>().GetMoney() < moneySystem.GetComponent<ShopSystem>().cauldronCost)
+        if (moneySystem.GetComponent<MoneySystem>().GetMoney() < moneySystem.GetComponent<ShopSystem>().cauldronCost || cauldron.GetComponent<MixingSystem>().GetCauldron() == 2)
             buyCauldron.interactable = false;
         else
             buyCauldron.interactable = true;

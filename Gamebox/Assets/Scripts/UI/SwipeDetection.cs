@@ -5,8 +5,7 @@ using UnityEngine.EventSystems;
 
 public class SwipeDetection : MonoBehaviour
 {
-    public GameObject detectTable;
-    public GameObject detectOrders;
+    public GameObject bottles;
     public Camera cam;
 
     private Vector2 firstPressPos;
@@ -17,9 +16,6 @@ public class SwipeDetection : MonoBehaviour
     {
         if (Input.touches.Length > 0)
         {
-            if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
-                return;
-
             Touch touch = Input.GetTouch(0);
 
             Vector3 pos = cam.ScreenToWorldPoint(touch.position);
@@ -27,7 +23,6 @@ public class SwipeDetection : MonoBehaviour
 
             if (hit && hit.transform.CompareTag("TouchDetect"))
             {
-
                 if (touch.phase == TouchPhase.Began)
                     firstPressPos = new Vector2(touch.position.x, touch.position.y);
 
@@ -43,17 +38,22 @@ public class SwipeDetection : MonoBehaviour
 
                     if (currentSwipe.y > 0 && currentSwipe.x > -0.9f && currentSwipe.x < 0.9f)
                     {
-                        if (GetComponent<CameraMovement>().dir==2)
-                            GetComponent<CameraMovement>().MoveCam();
+                        if (!GetComponent<Popups>().popupOpen && bottles.GetComponent<Bottles>().canTake)
+                        {
+                            if (GetComponent<CameraMovement>().dir == 2)
+                                GetComponent<CameraMovement>().MoveCam();
+                        }
                     }
 
                     if (currentSwipe.y < 0 && currentSwipe.x > -0.9f && currentSwipe.x < 0.9f)
                     {
-                        if (GetComponent<CameraMovement>().dir == 1)
-                            GetComponent<CameraMovement>().MoveCam();
+                        if (!GetComponent<Popups>().popupOpen && bottles.GetComponent<Bottles>().canTake)
+                        {
+                            if (GetComponent<CameraMovement>().dir == 1)
+                                GetComponent<CameraMovement>().MoveCam();
+                        }
                     }
                 }
-
             }
         }
     }

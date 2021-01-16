@@ -18,6 +18,7 @@ public class Tutorial : MonoBehaviour
         string path = Application.persistentDataPath + "/data.save";
         if (!File.Exists(path))
         {
+            GetComponent<Popups>().popupOpen = true;
             Time.timeScale = 0;
             tutorial.SetActive(true);
             part1.gameObject.SetActive(true);
@@ -26,6 +27,7 @@ public class Tutorial : MonoBehaviour
 
     public void TutorialShow()
     {
+        GetComponent<Popups>().popupOpen = true;
         part1.gameObject.SetActive(true);
         part2.gameObject.SetActive(false);
         tutorial.SetActive(true);
@@ -42,6 +44,7 @@ public class Tutorial : MonoBehaviour
         }
         else if (part2.IsActive())
         {
+            GetComponent<Popups>().popupOpen = false;
             tutorial.SetActive(false);
             Time.timeScale = 1;
         }

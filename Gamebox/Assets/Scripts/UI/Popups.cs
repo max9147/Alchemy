@@ -9,6 +9,8 @@ public class Popups : MonoBehaviour
     public GameObject popupGuilds;
     public GameObject popupRecipes;
 
+    public bool popupOpen = false;
+
     public void PopupOpen(int id)
     {
         switch (id)
@@ -17,8 +19,10 @@ public class Popups : MonoBehaviour
                 if (popupShop.activeInHierarchy)
                 {
                     PopupClose(id);
+                    popupOpen = false;
                     return;
                 }
+                popupOpen = true;
                 popupShop.gameObject.SetActive(true);
                 popupGuilds.gameObject.SetActive(false);
                 popupRecipes.gameObject.SetActive(false);
@@ -28,8 +32,10 @@ public class Popups : MonoBehaviour
                 if (popupGuilds.activeInHierarchy)
                 {
                     PopupClose(id);
+                    popupOpen = false;
                     return;
                 }
+                popupOpen = true;
                 popupGuilds.gameObject.SetActive(true);
                 popupShop.gameObject.SetActive(false);
                 popupRecipes.gameObject.SetActive(false);
@@ -39,8 +45,10 @@ public class Popups : MonoBehaviour
                 if (popupRecipes.activeInHierarchy)
                 {
                     PopupClose(id);
+                    popupOpen = false;
                     return;
                 }
+                popupOpen = true;
                 popupRecipes.gameObject.SetActive(true);
                 popupShop.gameObject.SetActive(false);
                 popupGuilds.gameObject.SetActive(false);
@@ -53,6 +61,8 @@ public class Popups : MonoBehaviour
 
     public void PopupClose(int id)
     {
+        popupOpen = false;
+
         switch (id)
         {
             case 1:
