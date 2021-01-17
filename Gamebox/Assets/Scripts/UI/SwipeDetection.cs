@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class SwipeDetection : MonoBehaviour
 {
     public GameObject bottles;
+    public GameObject resourceSystem;
     public Camera cam;
 
     private Vector2 firstPressPos;
@@ -36,18 +37,15 @@ public class SwipeDetection : MonoBehaviour
 
                     currentSwipe.Normalize();
 
-                    if (currentSwipe.y > 0 && currentSwipe.x > -0.9f && currentSwipe.x < 0.9f)
+                    if (!GetComponent<Popups>().popupOpen && bottles.GetComponent<Bottles>().canTake && resourceSystem.GetComponent<DragResources>().canTake)
                     {
-                        if (!GetComponent<Popups>().popupOpen && bottles.GetComponent<Bottles>().canTake)
+                        if (currentSwipe.y > 0 && currentSwipe.x > -0.9f && currentSwipe.x < 0.9f)
                         {
                             if (GetComponent<CameraMovement>().dir == 2)
                                 GetComponent<CameraMovement>().MoveCam();
                         }
-                    }
 
-                    if (currentSwipe.y < 0 && currentSwipe.x > -0.9f && currentSwipe.x < 0.9f)
-                    {
-                        if (!GetComponent<Popups>().popupOpen && bottles.GetComponent<Bottles>().canTake)
+                        if (currentSwipe.y < 0 && currentSwipe.x > -0.9f && currentSwipe.x < 0.9f)
                         {
                             if (GetComponent<CameraMovement>().dir == 1)
                                 GetComponent<CameraMovement>().MoveCam();

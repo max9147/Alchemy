@@ -7,7 +7,6 @@ public class CameraMovement : MonoBehaviour
 {
     public Camera cam;
 
-    public GameObject tableUI;
     public GameObject tableBG;
     public GameObject ordersBG;
 
@@ -37,13 +36,11 @@ public class CameraMovement : MonoBehaviour
         {
             if (dir == 1)
             {
-                tableUI.SetActive(false);
                 destination = ordersPos;
             }
 
             if (dir == 2)
             {
-                tableUI.SetActive(true);
                 destination = tablePos;
             }
 

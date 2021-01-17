@@ -8,6 +8,7 @@ public class Popups : MonoBehaviour
     public GameObject popupShop;
     public GameObject popupGuilds;
     public GameObject popupRecipes;
+    public GameObject popupPause;
 
     public bool popupOpen = false;
 
@@ -24,6 +25,7 @@ public class Popups : MonoBehaviour
                 }
                 popupOpen = true;
                 popupShop.gameObject.SetActive(true);
+                popupPause.gameObject.SetActive(false);
                 popupGuilds.gameObject.SetActive(false);
                 popupRecipes.gameObject.SetActive(false);
                 break;
@@ -37,6 +39,7 @@ public class Popups : MonoBehaviour
                 }
                 popupOpen = true;
                 popupGuilds.gameObject.SetActive(true);
+                popupPause.gameObject.SetActive(false);
                 popupShop.gameObject.SetActive(false);
                 popupRecipes.gameObject.SetActive(false);
                 break;
@@ -50,6 +53,21 @@ public class Popups : MonoBehaviour
                 }
                 popupOpen = true;
                 popupRecipes.gameObject.SetActive(true);
+                popupPause.gameObject.SetActive(false);
+                popupShop.gameObject.SetActive(false);
+                popupGuilds.gameObject.SetActive(false);
+                break;
+
+            case 4:
+                if (popupPause.activeInHierarchy)
+                {
+                    PopupClose(id);
+                    popupOpen = false;
+                    return;
+                }
+                popupOpen = true;
+                popupPause.gameObject.SetActive(true);
+                popupRecipes.gameObject.SetActive(false);
                 popupShop.gameObject.SetActive(false);
                 popupGuilds.gameObject.SetActive(false);
                 break;
@@ -75,6 +93,10 @@ public class Popups : MonoBehaviour
 
             case 3:
                 popupRecipes.gameObject.SetActive(false);
+                break;
+
+            case 4:
+                popupPause.gameObject.SetActive(false);
                 break;
 
             default:
