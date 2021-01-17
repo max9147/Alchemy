@@ -13,6 +13,8 @@ public class SwipeDetection : MonoBehaviour
     private Vector2 secondPressPos;
     private Vector2 currentSwipe;
 
+    private bool swiping = false;
+
     public void Swipe()
     {
         if (Input.touches.Length > 0)
@@ -22,34 +24,37 @@ public class SwipeDetection : MonoBehaviour
             Vector3 pos = cam.ScreenToWorldPoint(touch.position);
             RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
 
-            if (hit && hit.transform.CompareTag("TouchDetect"))
+            if (touch.phase == TouchPhase.Began)
             {
-                if (touch.phase == TouchPhase.Began)
-                    firstPressPos = new Vector2(touch.position.x, touch.position.y);
+                if (hit && hit.transform.CompareTag("TouchDetect"))
+                    swiping = true;
+                firstPressPos = new Vector2(touch.position.x, touch.position.y);
+            }
 
-                if (touch.phase == TouchPhase.Ended)
+            if (touch.phase == TouchPhase.Ended)
+            {
+                secondPressPos = new Vector2(touch.position.x, touch.position.y);
+                currentSwipe = new Vector3(secondPressPos.x - firstPressPos.x, secondPressPos.y - firstPressPos.y);
+
+                if (currentSwipe.y < 100 && currentSwipe.y > -100)
+                    return;
+
+                currentSwipe.Normalize();
+
+                if (!GetComponent<Popups>().popupOpen && bottles.GetComponent<Bottles>().canTake && resourceSystem.GetComponent<DragResources>().canTake && swiping)
                 {
-                    secondPressPos = new Vector2(touch.position.x, touch.position.y);
-                    currentSwipe = new Vector3(secondPressPos.x - firstPressPos.x, secondPressPos.y - firstPressPos.y);
+                    swiping = false;
 
-                    if (currentSwipe.y < 100 && currentSwipe.y > -100)
-                        return;
-
-                    currentSwipe.Normalize();
-
-                    if (!GetComponent<Popups>().popupOpen && bottles.GetComponent<Bottles>().canTake && resourceSystem.GetComponent<DragResources>().canTake)
+                    if (currentSwipe.y > 0 && currentSwipe.x > -0.9f && currentSwipe.x < 0.9f)
                     {
-                        if (currentSwipe.y > 0 && currentSwipe.x > -0.9f && currentSwipe.x < 0.9f)
-                        {
-                            if (GetComponent<CameraMovement>().dir == 2)
-                                GetComponent<CameraMovement>().MoveCam();
-                        }
+                        if (GetComponent<CameraMovement>().dir == 2)
+                            GetComponent<CameraMovement>().MoveCam();
+                    }
 
-                        if (currentSwipe.y < 0 && currentSwipe.x > -0.9f && currentSwipe.x < 0.9f)
-                        {
-                            if (GetComponent<CameraMovement>().dir == 1)
-                                GetComponent<CameraMovement>().MoveCam();
-                        }
+                    if (currentSwipe.y < 0 && currentSwipe.x > -0.9f && currentSwipe.x < 0.9f)
+                    {
+                        if (GetComponent<CameraMovement>().dir == 1)
+                            GetComponent<CameraMovement>().MoveCam();
                     }
                 }
             }
