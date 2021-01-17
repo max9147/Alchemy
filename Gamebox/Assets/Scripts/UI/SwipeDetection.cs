@@ -41,7 +41,7 @@ public class SwipeDetection : MonoBehaviour
 
                 currentSwipe.Normalize();
 
-                if (!GetComponent<Popups>().popupOpen && bottles.GetComponent<Bottles>().canTake && resourceSystem.GetComponent<DragResources>().canTake && swiping)
+                if (!GetComponent<Popups>().popupOpen && bottles.GetComponent<Bottles>().canTake && swiping)
                 {
                     swiping = false;
 
