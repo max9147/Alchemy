@@ -58,6 +58,7 @@ public class QuestsSystem : MonoBehaviour
     public Quest magiciansQuest;
 
     public float questTime;
+    public int questStep = 0;
 
     public int delayWarriors = 0;
     public int delayBandits = 0;
@@ -76,7 +77,7 @@ public class QuestsSystem : MonoBehaviour
     {
         timePassed += Time.deltaTime;
 
-        if (timePassed >= questTime)
+        if (timePassed >= questTime + GetComponent<GuildSystem>().CalcExtraTime())
         {
             if (warriorsReady && banditsReady && priestsReady && magiciansReady)
                 return;
@@ -173,7 +174,8 @@ public class QuestsSystem : MonoBehaviour
                 rewardWarriors.text = "";
                 timerWarriors.text = "";
                 delayWarriors = settings.questPenalty;
-                questTime = settings.questDelay; ;
+                questTime = settings.questDelay;
+                questStep = 0;
             }
             else
             {
@@ -193,7 +195,8 @@ public class QuestsSystem : MonoBehaviour
                 rewardBandits.text = "";
                 timerBandits.text = "";
                 delayBandits = settings.questPenalty;
-                questTime = settings.questDelay; ;
+                questTime = settings.questDelay;
+                questStep = 0;
             }
             else
             {
@@ -213,7 +216,8 @@ public class QuestsSystem : MonoBehaviour
                 rewardPriests.text = "";
                 timerPriests.text = "";
                 delayPriests = settings.questPenalty;
-                questTime = settings.questDelay; ;
+                questTime = settings.questDelay;
+                questStep = 0;
             }
             else
             {
@@ -233,7 +237,8 @@ public class QuestsSystem : MonoBehaviour
                 rewardMagicians.text = "";
                 timerMagicians.text = "";
                 delayMagicians = settings.questPenalty;
-                questTime = settings.questDelay; ;
+                questTime = settings.questDelay;
+                questStep = 0;
             }
             else
             {

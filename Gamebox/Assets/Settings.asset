@@ -14,14 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questTimeEasy: 20
   questTimeHard: 40
-  questDelay: 20
+  questDelay: 9
   questSpeedup: 1
-  questLimit: 15
+  questSpeedupStep: 4
+  questLimit: 5
   questFirst: 10
   questPenalty: 3
   questRewardEasy: 600
   questRewardHard: 1200
-  rep: 50
+  rep: 30
   money: 2000
   timeBrew2: 4
   timeBrew3: 5

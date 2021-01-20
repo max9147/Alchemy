@@ -14,10 +14,13 @@ public class Settings : ScriptableObject
     [Header("Интервал выдачи квеста, сек.")]
     public float questDelay;
 
-    [Header("Ускорение квестов при выполнении, сек.")]
+    [Header("Ускорение выдачи квестов при выполнении, сек.")]
     public float questSpeedup;
 
-    [Header("Минимальное время квеста, сек.")]
+    [Header("Кол-во выполненных квестов для ускорения выдачи квестов")]
+    public int questSpeedupStep;
+
+    [Header("Минимальное время выдачи квеста, сек.")]
     public float questLimit;
 
     [Header("Время до выдачи первого квеста, сек.")]

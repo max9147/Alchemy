@@ -10,6 +10,7 @@ public class Tutorial : MonoBehaviour
 {
     public Image part1;
     public Image part2;
+    public Image pauseIcon;
     public GameObject tutorial;
     public TextMeshProUGUI buttonNextText;
 
@@ -20,6 +21,7 @@ public class Tutorial : MonoBehaviour
         {
             GetComponent<Popups>().popupOpen = true;
             Time.timeScale = 0;
+            pauseIcon.gameObject.SetActive(true);
             tutorial.SetActive(true);
             part1.gameObject.SetActive(true);
         }
@@ -27,6 +29,9 @@ public class Tutorial : MonoBehaviour
 
     public void TutorialShow()
     {
+        GetComponent<Popups>().PopupClose();
+        Time.timeScale = 0;
+        pauseIcon.gameObject.SetActive(true);
         GetComponent<Popups>().popupOpen = true;
         part1.gameObject.SetActive(true);
         part2.gameObject.SetActive(false);
@@ -47,6 +52,7 @@ public class Tutorial : MonoBehaviour
             GetComponent<Popups>().popupOpen = false;
             tutorial.SetActive(false);
             Time.timeScale = 1;
+            pauseIcon.gameObject.SetActive(false);
         }
     }
 }

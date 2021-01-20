@@ -36,8 +36,13 @@ public class QuestComplete : MonoBehaviour
             {
                 moneySystem.GetComponent<MoneySystem>().AddMoney(reward);
 
-                if (guildSystem.GetComponent<QuestsSystem>().questTime > settings.questLimit)
+                if (guildSystem.GetComponent<QuestsSystem>().questTime > settings.questLimit && guildSystem.GetComponent<QuestsSystem>().questStep == settings.questSpeedupStep)
+                {
                     guildSystem.GetComponent<QuestsSystem>().questTime -= settings.questSpeedup;
+                    guildSystem.GetComponent<QuestsSystem>().questStep = 0;
+                }
+
+                guildSystem.GetComponent<QuestsSystem>().questStep++;
 
                 collision.GetComponent<SpriteRenderer>().sprite = bottleEmpty;
                 collision.GetComponent<SpriteRenderer>().color = Color.white;

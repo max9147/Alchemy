@@ -149,4 +149,23 @@ public class GuildSystem : MonoBehaviour
                 return 0;
         }
     }
+
+    public int CalcExtraTime()
+    {
+        int time = 0;
+
+        if (repWarriors < 40)
+            time += (40 - repWarriors) / 5;
+
+        if (repBandits < 40)
+            time += (40 - repBandits) / 5;
+
+        if (repMagicians < 40)
+            time += (40 - repMagicians) / 5;
+
+        if (repPriests < 40)
+            time += (40 - repPriests) / 5;
+
+        return time;
+    }
 }

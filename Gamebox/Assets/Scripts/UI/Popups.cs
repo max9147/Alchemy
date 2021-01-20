@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Popups : MonoBehaviour
 {
+    public Image pauseIcon;
+
     public GameObject popupShop;
     public GameObject popupGuilds;
     public GameObject popupRecipes;
@@ -19,10 +21,12 @@ public class Popups : MonoBehaviour
             case 1:
                 if (popupShop.activeInHierarchy)
                 {
-                    PopupClose(id);
+                    PopupClose();
                     popupOpen = false;
                     return;
                 }
+                Time.timeScale = 1;
+                pauseIcon.gameObject.SetActive(false);
                 popupOpen = true;
                 popupShop.gameObject.SetActive(true);
                 popupPause.gameObject.SetActive(false);
@@ -33,10 +37,12 @@ public class Popups : MonoBehaviour
             case 2:
                 if (popupGuilds.activeInHierarchy)
                 {
-                    PopupClose(id);
+                    PopupClose();
                     popupOpen = false;
                     return;
                 }
+                Time.timeScale = 1;
+                pauseIcon.gameObject.SetActive(false);
                 popupOpen = true;
                 popupGuilds.gameObject.SetActive(true);
                 popupPause.gameObject.SetActive(false);
@@ -47,10 +53,14 @@ public class Popups : MonoBehaviour
             case 3:
                 if (popupRecipes.activeInHierarchy)
                 {
-                    PopupClose(id);
+                    Time.timeScale = 1;
+                    pauseIcon.gameObject.SetActive(false);
+                    PopupClose();
                     popupOpen = false;
                     return;
                 }
+                Time.timeScale = 0;
+                pauseIcon.gameObject.SetActive(true);
                 popupOpen = true;
                 popupRecipes.gameObject.SetActive(true);
                 popupPause.gameObject.SetActive(false);
@@ -61,10 +71,14 @@ public class Popups : MonoBehaviour
             case 4:
                 if (popupPause.activeInHierarchy)
                 {
-                    PopupClose(id);
+                    Time.timeScale = 1;
+                    pauseIcon.gameObject.SetActive(false);
+                    PopupClose();
                     popupOpen = false;
                     return;
                 }
+                Time.timeScale = 0;
+                pauseIcon.gameObject.SetActive(true);
                 popupOpen = true;
                 popupPause.gameObject.SetActive(true);
                 popupRecipes.gameObject.SetActive(false);
@@ -77,30 +91,15 @@ public class Popups : MonoBehaviour
         }
     }
 
-    public void PopupClose(int id)
+    public void PopupClose()
     {
         popupOpen = false;
+        Time.timeScale = 1;
+        pauseIcon.gameObject.SetActive(false);
 
-        switch (id)
-        {
-            case 1:
-                popupShop.gameObject.SetActive(false);
-                break;
-
-            case 2:
-                popupGuilds.gameObject.SetActive(false);
-                break;
-
-            case 3:
-                popupRecipes.gameObject.SetActive(false);
-                break;
-
-            case 4:
-                popupPause.gameObject.SetActive(false);
-                break;
-
-            default:
-                break;
-        }
+        popupShop.gameObject.SetActive(false);
+        popupGuilds.gameObject.SetActive(false);
+        popupRecipes.gameObject.SetActive(false);
+        popupPause.gameObject.SetActive(false);
     }
 }
