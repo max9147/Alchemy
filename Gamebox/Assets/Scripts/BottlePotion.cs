@@ -7,7 +7,6 @@ public class BottlePotion : MonoBehaviour
     public GameObject potionSystem;
 
     public Color[] colors;
-    public Sprite bottleFull;
     public Sprite effectFire;
     public Sprite effectSmoke;
     public Sprite effectGlow;
@@ -54,8 +53,8 @@ public class BottlePotion : MonoBehaviour
 
         if (potionColor != PotionColor.Empty)
         {
-            GetComponent<SpriteRenderer>().sprite = bottleFull;
-            GetComponent<SpriteRenderer>().color = colors[potionSystem.GetComponent<PotionSystem>().GetColor(id) - 1];
+            transform.Find("Water").gameObject.SetActive(true);
+            transform.Find("Water").GetComponent<SpriteRenderer>().color = colors[potionSystem.GetComponent<PotionSystem>().GetColor(id) - 1];
         }
 
         if (potionEffect == PotionEffect.Burning)

@@ -70,7 +70,7 @@ public class QuestsSystem : MonoBehaviour
     private void Start()
     {
         questTime = settings.questDelay;
-        timePassed = questTime - settings.questFirst;
+        timePassed = questTime - settings.questFirst + GetComponent<GuildSystem>().CalcExtraTime();
     }
 
     private void Update()
