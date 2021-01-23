@@ -3451,7 +3451,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 305501088}
   m_OnClick:
     m_PersistentCalls:
@@ -6052,7 +6052,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 794005d9bbed06b4686d8071d312cc6f, type: 2}
   m_sharedMaterial: {fileID: 2914386488160502555, guid: 794005d9bbed06b4686d8071d312cc6f,
@@ -10743,7 +10743,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 794005d9bbed06b4686d8071d312cc6f, type: 2}
   m_sharedMaterial: {fileID: 2914386488160502555, guid: 794005d9bbed06b4686d8071d312cc6f,
@@ -13116,6 +13116,7 @@ MonoBehaviour:
   guildSystem: {fileID: 1720958760}
   potionSystem: {fileID: 1331031178}
   moneySystem: {fileID: 288540910}
+  resourceSystem: {fileID: 782229009}
   potionColor: 0
   potionEffect: 0
   haveQuest: 0
@@ -13650,6 +13651,7 @@ MonoBehaviour:
   guildSystem: {fileID: 1720958760}
   potionSystem: {fileID: 1331031178}
   moneySystem: {fileID: 288540910}
+  resourceSystem: {fileID: 782229009}
   potionColor: 0
   potionEffect: 0
   haveQuest: 0
@@ -14956,7 +14958,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 794005d9bbed06b4686d8071d312cc6f, type: 2}
   m_sharedMaterial: {fileID: 2914386488160502555, guid: 794005d9bbed06b4686d8071d312cc6f,
@@ -17594,6 +17596,7 @@ MonoBehaviour:
   guildSystem: {fileID: 1720958760}
   potionSystem: {fileID: 1331031178}
   moneySystem: {fileID: 288540910}
+  resourceSystem: {fileID: 782229009}
   potionColor: 0
   potionEffect: 0
   haveQuest: 0
@@ -22255,6 +22258,7 @@ MonoBehaviour:
   guildSystem: {fileID: 1720958760}
   potionSystem: {fileID: 1331031178}
   moneySystem: {fileID: 288540910}
+  resourceSystem: {fileID: 782229009}
   potionColor: 0
   potionEffect: 0
   haveQuest: 0
@@ -24867,7 +24871,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 794005d9bbed06b4686d8071d312cc6f, type: 2}
   m_sharedMaterial: {fileID: 2914386488160502555, guid: 794005d9bbed06b4686d8071d312cc6f,

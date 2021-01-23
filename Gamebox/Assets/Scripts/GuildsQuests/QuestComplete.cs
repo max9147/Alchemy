@@ -7,6 +7,7 @@ public class QuestComplete : MonoBehaviour
     public GameObject guildSystem;
     public GameObject potionSystem;
     public GameObject moneySystem;
+    public GameObject resourceSystem;
     public PotionColor potionColor;
     public PotionEffect potionEffect;
     public bool haveQuest = false;
@@ -33,8 +34,6 @@ public class QuestComplete : MonoBehaviour
         {
             if (collision.GetComponent<BottlePotion>().potionColor == potionColor && collision.GetComponent<BottlePotion>().potionEffect == potionEffect) 
             {
-                moneySystem.GetComponent<MoneySystem>().AddMoney(reward);
-
                 if (guildSystem.GetComponent<QuestsSystem>().questTime > settings.questLimit && guildSystem.GetComponent<QuestsSystem>().questStep == settings.questSpeedupStep)
                 {
                     guildSystem.GetComponent<QuestsSystem>().questTime -= settings.questSpeedup;
@@ -99,6 +98,8 @@ public class QuestComplete : MonoBehaviour
                 switch (tag)
                 {
                     case "Warrior":
+                        moneySystem.GetComponent<MoneySystem>().AddMoney(reward);
+
                         guildSystem.GetComponent<QuestsSystem>().StopQuest(Guild.Warriors);
                         guildSystem.GetComponent<GuildSystem>().addRep(Guild.Warriors, 15);
                         guildSystem.GetComponent<GuildSystem>().addRep(Guild.Priests, 5);
@@ -111,6 +112,9 @@ public class QuestComplete : MonoBehaviour
                         break;
 
                     case "Bandit":
+                        if (Random.Range(0, 100) < 50 + guildSystem.GetComponent<GuildSystem>().GetRep(Guild.Bandits) / 100 * 35)
+                            moneySystem.GetComponent<MoneySystem>().AddMoney(reward);
+
                         guildSystem.GetComponent<QuestsSystem>().StopQuest(Guild.Bandits);
                         guildSystem.GetComponent<GuildSystem>().addRep(Guild.Bandits, 15);
                         guildSystem.GetComponent<GuildSystem>().addRep(Guild.Magicians, 5);
@@ -123,6 +127,11 @@ public class QuestComplete : MonoBehaviour
                         break;
 
                     case "Priest":
+                        if (Random.Range(0, 100) < 5 + guildSystem.GetComponent<GuildSystem>().GetRep(Guild.Priests) / 10)
+                            moneySystem.GetComponent<MoneySystem>().AddMoney(reward * 2);
+                        else
+                            moneySystem.GetComponent<MoneySystem>().AddMoney(reward);
+
                         guildSystem.GetComponent<QuestsSystem>().StopQuest(Guild.Priests);
                         guildSystem.GetComponent<GuildSystem>().addRep(Guild.Priests, 15);
                         guildSystem.GetComponent<GuildSystem>().addRep(Guild.Warriors, 5);
@@ -135,6 +144,28 @@ public class QuestComplete : MonoBehaviour
                         break;
 
                     case "Magician":
+                        if (Random.Range(0, 100) < 5 + guildSystem.GetComponent<GuildSystem>().GetRep(Guild.Magicians) / 5)
+                        {
+                            switch (Random.Range(0,3))
+                            {
+                                case 0:
+                                    resourceSystem.GetComponent<ResourceSystem>().AddResource(Resource.Red, 1);
+                                    break;
+                                case 1:
+                                    resourceSystem.GetComponent<ResourceSystem>().AddResource(Resource.Blue, 1);
+                                    break;
+                                case 2:
+                                    resourceSystem.GetComponent<ResourceSystem>().AddResource(Resource.Yellow, 1);
+                                    break;
+                                case 3:
+                                    resourceSystem.GetComponent<ResourceSystem>().AddResource(Resource.White, 1);
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                        moneySystem.GetComponent<MoneySystem>().AddMoney(reward);
+
                         guildSystem.GetComponent<QuestsSystem>().StopQuest(Guild.Magicians);
                         guildSystem.GetComponent<GuildSystem>().addRep(Guild.Magicians, 15);
                         guildSystem.GetComponent<GuildSystem>().addRep(Guild.Bandits, 5);
