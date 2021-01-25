@@ -398,11 +398,11 @@ public class Bottles : MonoBehaviour
                         default:
                             break;
                     }
-
+                    
                     int max = 0;
                     for (int i = 0; i < bottleCount; i++)
                     {
-                        if (bottle[i].GetComponent<BottlePotion>().potionColor != PotionColor.Empty && bottle[i].GetComponent<BottlePotion>().takenSpace > takenBottleNumber && toDrag.GetComponent<BottlePotion>().justDrained)
+                        if (bottle[i].GetComponent<BottlePotion>().potionColor != PotionColor.Empty && bottle[i].GetComponent<BottlePotion>().takenSpace > takenBottleNumber)
                         {
                             if (max < bottle[i].GetComponent<BottlePotion>().takenSpace)
                                 max = bottle[i].GetComponent<BottlePotion>().takenSpace;

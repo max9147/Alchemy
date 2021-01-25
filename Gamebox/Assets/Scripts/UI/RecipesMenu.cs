@@ -15,7 +15,6 @@ public class RecipesMenu : MonoBehaviour
 
     public void AddPotionData(Potions potion)
     {
-        Debug.Log(pass);
         if (!addedArr[potion.id] || pass)
         {
             addedArr[potion.id] = true;
