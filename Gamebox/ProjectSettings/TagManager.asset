@@ -25,6 +25,7 @@ TagManager:
   - Magician
   - Bandit
   - TouchDetect
+  - BottleSpawner
   layers:
   - Default
   - TransparentFX

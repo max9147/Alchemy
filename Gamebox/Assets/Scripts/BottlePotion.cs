@@ -5,6 +5,7 @@ using UnityEngine;
 public class BottlePotion : MonoBehaviour
 {
     public GameObject potionSystem;
+    public GameObject[] potionPos;
 
     public Color[] colors;
     public Sprite effectFire;
@@ -14,6 +15,10 @@ public class BottlePotion : MonoBehaviour
 
     public PotionColor potionColor = PotionColor.Empty;
     public PotionEffect potionEffect = PotionEffect.Empty;
+
+    public int takenSpace = -1;
+
+    public bool justDrained = false;
 
     private void Start()
     {
@@ -48,6 +53,16 @@ public class BottlePotion : MonoBehaviour
                 id = 0;
                 break;
         }
+
+        for (int i = 0; i < potionPos.Length; i++)
+        {
+            if (transform.position == potionPos[i].transform.position)
+            {
+                takenSpace = i;
+                break;
+            }
+        }
+
         potionColor = (PotionColor)potionSystem.GetComponent<PotionSystem>().GetColor(id);
         potionEffect = (PotionEffect)potionSystem.GetComponent<PotionSystem>().GetEffect(id);
 
@@ -67,8 +82,10 @@ public class BottlePotion : MonoBehaviour
             transform.Find("Effect").GetComponent<SpriteRenderer>().sprite = effectGlow;
     }
 
-    public void AddPotion(List<Resource> inCauldron, List<Resource> inCauldronColored, bool isRare)
+    public void AddPotion(List<Resource> inCauldron, List<Resource> inCauldronColored, bool isRare, int space)
     {
+        takenSpace = space;
+
         if (isRare)
         {
             foreach (var item in inCauldron)

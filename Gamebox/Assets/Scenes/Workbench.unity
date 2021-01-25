@@ -853,13 +853,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156518847}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5.39, y: 4.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1815183389}
   - {fileID: 902040128}
-  m_Father: {fileID: 1282838920}
-  m_RootOrder: 0
+  m_Father: {fileID: 2086474486}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &156518849
 Rigidbody2D:
@@ -971,6 +971,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   potionSystem: {fileID: 1331031178}
+  potionPos:
+  - {fileID: 163836331}
+  - {fileID: 280116664}
+  - {fileID: 1111957223}
+  - {fileID: 373939754}
+  - {fileID: 1282838919}
+  - {fileID: 536270038}
+  - {fileID: 1132951824}
+  - {fileID: 1516472617}
   colors:
   - {r: 0, g: 0, b: 0, a: 1}
   - {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
@@ -989,6 +998,7 @@ MonoBehaviour:
   effectBoil: {fileID: 21300000, guid: 5f8ec715de0e8b840a11f3fe12e2f26b, type: 3}
   potionColor: 0
   potionEffect: 0
+  takenSpace: 0
 --- !u!1 &163836331
 GameObject:
   m_ObjectHideFlags: 0
@@ -1013,10 +1023,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 163836331}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.55, y: 4.28, z: 0}
+  m_LocalPosition: {x: -9.74, y: 4.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1963437677}
+  m_Children: []
   m_Father: {fileID: 2086474486}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2618,10 +2627,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 280116664}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.55, y: 4.28, z: 0}
+  m_LocalPosition: {x: -8.08, y: 4.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 2037475209}
+  m_Children: []
   m_Father: {fileID: 2086474486}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3918,10 +3926,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 373939754}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5500002, y: 4.28, z: 0}
+  m_LocalPosition: {x: -4.7299995, y: 4.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1980810387}
+  m_Children: []
   m_Father: {fileID: 2086474486}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5297,6 +5304,114 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 495606256}
   m_CullTransparentMesh: 0
+--- !u!1 &498247223
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 498247224}
+  - component: {fileID: 498247226}
+  - component: {fileID: 498247225}
+  m_Layer: 0
+  m_Name: BottleSpawner
+  m_TagString: BottleSpawner
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &498247224
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498247223}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.39, y: 4.28, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2086474486}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &498247225
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498247223}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.6, y: 1.6}
+    newSize: {x: 1.6, y: 1.6}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.6, y: 1.6}
+  m_EdgeRadius: 0
+--- !u!212 &498247226
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498247223}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 106296a26d776a947936641678a7d4b4, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1.6, y: 1.6}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &500095654
 GameObject:
   m_ObjectHideFlags: 0
@@ -5575,10 +5690,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 536270038}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4499998, y: 4.28, z: 0}
+  m_LocalPosition: {x: -1.2799997, y: 4.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1046555381}
+  m_Children: []
   m_Father: {fileID: 2086474486}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7169,13 +7283,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 685247289}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5.39, y: 4.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 220760285}
   - {fileID: 953107292}
-  m_Father: {fileID: 1111957224}
-  m_RootOrder: 0
+  m_Father: {fileID: 2086474486}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &685247291
 Rigidbody2D:
@@ -7287,6 +7401,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   potionSystem: {fileID: 1331031178}
+  potionPos:
+  - {fileID: 163836331}
+  - {fileID: 280116664}
+  - {fileID: 1111957223}
+  - {fileID: 373939754}
+  - {fileID: 1282838919}
+  - {fileID: 536270038}
+  - {fileID: 1132951824}
+  - {fileID: 1516472617}
   colors:
   - {r: 0, g: 0, b: 0, a: 1}
   - {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
@@ -7305,6 +7428,7 @@ MonoBehaviour:
   effectBoil: {fileID: 21300000, guid: 5f8ec715de0e8b840a11f3fe12e2f26b, type: 3}
   potionColor: 0
   potionEffect: 0
+  takenSpace: 0
 --- !u!1 &695162790
 GameObject:
   m_ObjectHideFlags: 0
@@ -8834,6 +8958,140 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &897168159
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 897168160}
+  - component: {fileID: 897168162}
+  - component: {fileID: 897168161}
+  m_Layer: 5
+  m_Name: TextBottles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &897168160
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897168159}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 928227214}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 536.7, y: 452.5}
+  m_SizeDelta: {x: 55.46, y: 77.6}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &897168161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897168159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 0
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 794005d9bbed06b4686d8071d312cc6f, type: 2}
+  m_sharedMaterial: {fileID: 2914386488160502555, guid: 794005d9bbed06b4686d8071d312cc6f,
+    type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 69.45
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 1
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &897168162
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897168159}
+  m_CullTransparentMesh: 0
 --- !u!1 &898658388
 GameObject:
   m_ObjectHideFlags: 0
@@ -9414,13 +9672,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 923763684}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5.39, y: 4.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1164774694}
   - {fileID: 1287709198}
-  m_Father: {fileID: 1132951825}
-  m_RootOrder: 0
+  m_Father: {fileID: 2086474486}
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &923763686
 Rigidbody2D:
@@ -9532,6 +9790,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   potionSystem: {fileID: 1331031178}
+  potionPos:
+  - {fileID: 163836331}
+  - {fileID: 280116664}
+  - {fileID: 1111957223}
+  - {fileID: 373939754}
+  - {fileID: 1282838919}
+  - {fileID: 536270038}
+  - {fileID: 1132951824}
+  - {fileID: 1516472617}
   colors:
   - {r: 0, g: 0, b: 0, a: 1}
   - {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
@@ -9550,6 +9817,7 @@ MonoBehaviour:
   effectBoil: {fileID: 21300000, guid: 5f8ec715de0e8b840a11f3fe12e2f26b, type: 3}
   potionColor: 0
   potionEffect: 0
+  takenSpace: 0
 --- !u!1 &923891105
 GameObject:
   m_ObjectHideFlags: 0
@@ -9716,6 +9984,7 @@ RectTransform:
   - {fileID: 1152553285}
   - {fileID: 1565346925}
   - {fileID: 460881864}
+  - {fileID: 897168160}
   m_Father: {fileID: 597144651}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11057,13 +11326,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1046555380}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5.39, y: 4.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2094152743}
   - {fileID: 1588015143}
-  m_Father: {fileID: 536270039}
-  m_RootOrder: 0
+  m_Father: {fileID: 2086474486}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1046555382
 Rigidbody2D:
@@ -11175,6 +11444,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   potionSystem: {fileID: 1331031178}
+  potionPos:
+  - {fileID: 163836331}
+  - {fileID: 280116664}
+  - {fileID: 1111957223}
+  - {fileID: 373939754}
+  - {fileID: 1282838919}
+  - {fileID: 536270038}
+  - {fileID: 1132951824}
+  - {fileID: 1516472617}
   colors:
   - {r: 0, g: 0, b: 0, a: 1}
   - {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
@@ -11193,6 +11471,7 @@ MonoBehaviour:
   effectBoil: {fileID: 21300000, guid: 5f8ec715de0e8b840a11f3fe12e2f26b, type: 3}
   potionColor: 0
   potionEffect: 0
+  takenSpace: 0
 --- !u!1 &1058254590
 GameObject:
   m_ObjectHideFlags: 0
@@ -12378,10 +12657,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1111957223}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.55, y: 4.28, z: 0}
+  m_LocalPosition: {x: -6.42, y: 4.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 685247290}
+  m_Children: []
   m_Father: {fileID: 2086474486}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12902,10 +13180,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1132951824}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.4499998, y: 4.28, z: 0}
+  m_LocalPosition: {x: 0.37000012, y: 4.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 923763685}
+  m_Children: []
   m_Father: {fileID: 2086474486}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14765,10 +15042,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1282838919}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5500002, y: 4.28, z: 0}
+  m_LocalPosition: {x: -3.0399997, y: 4.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 156518848}
+  m_Children: []
   m_Father: {fileID: 2086474486}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17381,10 +17657,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1516472617}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.45, y: 4.28, z: 0}
+  m_LocalPosition: {x: 2.0300002, y: 4.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1588085531}
+  m_Children: []
   m_Father: {fileID: 2086474486}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18336,13 +18611,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1588085530}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5.39, y: 4.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1117803291}
   - {fileID: 1066108665}
-  m_Father: {fileID: 1516472618}
-  m_RootOrder: 0
+  m_Father: {fileID: 2086474486}
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1588085532
 Rigidbody2D:
@@ -18454,6 +18729,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   potionSystem: {fileID: 1331031178}
+  potionPos:
+  - {fileID: 163836331}
+  - {fileID: 280116664}
+  - {fileID: 1111957223}
+  - {fileID: 373939754}
+  - {fileID: 1282838919}
+  - {fileID: 536270038}
+  - {fileID: 1132951824}
+  - {fileID: 1516472617}
   colors:
   - {r: 0, g: 0, b: 0, a: 1}
   - {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
@@ -18472,6 +18756,7 @@ MonoBehaviour:
   effectBoil: {fileID: 21300000, guid: 5f8ec715de0e8b840a11f3fe12e2f26b, type: 3}
   potionColor: 0
   potionEffect: 0
+  takenSpace: 0
 --- !u!1 &1588117248
 GameObject:
   m_ObjectHideFlags: 0
@@ -22412,7 +22697,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1963437677
 Transform:
   m_ObjectHideFlags: 0
@@ -22421,13 +22706,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1963437676}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5.39, y: 4.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2068496886}
   - {fileID: 1075484178}
-  m_Father: {fileID: 163836332}
-  m_RootOrder: 0
+  m_Father: {fileID: 2086474486}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1963437678
 SpriteRenderer:
@@ -22539,6 +22824,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   potionSystem: {fileID: 1331031178}
+  potionPos:
+  - {fileID: 163836331}
+  - {fileID: 280116664}
+  - {fileID: 1111957223}
+  - {fileID: 373939754}
+  - {fileID: 1282838919}
+  - {fileID: 536270038}
+  - {fileID: 1132951824}
+  - {fileID: 1516472617}
   colors:
   - {r: 0, g: 0, b: 0, a: 1}
   - {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
@@ -22557,6 +22851,7 @@ MonoBehaviour:
   effectBoil: {fileID: 21300000, guid: 5f8ec715de0e8b840a11f3fe12e2f26b, type: 3}
   potionColor: 0
   potionEffect: 0
+  takenSpace: 0
 --- !u!1 &1980810386
 GameObject:
   m_ObjectHideFlags: 0
@@ -22585,13 +22880,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1980810386}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5.39, y: 4.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1772898757}
   - {fileID: 695162791}
-  m_Father: {fileID: 373939755}
-  m_RootOrder: 0
+  m_Father: {fileID: 2086474486}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1980810388
 Rigidbody2D:
@@ -22703,6 +22998,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   potionSystem: {fileID: 1331031178}
+  potionPos:
+  - {fileID: 163836331}
+  - {fileID: 280116664}
+  - {fileID: 1111957223}
+  - {fileID: 373939754}
+  - {fileID: 1282838919}
+  - {fileID: 536270038}
+  - {fileID: 1132951824}
+  - {fileID: 1516472617}
   colors:
   - {r: 0, g: 0, b: 0, a: 1}
   - {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
@@ -22721,6 +23025,7 @@ MonoBehaviour:
   effectBoil: {fileID: 21300000, guid: 5f8ec715de0e8b840a11f3fe12e2f26b, type: 3}
   potionColor: 0
   potionEffect: 0
+  takenSpace: 0
 --- !u!1 &1983831233
 GameObject:
   m_ObjectHideFlags: 0
@@ -23455,7 +23760,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2037475209
 Transform:
   m_ObjectHideFlags: 0
@@ -23464,13 +23769,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2037475208}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5.39, y: 4.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 295118366}
   - {fileID: 1444924838}
-  m_Father: {fileID: 280116665}
-  m_RootOrder: 0
+  m_Father: {fileID: 2086474486}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2037475210
 SpriteRenderer:
@@ -23582,6 +23887,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   potionSystem: {fileID: 1331031178}
+  potionPos:
+  - {fileID: 163836331}
+  - {fileID: 280116664}
+  - {fileID: 1111957223}
+  - {fileID: 373939754}
+  - {fileID: 1282838919}
+  - {fileID: 536270038}
+  - {fileID: 1132951824}
+  - {fileID: 1516472617}
   colors:
   - {r: 0, g: 0, b: 0, a: 1}
   - {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
@@ -23600,6 +23914,7 @@ MonoBehaviour:
   effectBoil: {fileID: 21300000, guid: 5f8ec715de0e8b840a11f3fe12e2f26b, type: 3}
   potionColor: 0
   potionEffect: 0
+  takenSpace: 0
 --- !u!1 &2048502005
 GameObject:
   m_ObjectHideFlags: 0
@@ -24110,6 +24425,15 @@ Transform:
   - {fileID: 536270039}
   - {fileID: 1132951825}
   - {fileID: 1516472618}
+  - {fileID: 1963437677}
+  - {fileID: 2037475209}
+  - {fileID: 685247290}
+  - {fileID: 1980810387}
+  - {fileID: 156518848}
+  - {fileID: 1046555381}
+  - {fileID: 923763685}
+  - {fileID: 1588085531}
+  - {fileID: 498247224}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -24127,32 +24451,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1638070127}
   drainButton: {fileID: 737813399}
+  amountText: {fileID: 897168161}
   effectFire: {fileID: 21300000, guid: 084f12a3d865cd14da3b0eca95099942, type: 3}
   effectSmoke: {fileID: 21300000, guid: 68dd3723d780e6646a5d6f45e454e470, type: 3}
   effectGlow: {fileID: 21300000, guid: 6264f961a8b45da41970e7f3b2b9ef27, type: 3}
   effectBoil: {fileID: 21300000, guid: 5f8ec715de0e8b840a11f3fe12e2f26b, type: 3}
-  bottle1Pos: {fileID: 163836331}
-  bottle2Pos: {fileID: 280116664}
-  bottle3Pos: {fileID: 1111957223}
-  bottle4Pos: {fileID: 373939754}
-  bottle5Pos: {fileID: 1282838919}
-  bottle6Pos: {fileID: 536270038}
-  bottle7Pos: {fileID: 1132951824}
-  bottle8Pos: {fileID: 1516472617}
-  bottle1: {fileID: 1963437676}
-  bottle2: {fileID: 2037475208}
-  bottle3: {fileID: 685247289}
-  bottle4: {fileID: 1980810386}
-  bottle5: {fileID: 156518847}
-  bottle6: {fileID: 1046555380}
-  bottle7: {fileID: 923763684}
-  bottle8: {fileID: 1588085530}
+  bottlePos:
+  - {fileID: 163836331}
+  - {fileID: 280116664}
+  - {fileID: 1111957223}
+  - {fileID: 373939754}
+  - {fileID: 1282838919}
+  - {fileID: 536270038}
+  - {fileID: 1132951824}
+  - {fileID: 1516472617}
+  bottle:
+  - {fileID: 1963437676}
+  - {fileID: 2037475208}
+  - {fileID: 685247289}
+  - {fileID: 1980810386}
+  - {fileID: 156518847}
+  - {fileID: 1046555380}
+  - {fileID: 923763684}
+  - {fileID: 1588085530}
   cauldron: {fileID: 2086809713}
   UIControls: {fileID: 1487778714}
   water: {fileID: 1243597816}
   potionSystem: {fileID: 1331031178}
+  bottleSpawner: {fileID: 498247223}
+  takenSpace: 0000000000000000
+  bottleUsage: 0000000000000000
   canTake: 1
   bottleCount: 2
+  freeBottles: 0
 --- !u!1 &2086809713
 GameObject:
   m_ObjectHideFlags: 0

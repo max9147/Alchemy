@@ -72,6 +72,8 @@ public class AutoSave : MonoBehaviour
                 if (recipes.GetComponent<RecipesMenu>().addedArr[i])
                     recipes.GetComponent<RecipesMenu>().AddPotionData(recipes.GetComponent<RecipesMenu>().potions[i]);
             recipes.GetComponent<RecipesMenu>().pass = false;
+
+            bottles.GetComponent<Bottles>().bottleUsage = save.bottleUsage;
         }
 
         else
@@ -87,6 +89,8 @@ public class AutoSave : MonoBehaviour
             resourceSystem.GetComponent<ResourceSystem>().AddResource(Resource.Blue, 5);
             resourceSystem.GetComponent<ResourceSystem>().AddResource(Resource.Yellow, 5);
             resourceSystem.GetComponent<ResourceSystem>().AddResource(Resource.White, 5);
+
+            recipes.GetComponent<RecipesMenu>().pass = false;
         }
     }
 

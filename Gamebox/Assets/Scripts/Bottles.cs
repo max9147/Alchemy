@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -9,32 +10,23 @@ public class Bottles : MonoBehaviour
     public Camera cam;
 
     public Button drainButton;
+    public TextMeshProUGUI amountText;
 
     public Sprite effectFire;
     public Sprite effectSmoke;
     public Sprite effectGlow;
     public Sprite effectBoil;
 
-    public GameObject bottle1Pos;
-    public GameObject bottle2Pos;
-    public GameObject bottle3Pos;
-    public GameObject bottle4Pos;
-    public GameObject bottle5Pos;
-    public GameObject bottle6Pos;
-    public GameObject bottle7Pos;
-    public GameObject bottle8Pos;
-    public GameObject bottle1;
-    public GameObject bottle2;
-    public GameObject bottle3;
-    public GameObject bottle4;
-    public GameObject bottle5;
-    public GameObject bottle6;
-    public GameObject bottle7;
-    public GameObject bottle8;
+    public GameObject[] bottlePos;
+    public GameObject[] bottle;
     public GameObject cauldron;
     public GameObject UIControls;
     public GameObject water;
     public GameObject potionSystem;
+    public GameObject bottleSpawner;
+
+    public bool[] takenSpace = new bool[8];
+    public bool[] bottleUsage = new bool[8];
 
     private Touch touch;
     private Transform toDrag;
@@ -48,9 +40,44 @@ public class Bottles : MonoBehaviour
     private float time = 1;
 
     public int bottleCount = 2;
+    public int freeBottles;
+    private int takenBottleNumber;
+
+    private void Start()
+    {
+        amountText.text = bottleCount.ToString();
+        freeBottles = bottleCount;
+
+        for (int i = 0; i < bottle.Length; i++)
+        {
+            if (bottleUsage[i])
+            {
+                for (int j = 0; j < takenSpace.Length; j++)
+                {
+                    if (!takenSpace[j])
+                    {
+                        takenSpace[j] = true;
+                        bottle[i].transform.position = bottlePos[j].transform.position;
+                        bottle[i].SetActive(true);
+                        freeBottles--;
+                        amountText.text = freeBottles.ToString();
+                        break;
+                    }
+                }
+            }
+        }
+    }
 
     private void Update()
     {
+        for (int i = 0; i < bottleCount; i++)
+        {
+            if (bottle[i].transform.position != bottlePos[bottle[i].GetComponent<BottlePotion>().takenSpace].transform.position && bottle[i].GetComponent<BottlePotion>().potionColor != PotionColor.Empty && !isDragging)
+            {
+                bottle[i].transform.position = Vector3.MoveTowards(bottle[i].transform.position, bottlePos[bottle[i].GetComponent<BottlePotion>().takenSpace].transform.position, 0.3f);
+            }
+        }
+
         if (Input.touchCount > 0)
         {
             if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
@@ -70,6 +97,31 @@ public class Bottles : MonoBehaviour
                     time = 0;
                     canTake = false;
                     toDrag = hit.collider.gameObject.transform;
+
+                    if (toDrag != null)
+                        toDragRB = toDrag.GetComponent<Rigidbody2D>();
+
+                    takenSpace[toDrag.GetComponent<BottlePotion>().takenSpace] = false;
+                }
+
+                if (Physics2D.Raycast(pos, Vector2.zero) && hit.transform.CompareTag("BottleSpawner") && freeBottles > 0)
+                {
+                    freeBottles--;
+                    amountText.text = freeBottles.ToString();
+
+                    time = 0;
+                    canTake = false;
+
+                    for (int i = 0; i < bottleCount; i++)
+                    {
+                        if (!bottleUsage[i])
+                        {
+                            toDrag = bottle[i].transform;
+                            toDrag.gameObject.SetActive(true);
+                            bottleUsage[i] = true;
+                            break;
+                        }
+                    }
 
                     if (toDrag != null)
                         toDragRB = toDrag.GetComponent<Rigidbody2D>();
@@ -105,8 +157,16 @@ public class Bottles : MonoBehaviour
             if (cauldron.GetComponent<MixingSystem>().isReady && cauldron.GetComponent<MixingSystem>().bottleIn && !justReturned)
             {
                 justTook = true;
-                toDrag.GetComponent<BottlePotion>().AddPotion(cauldron.GetComponent<MixingSystem>().inCauldron, 
-                    cauldron.GetComponent<MixingSystem>().inCauldronColored, cauldron.GetComponent<MixingSystem>().isRare);
+                for (int i = 0; i < takenSpace.Length; i++)
+                {
+                    if (!takenSpace[i])
+                    {
+                        toDrag.GetComponent<BottlePotion>().AddPotion(cauldron.GetComponent<MixingSystem>().inCauldron,
+                            cauldron.GetComponent<MixingSystem>().inCauldronColored, cauldron.GetComponent<MixingSystem>().isRare, i);
+                        takenSpace[i] = true;
+                        break;
+                    }
+                }
 
                 toDrag.Find("Water").gameObject.SetActive(true);
                 toDrag.Find("Water").GetComponent<SpriteRenderer>().color = water.GetComponent<SpriteRenderer>().color;
@@ -135,6 +195,7 @@ public class Bottles : MonoBehaviour
             if (cauldron.GetComponent<MixingSystem>().bottleIn && cauldron.GetComponent<MixingSystem>().inCauldron.Count == 0 && toDrag.GetComponent<BottlePotion>().potionColor != PotionColor.Empty && !justTook)
             {
                 justReturned = true;
+                toDrag.GetComponent<BottlePotion>().justDrained = true;
                 cauldron.GetComponent<MixingSystem>().isReady = true;
                 switch (toDrag.GetComponent<BottlePotion>().potionColor)
                 {
@@ -302,114 +363,82 @@ public class Bottles : MonoBehaviour
 
         if (toDrag && !isDragging)
         {
-            switch (toDrag.tag)
+            if (toDrag.GetComponent<BottlePotion>().potionColor == PotionColor.Empty)
             {
-                case "Bottle1":
-                    toDrag.position = Vector3.MoveTowards(toDrag.position, bottle1Pos.transform.position, 0.3f);
-                    if (toDrag.position == bottle1Pos.transform.position)
+                takenBottleNumber = toDrag.GetComponent<BottlePotion>().takenSpace;
+                toDrag.position = Vector3.MoveTowards(toDrag.position, bottleSpawner.transform.position, 0.3f);
+                if (toDrag.position == bottleSpawner.transform.position)
+                {
+                    switch (toDrag.tag)
                     {
-                        canTake = true;
-                        toDrag = null;
-                        toDragRB.simulated = true;
-                        toDragRB = null;
-                        justTook = false;
-                        justReturned = false;
+                        case "Bottle1":
+                            bottleUsage[0] = false;
+                            break;
+                        case "Bottle2":
+                            bottleUsage[1] = false;
+                            break;
+                        case "Bottle3":
+                            bottleUsage[2] = false;
+                            break;
+                        case "Bottle4":
+                            bottleUsage[3] = false;
+                            break;
+                        case "Bottle5":
+                            bottleUsage[4] = false;
+                            break;
+                        case "Bottle6":
+                            bottleUsage[5] = false;
+                            break;
+                        case "Bottle7":
+                            bottleUsage[6] = false;
+                            break;
+                        case "Bottle8":
+                            bottleUsage[7] = false;
+                            break;
+                        default:
+                            break;
                     }
-                    break;
 
-                case "Bottle2":
-                    toDrag.position = Vector3.MoveTowards(toDrag.position, bottle2Pos.transform.position, 0.3f);
-                    if (toDrag.position == bottle2Pos.transform.position)
+                    int max = 0;
+                    for (int i = 0; i < bottleCount; i++)
                     {
-                        canTake = true;
-                        toDrag = null;
-                        toDragRB.simulated = true;
-                        toDragRB = null;
-                        justTook = false;
-                        justReturned = false;
-                    }
-                    break;
+                        if (bottle[i].GetComponent<BottlePotion>().potionColor != PotionColor.Empty && bottle[i].GetComponent<BottlePotion>().takenSpace > takenBottleNumber && toDrag.GetComponent<BottlePotion>().justDrained)
+                        {
+                            if (max < bottle[i].GetComponent<BottlePotion>().takenSpace)
+                                max = bottle[i].GetComponent<BottlePotion>().takenSpace;
 
-                case "Bottle3":
-                    toDrag.position = Vector3.MoveTowards(toDrag.position, bottle3Pos.transform.position, 0.3f);
-                    if (toDrag.position == bottle3Pos.transform.position)
-                    {
-                        canTake = true;
-                        toDrag = null;
-                        toDragRB.simulated = true;
-                        toDragRB = null;
-                        justTook = false;
-                        justReturned = false;
+                            bottle[i].GetComponent<BottlePotion>().takenSpace--;
+                            takenSpace[bottle[i].GetComponent<BottlePotion>().takenSpace] = true;
+                        }
                     }
-                    break;
+                    if (max > 0)
+                        takenSpace[max] = false;
 
-                case "Bottle4":
-                    toDrag.position = Vector3.MoveTowards(toDrag.position, bottle4Pos.transform.position, 0.3f);
-                    if (toDrag.position == bottle4Pos.transform.position)
-                    {
-                        canTake = true;
-                        toDrag = null;
-                        toDragRB.simulated = true;
-                        toDragRB = null;
-                        justTook = false;
-                        justReturned = false;
-                    }
-                    break;
-
-                case "Bottle5":
-                    toDrag.position = Vector3.MoveTowards(toDrag.position, bottle5Pos.transform.position, 0.3f);
-                    if (toDrag.position == bottle5Pos.transform.position)
-                    {
-                        canTake = true;
-                        toDrag = null;
-                        toDragRB.simulated = true;
-                        toDragRB = null;
-                        justTook = false;
-                        justReturned = false;
-                    }
-                    break;
-
-                case "Bottle6":
-                    toDrag.position = Vector3.MoveTowards(toDrag.position, bottle6Pos.transform.position, 0.3f);
-                    if (toDrag.position == bottle6Pos.transform.position)
-                    {
-                        canTake = true;
-                        toDrag = null;
-                        toDragRB.simulated = true;
-                        toDragRB = null;
-                        justTook = false;
-                        justReturned = false;
-                    }
-                    break;
-
-                case "Bottle7":
-                    toDrag.position = Vector3.MoveTowards(toDrag.position, bottle7Pos.transform.position, 0.3f);
-                    if (toDrag.position == bottle7Pos.transform.position)
-                    {
-                        canTake = true;
-                        toDrag = null;
-                        toDragRB.simulated = true;
-                        toDragRB = null;
-                        justTook = false;
-                        justReturned = false;
-                    }
-                    break;
-
-                case "Bottle8":
-                    toDrag.position = Vector3.MoveTowards(toDrag.position, bottle8Pos.transform.position, 0.3f);
-                    if (toDrag.position == bottle8Pos.transform.position)
-                    {
-                        canTake = true;
-                        toDrag = null;
-                        toDragRB.simulated = true;
-                        toDragRB = null;
-                        justTook = false;
-                        justReturned = false;
-                    }
-                    break;
-
-                default:
-                    break;
+                    toDrag.GetComponent<BottlePotion>().justDrained = false;
+                    toDrag.gameObject.SetActive(false);
+                    canTake = true;
+                    toDrag = null;
+                    toDragRB.simulated = true;
+                    toDragRB = null;
+                    justTook = false;
+                    justReturned = false;
+                    freeBottles++;
+                    amountText.text = freeBottles.ToString();
+                }
+            }
+            else
+            {
+                toDrag.position = Vector3.MoveTowards(toDrag.position, bottlePos[toDrag.GetComponent<BottlePotion>().takenSpace].transform.position, 0.3f);
+                if (toDrag.position == bottlePos[toDrag.GetComponent<BottlePotion>().takenSpace].transform.position)
+                {
+                    takenSpace[toDrag.GetComponent<BottlePotion>().takenSpace] = true;
+                    canTake = true;
+                    toDrag = null;
+                    toDragRB.simulated = true;
+                    toDragRB = null;
+                    justTook = false;
+                    justReturned = false;
+                }
             }
         }
     }
@@ -425,44 +454,8 @@ public class Bottles : MonoBehaviour
     public void AddBottle()
     {
         bottleCount++;
-
-        switch (bottleCount)
-        {
-            case 1:
-                bottle1.SetActive(true);
-                break;
-
-            case 2:
-                bottle2.SetActive(true);
-                break;
-
-            case 3:
-                bottle3.SetActive(true);
-                break;
-
-            case 4:
-                bottle4.SetActive(true);
-                break;
-
-            case 5:
-                bottle5.SetActive(true);
-                break;
-
-            case 6:
-                bottle6.SetActive(true);
-                break;
-
-            case 7:
-                bottle7.SetActive(true);
-                break;
-
-            case 8:
-                bottle8.SetActive(true);
-                break;
-
-            default:
-                break;
-        }
+        freeBottles++;
+        amountText.text = freeBottles.ToString();
     }
 
     public int GetBottleCount()
