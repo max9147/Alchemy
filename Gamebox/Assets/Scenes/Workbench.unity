@@ -999,6 +999,8 @@ MonoBehaviour:
   potionColor: 0
   potionEffect: 0
   takenSpace: 0
+  justDrained: 0
+  justGiven: 0
 --- !u!1 &163836331
 GameObject:
   m_ObjectHideFlags: 0
@@ -7429,6 +7431,8 @@ MonoBehaviour:
   potionColor: 0
   potionEffect: 0
   takenSpace: 0
+  justDrained: 0
+  justGiven: 0
 --- !u!1 &695162790
 GameObject:
   m_ObjectHideFlags: 0
@@ -7925,6 +7929,7 @@ MonoBehaviour:
   spawnerEye: {fileID: 1162307467}
   spawnerStone: {fileID: 597239437}
   spawnerSand: {fileID: 225889324}
+  settings: {fileID: 11400000, guid: c07b99bbbca86234ea011dc966b22d2c, type: 2}
   canTake: 1
 --- !u!1 &788576427
 GameObject:
@@ -9818,6 +9823,8 @@ MonoBehaviour:
   potionColor: 0
   potionEffect: 0
   takenSpace: 0
+  justDrained: 0
+  justGiven: 0
 --- !u!1 &923891105
 GameObject:
   m_ObjectHideFlags: 0
@@ -11472,6 +11479,8 @@ MonoBehaviour:
   potionColor: 0
   potionEffect: 0
   takenSpace: 0
+  justDrained: 0
+  justGiven: 0
 --- !u!1 &1058254590
 GameObject:
   m_ObjectHideFlags: 0
@@ -17338,8 +17347,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  settings: {fileID: 11400000, guid: c07b99bbbca86234ea011dc966b22d2c, type: 2}
   dir: 1
-  moveTime: 0.3
 --- !u!114 &1487778720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18757,6 +18766,8 @@ MonoBehaviour:
   potionColor: 0
   potionEffect: 0
   takenSpace: 0
+  justDrained: 0
+  justGiven: 0
 --- !u!1 &1588117248
 GameObject:
   m_ObjectHideFlags: 0
@@ -20068,7 +20079,6 @@ MonoBehaviour:
   buyRepBandits: {fileID: 1062188833}
   buyRepPriests: {fileID: 7651169}
   buyRepMagicians: {fileID: 841048157}
-  settings: {fileID: 11400000, guid: c07b99bbbca86234ea011dc966b22d2c, type: 2}
   repWarriors: 80
   repBandits: 80
   repPriests: 80
@@ -22852,6 +22862,8 @@ MonoBehaviour:
   potionColor: 0
   potionEffect: 0
   takenSpace: 0
+  justDrained: 0
+  justGiven: 0
 --- !u!1 &1980810386
 GameObject:
   m_ObjectHideFlags: 0
@@ -23026,6 +23038,8 @@ MonoBehaviour:
   potionColor: 0
   potionEffect: 0
   takenSpace: 0
+  justDrained: 0
+  justGiven: 0
 --- !u!1 &1983831233
 GameObject:
   m_ObjectHideFlags: 0
@@ -23915,6 +23929,8 @@ MonoBehaviour:
   potionColor: 0
   potionEffect: 0
   takenSpace: 0
+  justDrained: 0
+  justGiven: 0
 --- !u!1 &2048502005
 GameObject:
   m_ObjectHideFlags: 0
@@ -24479,6 +24495,7 @@ MonoBehaviour:
   water: {fileID: 1243597816}
   potionSystem: {fileID: 1331031178}
   bottleSpawner: {fileID: 498247223}
+  settings: {fileID: 11400000, guid: c07b99bbbca86234ea011dc966b22d2c, type: 2}
   takenSpace: 0000000000000000
   bottleUsage: 0000000000000000
   canTake: 1

@@ -19,6 +19,7 @@ public class BottlePotion : MonoBehaviour
     public int takenSpace = -1;
 
     public bool justDrained = false;
+    public bool justGiven = false;
 
     private void Start()
     {

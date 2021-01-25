@@ -12,8 +12,9 @@ public class CameraMovement : MonoBehaviour
 
     public AnimationCurve curve;
 
+    public Settings settings;
+
     public int dir = 1;
-    public float moveTime = 0.3f;
 
     private Vector3 tablePos;
     private Vector3 ordersPos;
@@ -56,7 +57,7 @@ public class CameraMovement : MonoBehaviour
         if (isMoving)
         {
             timer += Time.deltaTime;
-            float ratio = timer / moveTime;
+            float ratio = timer / settings.camSpeed;
 
             Vector3 position = curve.Evaluate(ratio) * ordersPos;
 

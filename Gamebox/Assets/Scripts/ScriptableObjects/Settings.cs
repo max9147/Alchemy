@@ -58,4 +58,13 @@ public class Settings : ScriptableObject
 
     [Header("Во сколько раз дрова ускоряют варку")]
     public int woodSpeedup;
+
+    [Header("Скорость полета ингридиентов на свое место")]
+    public float resourceSpeed;
+
+    [Header("Скорость полета бутылок на свое место")]
+    public float bottleSpeed;
+
+    [Header("Скорость перемещения камеры")]
+    public float camSpeed;
 }

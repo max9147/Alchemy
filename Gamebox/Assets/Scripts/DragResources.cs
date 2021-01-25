@@ -25,6 +25,8 @@ public class DragResources : MonoBehaviour
     public GameObject spawnerStone;
     public GameObject spawnerSand;
 
+    public Settings settings;
+
     private Touch touch;
     private Transform toDrag;
     private Rigidbody2D toDragRB;
@@ -41,13 +43,13 @@ public class DragResources : MonoBehaviour
     {
         if (Input.touchCount > 0)
         {
-            if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
-                return;
-
             touch = Input.GetTouch(0);
 
             if (touch.phase == TouchPhase.Began && canTake)
             {
+                if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+                    return;
+
                 isDragging = true;
 
                 Vector3 pos = cam.ScreenToWorldPoint(touch.position);
@@ -172,7 +174,7 @@ public class DragResources : MonoBehaviour
             switch (toDrag.tag)
             {
                 case "ResourceRed":
-                    toDrag.position = Vector3.MoveTowards(toDrag.position, spawnerRed.transform.position, 0.3f);
+                    toDrag.position = Vector3.MoveTowards(toDrag.position, spawnerRed.transform.position, settings.resourceSpeed);
                     if (toDrag.position == spawnerRed.transform.position)
                     {
                         Destroy(toDrag.gameObject);
@@ -182,7 +184,7 @@ public class DragResources : MonoBehaviour
                     break;
 
                 case "ResourceBlue":
-                    toDrag.position = Vector3.MoveTowards(toDrag.position, spawnerBlue.transform.position, 0.3f);
+                    toDrag.position = Vector3.MoveTowards(toDrag.position, spawnerBlue.transform.position, settings.resourceSpeed);
                     if (toDrag.position == spawnerBlue.transform.position)
                     {
                         Destroy(toDrag.gameObject);
@@ -192,7 +194,7 @@ public class DragResources : MonoBehaviour
                     break;
 
                 case "ResourceYellow":
-                    toDrag.position = Vector3.MoveTowards(toDrag.position, spawnerYellow.transform.position, 0.3f);
+                    toDrag.position = Vector3.MoveTowards(toDrag.position, spawnerYellow.transform.position, settings.resourceSpeed);
                     if (toDrag.position == spawnerYellow.transform.position)
                     {
                         Destroy(toDrag.gameObject);
@@ -202,7 +204,7 @@ public class DragResources : MonoBehaviour
                     break;
 
                 case "ResourceWhite":
-                    toDrag.position = Vector3.MoveTowards(toDrag.position, spawnerWhite.transform.position, 0.3f);
+                    toDrag.position = Vector3.MoveTowards(toDrag.position, spawnerWhite.transform.position, settings.resourceSpeed);
                     if (toDrag.position == spawnerWhite.transform.position)
                     {
                         Destroy(toDrag.gameObject);
@@ -212,7 +214,7 @@ public class DragResources : MonoBehaviour
                     break;
 
                 case "ResourceLadan":
-                    toDrag.position = Vector3.MoveTowards(toDrag.position, spawnerLadan.transform.position, 0.3f);
+                    toDrag.position = Vector3.MoveTowards(toDrag.position, spawnerLadan.transform.position, settings.resourceSpeed);
                     if (toDrag.position == spawnerLadan.transform.position)
                     {
                         Destroy(toDrag.gameObject);
@@ -222,7 +224,7 @@ public class DragResources : MonoBehaviour
                     break;
 
                 case "ResourceEye":
-                    toDrag.position = Vector3.MoveTowards(toDrag.position, spawnerEye.transform.position, 0.3f);
+                    toDrag.position = Vector3.MoveTowards(toDrag.position, spawnerEye.transform.position, settings.resourceSpeed);
                     if (toDrag.position == spawnerEye.transform.position)
                     {
                         Destroy(toDrag.gameObject);
@@ -232,7 +234,7 @@ public class DragResources : MonoBehaviour
                     break;
 
                 case "ResourceStone":
-                    toDrag.position = Vector3.MoveTowards(toDrag.position, spawnerStone.transform.position, 0.3f);
+                    toDrag.position = Vector3.MoveTowards(toDrag.position, spawnerStone.transform.position, settings.resourceSpeed);
                     if (toDrag.position == spawnerStone.transform.position)
                     {
                         Destroy(toDrag.gameObject);
@@ -242,7 +244,7 @@ public class DragResources : MonoBehaviour
                     break;
 
                 case "ResourceSand":
-                    toDrag.position = Vector3.MoveTowards(toDrag.position, spawnerSand.transform.position, 0.3f);
+                    toDrag.position = Vector3.MoveTowards(toDrag.position, spawnerSand.transform.position, settings.resourceSpeed);
                     if (toDrag.position == spawnerSand.transform.position)
                     {
                         Destroy(toDrag.gameObject);

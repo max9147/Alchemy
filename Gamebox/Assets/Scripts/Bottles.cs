@@ -25,6 +25,8 @@ public class Bottles : MonoBehaviour
     public GameObject potionSystem;
     public GameObject bottleSpawner;
 
+    public Settings settings;
+
     public bool[] takenSpace = new bool[8];
     public bool[] bottleUsage = new bool[8];
 
@@ -74,19 +76,19 @@ public class Bottles : MonoBehaviour
         {
             if (bottle[i].transform.position != bottlePos[bottle[i].GetComponent<BottlePotion>().takenSpace].transform.position && bottle[i].GetComponent<BottlePotion>().potionColor != PotionColor.Empty && !isDragging)
             {
-                bottle[i].transform.position = Vector3.MoveTowards(bottle[i].transform.position, bottlePos[bottle[i].GetComponent<BottlePotion>().takenSpace].transform.position, 0.3f);
+                bottle[i].transform.position = Vector3.MoveTowards(bottle[i].transform.position, bottlePos[bottle[i].GetComponent<BottlePotion>().takenSpace].transform.position, settings.bottleSpeed);
             }
         }
 
         if (Input.touchCount > 0)
         {
-            if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
-                return;
-
             touch = Input.GetTouch(0);
 
             if (touch.phase == TouchPhase.Began && canTake)
             {
+                if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+                    return;
+
                 isDragging = true;
 
                 Vector3 pos = cam.ScreenToWorldPoint(touch.position);
@@ -366,7 +368,7 @@ public class Bottles : MonoBehaviour
             if (toDrag.GetComponent<BottlePotion>().potionColor == PotionColor.Empty)
             {
                 takenBottleNumber = toDrag.GetComponent<BottlePotion>().takenSpace;
-                toDrag.position = Vector3.MoveTowards(toDrag.position, bottleSpawner.transform.position, 0.3f);
+                toDrag.position = Vector3.MoveTowards(toDrag.position, bottleSpawner.transform.position, settings.bottleSpeed);
                 if (toDrag.position == bottleSpawner.transform.position)
                 {
                     switch (toDrag.tag)
@@ -402,7 +404,8 @@ public class Bottles : MonoBehaviour
                     int max = 0;
                     for (int i = 0; i < bottleCount; i++)
                     {
-                        if (bottle[i].GetComponent<BottlePotion>().potionColor != PotionColor.Empty && bottle[i].GetComponent<BottlePotion>().takenSpace > takenBottleNumber)
+                        if (bottle[i].GetComponent<BottlePotion>().potionColor != PotionColor.Empty && bottle[i].GetComponent<BottlePotion>().takenSpace > takenBottleNumber &&
+                            (toDrag.GetComponent<BottlePotion>().justDrained || toDrag.GetComponent<BottlePotion>().justGiven))
                         {
                             if (max < bottle[i].GetComponent<BottlePotion>().takenSpace)
                                 max = bottle[i].GetComponent<BottlePotion>().takenSpace;
@@ -415,6 +418,7 @@ public class Bottles : MonoBehaviour
                         takenSpace[max] = false;
 
                     toDrag.GetComponent<BottlePotion>().justDrained = false;
+                    toDrag.GetComponent<BottlePotion>().justGiven = false;
                     toDrag.gameObject.SetActive(false);
                     canTake = true;
                     toDrag = null;
@@ -428,7 +432,7 @@ public class Bottles : MonoBehaviour
             }
             else
             {
-                toDrag.position = Vector3.MoveTowards(toDrag.position, bottlePos[toDrag.GetComponent<BottlePotion>().takenSpace].transform.position, 0.3f);
+                toDrag.position = Vector3.MoveTowards(toDrag.position, bottlePos[toDrag.GetComponent<BottlePotion>().takenSpace].transform.position, settings.bottleSpeed);
                 if (toDrag.position == bottlePos[toDrag.GetComponent<BottlePotion>().takenSpace].transform.position)
                 {
                     takenSpace[toDrag.GetComponent<BottlePotion>().takenSpace] = true;

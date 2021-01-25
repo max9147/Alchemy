@@ -30,3 +30,6 @@ MonoBehaviour:
   timeBrewRare: 8
   timeWood: 30
   woodSpeedup: 2
+  resourceSpeed: 0.3
+  bottleSpeed: 0.3
+  camSpeed: 0.3

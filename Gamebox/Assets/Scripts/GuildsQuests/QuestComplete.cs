@@ -42,6 +42,7 @@ public class QuestComplete : MonoBehaviour
 
                 guildSystem.GetComponent<QuestsSystem>().questStep++;
 
+                collision.GetComponent<BottlePotion>().justGiven = true;
                 collision.transform.Find("Water").GetComponent<SpriteRenderer>().color = Color.white;
                 collision.transform.Find("Water").gameObject.SetActive(false);
                 collision.GetComponent<BottlePotion>().potionColor = PotionColor.Empty;

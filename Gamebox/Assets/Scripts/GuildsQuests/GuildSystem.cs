@@ -23,8 +23,6 @@ public class GuildSystem : MonoBehaviour
     public Button buyRepPriests;
     public Button buyRepMagicians;
 
-    public Settings settings;
-
     public int repWarriors;
     public int repBandits;
     public int repPriests;
