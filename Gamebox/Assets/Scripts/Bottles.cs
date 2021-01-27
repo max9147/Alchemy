@@ -120,6 +120,7 @@ public class Bottles : MonoBehaviour
                         {
                             toDrag = bottle[i].transform;
                             toDrag.gameObject.SetActive(true);
+                            toDrag.position = pos;
                             bottleUsage[i] = true;
                             break;
                         }
@@ -127,6 +128,8 @@ public class Bottles : MonoBehaviour
 
                     if (toDrag != null)
                         toDragRB = toDrag.GetComponent<Rigidbody2D>();
+
+                    toDragRB.simulated = false;
                 }
             }
             time += Time.deltaTime;

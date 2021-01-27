@@ -63,7 +63,7 @@ public class DragResources : MonoBehaviour
                             if (GetComponent<ResourceSystem>().GetAmount(Resource.Red) > 0)
                             {
                                 canTake = false;
-                                toDrag = Instantiate(resourceRed, spawnerRed.transform.position, transform.rotation).transform;
+                                toDrag = Instantiate(resourceRed, pos, transform.rotation).transform;
                                 GetComponent<ResourceSystem>().RemoveResource(Resource.Red, 1);
                             }
                             break;
@@ -72,7 +72,7 @@ public class DragResources : MonoBehaviour
                             if (GetComponent<ResourceSystem>().GetAmount(Resource.Blue) > 0)
                             {
                                 canTake = false;
-                                toDrag = Instantiate(resourceBlue, spawnerBlue.transform.position, transform.rotation).transform;
+                                toDrag = Instantiate(resourceBlue, pos, transform.rotation).transform;
                                 GetComponent<ResourceSystem>().RemoveResource(Resource.Blue, 1);
                             }
                             break;
@@ -81,7 +81,7 @@ public class DragResources : MonoBehaviour
                             if (GetComponent<ResourceSystem>().GetAmount(Resource.Yellow) > 0)
                             {
                                 canTake = false;
-                                toDrag = Instantiate(resourceYellow, spawnerYellow.transform.position, transform.rotation).transform;
+                                toDrag = Instantiate(resourceYellow, pos, transform.rotation).transform;
                                 GetComponent<ResourceSystem>().RemoveResource(Resource.Yellow, 1);
                             }
                             break;
@@ -90,7 +90,7 @@ public class DragResources : MonoBehaviour
                             if (GetComponent<ResourceSystem>().GetAmount(Resource.White) > 0)
                             {
                                 canTake = false;
-                                toDrag = Instantiate(resourceWhite, spawnerWhite.transform.position, transform.rotation).transform;
+                                toDrag = Instantiate(resourceWhite, pos, transform.rotation).transform;
                                 GetComponent<ResourceSystem>().RemoveResource(Resource.White, 1);
                             }
                             break;
@@ -99,7 +99,7 @@ public class DragResources : MonoBehaviour
                             if (GetComponent<ResourceSystem>().GetAmount(Resource.Ladan) > 0)
                             {
                                 canTake = false;
-                                toDrag = Instantiate(resourceLadan, spawnerLadan.transform.position, transform.rotation).transform;
+                                toDrag = Instantiate(resourceLadan, pos, transform.rotation).transform;
                                 GetComponent<ResourceSystem>().RemoveResource(Resource.Ladan, 1);
                             }
                             break;
@@ -108,7 +108,7 @@ public class DragResources : MonoBehaviour
                             if (GetComponent<ResourceSystem>().GetAmount(Resource.Eye) > 0)
                             {
                                 canTake = false;
-                                toDrag = Instantiate(resourceEye, spawnerEye.transform.position, transform.rotation).transform;
+                                toDrag = Instantiate(resourceEye, pos, transform.rotation).transform;
                                 GetComponent<ResourceSystem>().RemoveResource(Resource.Eye, 1);
                             }
                             break;
@@ -117,7 +117,7 @@ public class DragResources : MonoBehaviour
                             if (GetComponent<ResourceSystem>().GetAmount(Resource.Stone) > 0)
                             {
                                 canTake = false;
-                                toDrag = Instantiate(resourceStone, spawnerStone.transform.position, transform.rotation).transform;
+                                toDrag = Instantiate(resourceStone, pos, transform.rotation).transform;
                                 GetComponent<ResourceSystem>().RemoveResource(Resource.Stone, 1);
                             }
                             break;
@@ -126,7 +126,7 @@ public class DragResources : MonoBehaviour
                             if (GetComponent<ResourceSystem>().GetAmount(Resource.Sand) > 0)
                             {
                                 canTake = false;
-                                toDrag = Instantiate(resourceSand, spawnerSand.transform.position, transform.rotation).transform;
+                                toDrag = Instantiate(resourceSand, pos, transform.rotation).transform;
                                 GetComponent<ResourceSystem>().RemoveResource(Resource.Sand, 1);
                             }
                             break;
