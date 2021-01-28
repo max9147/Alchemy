@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class Popups : MonoBehaviour
@@ -96,7 +97,7 @@ public class Popups : MonoBehaviour
         popupOpen = false;
         Time.timeScale = 1;
         pauseIcon.gameObject.SetActive(false);
-
+        EventSystem.current.SetSelectedGameObject(null);
         popupShop.gameObject.SetActive(false);
         popupGuilds.gameObject.SetActive(false);
         popupRecipes.gameObject.SetActive(false);

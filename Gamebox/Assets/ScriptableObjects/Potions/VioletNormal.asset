@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: VioletNormal
   m_EditorClassIdentifier: 
   potionName: "\u0424\u0438\u043E\u043B\u0435\u0442\u043E\u0432\u043E\u0435 \u0437\u0435\u043B\u044C\u0435"
-  image: {fileID: 21300000, guid: ec3355740b4735443899c19687488c2f, type: 3}
+  image: {fileID: 21300000, guid: 106296a26d776a947936641678a7d4b4, type: 3}
   colored:
   - {fileID: 21300000, guid: e27a1dcb508f6cb4b9170ba95af69664, type: 3}
   - {fileID: 21300000, guid: 1ddd95f545f51ac40afbccf2dfd15308, type: 3}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GreenNormal
   m_EditorClassIdentifier: 
   potionName: "\u0417\u0435\u043B\u0435\u043D\u043E\u0435 \u0437\u0435\u043B\u044C\u0435"
-  image: {fileID: 21300000, guid: ec3355740b4735443899c19687488c2f, type: 3}
+  image: {fileID: 21300000, guid: 106296a26d776a947936641678a7d4b4, type: 3}
   colored:
   - {fileID: 21300000, guid: 1ddd95f545f51ac40afbccf2dfd15308, type: 3}
   - {fileID: 21300000, guid: 6408bae48442de741b89011748c49081, type: 3}

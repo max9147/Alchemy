@@ -435,7 +435,6 @@ public class Bottles : MonoBehaviour
             }
             else
             {
-                toDrag.position = Vector3.MoveTowards(toDrag.position, bottlePos[toDrag.GetComponent<BottlePotion>().takenSpace].transform.position, settings.bottleSpeed);
                 if (toDrag.position == bottlePos[toDrag.GetComponent<BottlePotion>().takenSpace].transform.position)
                 {
                     takenSpace[toDrag.GetComponent<BottlePotion>().takenSpace] = true;

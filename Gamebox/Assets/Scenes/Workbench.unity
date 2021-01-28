@@ -981,17 +981,17 @@ MonoBehaviour:
   - {fileID: 1132951824}
   - {fileID: 1516472617}
   colors:
-  - {r: 0, g: 0, b: 0, a: 1}
-  - {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
-  - {r: 0.44313726, g: 0, b: 0.44313726, a: 1}
-  - {r: 1, g: 0.3764706, b: 0, a: 1}
-  - {r: 0, g: 0.4627451, b: 0, a: 1}
-  - {r: 0.54509807, g: 0, b: 1, a: 1}
-  - {r: 1, g: 0.5372549, b: 0.33333334, a: 1}
-  - {r: 0.5019608, g: 1, b: 0, a: 1}
-  - {r: 1, g: 0.31764707, b: 1, a: 1}
-  - {r: 0, g: 1, b: 1, a: 1}
-  - {r: 1, g: 0.827451, b: 0.23137255, a: 1}
+  - {r: 0, g: 0, b: 0, a: 0.78431374}
+  - {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0.5882353}
+  - {r: 0.44313726, g: 0, b: 0.44313726, a: 0.5882353}
+  - {r: 1, g: 0.3764706, b: 0, a: 0.5882353}
+  - {r: 0, g: 0.4627451, b: 0, a: 0.5882353}
+  - {r: 0.54509807, g: 0, b: 1, a: 0.5882353}
+  - {r: 1, g: 0.6878893, b: 0, a: 0.5882353}
+  - {r: 0.5019608, g: 1, b: 0, a: 0.5882353}
+  - {r: 1, g: 0.31764707, b: 1, a: 0.5882353}
+  - {r: 0, g: 1, b: 1, a: 0.5882353}
+  - {r: 1, g: 0.827451, b: 0.23137255, a: 0.5882353}
   effectFire: {fileID: 21300000, guid: 084f12a3d865cd14da3b0eca95099942, type: 3}
   effectSmoke: {fileID: 21300000, guid: 68dd3723d780e6646a5d6f45e454e470, type: 3}
   effectGlow: {fileID: 21300000, guid: 6264f961a8b45da41970e7f3b2b9ef27, type: 3}
@@ -2031,7 +2031,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2041,10 +2041,11 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: 12fb3b323b129324484a0f4ff4589b3d,
+      type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 12fb3b323b129324484a0f4ff4589b3d, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 12fb3b323b129324484a0f4ff4589b3d, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: 12fb3b323b129324484a0f4ff4589b3d, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -3431,7 +3432,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -3441,10 +3442,11 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: 10b14c9f987764d4fa52514d8f498b82,
+      type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 10b14c9f987764d4fa52514d8f498b82, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 10b14c9f987764d4fa52514d8f498b82, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: 10b14c9f987764d4fa52514d8f498b82, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -3882,7 +3884,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -3892,10 +3894,11 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: a0a323063a29c4a4f9a233c1a07f0472,
+      type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: a0a323063a29c4a4f9a233c1a07f0472, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: a0a323063a29c4a4f9a233c1a07f0472, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: a0a323063a29c4a4f9a233c1a07f0472, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -7008,17 +7011,17 @@ MonoBehaviour:
   - {fileID: 1132951824}
   - {fileID: 1516472617}
   colors:
-  - {r: 0, g: 0, b: 0, a: 1}
-  - {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
-  - {r: 0.44313726, g: 0, b: 0.44313726, a: 1}
-  - {r: 1, g: 0.3764706, b: 0, a: 1}
-  - {r: 0, g: 0.4627451, b: 0, a: 1}
-  - {r: 0.54509807, g: 0, b: 1, a: 1}
-  - {r: 1, g: 0.5372549, b: 0.33333334, a: 1}
-  - {r: 0.5019608, g: 1, b: 0, a: 1}
-  - {r: 1, g: 0.31764707, b: 1, a: 1}
-  - {r: 0, g: 1, b: 1, a: 1}
-  - {r: 1, g: 0.827451, b: 0.23137255, a: 1}
+  - {r: 0, g: 0, b: 0, a: 0.78431374}
+  - {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0.5882353}
+  - {r: 0.44313726, g: 0, b: 0.44313726, a: 0.5882353}
+  - {r: 1, g: 0.3764706, b: 0, a: 0.5882353}
+  - {r: 0, g: 0.4627451, b: 0, a: 0.5882353}
+  - {r: 0.54509807, g: 0, b: 1, a: 0.5882353}
+  - {r: 1, g: 0.6878893, b: 0, a: 0.5882353}
+  - {r: 0.5019608, g: 1, b: 0, a: 0.5882353}
+  - {r: 1, g: 0.31764707, b: 1, a: 0.5882353}
+  - {r: 0, g: 1, b: 1, a: 0.5882353}
+  - {r: 1, g: 0.827451, b: 0.23137255, a: 0.5882353}
   effectFire: {fileID: 21300000, guid: 084f12a3d865cd14da3b0eca95099942, type: 3}
   effectSmoke: {fileID: 21300000, guid: 68dd3723d780e6646a5d6f45e454e470, type: 3}
   effectGlow: {fileID: 21300000, guid: 6264f961a8b45da41970e7f3b2b9ef27, type: 3}
@@ -9400,17 +9403,17 @@ MonoBehaviour:
   - {fileID: 1132951824}
   - {fileID: 1516472617}
   colors:
-  - {r: 0, g: 0, b: 0, a: 1}
-  - {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
-  - {r: 0.44313726, g: 0, b: 0.44313726, a: 1}
-  - {r: 1, g: 0.3764706, b: 0, a: 1}
-  - {r: 0, g: 0.4627451, b: 0, a: 1}
-  - {r: 0.54509807, g: 0, b: 1, a: 1}
-  - {r: 1, g: 0.5372549, b: 0.33333334, a: 1}
-  - {r: 0.5019608, g: 1, b: 0, a: 1}
-  - {r: 1, g: 0.31764707, b: 1, a: 1}
-  - {r: 0, g: 1, b: 1, a: 1}
-  - {r: 1, g: 0.827451, b: 0.23137255, a: 1}
+  - {r: 0, g: 0, b: 0, a: 0.78431374}
+  - {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0.5882353}
+  - {r: 0.44313726, g: 0, b: 0.44313726, a: 0.5882353}
+  - {r: 1, g: 0.3764706, b: 0, a: 0.5882353}
+  - {r: 0, g: 0.4627451, b: 0, a: 0.5882353}
+  - {r: 0.54509807, g: 0, b: 1, a: 0.5882353}
+  - {r: 1, g: 0.6878893, b: 0, a: 0.5882353}
+  - {r: 0.5019608, g: 1, b: 0, a: 0.5882353}
+  - {r: 1, g: 0.31764707, b: 1, a: 0.5882353}
+  - {r: 0, g: 1, b: 1, a: 0.5882353}
+  - {r: 1, g: 0.827451, b: 0.23137255, a: 0.5882353}
   effectFire: {fileID: 21300000, guid: 084f12a3d865cd14da3b0eca95099942, type: 3}
   effectSmoke: {fileID: 21300000, guid: 68dd3723d780e6646a5d6f45e454e470, type: 3}
   effectGlow: {fileID: 21300000, guid: 6264f961a8b45da41970e7f3b2b9ef27, type: 3}
@@ -11056,17 +11059,17 @@ MonoBehaviour:
   - {fileID: 1132951824}
   - {fileID: 1516472617}
   colors:
-  - {r: 0, g: 0, b: 0, a: 1}
-  - {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
-  - {r: 0.44313726, g: 0, b: 0.44313726, a: 1}
-  - {r: 1, g: 0.3764706, b: 0, a: 1}
-  - {r: 0, g: 0.4627451, b: 0, a: 1}
-  - {r: 0.54509807, g: 0, b: 1, a: 1}
-  - {r: 1, g: 0.5372549, b: 0.33333334, a: 1}
-  - {r: 0.5019608, g: 1, b: 0, a: 1}
-  - {r: 1, g: 0.31764707, b: 1, a: 1}
-  - {r: 0, g: 1, b: 1, a: 1}
-  - {r: 1, g: 0.827451, b: 0.23137255, a: 1}
+  - {r: 0, g: 0, b: 0, a: 0.78431374}
+  - {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0.5882353}
+  - {r: 0.44313726, g: 0, b: 0.44313726, a: 0.5882353}
+  - {r: 1, g: 0.3764706, b: 0, a: 0.5882353}
+  - {r: 0, g: 0.4627451, b: 0, a: 0.5882353}
+  - {r: 0.54509807, g: 0, b: 1, a: 0.5882353}
+  - {r: 1, g: 0.6878893, b: 0, a: 0.5882353}
+  - {r: 0.5019608, g: 1, b: 0, a: 0.5882353}
+  - {r: 1, g: 0.31764707, b: 1, a: 0.5882353}
+  - {r: 0, g: 1, b: 1, a: 0.5882353}
+  - {r: 1, g: 0.827451, b: 0.23137255, a: 0.5882353}
   effectFire: {fileID: 21300000, guid: 084f12a3d865cd14da3b0eca95099942, type: 3}
   effectSmoke: {fileID: 21300000, guid: 68dd3723d780e6646a5d6f45e454e470, type: 3}
   effectGlow: {fileID: 21300000, guid: 6264f961a8b45da41970e7f3b2b9ef27, type: 3}
@@ -17032,7 +17035,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -17042,10 +17045,11 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: faa2981ceb19e7d43b9ffec4a5e2ea21,
+      type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: faa2981ceb19e7d43b9ffec4a5e2ea21, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: faa2981ceb19e7d43b9ffec4a5e2ea21, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: faa2981ceb19e7d43b9ffec4a5e2ea21, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -18342,17 +18346,17 @@ MonoBehaviour:
   - {fileID: 1132951824}
   - {fileID: 1516472617}
   colors:
-  - {r: 0, g: 0, b: 0, a: 1}
-  - {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
-  - {r: 0.44313726, g: 0, b: 0.44313726, a: 1}
-  - {r: 1, g: 0.3764706, b: 0, a: 1}
-  - {r: 0, g: 0.4627451, b: 0, a: 1}
-  - {r: 0.54509807, g: 0, b: 1, a: 1}
-  - {r: 1, g: 0.5372549, b: 0.33333334, a: 1}
-  - {r: 0.5019608, g: 1, b: 0, a: 1}
-  - {r: 1, g: 0.31764707, b: 1, a: 1}
-  - {r: 0, g: 1, b: 1, a: 1}
-  - {r: 1, g: 0.827451, b: 0.23137255, a: 1}
+  - {r: 0, g: 0, b: 0, a: 0.78431374}
+  - {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0.5882353}
+  - {r: 0.44313726, g: 0, b: 0.44313726, a: 0.5882353}
+  - {r: 1, g: 0.3764706, b: 0, a: 0.5882353}
+  - {r: 0, g: 0.4627451, b: 0, a: 0.5882353}
+  - {r: 0.54509807, g: 0, b: 1, a: 0.5882353}
+  - {r: 1, g: 0.6878893, b: 0, a: 0.5882353}
+  - {r: 0.5019608, g: 1, b: 0, a: 0.5882353}
+  - {r: 1, g: 0.31764707, b: 1, a: 0.5882353}
+  - {r: 0, g: 1, b: 1, a: 0.5882353}
+  - {r: 1, g: 0.827451, b: 0.23137255, a: 0.5882353}
   effectFire: {fileID: 21300000, guid: 084f12a3d865cd14da3b0eca95099942, type: 3}
   effectSmoke: {fileID: 21300000, guid: 68dd3723d780e6646a5d6f45e454e470, type: 3}
   effectGlow: {fileID: 21300000, guid: 6264f961a8b45da41970e7f3b2b9ef27, type: 3}
@@ -19110,7 +19114,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.3529412, g: 0.24705884, b: 0.21176472, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -19124,7 +19128,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0
-  far clip plane: 10
+  far clip plane: 1
   field of view: 60
   orthographic: 1
   orthographic size: 5
@@ -22074,7 +22078,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -22084,10 +22088,11 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: 2490c456ba8d4274b9a159f8cbc8dd31,
+      type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 2490c456ba8d4274b9a159f8cbc8dd31, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 2490c456ba8d4274b9a159f8cbc8dd31, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: 2490c456ba8d4274b9a159f8cbc8dd31, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -22303,17 +22308,17 @@ MonoBehaviour:
   - {fileID: 1132951824}
   - {fileID: 1516472617}
   colors:
-  - {r: 0, g: 0, b: 0, a: 1}
-  - {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
-  - {r: 0.44313726, g: 0, b: 0.44313726, a: 1}
-  - {r: 1, g: 0.3764706, b: 0, a: 1}
-  - {r: 0, g: 0.4627451, b: 0, a: 1}
-  - {r: 0.54509807, g: 0, b: 1, a: 1}
-  - {r: 1, g: 0.5372549, b: 0.33333334, a: 1}
-  - {r: 0.5019608, g: 1, b: 0, a: 1}
-  - {r: 1, g: 0.31764707, b: 1, a: 1}
-  - {r: 0, g: 1, b: 1, a: 1}
-  - {r: 1, g: 0.827451, b: 0.23137255, a: 1}
+  - {r: 0, g: 0, b: 0, a: 0.78431374}
+  - {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0.5882353}
+  - {r: 0.44313726, g: 0, b: 0.44313726, a: 0.5882353}
+  - {r: 1, g: 0.3764706, b: 0, a: 0.5882353}
+  - {r: 0, g: 0.4627451, b: 0, a: 0.5882353}
+  - {r: 0.54509807, g: 0, b: 1, a: 0.5882353}
+  - {r: 1, g: 0.6878893, b: 0, a: 0.5882353}
+  - {r: 0.5019608, g: 1, b: 0, a: 0.5882353}
+  - {r: 1, g: 0.31764707, b: 1, a: 0.5882353}
+  - {r: 0, g: 1, b: 1, a: 0.5882353}
+  - {r: 1, g: 0.827451, b: 0.23137255, a: 0.5882353}
   effectFire: {fileID: 21300000, guid: 084f12a3d865cd14da3b0eca95099942, type: 3}
   effectSmoke: {fileID: 21300000, guid: 68dd3723d780e6646a5d6f45e454e470, type: 3}
   effectGlow: {fileID: 21300000, guid: 6264f961a8b45da41970e7f3b2b9ef27, type: 3}
@@ -22479,17 +22484,17 @@ MonoBehaviour:
   - {fileID: 1132951824}
   - {fileID: 1516472617}
   colors:
-  - {r: 0, g: 0, b: 0, a: 1}
-  - {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
-  - {r: 0.44313726, g: 0, b: 0.44313726, a: 1}
-  - {r: 1, g: 0.3764706, b: 0, a: 1}
-  - {r: 0, g: 0.4627451, b: 0, a: 1}
-  - {r: 0.54509807, g: 0, b: 1, a: 1}
-  - {r: 1, g: 0.5372549, b: 0.33333334, a: 1}
-  - {r: 0.5019608, g: 1, b: 0, a: 1}
-  - {r: 1, g: 0.31764707, b: 1, a: 1}
-  - {r: 0, g: 1, b: 1, a: 1}
-  - {r: 1, g: 0.827451, b: 0.23137255, a: 1}
+  - {r: 0, g: 0, b: 0, a: 0.78431374}
+  - {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0.5882353}
+  - {r: 0.44313726, g: 0, b: 0.44313726, a: 0.5882353}
+  - {r: 1, g: 0.3764706, b: 0, a: 0.5882353}
+  - {r: 0, g: 0.4627451, b: 0, a: 0.5882353}
+  - {r: 0.54509807, g: 0, b: 1, a: 0.5882353}
+  - {r: 1, g: 0.6878893, b: 0, a: 0.5882353}
+  - {r: 0.5019608, g: 1, b: 0, a: 0.5882353}
+  - {r: 1, g: 0.31764707, b: 1, a: 0.5882353}
+  - {r: 0, g: 1, b: 1, a: 0.5882353}
+  - {r: 1, g: 0.827451, b: 0.23137255, a: 0.5882353}
   effectFire: {fileID: 21300000, guid: 084f12a3d865cd14da3b0eca95099942, type: 3}
   effectSmoke: {fileID: 21300000, guid: 68dd3723d780e6646a5d6f45e454e470, type: 3}
   effectGlow: {fileID: 21300000, guid: 6264f961a8b45da41970e7f3b2b9ef27, type: 3}
@@ -23370,17 +23375,17 @@ MonoBehaviour:
   - {fileID: 1132951824}
   - {fileID: 1516472617}
   colors:
-  - {r: 0, g: 0, b: 0, a: 1}
-  - {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
-  - {r: 0.44313726, g: 0, b: 0.44313726, a: 1}
-  - {r: 1, g: 0.3764706, b: 0, a: 1}
-  - {r: 0, g: 0.4627451, b: 0, a: 1}
-  - {r: 0.54509807, g: 0, b: 1, a: 1}
-  - {r: 1, g: 0.5354121, b: 0.33490568, a: 1}
-  - {r: 0.5019608, g: 1, b: 0, a: 1}
-  - {r: 1, g: 0.31764707, b: 1, a: 1}
-  - {r: 0, g: 1, b: 1, a: 1}
-  - {r: 1, g: 0.827451, b: 0.23137255, a: 1}
+  - {r: 0, g: 0, b: 0, a: 0.78431374}
+  - {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0.5882353}
+  - {r: 0.44313726, g: 0, b: 0.44313726, a: 0.5882353}
+  - {r: 1, g: 0.3764706, b: 0, a: 0.5882353}
+  - {r: 0, g: 0.4627451, b: 0, a: 0.5882353}
+  - {r: 0.54509807, g: 0, b: 1, a: 0.5882353}
+  - {r: 1, g: 0.6878893, b: 0, a: 0.5882353}
+  - {r: 0.5019608, g: 1, b: 0, a: 0.5882353}
+  - {r: 1, g: 0.31764707, b: 1, a: 0.5882353}
+  - {r: 0, g: 1, b: 1, a: 0.5882353}
+  - {r: 1, g: 0.827451, b: 0.23137255, a: 0.5882353}
   effectFire: {fileID: 21300000, guid: 084f12a3d865cd14da3b0eca95099942, type: 3}
   effectSmoke: {fileID: 21300000, guid: 68dd3723d780e6646a5d6f45e454e470, type: 3}
   effectGlow: {fileID: 21300000, guid: 6264f961a8b45da41970e7f3b2b9ef27, type: 3}
@@ -23838,7 +23843,6 @@ GameObject:
   - component: {fileID: 2086809714}
   - component: {fileID: 2086809716}
   - component: {fileID: 2086809717}
-  - component: {fileID: 2086809718}
   m_Layer: 0
   m_Name: Cauldron
   m_TagString: Untagged
@@ -24033,35 +24037,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2086809718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2086809713}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7050718efe696d44382400b04845ba70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colors:
-  - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 0, g: 0, b: 1, a: 1}
-  - {r: 1, g: 1, b: 0, a: 1}
-  - {r: 1, g: 1, b: 1, a: 1}
-  - {r: 0, g: 0, b: 0, a: 1}
-  - {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
-  - {r: 0.53333336, g: 0, b: 0.50980395, a: 1}
-  - {r: 1, g: 0.43137255, b: 0, a: 1}
-  - {r: 0, g: 0.5882353, b: 0, a: 1}
-  - {r: 0.74509805, g: 0, b: 1, a: 1}
-  - {r: 1, g: 0.6745098, b: 0, a: 1}
-  - {r: 0, g: 1, b: 0, a: 1}
-  - {r: 1, g: 0, b: 1, a: 1}
-  - {r: 0, g: 1, b: 1, a: 1}
-  - {r: 1, g: 0.84313726, b: 0.3137255, a: 1}
-  targetColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &2094152742
 GameObject:
   m_ObjectHideFlags: 0
