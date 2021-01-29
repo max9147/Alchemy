@@ -57,6 +57,9 @@ public class QuestsSystem : MonoBehaviour
     public Quest priestsQuest;
     public Quest magiciansQuest;
 
+    public AudioClip newTask;
+    public AudioClip failTask;
+
     public float questTime;
     public int questStep = 0;
 
@@ -92,6 +95,9 @@ public class QuestsSystem : MonoBehaviour
                         timePassed = 0;
                         warriorsReady = true;
 
+                        GetComponent<AudioSource>().clip = newTask;
+                        GetComponent<AudioSource>().Play();
+
                         if (GetComponent<GuildSystem>().GetRep(Guild.Warriors) >= 75 && delayWarriors == 0)
                             warriorsQuest = CreateQuest(Difficulty.Hard, Guild.Warriors);
                         else
@@ -109,6 +115,9 @@ public class QuestsSystem : MonoBehaviour
                     {
                         timePassed = 0;
                         banditsReady = true;
+
+                        GetComponent<AudioSource>().clip = newTask;
+                        GetComponent<AudioSource>().Play();
 
                         if (GetComponent<GuildSystem>().GetRep(Guild.Bandits) >= 75 && delayBandits == 0)
                             banditsQuest = CreateQuest(Difficulty.Hard, Guild.Bandits);
@@ -128,6 +137,9 @@ public class QuestsSystem : MonoBehaviour
                         timePassed = 0;
                         priestsReady = true;
 
+                        GetComponent<AudioSource>().clip = newTask;
+                        GetComponent<AudioSource>().Play();
+
                         if (GetComponent<GuildSystem>().GetRep(Guild.Priests) >= 75 && delayPriests == 0)
                             priestsQuest = CreateQuest(Difficulty.Hard, Guild.Priests);
                         else
@@ -145,6 +157,9 @@ public class QuestsSystem : MonoBehaviour
                     {
                         timePassed = 0;
                         magiciansReady = true;
+
+                        GetComponent<AudioSource>().clip = newTask;
+                        GetComponent<AudioSource>().Play();
 
                         if (GetComponent<GuildSystem>().GetRep(Guild.Magicians) >= 75 && delayMagicians == 0)
                             magiciansQuest = CreateQuest(Difficulty.Hard, Guild.Magicians);
@@ -167,6 +182,9 @@ public class QuestsSystem : MonoBehaviour
         {
             if (timeWarriors <= 0)
             {
+                GetComponent<AudioSource>().clip = failTask;
+                GetComponent<AudioSource>().Play();
+
                 GetComponent<GuildSystem>().removeRep(Guild.Warriors, 10);
                 warrior.GetComponent<QuestComplete>().EndQuest();
                 warriorsReady = false;
@@ -188,6 +206,9 @@ public class QuestsSystem : MonoBehaviour
         {
             if (timeBandits <= 0)
             {
+                GetComponent<AudioSource>().clip = failTask;
+                GetComponent<AudioSource>().Play();
+
                 GetComponent<GuildSystem>().removeRep(Guild.Bandits, 10);
                 bandit.GetComponent<QuestComplete>().EndQuest();
                 banditsReady = false;
@@ -209,6 +230,9 @@ public class QuestsSystem : MonoBehaviour
         {
             if (timePriests <= 0)
             {
+                GetComponent<AudioSource>().clip = failTask;
+                GetComponent<AudioSource>().Play();
+
                 GetComponent<GuildSystem>().removeRep(Guild.Priests, 10);
                 priest.GetComponent<QuestComplete>().EndQuest();
                 priestsReady = false;
@@ -230,6 +254,9 @@ public class QuestsSystem : MonoBehaviour
         {
             if (timeMagicians <= 0)
             {
+                GetComponent<AudioSource>().clip = failTask;
+                GetComponent<AudioSource>().Play();
+
                 GetComponent<GuildSystem>().removeRep(Guild.Magicians, 10);
                 magician.GetComponent<QuestComplete>().EndQuest();
                 magiciansReady = false;

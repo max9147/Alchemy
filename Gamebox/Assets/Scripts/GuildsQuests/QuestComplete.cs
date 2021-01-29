@@ -13,6 +13,8 @@ public class QuestComplete : MonoBehaviour
     public bool haveQuest = false;
     public Settings settings;
 
+    public AudioClip completeTask;
+
     private int reward;
 
     public void NewQuest(PotionColor _potionColor, PotionEffect _potionEffect, int _reward)
@@ -39,6 +41,9 @@ public class QuestComplete : MonoBehaviour
                     guildSystem.GetComponent<QuestsSystem>().questTime -= settings.questSpeedup;
                     guildSystem.GetComponent<QuestsSystem>().questStep = 0;
                 }
+
+                GetComponent<AudioSource>().clip = completeTask;
+                GetComponent<AudioSource>().Play();
 
                 guildSystem.GetComponent<QuestsSystem>().questStep++;
 

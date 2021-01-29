@@ -27,6 +27,17 @@ public class DragResources : MonoBehaviour
 
     public Settings settings;
 
+    public AudioClip takeRed;
+    public AudioClip takeBlue;
+    public AudioClip takeYellow;
+    public AudioClip takeWhite;
+    public AudioClip takeLadan;
+    public AudioClip takeEye;
+    public AudioClip takeStone;
+    public AudioClip takeSand;
+
+    public AudioClip stopDragging;
+
     private Touch touch;
     private Transform toDrag;
     private Rigidbody2D toDragRB;
@@ -62,6 +73,8 @@ public class DragResources : MonoBehaviour
                         case "ResourceRed":
                             if (GetComponent<ResourceSystem>().GetAmount(Resource.Red) > 0)
                             {
+                                GetComponent<AudioSource>().clip = takeRed;
+                                GetComponent<AudioSource>().Play();
                                 canTake = false;
                                 toDrag = Instantiate(resourceRed, pos, transform.rotation).transform;
                                 GetComponent<ResourceSystem>().RemoveResource(Resource.Red, 1);
@@ -71,6 +84,8 @@ public class DragResources : MonoBehaviour
                         case "ResourceBlue":
                             if (GetComponent<ResourceSystem>().GetAmount(Resource.Blue) > 0)
                             {
+                                GetComponent<AudioSource>().clip = takeBlue;
+                                GetComponent<AudioSource>().Play();
                                 canTake = false;
                                 toDrag = Instantiate(resourceBlue, pos, transform.rotation).transform;
                                 GetComponent<ResourceSystem>().RemoveResource(Resource.Blue, 1);
@@ -80,6 +95,8 @@ public class DragResources : MonoBehaviour
                         case "ResourceYellow":
                             if (GetComponent<ResourceSystem>().GetAmount(Resource.Yellow) > 0)
                             {
+                                GetComponent<AudioSource>().clip = takeYellow;
+                                GetComponent<AudioSource>().Play();
                                 canTake = false;
                                 toDrag = Instantiate(resourceYellow, pos, transform.rotation).transform;
                                 GetComponent<ResourceSystem>().RemoveResource(Resource.Yellow, 1);
@@ -89,6 +106,8 @@ public class DragResources : MonoBehaviour
                         case "ResourceWhite":
                             if (GetComponent<ResourceSystem>().GetAmount(Resource.White) > 0)
                             {
+                                GetComponent<AudioSource>().clip = takeWhite;
+                                GetComponent<AudioSource>().Play();
                                 canTake = false;
                                 toDrag = Instantiate(resourceWhite, pos, transform.rotation).transform;
                                 GetComponent<ResourceSystem>().RemoveResource(Resource.White, 1);
@@ -98,6 +117,8 @@ public class DragResources : MonoBehaviour
                         case "ResourceLadan":
                             if (GetComponent<ResourceSystem>().GetAmount(Resource.Ladan) > 0)
                             {
+                                GetComponent<AudioSource>().clip = takeLadan;
+                                GetComponent<AudioSource>().Play();
                                 canTake = false;
                                 toDrag = Instantiate(resourceLadan, pos, transform.rotation).transform;
                                 GetComponent<ResourceSystem>().RemoveResource(Resource.Ladan, 1);
@@ -107,6 +128,8 @@ public class DragResources : MonoBehaviour
                         case "ResourceEye":
                             if (GetComponent<ResourceSystem>().GetAmount(Resource.Eye) > 0)
                             {
+                                GetComponent<AudioSource>().clip = takeEye;
+                                GetComponent<AudioSource>().Play();
                                 canTake = false;
                                 toDrag = Instantiate(resourceEye, pos, transform.rotation).transform;
                                 GetComponent<ResourceSystem>().RemoveResource(Resource.Eye, 1);
@@ -116,6 +139,8 @@ public class DragResources : MonoBehaviour
                         case "ResourceStone":
                             if (GetComponent<ResourceSystem>().GetAmount(Resource.Stone) > 0)
                             {
+                                GetComponent<AudioSource>().clip = takeStone;
+                                GetComponent<AudioSource>().Play();
                                 canTake = false;
                                 toDrag = Instantiate(resourceStone, pos, transform.rotation).transform;
                                 GetComponent<ResourceSystem>().RemoveResource(Resource.Stone, 1);
@@ -125,6 +150,8 @@ public class DragResources : MonoBehaviour
                         case "ResourceSand":
                             if (GetComponent<ResourceSystem>().GetAmount(Resource.Sand) > 0)
                             {
+                                GetComponent<AudioSource>().clip = takeSand;
+                                GetComponent<AudioSource>().Play();
                                 canTake = false;
                                 toDrag = Instantiate(resourceSand, pos, transform.rotation).transform;
                                 GetComponent<ResourceSystem>().RemoveResource(Resource.Sand, 1);
@@ -264,6 +291,9 @@ public class DragResources : MonoBehaviour
         yield return new WaitForSeconds(0.02f);
         if (toDrag != null)
         {
+            GetComponent<AudioSource>().clip = stopDragging;
+            GetComponent<AudioSource>().Play();
+
             toDrag.GetComponent<Collider2D>().enabled = false;
             toDrag.GetComponent<SpriteRenderer>().sortingOrder = 4;
         }

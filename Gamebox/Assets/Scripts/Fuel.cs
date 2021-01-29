@@ -11,6 +11,8 @@ public class Fuel : MonoBehaviour
 
     public GameObject cauldron;
 
+    public AudioClip addFuelSound;
+
     public int fuelCount = 0;
 
     private void Start()
@@ -32,6 +34,9 @@ public class Fuel : MonoBehaviour
 
     public void RemoveFuel()
     {
+        GetComponent<AudioSource>().clip = addFuelSound;
+        GetComponent<AudioSource>().Play();
+
         fuelCount--;
         textFuel.text = fuelCount.ToString();
         if (fuelCount==0)

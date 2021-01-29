@@ -16,6 +16,9 @@ public class ShopSystem : MonoBehaviour
     public Button buttonBuyCauldron;
     public TextMeshProUGUI textBuyCauldron;
 
+    public AudioClip buyResource;
+    public AudioClip buyUpgrade;
+
     public int bottleCost = 500;
     public int cauldronCost = 3000;
 
@@ -55,6 +58,8 @@ public class ShopSystem : MonoBehaviour
             case Resource.Red:
                 if (GetComponent<MoneySystem>().GetMoney() >= 100)
                 {
+                    GetComponent<AudioSource>().clip = buyResource;
+                    GetComponent<AudioSource>().Play();
                     GetComponent<MoneySystem>().SpendMoney(100);
                     resourceSystem.GetComponent<ResourceSystem>().AddResource(Resource.Red, 1);
                 }
@@ -63,6 +68,8 @@ public class ShopSystem : MonoBehaviour
             case Resource.Blue:
                 if (GetComponent<MoneySystem>().GetMoney() >= 100)
                 {
+                    GetComponent<AudioSource>().clip = buyResource;
+                    GetComponent<AudioSource>().Play();
                     GetComponent<MoneySystem>().SpendMoney(100);
                     resourceSystem.GetComponent<ResourceSystem>().AddResource(Resource.Blue, 1);
                 }
@@ -71,6 +78,8 @@ public class ShopSystem : MonoBehaviour
             case Resource.Yellow:
                 if (GetComponent<MoneySystem>().GetMoney() >= 100)
                 {
+                    GetComponent<AudioSource>().clip = buyResource;
+                    GetComponent<AudioSource>().Play();
                     GetComponent<MoneySystem>().SpendMoney(100);
                     resourceSystem.GetComponent<ResourceSystem>().AddResource(Resource.Yellow, 1);
                 }
@@ -79,6 +88,8 @@ public class ShopSystem : MonoBehaviour
             case Resource.White:
                 if (GetComponent<MoneySystem>().GetMoney() >= 100)
                 {
+                    GetComponent<AudioSource>().clip = buyResource;
+                    GetComponent<AudioSource>().Play();
                     GetComponent<MoneySystem>().SpendMoney(100);
                     resourceSystem.GetComponent<ResourceSystem>().AddResource(Resource.White, 1);
                 }
@@ -96,6 +107,8 @@ public class ShopSystem : MonoBehaviour
             case Resource.Red:
                 if (GetComponent<MoneySystem>().GetMoney() >= 500)
                 {
+                    GetComponent<AudioSource>().clip = buyResource;
+                    GetComponent<AudioSource>().Play();
                     GetComponent<MoneySystem>().SpendMoney(500);
                     resourceSystem.GetComponent<ResourceSystem>().AddResource(Resource.Red, 5);
                 }
@@ -104,6 +117,8 @@ public class ShopSystem : MonoBehaviour
             case Resource.Blue:
                 if (GetComponent<MoneySystem>().GetMoney() >= 500)
                 {
+                    GetComponent<AudioSource>().clip = buyResource;
+                    GetComponent<AudioSource>().Play();
                     GetComponent<MoneySystem>().SpendMoney(500);
                     resourceSystem.GetComponent<ResourceSystem>().AddResource(Resource.Blue, 5);
                 }
@@ -112,6 +127,8 @@ public class ShopSystem : MonoBehaviour
             case Resource.Yellow:
                 if (GetComponent<MoneySystem>().GetMoney() >= 500)
                 {
+                    GetComponent<AudioSource>().clip = buyResource;
+                    GetComponent<AudioSource>().Play();
                     GetComponent<MoneySystem>().SpendMoney(500);
                     resourceSystem.GetComponent<ResourceSystem>().AddResource(Resource.Yellow, 5);
                 }
@@ -120,6 +137,8 @@ public class ShopSystem : MonoBehaviour
             case Resource.White:
                 if (GetComponent<MoneySystem>().GetMoney() >= 500)
                 {
+                    GetComponent<AudioSource>().clip = buyResource;
+                    GetComponent<AudioSource>().Play();
                     GetComponent<MoneySystem>().SpendMoney(500);
                     resourceSystem.GetComponent<ResourceSystem>().AddResource(Resource.White, 5);
                 }
@@ -137,6 +156,8 @@ public class ShopSystem : MonoBehaviour
             case Resource.Red:
                 if (GetComponent<MoneySystem>().GetMoney() >= 1000)
                 {
+                    GetComponent<AudioSource>().clip = buyResource;
+                    GetComponent<AudioSource>().Play();
                     GetComponent<MoneySystem>().SpendMoney(1000);
                     resourceSystem.GetComponent<ResourceSystem>().AddResource(Resource.Red, 10);
                 }
@@ -145,6 +166,8 @@ public class ShopSystem : MonoBehaviour
             case Resource.Blue:
                 if (GetComponent<MoneySystem>().GetMoney() >= 1000)
                 {
+                    GetComponent<AudioSource>().clip = buyResource;
+                    GetComponent<AudioSource>().Play();
                     GetComponent<MoneySystem>().SpendMoney(1000);
                     resourceSystem.GetComponent<ResourceSystem>().AddResource(Resource.Blue, 10);
                 }
@@ -153,6 +176,8 @@ public class ShopSystem : MonoBehaviour
             case Resource.Yellow:
                 if (GetComponent<MoneySystem>().GetMoney() >= 1000)
                 {
+                    GetComponent<AudioSource>().clip = buyResource;
+                    GetComponent<AudioSource>().Play();
                     GetComponent<MoneySystem>().SpendMoney(1000);
                     resourceSystem.GetComponent<ResourceSystem>().AddResource(Resource.Yellow, 10);
                 }
@@ -161,6 +186,8 @@ public class ShopSystem : MonoBehaviour
             case Resource.White:
                 if (GetComponent<MoneySystem>().GetMoney() >= 1000)
                 {
+                    GetComponent<AudioSource>().clip = buyResource;
+                    GetComponent<AudioSource>().Play();
                     GetComponent<MoneySystem>().SpendMoney(1000);
                     resourceSystem.GetComponent<ResourceSystem>().AddResource(Resource.White, 10);
                 }
@@ -178,6 +205,8 @@ public class ShopSystem : MonoBehaviour
             case 0:
                 if (GetComponent<MoneySystem>().GetMoney() >= 3000)
                 {
+                    GetComponent<AudioSource>().clip = buyUpgrade;
+                    GetComponent<AudioSource>().Play();
                     GetComponent<MoneySystem>().SpendMoney(3000);
                     cauldron.GetComponent<MixingSystem>().ChangeCauldron(1);
                     textBuyCauldron.text = "Купить хороший котел: 6000";
@@ -188,6 +217,8 @@ public class ShopSystem : MonoBehaviour
             case 1:
                 if (GetComponent<MoneySystem>().GetMoney() >= 6000)
                 {
+                    GetComponent<AudioSource>().clip = buyUpgrade;
+                    GetComponent<AudioSource>().Play();
                     GetComponent<MoneySystem>().SpendMoney(6000);
                     cauldron.GetComponent<MixingSystem>().ChangeCauldron(2);
                     buttonBuyCauldron.interactable = false;
@@ -204,6 +235,8 @@ public class ShopSystem : MonoBehaviour
     {
         if (GetComponent<MoneySystem>().GetMoney() >= bottleCost)
         {
+            GetComponent<AudioSource>().clip = buyUpgrade;
+            GetComponent<AudioSource>().Play();
             bottles.GetComponent<Bottles>().AddBottle();
             GetComponent<MoneySystem>().SpendMoney(bottleCost);
             if (bottles.GetComponent<Bottles>().GetBottleCount() == 8)
@@ -223,6 +256,8 @@ public class ShopSystem : MonoBehaviour
     {
         if (GetComponent<MoneySystem>().GetMoney() >= 150)
         {
+            GetComponent<AudioSource>().clip = buyUpgrade;
+            GetComponent<AudioSource>().Play();
             resourceSystem.GetComponent<Fuel>().AddFuel();
             GetComponent<MoneySystem>().SpendMoney(150);
         }

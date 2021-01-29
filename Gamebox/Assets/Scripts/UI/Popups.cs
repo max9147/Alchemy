@@ -18,6 +18,10 @@ public class Popups : MonoBehaviour
     public GameObject buttonRecipes;
     public GameObject buttonPause;
 
+    public AudioClip openRecipes;
+    public AudioClip openGuilds;
+    public AudioClip openShop;
+
     public bool popupOpen = false;
     private int popupOpenID = 0;
 
@@ -60,6 +64,10 @@ public class Popups : MonoBehaviour
                     popupOpen = false;
                     return;
                 }
+
+                GetComponent<AudioSource>().clip = openShop;
+                GetComponent<AudioSource>().Play();
+
                 Time.timeScale = 1;
                 pauseIcon.gameObject.SetActive(false);
                 popupOpen = true;
@@ -77,6 +85,10 @@ public class Popups : MonoBehaviour
                     popupOpen = false;
                     return;
                 }
+
+                GetComponent<AudioSource>().clip = openGuilds;
+                GetComponent<AudioSource>().Play();
+
                 Time.timeScale = 1;
                 pauseIcon.gameObject.SetActive(false);
                 popupOpen = true;
@@ -96,6 +108,10 @@ public class Popups : MonoBehaviour
                     popupOpen = false;
                     return;
                 }
+
+                GetComponent<AudioSource>().clip = openRecipes;
+                GetComponent<AudioSource>().Play();
+
                 Time.timeScale = 0;
                 pauseIcon.gameObject.SetActive(true);
                 popupOpen = true;

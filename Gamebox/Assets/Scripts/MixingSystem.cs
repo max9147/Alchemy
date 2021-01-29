@@ -27,6 +27,10 @@ public class MixingSystem : MonoBehaviour
 
     public Settings settings;
 
+    public AudioClip addResource;
+    public AudioClip brewSound;
+    public AudioClip takePotionSound;
+
     public int cauldronId;
 
     public bool isRare = false;
@@ -73,6 +77,9 @@ public class MixingSystem : MonoBehaviour
     {
         if (collision.gameObject.layer != LayerMask.NameToLayer("Bottle"))
         {
+            GetComponent<AudioSource>().clip = addResource;
+            GetComponent<AudioSource>().Play();
+
             isReady = false;
             drainButton.interactable = true;
             buyCauldron.interactable = false;
@@ -227,6 +234,9 @@ public class MixingSystem : MonoBehaviour
 
         else
         {
+            GetComponent<AudioSource>().clip = brewSound;
+            GetComponent<AudioSource>().Play();
+
             yield return new WaitForSeconds(time / speed);
             drainButton.interactable = true;
             isReady = true;
@@ -453,6 +463,9 @@ public class MixingSystem : MonoBehaviour
 
     public void TakePotion()
     {
+        GetComponent<AudioSource>().clip = takePotionSound;
+        GetComponent<AudioSource>().Play();
+
         isReady = false;
         isRare = false;
         inCauldron.Clear();
