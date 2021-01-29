@@ -6,7 +6,10 @@ using UnityEngine;
 public class Potions : ScriptableObject
 {
     public string potionName;
-    public Sprite image;
+    public Sprite imageBottle;
+    public Sprite imageWater;
+    public Color waterColor;
+    public Sprite rareEffect;
     public Sprite[] colored;
     public Sprite rare;
     public int id;

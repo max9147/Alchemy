@@ -24,10 +24,16 @@ public class RecipesMenu : MonoBehaviour
 
             GameObject data = Instantiate(potionData);
             data.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = potion.potionName;
-            data.transform.Find("Image").GetComponent<Image>().sprite = potion.image;
+            data.transform.Find("Bottle").GetComponent<Image>().sprite = potion.imageBottle;
+            data.transform.Find("Water").GetComponent<Image>().sprite = potion.imageWater;
+            data.transform.Find("Water").GetComponent<Image>().color = potion.waterColor;
 
             if (potion.rare)
+            {
                 data.transform.Find("Rare").gameObject.SetActive(true);
+                data.transform.Find("Effect").gameObject.SetActive(true);
+                data.transform.Find("Effect").GetComponent<Image>().sprite = potion.rareEffect;
+            }
             data.transform.Find("Rare").GetComponent<Image>().sprite = potion.rare;
 
             switch (potion.colored.Length)

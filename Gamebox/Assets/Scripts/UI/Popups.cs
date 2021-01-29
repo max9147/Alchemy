@@ -13,13 +13,47 @@ public class Popups : MonoBehaviour
     public GameObject popupRecipes;
     public GameObject popupPause;
 
+    public GameObject buttonShop;
+    public GameObject buttonGuilds;
+    public GameObject buttonRecipes;
+    public GameObject buttonPause;
+
     public bool popupOpen = false;
+    private int popupOpenID = 0;
+
+    private void Update()
+    {
+        if (popupOpen)
+        {
+            switch (popupOpenID)
+            {
+                case 1:
+                    EventSystem.current.SetSelectedGameObject(buttonShop);
+                    break;
+                case 2:
+                    EventSystem.current.SetSelectedGameObject(buttonGuilds);
+                    break;
+                case 3:
+                    EventSystem.current.SetSelectedGameObject(buttonRecipes);
+                    break;
+                case 4:
+                    EventSystem.current.SetSelectedGameObject(buttonPause);
+                    break;
+                default:
+                    EventSystem.current.SetSelectedGameObject(null);
+                    break;
+            }
+        }
+        else
+            EventSystem.current.SetSelectedGameObject(null);
+    }
 
     public void PopupOpen(int id)
     {
         switch (id)
         {
             case 1:
+                popupOpenID = 1;
                 if (popupShop.activeInHierarchy)
                 {
                     PopupClose();
@@ -36,6 +70,7 @@ public class Popups : MonoBehaviour
                 break;
 
             case 2:
+                popupOpenID = 2;
                 if (popupGuilds.activeInHierarchy)
                 {
                     PopupClose();
@@ -52,6 +87,7 @@ public class Popups : MonoBehaviour
                 break;
 
             case 3:
+                popupOpenID = 3;
                 if (popupRecipes.activeInHierarchy)
                 {
                     Time.timeScale = 1;
@@ -70,6 +106,7 @@ public class Popups : MonoBehaviour
                 break;
 
             case 4:
+                popupOpenID = 4;
                 if (popupPause.activeInHierarchy)
                 {
                     Time.timeScale = 1;
@@ -94,10 +131,10 @@ public class Popups : MonoBehaviour
 
     public void PopupClose()
     {
+        popupOpenID = 0;
         popupOpen = false;
         Time.timeScale = 1;
         pauseIcon.gameObject.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(null);
         popupShop.gameObject.SetActive(false);
         popupGuilds.gameObject.SetActive(false);
         popupRecipes.gameObject.SetActive(false);

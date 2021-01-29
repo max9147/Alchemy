@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   potionName: "\u041B\u0430\u0439\u043C\u043E\u0432\u043E\u0435 \u0434\u044B\u043C\u044F\u0449\u0435\u0435\u0441\u044F
     \u0437\u0435\u043B\u044C\u0435"
-  image: {fileID: 21300000, guid: 106296a26d776a947936641678a7d4b4, type: 3}
+  imageBottle: {fileID: 21300000, guid: 106296a26d776a947936641678a7d4b4, type: 3}
+  imageWater: {fileID: 21300000, guid: 4ecbc1b716834fe4a8e2ae2303c183b2, type: 3}
+  waterColor: {r: 0.5019608, g: 1, b: 0, a: 0.5882353}
+  rareEffect: {fileID: 21300000, guid: 68dd3723d780e6646a5d6f45e454e470, type: 3}
   colored:
   - {fileID: 21300000, guid: 1ddd95f545f51ac40afbccf2dfd15308, type: 3}
   - {fileID: 21300000, guid: 6408bae48442de741b89011748c49081, type: 3}
