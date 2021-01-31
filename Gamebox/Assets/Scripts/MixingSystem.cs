@@ -13,10 +13,37 @@ public class MixingSystem : MonoBehaviour
     public Button fuelButton;
     public Button buyCauldron;
     public Slider progressBar;
+
     public GameObject resourceSystem;
     public GameObject fire;
     public GameObject water;
     public GameObject recipes;
+
+    public GameObject platformRed;
+    public GameObject platformBlue;
+    public GameObject platformYellow;
+    public GameObject platformWhite;
+    public GameObject platformLadan;
+    public GameObject platformEye;
+    public GameObject platformStone;
+    public GameObject platformSand;
+
+    public Sprite red;
+    public Sprite redEmpty;
+    public Sprite blue;
+    public Sprite blueEmpty;
+    public Sprite yellow;
+    public Sprite yellowEmpty;
+    public Sprite white;
+    public Sprite whiteEmpty;
+    public Sprite ladan;
+    public Sprite ladanEmpty;
+    public Sprite eye;
+    public Sprite eyeEmpty;
+    public Sprite stone;
+    public Sprite stoneEmpty;
+    public Sprite sand;
+    public Sprite sandEmpty;
 
     public Potions[] potions;
 
@@ -90,6 +117,9 @@ public class MixingSystem : MonoBehaviour
         switch (collision.transform.tag)
         {
             case "ResourceRed":
+                if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Red) > 0)
+                    platformRed.GetComponent<SpriteRenderer>().sprite = red;
+                else platformRed.GetComponent<SpriteRenderer>().sprite = redEmpty;
                 if (inCauldron.Contains(Resource.Red))
                     isWrong = true;
                 inCauldron.Add(Resource.Red);
@@ -97,6 +127,9 @@ public class MixingSystem : MonoBehaviour
                 break;
 
             case "ResourceBlue":
+                if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Blue) > 0)
+                    platformBlue.GetComponent<SpriteRenderer>().sprite = blue;
+                else platformBlue.GetComponent<SpriteRenderer>().sprite = blueEmpty;
                 if (inCauldron.Contains(Resource.Blue))
                     isWrong = true;
                 inCauldron.Add(Resource.Blue);
@@ -104,6 +137,9 @@ public class MixingSystem : MonoBehaviour
                 break;
 
             case "ResourceYellow":
+                if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Yellow) > 0)
+                    platformYellow.GetComponent<SpriteRenderer>().sprite = yellow;
+                else platformYellow.GetComponent<SpriteRenderer>().sprite = yellowEmpty;
                 if (inCauldron.Contains(Resource.Yellow))
                     isWrong = true;
                 inCauldron.Add(Resource.Yellow);
@@ -111,6 +147,9 @@ public class MixingSystem : MonoBehaviour
                 break;
 
             case "ResourceWhite":
+                if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.White) > 0)
+                    platformWhite.GetComponent<SpriteRenderer>().sprite = white;
+                else platformWhite.GetComponent<SpriteRenderer>().sprite = whiteEmpty;
                 if (inCauldron.Contains(Resource.White))
                     isWrong = true;
                 inCauldron.Add(Resource.White);
@@ -118,6 +157,9 @@ public class MixingSystem : MonoBehaviour
                 break;
 
             case "ResourceLadan":
+                if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Ladan) > 0)
+                    platformLadan.GetComponent<SpriteRenderer>().sprite = ladan;
+                else platformLadan.GetComponent<SpriteRenderer>().sprite = ladanEmpty;
                 if (isRare)
                     isWrong = true;
                 inCauldron.Add(Resource.Ladan);
@@ -125,6 +167,9 @@ public class MixingSystem : MonoBehaviour
                 break;
 
             case "ResourceEye":
+                if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Eye) > 0)
+                    platformEye.GetComponent<SpriteRenderer>().sprite = eye;
+                else platformEye.GetComponent<SpriteRenderer>().sprite = eyeEmpty;
                 if (isRare)
                     isWrong = true;
                 inCauldron.Add(Resource.Eye);
@@ -132,6 +177,9 @@ public class MixingSystem : MonoBehaviour
                 break;
 
             case "ResourceStone":
+                if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Stone) > 0)
+                    platformStone.GetComponent<SpriteRenderer>().sprite = stone;
+                else platformStone.GetComponent<SpriteRenderer>().sprite = stoneEmpty;
                 if (isRare)
                     isWrong = true;
                 inCauldron.Add(Resource.Stone);
@@ -139,6 +187,9 @@ public class MixingSystem : MonoBehaviour
                 break;
 
             case "ResourceSand":
+                if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Sand) > 0)
+                    platformSand.GetComponent<SpriteRenderer>().sprite = sand;
+                else platformSand.GetComponent<SpriteRenderer>().sprite = sandEmpty;
                 if (isRare)
                     isWrong = true;
                 inCauldron.Add(Resource.Sand);

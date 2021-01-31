@@ -46,6 +46,32 @@ public class ResourceSystem : MonoBehaviour
     public TextMeshProUGUI textStone;
     public TextMeshProUGUI textSand;
 
+    public GameObject platformRed;
+    public GameObject platformBlue;
+    public GameObject platformYellow;
+    public GameObject platformWhite;
+    public GameObject platformLadan;
+    public GameObject platformEye;
+    public GameObject platformStone;
+    public GameObject platformSand;
+
+    public Sprite red;
+    public Sprite redEmpty;
+    public Sprite blue;
+    public Sprite blueEmpty;
+    public Sprite yellow;
+    public Sprite yellowEmpty;
+    public Sprite white;
+    public Sprite whiteEmpty;
+    public Sprite ladan;
+    public Sprite ladanEmpty;
+    public Sprite eye;
+    public Sprite eyeEmpty;
+    public Sprite stone;
+    public Sprite stoneEmpty;
+    public Sprite sand;
+    public Sprite sandEmpty;
+
     public List<ResourceData> resources = new List<ResourceData>();
 
     private void Awake()
@@ -68,6 +94,26 @@ public class ResourceSystem : MonoBehaviour
         resources.Add(sand);
     }
 
+    private void Start()
+    {
+        if (GetAmount(Resource.Red) == 0)
+            platformRed.GetComponent<SpriteRenderer>().sprite = redEmpty;
+        if (GetAmount(Resource.Blue) == 0)
+            platformBlue.GetComponent<SpriteRenderer>().sprite = blueEmpty;
+        if (GetAmount(Resource.Yellow) == 0)
+            platformYellow.GetComponent<SpriteRenderer>().sprite = yellowEmpty;
+        if (GetAmount(Resource.White) == 0)
+            platformWhite.GetComponent<SpriteRenderer>().sprite = whiteEmpty;
+        if (GetAmount(Resource.Ladan) == 0)
+            platformLadan.GetComponent<SpriteRenderer>().sprite = ladanEmpty;
+        if (GetAmount(Resource.Eye) == 0)
+            platformEye.GetComponent<SpriteRenderer>().sprite = eyeEmpty;
+        if (GetAmount(Resource.Stone) == 0)
+            platformStone.GetComponent<SpriteRenderer>().sprite = stoneEmpty;
+        if (GetAmount(Resource.Sand) == 0)
+            platformSand.GetComponent<SpriteRenderer>().sprite = sandEmpty;
+    }
+
     public void AddResource(Resource resourceType, int amount)
     {
         foreach (ResourceData res in resources)
@@ -79,34 +125,42 @@ public class ResourceSystem : MonoBehaviour
                 switch (res.resourceName)
                 {
                     case Resource.Red:
+                        platformRed.GetComponent<SpriteRenderer>().sprite = red;
                         textRed.text = $"{GetAmount(Resource.Red)}";
                         break;
 
                     case Resource.Blue:
+                        platformBlue.GetComponent<SpriteRenderer>().sprite = blue;
                         textBlue.text = $"{GetAmount(Resource.Blue)}";
                         break;
 
                     case Resource.Yellow:
+                        platformYellow.GetComponent<SpriteRenderer>().sprite = yellow;
                         textYellow.text = $"{GetAmount(Resource.Yellow)}";
                         break;
 
                     case Resource.White:
+                        platformWhite.GetComponent<SpriteRenderer>().sprite = white;
                         textWhite.text = $"{GetAmount(Resource.White)}";
                         break;
 
                     case Resource.Ladan:
+                        platformLadan.GetComponent<SpriteRenderer>().sprite = ladan;
                         textLadan.text = $"{GetAmount(Resource.Ladan)}";
                         break;
 
                     case Resource.Eye:
+                        platformEye.GetComponent<SpriteRenderer>().sprite = eye;
                         textEye.text = $"{GetAmount(Resource.Eye)}";
                         break;
 
                     case Resource.Stone:
+                        platformStone.GetComponent<SpriteRenderer>().sprite = stone;
                         textStone.text = $"{GetAmount(Resource.Stone)}";
                         break;
 
                     case Resource.Sand:
+                        platformSand.GetComponent<SpriteRenderer>().sprite = sand;
                         textSand.text = $"{GetAmount(Resource.Sand)}";
                         break;
 
@@ -128,34 +182,50 @@ public class ResourceSystem : MonoBehaviour
                 switch (res.resourceName)
                 {
                     case Resource.Red:
+                        if (GetAmount(Resource.Red) == 0)
+                            platformRed.GetComponent<SpriteRenderer>().sprite = redEmpty;
                         textRed.text = $"{GetAmount(Resource.Red)}";
                         break;
 
                     case Resource.Blue:
+                        if (GetAmount(Resource.Blue) == 0)
+                            platformBlue.GetComponent<SpriteRenderer>().sprite = blueEmpty;
                         textBlue.text = $"{GetAmount(Resource.Blue)}";
                         break;
 
                     case Resource.Yellow:
+                        if (GetAmount(Resource.Yellow) == 0)
+                            platformYellow.GetComponent<SpriteRenderer>().sprite = yellowEmpty;
                         textYellow.text = $"{GetAmount(Resource.Yellow)}";
                         break;
 
                     case Resource.White:
+                        if (GetAmount(Resource.White) == 0)
+                            platformWhite.GetComponent<SpriteRenderer>().sprite = whiteEmpty;
                         textWhite.text = $"{GetAmount(Resource.White)}";
                         break;
 
                     case Resource.Ladan:
+                        if (GetAmount(Resource.Ladan) == 0)
+                            platformLadan.GetComponent<SpriteRenderer>().sprite = ladanEmpty;
                         textLadan.text = $"{GetAmount(Resource.Ladan)}";
                         break;
 
                     case Resource.Eye:
+                        if (GetAmount(Resource.Eye) == 0)
+                            platformEye.GetComponent<SpriteRenderer>().sprite = eyeEmpty;
                         textEye.text = $"{GetAmount(Resource.Eye)}";
                         break;
 
                     case Resource.Stone:
+                        if (GetAmount(Resource.Stone) == 0)
+                            platformStone.GetComponent<SpriteRenderer>().sprite = stoneEmpty;
                         textStone.text = $"{GetAmount(Resource.Stone)}";
                         break;
 
                     case Resource.Sand:
+                        if (GetAmount(Resource.Sand) == 0)
+                            platformSand.GetComponent<SpriteRenderer>().sprite = sandEmpty;
                         textSand.text = $"{GetAmount(Resource.Sand)}";
                         break;
 

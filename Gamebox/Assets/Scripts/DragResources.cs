@@ -25,6 +25,15 @@ public class DragResources : MonoBehaviour
     public GameObject spawnerStone;
     public GameObject spawnerSand;
 
+    public Sprite redTaken;
+    public Sprite blueTaken;
+    public Sprite yellowTaken;
+    public Sprite whiteTaken;
+    public Sprite ladanTaken;
+    public Sprite eyeTaken;
+    public Sprite stoneTaken;
+    public Sprite sandTaken;
+
     public Settings settings;
 
     public AudioClip takeRed;
@@ -73,6 +82,7 @@ public class DragResources : MonoBehaviour
                         case "ResourceRed":
                             if (GetComponent<ResourceSystem>().GetAmount(Resource.Red) > 0)
                             {
+                                spawnerRed.GetComponent<SpriteRenderer>().sprite = redTaken;
                                 GetComponent<AudioSource>().clip = takeRed;
                                 GetComponent<AudioSource>().Play();
                                 canTake = false;
@@ -84,6 +94,7 @@ public class DragResources : MonoBehaviour
                         case "ResourceBlue":
                             if (GetComponent<ResourceSystem>().GetAmount(Resource.Blue) > 0)
                             {
+                                spawnerBlue.GetComponent<SpriteRenderer>().sprite = blueTaken;
                                 GetComponent<AudioSource>().clip = takeBlue;
                                 GetComponent<AudioSource>().Play();
                                 canTake = false;
@@ -95,6 +106,7 @@ public class DragResources : MonoBehaviour
                         case "ResourceYellow":
                             if (GetComponent<ResourceSystem>().GetAmount(Resource.Yellow) > 0)
                             {
+                                spawnerYellow.GetComponent<SpriteRenderer>().sprite = yellowTaken;
                                 GetComponent<AudioSource>().clip = takeYellow;
                                 GetComponent<AudioSource>().Play();
                                 canTake = false;
@@ -106,6 +118,7 @@ public class DragResources : MonoBehaviour
                         case "ResourceWhite":
                             if (GetComponent<ResourceSystem>().GetAmount(Resource.White) > 0)
                             {
+                                spawnerWhite.GetComponent<SpriteRenderer>().sprite = whiteTaken;
                                 GetComponent<AudioSource>().clip = takeWhite;
                                 GetComponent<AudioSource>().Play();
                                 canTake = false;
@@ -117,6 +130,7 @@ public class DragResources : MonoBehaviour
                         case "ResourceLadan":
                             if (GetComponent<ResourceSystem>().GetAmount(Resource.Ladan) > 0)
                             {
+                                spawnerLadan.GetComponent<SpriteRenderer>().sprite = ladanTaken;
                                 GetComponent<AudioSource>().clip = takeLadan;
                                 GetComponent<AudioSource>().Play();
                                 canTake = false;
@@ -128,6 +142,7 @@ public class DragResources : MonoBehaviour
                         case "ResourceEye":
                             if (GetComponent<ResourceSystem>().GetAmount(Resource.Eye) > 0)
                             {
+                                spawnerEye.GetComponent<SpriteRenderer>().sprite = eyeTaken;
                                 GetComponent<AudioSource>().clip = takeEye;
                                 GetComponent<AudioSource>().Play();
                                 canTake = false;
@@ -139,6 +154,7 @@ public class DragResources : MonoBehaviour
                         case "ResourceStone":
                             if (GetComponent<ResourceSystem>().GetAmount(Resource.Stone) > 0)
                             {
+                                spawnerStone.GetComponent<SpriteRenderer>().sprite = stoneTaken;
                                 GetComponent<AudioSource>().clip = takeStone;
                                 GetComponent<AudioSource>().Play();
                                 canTake = false;
@@ -150,6 +166,7 @@ public class DragResources : MonoBehaviour
                         case "ResourceSand":
                             if (GetComponent<ResourceSystem>().GetAmount(Resource.Sand) > 0)
                             {
+                                spawnerSand.GetComponent<SpriteRenderer>().sprite = sandTaken;
                                 GetComponent<AudioSource>().clip = takeSand;
                                 GetComponent<AudioSource>().Play();
                                 canTake = false;

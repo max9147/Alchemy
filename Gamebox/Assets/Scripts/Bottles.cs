@@ -17,6 +17,11 @@ public class Bottles : MonoBehaviour
     public Sprite effectGlow;
     public Sprite effectBoil;
 
+    public Color colorFire;
+    public Color colorSmoke;
+    public Color colorGlow;
+    public Color colorBoil;
+
     public GameObject[] bottlePos;
     public GameObject[] bottle;
     public GameObject cauldron;
@@ -182,15 +187,19 @@ public class Bottles : MonoBehaviour
                 {
                     case PotionEffect.Glowing:
                         toDrag.Find("Effect").GetComponent<SpriteRenderer>().sprite = effectGlow;
+                        toDrag.Find("Effect").GetComponent<SpriteRenderer>().color = colorGlow;
                         break;
                     case PotionEffect.Boiling:
                         toDrag.Find("Effect").GetComponent<SpriteRenderer>().sprite = effectBoil;
+                        toDrag.Find("Effect").GetComponent<SpriteRenderer>().color = colorBoil;
                         break;
                     case PotionEffect.Burning:
                         toDrag.Find("Effect").GetComponent<SpriteRenderer>().sprite = effectFire;
+                        toDrag.Find("Effect").GetComponent<SpriteRenderer>().color = colorFire;
                         break;
                     case PotionEffect.Smoking:
                         toDrag.Find("Effect").GetComponent<SpriteRenderer>().sprite = effectSmoke;
+                        toDrag.Find("Effect").GetComponent<SpriteRenderer>().color = colorSmoke;
                         break;
                     default:
                         break;
@@ -376,8 +385,11 @@ public class Bottles : MonoBehaviour
                 toDrag.position = Vector3.MoveTowards(toDrag.position, bottleSpawner.transform.position, settings.bottleSpeed);
                 if (toDrag.position == bottleSpawner.transform.position)
                 {
-                    GetComponent<AudioSource>().clip = bottleKnock;
-                    GetComponent<AudioSource>().Play();
+                    if (freeBottles > 0)
+                    {
+                        GetComponent<AudioSource>().clip = bottleKnock;
+                        GetComponent<AudioSource>().Play();
+                    }
 
                     switch (toDrag.tag)
                     {
@@ -442,9 +454,6 @@ public class Bottles : MonoBehaviour
             {
                 if (toDrag.position == bottlePos[toDrag.GetComponent<BottlePotion>().takenSpace].transform.position)
                 {
-                    GetComponent<AudioSource>().clip = bottleKnock;
-                    GetComponent<AudioSource>().Play();
-
                     takenSpace[toDrag.GetComponent<BottlePotion>().takenSpace] = true;
                     canTake = true;
                     toDrag = null;

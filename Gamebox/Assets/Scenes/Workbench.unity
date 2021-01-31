@@ -992,10 +992,14 @@ MonoBehaviour:
   - {r: 1, g: 0.31764707, b: 1, a: 0.5882353}
   - {r: 0, g: 1, b: 1, a: 0.5882353}
   - {r: 1, g: 0.827451, b: 0.23137255, a: 0.5882353}
-  effectFire: {fileID: 21300000, guid: 084f12a3d865cd14da3b0eca95099942, type: 3}
+  effectFire: {fileID: 21300000, guid: 2c5bf9c59092bd64f8224d91fb1ab14a, type: 3}
   effectSmoke: {fileID: 21300000, guid: 68dd3723d780e6646a5d6f45e454e470, type: 3}
   effectGlow: {fileID: 21300000, guid: 6264f961a8b45da41970e7f3b2b9ef27, type: 3}
   effectBoil: {fileID: 21300000, guid: 5f8ec715de0e8b840a11f3fe12e2f26b, type: 3}
+  colorFire: {r: 1, g: 0.50980395, b: 0, a: 1}
+  colorSmoke: {r: 0.41568628, g: 0.41568628, b: 0.41568628, a: 1}
+  colorGlow: {r: 0.95686275, g: 1, b: 0, a: 1}
+  colorBoil: {r: 0.05490196, g: 0, b: 0.5294118, a: 1}
   potionColor: 0
   potionEffect: 0
   takenSpace: 0
@@ -1294,7 +1298,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.76, y: 2.39}
+  m_Size: {x: 3.51, y: 4.78}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1331,8 +1335,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1733333, y: 1.5933334}
-    newSize: {x: 1.76, y: 2.39}
+    oldSize: {x: 1.2103448, y: 1.6482759}
+    newSize: {x: 3.51, y: 4.78}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -1476,7 +1480,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.915, y: 1.625}
+  m_Size: {x: 3.91, y: 3.34}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1513,8 +1517,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.532, y: 1.3}
-    newSize: {x: 1.915, y: 1.625}
+    oldSize: {x: 1.5038462, y: 1.2846154}
+    newSize: {x: 3.91, y: 3.34}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -1782,8 +1786,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.715, y: 1.94}
-    newSize: {x: 1.81, y: 1.2933333}
+    oldSize: {x: 2.765, y: 1.84}
+    newSize: {x: 5.53, y: 3.68}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -1830,12 +1834,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4b2fc3da0d6b7a54fb5ccc7d8a81bf30, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a853bdfa1b18ed842a31193d3751aef6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.81, y: 1.2933333}
+  m_Size: {x: 5.53, y: 3.68}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -6509,8 +6513,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.8233334, y: 1.3233334}
-    newSize: {x: 1.8233334, y: 1.3233334}
+    oldSize: {x: 1.85, y: 1.3533334}
+    newSize: {x: 5.55, y: 4.06}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -6557,12 +6561,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7eab20296d3c7e44fa70e660605cf2d0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b4b4dd13c438d4443829e537af20aefa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.8233334, y: 1.3233334}
+  m_Size: {x: 5.55, y: 4.06}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -6743,7 +6747,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.16, y: 2.18}
+  m_Size: {x: 4.4, y: 4.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -6780,8 +6784,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.44, y: 1.4533334}
-    newSize: {x: 2.16, y: 2.18}
+    oldSize: {x: 1.375, y: 1.425}
+    newSize: {x: 4.4, y: 4.56}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -7122,10 +7126,14 @@ MonoBehaviour:
   - {r: 1, g: 0.31764707, b: 1, a: 0.5882353}
   - {r: 0, g: 1, b: 1, a: 0.5882353}
   - {r: 1, g: 0.827451, b: 0.23137255, a: 0.5882353}
-  effectFire: {fileID: 21300000, guid: 084f12a3d865cd14da3b0eca95099942, type: 3}
+  effectFire: {fileID: 21300000, guid: 2c5bf9c59092bd64f8224d91fb1ab14a, type: 3}
   effectSmoke: {fileID: 21300000, guid: 68dd3723d780e6646a5d6f45e454e470, type: 3}
   effectGlow: {fileID: 21300000, guid: 6264f961a8b45da41970e7f3b2b9ef27, type: 3}
   effectBoil: {fileID: 21300000, guid: 5f8ec715de0e8b840a11f3fe12e2f26b, type: 3}
+  colorFire: {r: 1, g: 0.50980395, b: 0, a: 1}
+  colorSmoke: {r: 0.41568628, g: 0.41568628, b: 0.41568628, a: 1}
+  colorGlow: {r: 0.95686275, g: 1, b: 0, a: 1}
+  colorBoil: {r: 0.05490196, g: 0, b: 0.5294118, a: 1}
   potionColor: 0
   potionEffect: 0
   takenSpace: 0
@@ -7592,6 +7600,30 @@ MonoBehaviour:
   textEye: {fileID: 1780097149}
   textStone: {fileID: 1152553286}
   textSand: {fileID: 1565346926}
+  platformRed: {fileID: 1586323577}
+  platformBlue: {fileID: 206402266}
+  platformYellow: {fileID: 203863870}
+  platformWhite: {fileID: 634215176}
+  platformLadan: {fileID: 1104800872}
+  platformEye: {fileID: 1162307467}
+  platformStone: {fileID: 597239437}
+  platformSand: {fileID: 225889324}
+  red: {fileID: 21300000, guid: 8c8256e7b1c192548b53fab0eed191d4, type: 3}
+  redEmpty: {fileID: 21300000, guid: c904cb4a496ee36448c3f3915ced559f, type: 3}
+  blue: {fileID: 21300000, guid: 483e92c030409f44286b484339371d01, type: 3}
+  blueEmpty: {fileID: 21300000, guid: 90ea9829d91605d4ebe9c129f47db05c, type: 3}
+  yellow: {fileID: 21300000, guid: c4ee9cd2cba0ac541a8e96b93c138bdb, type: 3}
+  yellowEmpty: {fileID: 21300000, guid: b2df070ea4d36894199b6cdc23b4f51d, type: 3}
+  white: {fileID: 21300000, guid: bab3ee977a32a9b408dcbe9e3b7ebe6f, type: 3}
+  whiteEmpty: {fileID: 21300000, guid: b51c191ec36cfc64ab79eaa2bf172f30, type: 3}
+  ladan: {fileID: 21300000, guid: b14c9690d57f2524d889187fe822191b, type: 3}
+  ladanEmpty: {fileID: 21300000, guid: f927ec993927b7e4f8eb916b8b60f28e, type: 3}
+  eye: {fileID: 21300000, guid: f68e2971c15a63940ad394028214aa98, type: 3}
+  eyeEmpty: {fileID: 21300000, guid: 0811cdc8a6572e249a1e06d78d38ecf6, type: 3}
+  stone: {fileID: 21300000, guid: b4b4dd13c438d4443829e537af20aefa, type: 3}
+  stoneEmpty: {fileID: 21300000, guid: 5351a40f8cd0b4e468353e1f58540d0a, type: 3}
+  sand: {fileID: 21300000, guid: a853bdfa1b18ed842a31193d3751aef6, type: 3}
+  sandEmpty: {fileID: 21300000, guid: 7ee28cde505737a468921a53814828f0, type: 3}
 --- !u!114 &782229013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7629,6 +7661,14 @@ MonoBehaviour:
   spawnerEye: {fileID: 1162307467}
   spawnerStone: {fileID: 597239437}
   spawnerSand: {fileID: 225889324}
+  redTaken: {fileID: 21300000, guid: 1e7f53453d794bf4eac57ea1e41636b3, type: 3}
+  blueTaken: {fileID: 21300000, guid: 5e975d8d0d6984d468f6e08991ee07c6, type: 3}
+  yellowTaken: {fileID: 21300000, guid: e6451b57c79e5994ea0a48913a94a138, type: 3}
+  whiteTaken: {fileID: 21300000, guid: 0ea4a2d1d33027747a0a70662a48dbe3, type: 3}
+  ladanTaken: {fileID: 21300000, guid: 8dc76c988007773418d084d5b27343e3, type: 3}
+  eyeTaken: {fileID: 21300000, guid: f63cbfa9b7fe96248a81ad96bc16bcb0, type: 3}
+  stoneTaken: {fileID: 21300000, guid: 099a320145b2b4c48bb6b3199c3340ba, type: 3}
+  sandTaken: {fileID: 21300000, guid: ae3b3917be962934cac339cfa9aaf16e, type: 3}
   settings: {fileID: 11400000, guid: c07b99bbbca86234ea011dc966b22d2c, type: 2}
   takeRed: {fileID: 8300000, guid: 99003e331a976b74b8805c26f8eb86c5, type: 3}
   takeBlue: {fileID: 8300000, guid: 9bf5b784924bb644990b5ea802fc0256, type: 3}
@@ -9622,10 +9662,14 @@ MonoBehaviour:
   - {r: 1, g: 0.31764707, b: 1, a: 0.5882353}
   - {r: 0, g: 1, b: 1, a: 0.5882353}
   - {r: 1, g: 0.827451, b: 0.23137255, a: 0.5882353}
-  effectFire: {fileID: 21300000, guid: 084f12a3d865cd14da3b0eca95099942, type: 3}
+  effectFire: {fileID: 21300000, guid: 2c5bf9c59092bd64f8224d91fb1ab14a, type: 3}
   effectSmoke: {fileID: 21300000, guid: 68dd3723d780e6646a5d6f45e454e470, type: 3}
   effectGlow: {fileID: 21300000, guid: 6264f961a8b45da41970e7f3b2b9ef27, type: 3}
   effectBoil: {fileID: 21300000, guid: 5f8ec715de0e8b840a11f3fe12e2f26b, type: 3}
+  colorFire: {r: 1, g: 0.50980395, b: 0, a: 1}
+  colorSmoke: {r: 0.41568628, g: 0.41568628, b: 0.41568628, a: 1}
+  colorGlow: {r: 0.95686275, g: 1, b: 0, a: 1}
+  colorBoil: {r: 0.05490196, g: 0, b: 0.5294118, a: 1}
   potionColor: 0
   potionEffect: 0
   takenSpace: 0
@@ -11278,10 +11322,14 @@ MonoBehaviour:
   - {r: 1, g: 0.31764707, b: 1, a: 0.5882353}
   - {r: 0, g: 1, b: 1, a: 0.5882353}
   - {r: 1, g: 0.827451, b: 0.23137255, a: 0.5882353}
-  effectFire: {fileID: 21300000, guid: 084f12a3d865cd14da3b0eca95099942, type: 3}
+  effectFire: {fileID: 21300000, guid: 2c5bf9c59092bd64f8224d91fb1ab14a, type: 3}
   effectSmoke: {fileID: 21300000, guid: 68dd3723d780e6646a5d6f45e454e470, type: 3}
   effectGlow: {fileID: 21300000, guid: 6264f961a8b45da41970e7f3b2b9ef27, type: 3}
   effectBoil: {fileID: 21300000, guid: 5f8ec715de0e8b840a11f3fe12e2f26b, type: 3}
+  colorFire: {r: 1, g: 0.50980395, b: 0, a: 1}
+  colorSmoke: {r: 0.41568628, g: 0.41568628, b: 0.41568628, a: 1}
+  colorGlow: {r: 0.95686275, g: 1, b: 0, a: 1}
+  colorBoil: {r: 0.05490196, g: 0, b: 0.5294118, a: 1}
   potionColor: 0
   potionEffect: 0
   takenSpace: 0
@@ -12115,8 +12163,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.625, y: 2.845}
-    newSize: {x: 1.75, y: 1.8966666}
+    oldSize: {x: 2.7789474, y: 3}
+    newSize: {x: 5.28, y: 5.7}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -12163,12 +12211,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3626e1acd0253274fb5054087544543a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b14c9690d57f2524d889187fe822191b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.75, y: 1.8966666}
+  m_Size: {x: 5.28, y: 5.7}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -13629,8 +13677,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.24, y: 1.7}
-    newSize: {x: 1.4933333, y: 1.1333333}
+    oldSize: {x: 2.3473685, y: 1.7842106}
+    newSize: {x: 4.46, y: 3.39}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -13677,12 +13725,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0876f93336345194195937b6fd117676, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f68e2971c15a63940ad394028214aa98, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.4933333, y: 1.1333333}
+  m_Size: {x: 4.46, y: 3.39}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -18771,7 +18819,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.7, y: 2.58}
+  m_Size: {x: 3.8, y: 2.68}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -18808,8 +18856,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.85, y: 1.29}
-    newSize: {x: 3.7, y: 2.58}
+    oldSize: {x: 1.6521739, y: 1.1652174}
+    newSize: {x: 3.8, y: 2.68}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -19065,10 +19113,14 @@ MonoBehaviour:
   - {r: 1, g: 0.31764707, b: 1, a: 0.5882353}
   - {r: 0, g: 1, b: 1, a: 0.5882353}
   - {r: 1, g: 0.827451, b: 0.23137255, a: 0.5882353}
-  effectFire: {fileID: 21300000, guid: 084f12a3d865cd14da3b0eca95099942, type: 3}
+  effectFire: {fileID: 21300000, guid: 2c5bf9c59092bd64f8224d91fb1ab14a, type: 3}
   effectSmoke: {fileID: 21300000, guid: 68dd3723d780e6646a5d6f45e454e470, type: 3}
   effectGlow: {fileID: 21300000, guid: 6264f961a8b45da41970e7f3b2b9ef27, type: 3}
   effectBoil: {fileID: 21300000, guid: 5f8ec715de0e8b840a11f3fe12e2f26b, type: 3}
+  colorFire: {r: 1, g: 0.50980395, b: 0, a: 1}
+  colorSmoke: {r: 0.41568628, g: 0.41568628, b: 0.41568628, a: 1}
+  colorGlow: {r: 0.95686275, g: 1, b: 0, a: 1}
+  colorBoil: {r: 0.05490196, g: 0, b: 0.5294118, a: 1}
   potionColor: 0
   potionEffect: 0
   takenSpace: 0
@@ -23226,10 +23278,14 @@ MonoBehaviour:
   - {r: 1, g: 0.31764707, b: 1, a: 0.5882353}
   - {r: 0, g: 1, b: 1, a: 0.5882353}
   - {r: 1, g: 0.827451, b: 0.23137255, a: 0.5882353}
-  effectFire: {fileID: 21300000, guid: 084f12a3d865cd14da3b0eca95099942, type: 3}
+  effectFire: {fileID: 21300000, guid: 2c5bf9c59092bd64f8224d91fb1ab14a, type: 3}
   effectSmoke: {fileID: 21300000, guid: 68dd3723d780e6646a5d6f45e454e470, type: 3}
   effectGlow: {fileID: 21300000, guid: 6264f961a8b45da41970e7f3b2b9ef27, type: 3}
   effectBoil: {fileID: 21300000, guid: 5f8ec715de0e8b840a11f3fe12e2f26b, type: 3}
+  colorFire: {r: 1, g: 0.50980395, b: 0, a: 1}
+  colorSmoke: {r: 0.41568628, g: 0.41568628, b: 0.41568628, a: 1}
+  colorGlow: {r: 0.95686275, g: 1, b: 0, a: 1}
+  colorBoil: {r: 0.05490196, g: 0, b: 0.5294118, a: 1}
   potionColor: 0
   potionEffect: 0
   takenSpace: 0
@@ -23402,10 +23458,14 @@ MonoBehaviour:
   - {r: 1, g: 0.31764707, b: 1, a: 0.5882353}
   - {r: 0, g: 1, b: 1, a: 0.5882353}
   - {r: 1, g: 0.827451, b: 0.23137255, a: 0.5882353}
-  effectFire: {fileID: 21300000, guid: 084f12a3d865cd14da3b0eca95099942, type: 3}
+  effectFire: {fileID: 21300000, guid: 2c5bf9c59092bd64f8224d91fb1ab14a, type: 3}
   effectSmoke: {fileID: 21300000, guid: 68dd3723d780e6646a5d6f45e454e470, type: 3}
   effectGlow: {fileID: 21300000, guid: 6264f961a8b45da41970e7f3b2b9ef27, type: 3}
   effectBoil: {fileID: 21300000, guid: 5f8ec715de0e8b840a11f3fe12e2f26b, type: 3}
+  colorFire: {r: 1, g: 0.50980395, b: 0, a: 1}
+  colorSmoke: {r: 0.41568628, g: 0.41568628, b: 0.41568628, a: 1}
+  colorGlow: {r: 0.95686275, g: 1, b: 0, a: 1}
+  colorBoil: {r: 0.05490196, g: 0, b: 0.5294118, a: 1}
   potionColor: 0
   potionEffect: 0
   takenSpace: 0
@@ -24293,10 +24353,14 @@ MonoBehaviour:
   - {r: 1, g: 0.31764707, b: 1, a: 0.5882353}
   - {r: 0, g: 1, b: 1, a: 0.5882353}
   - {r: 1, g: 0.827451, b: 0.23137255, a: 0.5882353}
-  effectFire: {fileID: 21300000, guid: 084f12a3d865cd14da3b0eca95099942, type: 3}
+  effectFire: {fileID: 21300000, guid: 2c5bf9c59092bd64f8224d91fb1ab14a, type: 3}
   effectSmoke: {fileID: 21300000, guid: 68dd3723d780e6646a5d6f45e454e470, type: 3}
   effectGlow: {fileID: 21300000, guid: 6264f961a8b45da41970e7f3b2b9ef27, type: 3}
   effectBoil: {fileID: 21300000, guid: 5f8ec715de0e8b840a11f3fe12e2f26b, type: 3}
+  colorFire: {r: 1, g: 0.50980395, b: 0, a: 1}
+  colorSmoke: {r: 0.41568628, g: 0.41568628, b: 0.41568628, a: 1}
+  colorGlow: {r: 0.95686275, g: 1, b: 0, a: 1}
+  colorBoil: {r: 0.05490196, g: 0, b: 0.5294118, a: 1}
   potionColor: 0
   potionEffect: 0
   takenSpace: 0
@@ -24668,7 +24732,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2086474485}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.54, y: -0.18, z: 0}
+  m_LocalPosition: {x: 0.54, y: -0.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 163836332}
@@ -24706,10 +24770,14 @@ MonoBehaviour:
   cam: {fileID: 1638070127}
   drainButton: {fileID: 737813399}
   amountText: {fileID: 897168161}
-  effectFire: {fileID: 21300000, guid: 084f12a3d865cd14da3b0eca95099942, type: 3}
+  effectFire: {fileID: 21300000, guid: 2c5bf9c59092bd64f8224d91fb1ab14a, type: 3}
   effectSmoke: {fileID: 21300000, guid: 68dd3723d780e6646a5d6f45e454e470, type: 3}
   effectGlow: {fileID: 21300000, guid: 6264f961a8b45da41970e7f3b2b9ef27, type: 3}
   effectBoil: {fileID: 21300000, guid: 5f8ec715de0e8b840a11f3fe12e2f26b, type: 3}
+  colorFire: {r: 1, g: 0.5087234, b: 0, a: 1}
+  colorSmoke: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 1}
+  colorGlow: {r: 0.9559822, g: 1, b: 0, a: 1}
+  colorBoil: {r: 0.054538872, g: 0, b: 0.5283019, a: 1}
   bottlePos:
   - {fileID: 163836331}
   - {fileID: 280116664}
@@ -24880,6 +24948,30 @@ MonoBehaviour:
   fire: {fileID: 512408425}
   water: {fileID: 1243597816}
   recipes: {fileID: 873856127}
+  platformRed: {fileID: 1586323577}
+  platformBlue: {fileID: 206402266}
+  platformYellow: {fileID: 203863870}
+  platformWhite: {fileID: 634215176}
+  platformLadan: {fileID: 1104800872}
+  platformEye: {fileID: 1162307467}
+  platformStone: {fileID: 597239437}
+  platformSand: {fileID: 225889324}
+  red: {fileID: 21300000, guid: 8c8256e7b1c192548b53fab0eed191d4, type: 3}
+  redEmpty: {fileID: 21300000, guid: c904cb4a496ee36448c3f3915ced559f, type: 3}
+  blue: {fileID: 21300000, guid: 483e92c030409f44286b484339371d01, type: 3}
+  blueEmpty: {fileID: 21300000, guid: 90ea9829d91605d4ebe9c129f47db05c, type: 3}
+  yellow: {fileID: 21300000, guid: c4ee9cd2cba0ac541a8e96b93c138bdb, type: 3}
+  yellowEmpty: {fileID: 21300000, guid: b2df070ea4d36894199b6cdc23b4f51d, type: 3}
+  white: {fileID: 21300000, guid: bab3ee977a32a9b408dcbe9e3b7ebe6f, type: 3}
+  whiteEmpty: {fileID: 21300000, guid: b51c191ec36cfc64ab79eaa2bf172f30, type: 3}
+  ladan: {fileID: 21300000, guid: b14c9690d57f2524d889187fe822191b, type: 3}
+  ladanEmpty: {fileID: 21300000, guid: f927ec993927b7e4f8eb916b8b60f28e, type: 3}
+  eye: {fileID: 21300000, guid: f68e2971c15a63940ad394028214aa98, type: 3}
+  eyeEmpty: {fileID: 21300000, guid: 0811cdc8a6572e249a1e06d78d38ecf6, type: 3}
+  stone: {fileID: 21300000, guid: b4b4dd13c438d4443829e537af20aefa, type: 3}
+  stoneEmpty: {fileID: 21300000, guid: 5351a40f8cd0b4e468353e1f58540d0a, type: 3}
+  sand: {fileID: 21300000, guid: a853bdfa1b18ed842a31193d3751aef6, type: 3}
+  sandEmpty: {fileID: 21300000, guid: 7ee28cde505737a468921a53814828f0, type: 3}
   potions:
   - {fileID: 11400000, guid: 39e8bf3feac447d498c107ac246bd1e8, type: 2}
   - {fileID: 11400000, guid: 1d90ff41e120d4840ab8b802284bec4b, type: 2}

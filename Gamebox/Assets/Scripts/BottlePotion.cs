@@ -13,6 +13,11 @@ public class BottlePotion : MonoBehaviour
     public Sprite effectGlow;
     public Sprite effectBoil;
 
+    public Color colorFire;
+    public Color colorSmoke;
+    public Color colorGlow;
+    public Color colorBoil;
+
     public PotionColor potionColor = PotionColor.Empty;
     public PotionEffect potionEffect = PotionEffect.Empty;
 
@@ -74,13 +79,25 @@ public class BottlePotion : MonoBehaviour
         }
 
         if (potionEffect == PotionEffect.Burning)
+        {
             transform.Find("Effect").GetComponent<SpriteRenderer>().sprite = effectFire;
+            transform.Find("Effect").GetComponent<SpriteRenderer>().color = colorFire;
+        }
         if (potionEffect == PotionEffect.Boiling)
+        {
             transform.Find("Effect").GetComponent<SpriteRenderer>().sprite = effectBoil;
+            transform.Find("Effect").GetComponent<SpriteRenderer>().color = colorBoil;
+        }
         if (potionEffect == PotionEffect.Smoking)
+        {
             transform.Find("Effect").GetComponent<SpriteRenderer>().sprite = effectSmoke;
+            transform.Find("Effect").GetComponent<SpriteRenderer>().color = colorSmoke;
+        }
         if (potionEffect == PotionEffect.Glowing)
+        {
             transform.Find("Effect").GetComponent<SpriteRenderer>().sprite = effectGlow;
+            transform.Find("Effect").GetComponent<SpriteRenderer>().color = colorGlow;
+        }
     }
 
     public void AddPotion(List<Resource> inCauldron, List<Resource> inCauldronColored, bool isRare, int space)
