@@ -33,6 +33,7 @@ public class RecipesMenu : MonoBehaviour
                 data.transform.Find("Rare").gameObject.SetActive(true);
                 data.transform.Find("Effect").gameObject.SetActive(true);
                 data.transform.Find("Effect").GetComponent<Image>().sprite = potion.rareEffect;
+                data.transform.Find("Effect").GetComponent<Image>().color = potion.effectColor;
             }
             data.transform.Find("Rare").GetComponent<Image>().sprite = potion.rare;
 

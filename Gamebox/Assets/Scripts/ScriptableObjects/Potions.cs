@@ -10,6 +10,7 @@ public class Potions : ScriptableObject
     public Sprite imageWater;
     public Color waterColor;
     public Sprite rareEffect;
+    public Color effectColor;
     public Sprite[] colored;
     public Sprite rare;
     public int id;

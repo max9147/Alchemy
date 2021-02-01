@@ -20,8 +20,8 @@ MonoBehaviour:
   questLimit: 5
   questFirst: 10
   questPenalty: 3
-  questRewardEasy: 600
-  questRewardHard: 1200
+  questRewardEasy: 500
+  questRewardHard: 1000
   rep: 30
   money: 1000
   timeBrew2: 4

@@ -17,7 +17,8 @@ MonoBehaviour:
   imageBottle: {fileID: 21300000, guid: 106296a26d776a947936641678a7d4b4, type: 3}
   imageWater: {fileID: 21300000, guid: 4ecbc1b716834fe4a8e2ae2303c183b2, type: 3}
   waterColor: {r: 1, g: 0.6862745, b: 0, a: 0.5882353}
-  rareEffect: {fileID: 21300000, guid: 084f12a3d865cd14da3b0eca95099942, type: 3}
+  rareEffect: {fileID: 21300000, guid: 2c5bf9c59092bd64f8224d91fb1ab14a, type: 3}
+  effectColor: {r: 1, g: 0.50980395, b: 0, a: 1}
   colored:
   - {fileID: 21300000, guid: e27a1dcb508f6cb4b9170ba95af69664, type: 3}
   - {fileID: 21300000, guid: 6408bae48442de741b89011748c49081, type: 3}

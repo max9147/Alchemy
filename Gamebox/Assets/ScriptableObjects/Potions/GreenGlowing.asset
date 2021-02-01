@@ -18,6 +18,7 @@ MonoBehaviour:
   imageWater: {fileID: 21300000, guid: 4ecbc1b716834fe4a8e2ae2303c183b2, type: 3}
   waterColor: {r: 0, g: 0.4627451, b: 0, a: 0.5882353}
   rareEffect: {fileID: 21300000, guid: 6264f961a8b45da41970e7f3b2b9ef27, type: 3}
+  effectColor: {r: 0.95686275, g: 1, b: 0, a: 1}
   colored:
   - {fileID: 21300000, guid: 1ddd95f545f51ac40afbccf2dfd15308, type: 3}
   - {fileID: 21300000, guid: 6408bae48442de741b89011748c49081, type: 3}
