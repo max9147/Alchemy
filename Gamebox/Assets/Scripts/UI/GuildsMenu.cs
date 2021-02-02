@@ -84,28 +84,28 @@ public class GuildsMenu : MonoBehaviour
                 case 0:
                     guildSystem.GetComponent<GuildSystem>().addRep(Guild.Warriors, 5);
                     repWarriorsGuilds.value = repWarriors.value;
-                    if (repWarriors.value >= 30)
+                    if (repWarriors.value >= 25)
                         buyRepWarriors.interactable = false;
                     break;
 
                 case 1:
                     guildSystem.GetComponent<GuildSystem>().addRep(Guild.Bandits, 5);
                     repBanditsGuilds.value = repBandits.value;
-                    if (repBandits.value >= 30)
+                    if (repBandits.value >= 25)
                         buyRepBandits.interactable = false;
                     break;
 
                 case 2:
                     guildSystem.GetComponent<GuildSystem>().addRep(Guild.Priests, 5);
                     repPriestsGuilds.value = repPriests.value;
-                    if (repPriests.value >= 30)
+                    if (repPriests.value >= 25)
                         buyRepPriests.interactable = false;
                     break;
 
                 case 3:
                     guildSystem.GetComponent<GuildSystem>().addRep(Guild.Magicians, 5);
                     repMagiciansGuilds.value = repMagicians.value;
-                    if (repMagicians.value >= 30)
+                    if (repMagicians.value >= 25)
                         buyRepMagicians.interactable = false;
                     break;
 

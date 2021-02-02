@@ -32,8 +32,6 @@ public class Bottles : MonoBehaviour
 
     public Settings settings;
 
-    public AudioClip bottleKnock;
-
     public bool[] takenSpace = new bool[8];
     public bool[] bottleUsage = new bool[8];
 
@@ -385,12 +383,6 @@ public class Bottles : MonoBehaviour
                 toDrag.position = Vector3.MoveTowards(toDrag.position, bottleSpawner.transform.position, settings.bottleSpeed);
                 if (toDrag.position == bottleSpawner.transform.position)
                 {
-                    if (freeBottles > 0)
-                    {
-                        GetComponent<AudioSource>().clip = bottleKnock;
-                        GetComponent<AudioSource>().Play();
-                    }
-
                     switch (toDrag.tag)
                     {
                         case "Bottle1":
