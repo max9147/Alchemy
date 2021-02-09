@@ -1005,6 +1005,107 @@ MonoBehaviour:
   takenSpace: 0
   justDrained: 0
   justGiven: 0
+--- !u!1 &157748422
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 157748423}
+  - component: {fileID: 157748425}
+  - component: {fileID: 157748424}
+  - component: {fileID: 157748426}
+  m_Layer: 5
+  m_Name: Help
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &157748423
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157748422}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 714566570}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &157748424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157748422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 3e0d1914a6eedee4bb66f4763863fd52, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &157748425
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157748422}
+  m_CullTransparentMesh: 0
+--- !u!61 &157748426
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157748422}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2400, y: 1080}
+  m_EdgeRadius: 0
 --- !u!1 &163836331
 GameObject:
   m_ObjectHideFlags: 0
@@ -7316,6 +7417,7 @@ RectTransform:
   - {fileID: 1538449100}
   - {fileID: 1396328163}
   - {fileID: 1724132463}
+  - {fileID: 157748423}
   - {fileID: 1205828437}
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -12163,8 +12265,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.7789474, y: 3}
-    newSize: {x: 5.28, y: 5.7}
+    oldSize: {x: 2.88, y: 3.45}
+    newSize: {x: 5.76, y: 6.9}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -12216,7 +12318,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.28, y: 5.7}
+  m_Size: {x: 5.76, y: 6.9}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -13258,6 +13360,7 @@ MonoBehaviour:
   potionSystem: {fileID: 1331031178}
   moneySystem: {fileID: 288540910}
   resourceSystem: {fileID: 782229009}
+  UIControls: {fileID: 1487778714}
   potionColor: 0
   potionEffect: 0
   haveQuest: 0
@@ -13892,6 +13995,7 @@ MonoBehaviour:
   potionSystem: {fileID: 1331031178}
   moneySystem: {fileID: 288540910}
   resourceSystem: {fileID: 782229009}
+  UIControls: {fileID: 1487778714}
   potionColor: 0
   potionEffect: 0
   haveQuest: 0
@@ -14067,12 +14171,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 714566570}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -1078, y: -428}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: -2300, y: -980}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1205828438
 CanvasRenderer:
@@ -16435,6 +16539,7 @@ MonoBehaviour:
   potionSystem: {fileID: 1331031178}
   guildSystem: {fileID: 1720958760}
   recipes: {fileID: 873856127}
+  UIControls: {fileID: 1487778714}
   settings: {fileID: 11400000, guid: c07b99bbbca86234ea011dc966b22d2c, type: 2}
 --- !u!4 &1401408782
 Transform:
@@ -16607,6 +16712,14 @@ MonoBehaviour:
   guildSystem: {fileID: 1720958760}
   moneySystem: {fileID: 288540910}
   resourceSystem: {fileID: 782229009}
+  textLadan: {fileID: 2119297783}
+  textEye: {fileID: 1622002407}
+  textStone: {fileID: 866814248}
+  textSand: {fileID: 2048502007}
+  textRepWarriors: {fileID: 956176928}
+  textRepBandits: {fileID: 1263443719}
+  textRepPriests: {fileID: 2029068530}
+  textRepMagicians: {fileID: 1676423542}
   repWarriors: {fileID: 272063486}
   repBandits: {fileID: 386197548}
   repPriests: {fileID: 1793262996}
@@ -16623,6 +16736,7 @@ MonoBehaviour:
   buyRepBandits: {fileID: 1062188833}
   buyRepPriests: {fileID: 7651169}
   buyRepMagicians: {fileID: 841048157}
+  settings: {fileID: 11400000, guid: c07b99bbbca86234ea011dc966b22d2c, type: 2}
 --- !u!1 &1432733530
 GameObject:
   m_ObjectHideFlags: 0
@@ -17522,8 +17636,19 @@ MonoBehaviour:
   part1: {fileID: 1494118232}
   part2: {fileID: 1394050375}
   pauseIcon: {fileID: 1205828439}
+  help1: {fileID: 21300000, guid: 3e0d1914a6eedee4bb66f4763863fd52, type: 3}
+  help2: {fileID: 21300000, guid: 8723cccc7ccc2594f90b2d9778fdfccf, type: 3}
+  help3: {fileID: 21300000, guid: 6d5e0cea1d817514e80d7dbb231b6285, type: 3}
+  help4: {fileID: 21300000, guid: 8c3ba5c9363dd8f4c933b26c35204e68, type: 3}
+  help5: {fileID: 21300000, guid: 4c62dec7310c36b4a9ecd759873a23bd, type: 3}
+  help6: {fileID: 21300000, guid: 42df69b1633c67b47a40ee97418de7c7, type: 3}
   tutorial: {fileID: 1724132462}
+  help: {fileID: 157748422}
+  settings: {fileID: 11400000, guid: c07b99bbbca86234ea011dc966b22d2c, type: 2}
   buttonNextText: {fileID: 563094009}
+  helpButton: {fileID: 1491098714}
+  cam: {fileID: 1638070127}
+  helpStep: 0
 --- !u!114 &1487778721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17713,18 +17838,18 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1491098715}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1487778720}
-        m_MethodName: TutorialShow
+        m_MethodName: ShowHelp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -18137,6 +18262,7 @@ MonoBehaviour:
   potionSystem: {fileID: 1331031178}
   moneySystem: {fileID: 288540910}
   resourceSystem: {fileID: 782229009}
+  UIControls: {fileID: 1487778714}
   potionColor: 0
   potionEffect: 0
   haveQuest: 0
@@ -20308,6 +20434,7 @@ MonoBehaviour:
   repBandits: 80
   repPriests: 80
   repMagicians: 80
+  settings: {fileID: 11400000, guid: c07b99bbbca86234ea011dc966b22d2c, type: 2}
 --- !u!4 &1720958762
 Transform:
   m_ObjectHideFlags: 0
@@ -20350,6 +20477,7 @@ MonoBehaviour:
   bandit: {fileID: 1947875732}
   priest: {fileID: 1134544492}
   magician: {fileID: 1165603972}
+  UIControls: {fileID: 1487778714}
   settings: {fileID: 11400000, guid: c07b99bbbca86234ea011dc966b22d2c, type: 2}
   newTask: {fileID: 8300000, guid: db100bc5552da5d49b94e9751a1d821b, type: 3}
   failTask: {fileID: 8300000, guid: d146f12a7b148a54087f8445be4d16cc, type: 3}
@@ -20491,10 +20619,10 @@ RectTransform:
   m_Father: {fileID: 714566570}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: -2300, y: -980}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1734154797
 GameObject:
@@ -22879,6 +23007,7 @@ MonoBehaviour:
   potionSystem: {fileID: 1331031178}
   moneySystem: {fileID: 288540910}
   resourceSystem: {fileID: 782229009}
+  UIControls: {fileID: 1487778714}
   potionColor: 0
   potionEffect: 0
   haveQuest: 0
@@ -24849,6 +24978,7 @@ MonoBehaviour:
   fire: {fileID: 512408425}
   water: {fileID: 1243597816}
   recipes: {fileID: 873856127}
+  UIControls: {fileID: 1487778714}
   platformRed: {fileID: 1586323577}
   platformBlue: {fileID: 206402266}
   platformYellow: {fileID: 203863870}
@@ -24939,6 +25069,8 @@ MonoBehaviour:
   addResource: {fileID: 8300000, guid: 9b7aadca6b1251e479c4b9c14cd0136b, type: 3}
   brewSound: {fileID: 8300000, guid: 2cc0eb3290e641147a38f8be2c15c194, type: 3}
   takePotionSound: {fileID: 8300000, guid: 09098e2a3d86ea245a4f622f1c50e4f6, type: 3}
+  waterStill: {fileID: 21300000, guid: 25d8ae4487aef4d46bad250000bc6f0a, type: 3}
+  waterBoil: {fileID: 21300000, guid: 319cc4d359242d6488a7fffcb60e3a22, type: 3}
   cauldronId: 0
   isRare: 0
   isWrong: 0

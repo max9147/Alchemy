@@ -13,6 +13,7 @@ public class AutoSave : MonoBehaviour
     public GameObject potionSystem;
     public GameObject guildSystem;
     public GameObject recipes;
+    public GameObject UIControls;
     public Settings settings;
 
     private void Awake()
@@ -74,6 +75,8 @@ public class AutoSave : MonoBehaviour
             recipes.GetComponent<RecipesMenu>().pass = false;
 
             bottles.GetComponent<Bottles>().bottleUsage = save.bottleUsage;
+
+            UIControls.GetComponent<Tutorial>().helpStep = save.helpStep;
         }
 
         else
@@ -99,7 +102,7 @@ public class AutoSave : MonoBehaviour
         yield return new WaitForSeconds(1);
         SaveGameSystem.SaveGame(moneySystem.GetComponent<MoneySystem>(), bottles.GetComponent<Bottles>(), moneySystem.GetComponent<ShopSystem>(), resourceSystem.GetComponent<Fuel>(),
             resourceSystem.GetComponent<ResourceSystem>(), mixingSystem.GetComponent<MixingSystem>(),
-            potionSystem.GetComponent<PotionSystem>(), guildSystem.GetComponent<GuildSystem>(), recipes.GetComponent<RecipesMenu>());
+            potionSystem.GetComponent<PotionSystem>(), guildSystem.GetComponent<GuildSystem>(), recipes.GetComponent<RecipesMenu>(), UIControls.GetComponent<Tutorial>());
         StartCoroutine(AutoSaveDelay());
     }
 }

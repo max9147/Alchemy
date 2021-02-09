@@ -22,8 +22,19 @@ MonoBehaviour:
   questPenalty: 3
   questRewardEasy: 500
   questRewardHard: 1000
+  repReward: 10
+  repPenalty: 10
+  repChangeSec: 3
+  repMin: 15
+  repLimit: 25
+  repMax: 75
+  repRare: 70
   rep: 30
   money: 1000
+  costRare: 300
+  rareMax: 2
+  costRep: 250
+  repAdd: 5
   timeBrew2: 4
   timeBrew3: 5
   timeBrew4: 6
@@ -33,3 +44,4 @@ MonoBehaviour:
   resourceSpeed: 0.3
   bottleSpeed: 0.3
   camSpeed: 0.3
+  helpTime: 1

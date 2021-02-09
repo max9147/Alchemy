@@ -35,11 +35,44 @@ public class Settings : ScriptableObject
     [Header("Вознаграждение за сложный квест")]
     public int questRewardHard;
 
+    [Header("Сколько репутации получает гильдия за выполненный квест")]
+    public int repReward;
+
+    [Header("Сколько репутации теряет гильдия за невыполненный квест")]
+    public int repPenalty;
+
+    [Header("Изменение репутации вторичных гильдий")]
+    public int repChangeSec;
+
+    [Header("Минимум репутации для выдачи квестов + для разрешения покупки репутации")]
+    public int repMin;
+
+    [Header("Предел покупки репутации в магазине")]
+    public int repLimit;
+
+    [Header("Репутация, при которой выдают заказы на редкое зелье")]
+    public int repMax;
+
+    [Header("Репутация, при которой можно купить редкий ингридиент")]
+    public int repRare;
+
     [Header("Начальная репутация")]
     public int rep;
 
     [Header("Начальные деньги")]
     public int money;
+
+    [Header("Цена редкого ингридиента")]
+    public int costRare;
+
+    [Header("Максимум редких ингридиентов")]
+    public int rareMax;
+
+    [Header("Цена покупки репутации")]
+    public int costRep;
+
+    [Header("Сколько репутации покупаем за раз")]
+    public int repAdd;
 
     [Header("Время варки зелья из 2 ингредиентов, сек.")]
     public int timeBrew2;
@@ -67,4 +100,7 @@ public class Settings : ScriptableObject
 
     [Header("Скорость перемещения камеры")]
     public float camSpeed;
+
+    [Header("Как долго нельзя закрыть подсказку, сек.")]
+    public float helpTime;
 }

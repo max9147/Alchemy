@@ -18,6 +18,7 @@ public class MixingSystem : MonoBehaviour
     public GameObject fire;
     public GameObject water;
     public GameObject recipes;
+    public GameObject UIControls;
 
     public GameObject platformRed;
     public GameObject platformBlue;
@@ -57,6 +58,9 @@ public class MixingSystem : MonoBehaviour
     public AudioClip addResource;
     public AudioClip brewSound;
     public AudioClip takePotionSound;
+
+    public Sprite waterStill;
+    public Sprite waterBoil;
 
     public int cauldronId;
 
@@ -287,10 +291,16 @@ public class MixingSystem : MonoBehaviour
         {
             GetComponent<AudioSource>().clip = brewSound;
             GetComponent<AudioSource>().Play();
+            water.GetComponent<SpriteRenderer>().sprite = waterBoil;
 
             yield return new WaitForSeconds(time / speed);
+
+            if (UIControls.GetComponent<Tutorial>().helpStep == 1)
+                UIControls.GetComponent<Tutorial>().GetHelp();
+
             drainButton.interactable = true;
             isReady = true;
+            water.GetComponent<SpriteRenderer>().sprite = waterStill;
         }
 
         resourceSystem.GetComponent<DragResources>().StopMixing();

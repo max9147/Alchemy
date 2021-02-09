@@ -10,6 +10,16 @@ public class GuildsMenu : MonoBehaviour
     public GameObject moneySystem;
     public GameObject resourceSystem;
 
+    public TextMeshProUGUI textLadan;
+    public TextMeshProUGUI textEye;
+    public TextMeshProUGUI textStone;
+    public TextMeshProUGUI textSand;
+
+    public TextMeshProUGUI textRepWarriors;
+    public TextMeshProUGUI textRepBandits;
+    public TextMeshProUGUI textRepPriests;
+    public TextMeshProUGUI textRepMagicians;
+
     public Slider repWarriors;
     public Slider repBandits;
     public Slider repPriests;
@@ -29,29 +39,41 @@ public class GuildsMenu : MonoBehaviour
     public Button buyRepPriests;
     public Button buyRepMagicians;
 
+    public Settings settings;
+
     private void OnEnable()
     {
+        textLadan.text = "Купить святой ладан: " + settings.costRare.ToString();
+        textEye.text = "Купить глаз вурдалака: " + settings.costRare.ToString();
+        textSand.text = "Купить пустынный песок: " + settings.costRare.ToString();
+        textStone.text = "Купить волшебный камень: " + settings.costRare.ToString();
+
+        textRepWarriors.text = "Купить репутацию: " + settings.costRep.ToString();
+        textRepBandits.text = "Купить репутацию: " + settings.costRep.ToString();
+        textRepPriests.text = "Купить репутацию: " + settings.costRep.ToString();
+        textRepMagicians.text = "Купить репутацию: " + settings.costRep.ToString();
+
         repWarriorsGuilds.value = repWarriors.value;
         repBanditsGuilds.value = repBandits.value;
         repPriestsGuilds.value = repPriests.value;
         repMagiciansGuilds.value = repMagicians.value;
 
-        if (repWarriors.value >= 70 && moneySystem.GetComponent<MoneySystem>().GetMoney() > 300 && resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Eye) < 2)
+        if (repWarriors.value >= settings.repRare && moneySystem.GetComponent<MoneySystem>().GetMoney() > settings.costRare && resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Eye) < settings.rareMax)
             buyEye.interactable = true;
         else
             buyEye.interactable = false;
 
-        if (repBandits.value >= 70 && moneySystem.GetComponent<MoneySystem>().GetMoney() > 300 && resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Sand) < 2)
+        if (repBandits.value >= settings.repRare && moneySystem.GetComponent<MoneySystem>().GetMoney() > settings.costRare && resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Sand) < settings.rareMax)
             buySand.interactable = true;
         else
             buySand.interactable = false;
 
-        if (repPriests.value >= 70 && moneySystem.GetComponent<MoneySystem>().GetMoney() > 300 && resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Ladan) < 2)
+        if (repPriests.value >= settings.repRare && moneySystem.GetComponent<MoneySystem>().GetMoney() > settings.costRare && resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Ladan) < settings.rareMax)
             buyLadan.interactable = true;
         else
             buyLadan.interactable = false;
 
-        if (repMagicians.value >= 70 && moneySystem.GetComponent<MoneySystem>().GetMoney() > 300 && resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Stone) < 2)
+        if (repMagicians.value >= settings.repRare && moneySystem.GetComponent<MoneySystem>().GetMoney() > settings.costRare && resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Stone) < settings.rareMax)
             buyStone.interactable = true;
         else
             buyStone.interactable = false;
@@ -59,11 +81,11 @@ public class GuildsMenu : MonoBehaviour
 
     public void BuyRep(int guildID)
     {
-        if (moneySystem.GetComponent<MoneySystem>().GetMoney() >= 500)
+        if (moneySystem.GetComponent<MoneySystem>().GetMoney() >= settings.costRep)
         {
-            moneySystem.GetComponent<MoneySystem>().SpendMoney(500);
+            moneySystem.GetComponent<MoneySystem>().SpendMoney(settings.costRep);
 
-            if (moneySystem.GetComponent<MoneySystem>().GetMoney() < 500)
+            if (moneySystem.GetComponent<MoneySystem>().GetMoney() < settings.costRep)
             {
                 buyRepWarriors.interactable = false;
                 buyRepBandits.interactable = false;
@@ -71,7 +93,7 @@ public class GuildsMenu : MonoBehaviour
                 buyRepMagicians.interactable = false;
             }
 
-            if (moneySystem.GetComponent<MoneySystem>().GetMoney() < 300)
+            if (moneySystem.GetComponent<MoneySystem>().GetMoney() < settings.costRare)
             {
                 buyEye.interactable = false;
                 buySand.interactable = false;
@@ -82,30 +104,30 @@ public class GuildsMenu : MonoBehaviour
             switch (guildID)
             {
                 case 0:
-                    guildSystem.GetComponent<GuildSystem>().addRep(Guild.Warriors, 5);
+                    guildSystem.GetComponent<GuildSystem>().addRep(Guild.Warriors, settings.repAdd);
                     repWarriorsGuilds.value = repWarriors.value;
-                    if (repWarriors.value >= 25)
+                    if (repWarriors.value >= settings.repLimit)
                         buyRepWarriors.interactable = false;
                     break;
 
                 case 1:
-                    guildSystem.GetComponent<GuildSystem>().addRep(Guild.Bandits, 5);
+                    guildSystem.GetComponent<GuildSystem>().addRep(Guild.Bandits, settings.repAdd);
                     repBanditsGuilds.value = repBandits.value;
-                    if (repBandits.value >= 25)
+                    if (repBandits.value >= settings.repLimit)
                         buyRepBandits.interactable = false;
                     break;
 
                 case 2:
-                    guildSystem.GetComponent<GuildSystem>().addRep(Guild.Priests, 5);
+                    guildSystem.GetComponent<GuildSystem>().addRep(Guild.Priests, settings.repAdd);
                     repPriestsGuilds.value = repPriests.value;
-                    if (repPriests.value >= 25)
+                    if (repPriests.value >= settings.repLimit)
                         buyRepPriests.interactable = false;
                     break;
 
                 case 3:
-                    guildSystem.GetComponent<GuildSystem>().addRep(Guild.Magicians, 5);
+                    guildSystem.GetComponent<GuildSystem>().addRep(Guild.Magicians, settings.repAdd);
                     repMagiciansGuilds.value = repMagicians.value;
-                    if (repMagicians.value >= 25)
+                    if (repMagicians.value >= settings.repLimit)
                         buyRepMagicians.interactable = false;
                     break;
 
@@ -117,11 +139,11 @@ public class GuildsMenu : MonoBehaviour
 
     public void BuyRareResource(int resID)
     {
-        if (moneySystem.GetComponent<MoneySystem>().GetMoney() >= 300)
+        if (moneySystem.GetComponent<MoneySystem>().GetMoney() >= settings.costRare)
         {
-            moneySystem.GetComponent<MoneySystem>().SpendMoney(300);
+            moneySystem.GetComponent<MoneySystem>().SpendMoney(settings.costRare);
 
-            if (moneySystem.GetComponent<MoneySystem>().GetMoney() < 500)
+            if (moneySystem.GetComponent<MoneySystem>().GetMoney() < settings.costRep)
             {
                 buyRepWarriors.interactable = false;
                 buyRepBandits.interactable = false;
@@ -129,7 +151,7 @@ public class GuildsMenu : MonoBehaviour
                 buyRepMagicians.interactable = false;
             }
 
-            if (moneySystem.GetComponent<MoneySystem>().GetMoney() < 300)
+            if (moneySystem.GetComponent<MoneySystem>().GetMoney() < settings.costRare)
             {
                 buyEye.interactable = false;
                 buySand.interactable = false;
@@ -140,37 +162,37 @@ public class GuildsMenu : MonoBehaviour
             switch (resID)
             {
                 case 0:
-                    if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Eye) < 2)
+                    if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Eye) < settings.rareMax)
                     {
                         resourceSystem.GetComponent<ResourceSystem>().AddResource(Resource.Eye, 1);
-                        if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Eye) == 2)
+                        if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Eye) == settings.rareMax)
                             buyEye.interactable = false;
                     }
                     break;
 
                 case 1:
-                    if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Sand) < 2)
+                    if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Sand) < settings.rareMax)
                     {
                         resourceSystem.GetComponent<ResourceSystem>().AddResource(Resource.Sand, 1);
-                        if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Sand) == 2)
+                        if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Sand) == settings.rareMax)
                             buySand.interactable = false;
                     }
                     break;
 
                 case 2:
-                    if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Ladan) < 2)
+                    if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Ladan) < settings.rareMax)
                     {
                         resourceSystem.GetComponent<ResourceSystem>().AddResource(Resource.Ladan, 1);
-                        if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Ladan) == 2)
+                        if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Ladan) == settings.rareMax)
                             buyLadan.interactable = false;
                     }
                     break;
 
                 case 3:
-                    if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Stone) < 2)
+                    if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Stone) < settings.rareMax)
                     {
                         resourceSystem.GetComponent<ResourceSystem>().AddResource(Resource.Stone, 1);
-                        if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Stone) == 2)
+                        if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Stone) == settings.rareMax)
                             buyStone.interactable = false;
                     }
                     break;

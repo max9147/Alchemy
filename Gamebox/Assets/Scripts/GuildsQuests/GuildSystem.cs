@@ -28,6 +28,8 @@ public class GuildSystem : MonoBehaviour
     public int repPriests;
     public int repMagicians;
 
+    public Settings settings;
+
     private void Start()
     {
         sliderWarriors.value = repWarriors;
@@ -35,13 +37,13 @@ public class GuildSystem : MonoBehaviour
         sliderPriests.value = repPriests;
         sliderMagicians.value = repMagicians;
 
-        if (repWarriors <= 15)
+        if (repWarriors <= settings.repMin)
             buyRepWarriors.interactable = true;
-        if (repBandits <= 15)
+        if (repBandits <= settings.repMin)
             buyRepBandits.interactable = true;
-        if (repPriests <= 15)
+        if (repPriests <= settings.repMin)
             buyRepPriests.interactable = true;
-        if (repMagicians <= 15)
+        if (repMagicians <= settings.repMin)
             buyRepMagicians.interactable = true;
     }
 
@@ -91,7 +93,7 @@ public class GuildSystem : MonoBehaviour
                 if (repWarriors < 0)
                     repWarriors = 0;
                 sliderWarriors.value = repWarriors;
-                if (repWarriors <= 15)
+                if (repWarriors <= settings.repMin)
                     buyRepWarriors.interactable = true;
                 break;
 
@@ -100,7 +102,7 @@ public class GuildSystem : MonoBehaviour
                 if (repBandits < 0)
                     repBandits = 0;
                 sliderBandits.value = repBandits;
-                if (repBandits <= 15)
+                if (repBandits <= settings.repMin)
                     buyRepBandits.interactable = true;
                 break;
 
@@ -109,7 +111,7 @@ public class GuildSystem : MonoBehaviour
                 if (repPriests < 0)
                     repPriests = 0;
                 sliderPriests.value = repPriests;
-                if (repPriests <= 15)
+                if (repPriests <= settings.repMin)
                     buyRepPriests.interactable = true;
                 break;
 
@@ -118,7 +120,7 @@ public class GuildSystem : MonoBehaviour
                 if (repMagicians < 0)
                     repMagicians = 0;
                 sliderMagicians.value = repMagicians;
-                if (repMagicians <= 15)
+                if (repMagicians <= settings.repMin)
                     buyRepMagicians.interactable = true;
                 break;
 

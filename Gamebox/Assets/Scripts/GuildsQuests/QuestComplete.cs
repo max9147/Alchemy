@@ -8,6 +8,7 @@ public class QuestComplete : MonoBehaviour
     public GameObject potionSystem;
     public GameObject moneySystem;
     public GameObject resourceSystem;
+    public GameObject UIControls;
     public PotionColor potionColor;
     public PotionEffect potionEffect;
     public bool haveQuest = false;
@@ -41,6 +42,9 @@ public class QuestComplete : MonoBehaviour
                     guildSystem.GetComponent<QuestsSystem>().questTime -= settings.questSpeedup;
                     guildSystem.GetComponent<QuestsSystem>().questStep = 0;
                 }
+
+                if (UIControls.GetComponent<Tutorial>().helpStep == 3)
+                    UIControls.GetComponent<Tutorial>().GetHelp();
 
                 GetComponent<AudioSource>().clip = completeTask;
                 GetComponent<AudioSource>().Play();
@@ -107,10 +111,10 @@ public class QuestComplete : MonoBehaviour
                         moneySystem.GetComponent<MoneySystem>().AddMoney(reward);
 
                         guildSystem.GetComponent<QuestsSystem>().StopQuest(Guild.Warriors);
-                        guildSystem.GetComponent<GuildSystem>().addRep(Guild.Warriors, 10);
-                        guildSystem.GetComponent<GuildSystem>().addRep(Guild.Priests, 3);
-                        guildSystem.GetComponent<GuildSystem>().removeRep(Guild.Bandits, 3);
-                        guildSystem.GetComponent<GuildSystem>().removeRep(Guild.Magicians, 3);
+                        guildSystem.GetComponent<GuildSystem>().addRep(Guild.Warriors, settings.repReward);
+                        guildSystem.GetComponent<GuildSystem>().addRep(Guild.Priests, settings.repChangeSec);
+                        guildSystem.GetComponent<GuildSystem>().removeRep(Guild.Bandits, settings.repChangeSec);
+                        guildSystem.GetComponent<GuildSystem>().removeRep(Guild.Magicians, settings.repChangeSec);
                         if (guildSystem.GetComponent<QuestsSystem>().delayWarriors > 0)
                             guildSystem.GetComponent<QuestsSystem>().delayWarriors--;
                         if (potionEffect != PotionEffect.Normal)
@@ -122,10 +126,10 @@ public class QuestComplete : MonoBehaviour
                             moneySystem.GetComponent<MoneySystem>().AddMoney(reward);
 
                         guildSystem.GetComponent<QuestsSystem>().StopQuest(Guild.Bandits);
-                        guildSystem.GetComponent<GuildSystem>().addRep(Guild.Bandits, 10);
-                        guildSystem.GetComponent<GuildSystem>().addRep(Guild.Magicians, 3);
-                        guildSystem.GetComponent<GuildSystem>().removeRep(Guild.Warriors, 3);
-                        guildSystem.GetComponent<GuildSystem>().removeRep(Guild.Priests, 3);
+                        guildSystem.GetComponent<GuildSystem>().addRep(Guild.Bandits, settings.repReward);
+                        guildSystem.GetComponent<GuildSystem>().addRep(Guild.Magicians, settings.repChangeSec);
+                        guildSystem.GetComponent<GuildSystem>().removeRep(Guild.Warriors, settings.repChangeSec);
+                        guildSystem.GetComponent<GuildSystem>().removeRep(Guild.Priests, settings.repChangeSec);
                         if (guildSystem.GetComponent<QuestsSystem>().delayBandits > 0)
                             guildSystem.GetComponent<QuestsSystem>().delayBandits--;
                         if (potionEffect != PotionEffect.Normal)
@@ -139,10 +143,10 @@ public class QuestComplete : MonoBehaviour
                             moneySystem.GetComponent<MoneySystem>().AddMoney(reward);
 
                         guildSystem.GetComponent<QuestsSystem>().StopQuest(Guild.Priests);
-                        guildSystem.GetComponent<GuildSystem>().addRep(Guild.Priests, 10);
-                        guildSystem.GetComponent<GuildSystem>().addRep(Guild.Warriors, 3);
-                        guildSystem.GetComponent<GuildSystem>().removeRep(Guild.Magicians, 3);
-                        guildSystem.GetComponent<GuildSystem>().removeRep(Guild.Bandits, 3);
+                        guildSystem.GetComponent<GuildSystem>().addRep(Guild.Priests, settings.repReward);
+                        guildSystem.GetComponent<GuildSystem>().addRep(Guild.Warriors, settings.repChangeSec);
+                        guildSystem.GetComponent<GuildSystem>().removeRep(Guild.Magicians, settings.repChangeSec);
+                        guildSystem.GetComponent<GuildSystem>().removeRep(Guild.Bandits, settings.repChangeSec);
                         if (guildSystem.GetComponent<QuestsSystem>().delayPriests > 0)
                             guildSystem.GetComponent<QuestsSystem>().delayPriests--;
                         if (potionEffect != PotionEffect.Normal)
@@ -173,10 +177,10 @@ public class QuestComplete : MonoBehaviour
                         moneySystem.GetComponent<MoneySystem>().AddMoney(reward);
 
                         guildSystem.GetComponent<QuestsSystem>().StopQuest(Guild.Magicians);
-                        guildSystem.GetComponent<GuildSystem>().addRep(Guild.Magicians, 15);
-                        guildSystem.GetComponent<GuildSystem>().addRep(Guild.Bandits, 5);
-                        guildSystem.GetComponent<GuildSystem>().removeRep(Guild.Priests, 5);
-                        guildSystem.GetComponent<GuildSystem>().removeRep(Guild.Warriors, 5);
+                        guildSystem.GetComponent<GuildSystem>().addRep(Guild.Magicians, settings.repReward);
+                        guildSystem.GetComponent<GuildSystem>().addRep(Guild.Bandits, settings.repChangeSec);
+                        guildSystem.GetComponent<GuildSystem>().removeRep(Guild.Priests, settings.repChangeSec);
+                        guildSystem.GetComponent<GuildSystem>().removeRep(Guild.Warriors, settings.repChangeSec);
                         if (guildSystem.GetComponent<QuestsSystem>().delayMagicians > 0)
                             guildSystem.GetComponent<QuestsSystem>().delayMagicians--;
                         if (potionEffect != PotionEffect.Normal)

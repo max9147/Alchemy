@@ -50,7 +50,9 @@ public class SaveData
 
     public bool[] bottleUsage = new bool[8];
 
-    public SaveData(MoneySystem moneySystem, Bottles bottles, ShopSystem shopSystem, Fuel fuel, ResourceSystem resourceSystem, MixingSystem mixingSystem, PotionSystem potionSystem, GuildSystem guildSystem, RecipesMenu recipesMenu)
+    public int helpStep;
+
+    public SaveData(MoneySystem moneySystem, Bottles bottles, ShopSystem shopSystem, Fuel fuel, ResourceSystem resourceSystem, MixingSystem mixingSystem, PotionSystem potionSystem, GuildSystem guildSystem, RecipesMenu recipesMenu, Tutorial tutorial)
     {
         money = moneySystem.money;
 
@@ -96,5 +98,7 @@ public class SaveData
         added = recipesMenu.addedArr;
 
         bottleUsage = bottles.bottleUsage;
+
+        helpStep = tutorial.helpStep;
     }
 }
