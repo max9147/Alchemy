@@ -8,8 +8,7 @@ using UnityEngine.UI;
 
 public class Tutorial : MonoBehaviour
 {
-    public Image part1;
-    public Image part2;
+    public Image content;
     public Image pauseIcon;
     public Sprite help1;
     public Sprite help2;
@@ -25,6 +24,7 @@ public class Tutorial : MonoBehaviour
     public Camera cam;
     public int helpStep = 0;
 
+    private int tutorialStep = 0;
     private float timePassed = 0;
     private bool showingHelp = false;
 
@@ -37,7 +37,7 @@ public class Tutorial : MonoBehaviour
             Time.timeScale = 0;
             pauseIcon.gameObject.SetActive(true);
             tutorial.SetActive(true);
-            part1.gameObject.SetActive(true);
+            content.sprite = help1;
         }
 
         if (helpStep == 0)
@@ -46,18 +46,37 @@ public class Tutorial : MonoBehaviour
 
     public void TutorialNext()
     {
-        if (part1.IsActive())
+        switch (tutorialStep)
         {
-            part1.gameObject.SetActive(false);
-            part2.gameObject.SetActive(true);
-            buttonNextText.text = "Закрыть";
-        }
-        else if (part2.IsActive())
-        {
-            GetComponent<Popups>().popupOpen = false;
-            tutorial.SetActive(false);
-            Time.timeScale = 1;
-            pauseIcon.gameObject.SetActive(false);
+            case 0:
+                tutorialStep++;
+                content.sprite = help2;
+                break;
+            case 1:
+                tutorialStep++;
+                content.sprite = help3;
+                break;
+            case 2:
+                tutorialStep++;
+                content.sprite = help4;
+                break;
+            case 3:
+                tutorialStep++;
+                content.sprite = help5;
+                break;
+            case 4:
+                tutorialStep++;
+                content.sprite = help6;
+                buttonNextText.text = "Закрыть";
+                break;
+            case 5:
+                GetComponent<Popups>().popupOpen = false;
+                tutorial.SetActive(false);
+                Time.timeScale = 1;
+                pauseIcon.gameObject.SetActive(false);
+                break;
+            default:
+                break;
         }
     }
 
