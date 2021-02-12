@@ -30,7 +30,7 @@ MonoBehaviour:
   repMax: 75
   repRare: 70
   rep: 30
-  money: 1000
+  money: 50
   costRare: 300
   rareMax: 2
   costRep: 250

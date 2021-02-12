@@ -77,6 +77,8 @@ public class AutoSave : MonoBehaviour
             bottles.GetComponent<Bottles>().bottleUsage = save.bottleUsage;
 
             UIControls.GetComponent<Tutorial>().helpStep = save.helpStep;
+
+            guildSystem.GetComponent<QuestsSystem>().firstQuest = save.firstQuest;
         }
 
         else
@@ -102,7 +104,7 @@ public class AutoSave : MonoBehaviour
         yield return new WaitForSeconds(1);
         SaveGameSystem.SaveGame(moneySystem.GetComponent<MoneySystem>(), bottles.GetComponent<Bottles>(), moneySystem.GetComponent<ShopSystem>(), resourceSystem.GetComponent<Fuel>(),
             resourceSystem.GetComponent<ResourceSystem>(), mixingSystem.GetComponent<MixingSystem>(),
-            potionSystem.GetComponent<PotionSystem>(), guildSystem.GetComponent<GuildSystem>(), recipes.GetComponent<RecipesMenu>(), UIControls.GetComponent<Tutorial>());
+            potionSystem.GetComponent<PotionSystem>(), guildSystem.GetComponent<GuildSystem>(), recipes.GetComponent<RecipesMenu>(), UIControls.GetComponent<Tutorial>(), guildSystem.GetComponent<QuestsSystem>());
         StartCoroutine(AutoSaveDelay());
     }
 }

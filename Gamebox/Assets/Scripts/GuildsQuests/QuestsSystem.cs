@@ -54,6 +54,8 @@ public class QuestsSystem : MonoBehaviour
     private bool priestsReady = false;
     private bool magiciansReady = false;
 
+    public bool firstQuest = true;
+
     public Quest warriorsQuest;
     public Quest banditsQuest;
     public Quest priestsQuest;
@@ -76,10 +78,19 @@ public class QuestsSystem : MonoBehaviour
     {
         questTime = settings.questDelay;
         timePassed = questTime - settings.questFirst + GetComponent<GuildSystem>().CalcExtraTime();
+
+        if (firstQuest)
+        {
+            warriorsQuest = CreateQuest(Difficulty.Easy, Guild.Warriors);
+            textWarriors.text = GetPotionName(warriorsQuest) + " зелье";
+            rewardWarriors.text = warriorsQuest.reward.ToString();
+        }
     }
 
     private void Update()
     {
+        if (firstQuest) return;
+
         timePassed += Time.deltaTime;
 
         if (timePassed >= questTime + GetComponent<GuildSystem>().CalcExtraTime())
@@ -395,6 +406,8 @@ public class QuestsSystem : MonoBehaviour
 
     public void StopQuest(Guild guild)
     {
+        firstQuest = false;
+
         switch (guild)
         {
             case Guild.Warriors:

@@ -52,7 +52,9 @@ public class SaveData
 
     public int helpStep;
 
-    public SaveData(MoneySystem moneySystem, Bottles bottles, ShopSystem shopSystem, Fuel fuel, ResourceSystem resourceSystem, MixingSystem mixingSystem, PotionSystem potionSystem, GuildSystem guildSystem, RecipesMenu recipesMenu, Tutorial tutorial)
+    public bool firstQuest;
+
+    public SaveData(MoneySystem moneySystem, Bottles bottles, ShopSystem shopSystem, Fuel fuel, ResourceSystem resourceSystem, MixingSystem mixingSystem, PotionSystem potionSystem, GuildSystem guildSystem, RecipesMenu recipesMenu, Tutorial tutorial, QuestsSystem questsSystem)
     {
         money = moneySystem.money;
 
@@ -100,5 +102,7 @@ public class SaveData
         bottleUsage = bottles.bottleUsage;
 
         helpStep = tutorial.helpStep;
+
+        firstQuest = questsSystem.firstQuest;
     }
 }
