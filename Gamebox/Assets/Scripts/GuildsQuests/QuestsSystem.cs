@@ -55,6 +55,7 @@ public class QuestsSystem : MonoBehaviour
     private bool magiciansReady = false;
 
     public bool firstQuest = true;
+    public int firstAmount = 0;
 
     public Quest warriorsQuest;
     public Quest banditsQuest;
@@ -78,12 +79,39 @@ public class QuestsSystem : MonoBehaviour
     {
         questTime = settings.questDelay;
         timePassed = questTime - settings.questFirst + GetComponent<GuildSystem>().CalcExtraTime();
+        if (firstQuest) GiveFirst();
+    }
 
-        if (firstQuest)
+    public void GiveFirst()
+    {
+        firstAmount++;
+
+        int guild = Random.Range(0, 4);
+
+        switch (guild)
         {
-            warriorsQuest = CreateQuest(Difficulty.Easy, Guild.Warriors);
-            textWarriors.text = GetPotionName(warriorsQuest) + " зелье";
-            rewardWarriors.text = warriorsQuest.reward.ToString();
+            case 0:
+                warriorsQuest = CreateQuest(Difficulty.Easy, Guild.Warriors);
+                textWarriors.text = GetPotionName(warriorsQuest) + " зелье";
+                rewardWarriors.text = warriorsQuest.reward.ToString();
+                break;
+            case 1:
+                banditsQuest = CreateQuest(Difficulty.Easy, Guild.Bandits);
+                textBandits.text = GetPotionName(banditsQuest) + " зелье";
+                rewardBandits.text = banditsQuest.reward.ToString();
+                break;
+            case 2:
+                priestsQuest = CreateQuest(Difficulty.Easy, Guild.Priests);
+                textPriests.text = GetPotionName(priestsQuest) + " зелье";
+                rewardPriests.text = priestsQuest.reward.ToString();
+                break;
+            case 3:
+                magiciansQuest = CreateQuest(Difficulty.Easy, Guild.Magicians);
+                textMagicians.text = GetPotionName(magiciansQuest) + " зелье";
+                rewardMagicians.text = magiciansQuest.reward.ToString();
+                break;
+            default:
+                break;
         }
     }
 
@@ -406,8 +434,6 @@ public class QuestsSystem : MonoBehaviour
 
     public void StopQuest(Guild guild)
     {
-        firstQuest = false;
-
         switch (guild)
         {
             case Guild.Warriors:

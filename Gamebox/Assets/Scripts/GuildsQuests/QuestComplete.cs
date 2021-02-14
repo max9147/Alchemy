@@ -37,6 +37,11 @@ public class QuestComplete : MonoBehaviour
         {
             if (collision.GetComponent<BottlePotion>().potionColor == potionColor && collision.GetComponent<BottlePotion>().potionEffect == potionEffect) 
             {
+                if (guildSystem.GetComponent<QuestsSystem>().firstAmount < 5)
+                    guildSystem.GetComponent<QuestsSystem>().GiveFirst();
+                else
+                    guildSystem.GetComponent<QuestsSystem>().firstQuest = false;
+
                 if (guildSystem.GetComponent<QuestsSystem>().questTime > settings.questLimit && guildSystem.GetComponent<QuestsSystem>().questStep == settings.questSpeedupStep)
                 {
                     guildSystem.GetComponent<QuestsSystem>().questTime -= settings.questSpeedup;
