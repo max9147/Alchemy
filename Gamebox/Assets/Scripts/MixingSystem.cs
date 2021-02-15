@@ -295,9 +295,6 @@ public class MixingSystem : MonoBehaviour
 
             yield return new WaitForSeconds(time / speed);
 
-            if (UIControls.GetComponent<Tutorial>().helpStep == 1)
-                UIControls.GetComponent<Tutorial>().GetHelp();
-
             drainButton.interactable = true;
             isReady = true;
             water.GetComponent<SpriteRenderer>().sprite = waterStill;

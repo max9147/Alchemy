@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class QuestComplete : MonoBehaviour
@@ -9,6 +10,7 @@ public class QuestComplete : MonoBehaviour
     public GameObject moneySystem;
     public GameObject resourceSystem;
     public GameObject UIControls;
+    public TextMeshProUGUI messageText;
     public PotionColor potionColor;
     public PotionEffect potionEffect;
     public bool haveQuest = false;
@@ -39,17 +41,18 @@ public class QuestComplete : MonoBehaviour
             {
                 if (guildSystem.GetComponent<QuestsSystem>().firstAmount < 5)
                     guildSystem.GetComponent<QuestsSystem>().GiveFirst();
-                else
+                else if (guildSystem.GetComponent<QuestsSystem>().firstQuest)
+                {
+                    messageText.text = "*текст об окончании туториала*";
+                    UIControls.GetComponent<Tutorial>().ToggleMessage();
                     guildSystem.GetComponent<QuestsSystem>().firstQuest = false;
+                }
 
                 if (guildSystem.GetComponent<QuestsSystem>().questTime > settings.questLimit && guildSystem.GetComponent<QuestsSystem>().questStep == settings.questSpeedupStep)
                 {
                     guildSystem.GetComponent<QuestsSystem>().questTime -= settings.questSpeedup;
                     guildSystem.GetComponent<QuestsSystem>().questStep = 0;
                 }
-
-                if (UIControls.GetComponent<Tutorial>().helpStep == 3)
-                    UIControls.GetComponent<Tutorial>().GetHelp();
 
                 GetComponent<AudioSource>().clip = completeTask;
                 GetComponent<AudioSource>().Play();

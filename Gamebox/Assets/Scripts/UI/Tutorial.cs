@@ -17,16 +17,14 @@ public class Tutorial : MonoBehaviour
     public Sprite help5;
     public Sprite help6;
     public GameObject tutorial;
-    public GameObject help;
-    public Settings settings;
+    public GameObject message;
     public TextMeshProUGUI buttonNextText;
-    public Button helpButton;
-    public Camera cam;
+    public Settings settings;
     public int helpStep = 0;
 
     private int tutorialStep = 0;
-    private float timePassed = 0;
-    private bool showingHelp = false;
+
+    private bool messageShown = false;
 
     private void Start()
     {
@@ -39,9 +37,6 @@ public class Tutorial : MonoBehaviour
             tutorial.SetActive(true);
             content.sprite = help1;
         }
-
-        if (helpStep == 0)
-            GetHelp();
     }
 
     public void TutorialNext()
@@ -80,54 +75,21 @@ public class Tutorial : MonoBehaviour
         }
     }
 
-    public void ShowHelp()
+    public void ToggleMessage()
     {
-        help.SetActive(true);
-        helpButton.interactable = false;
-        showingHelp = true;
-
-        switch (helpStep)
+        if (messageShown)
         {
-            case 1:
-                help.GetComponent<Image>().sprite = help1;
-                break;
-            case 2:
-                help.GetComponent<Image>().sprite = help2;
-                break;
-            case 3:
-                help.GetComponent<Image>().sprite = help3;
-                break;
-            case 4:
-                help.GetComponent<Image>().sprite = help4;
-                break;
-            case 5:
-                help.GetComponent<Image>().sprite = help5;
-                break;
-            case 6:
-                help.GetComponent<Image>().sprite = help6;
-                break;
-            default:
-                break;
+            messageShown = false;
+            message.SetActive(false);
+            Time.timeScale = 1;
+            pauseIcon.gameObject.SetActive(false);
         }
-    }
-
-    public void GetHelp()
-    {
-        helpStep++;
-        helpButton.interactable = true;
-    }
-
-    private void Update()
-    {
-        if (showingHelp)
+        else
         {
-            timePassed += Time.deltaTime;
-            if (Input.touchCount > 0 && timePassed > settings.helpTime)
-            {
-                timePassed = 0;
-                help.SetActive(false);
-                showingHelp = false;
-            }
+            messageShown = true;
+            message.SetActive(true);
+            Time.timeScale = 0;
+            pauseIcon.gameObject.SetActive(true);
         }
     }
 }

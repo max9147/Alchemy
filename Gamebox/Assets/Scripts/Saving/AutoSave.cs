@@ -79,6 +79,7 @@ public class AutoSave : MonoBehaviour
             UIControls.GetComponent<Tutorial>().helpStep = save.helpStep;
 
             guildSystem.GetComponent<QuestsSystem>().firstQuest = save.firstQuest;
+            guildSystem.GetComponent<QuestsSystem>().firstAmount = save.firstAmount;
         }
 
         else

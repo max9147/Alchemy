@@ -128,9 +128,6 @@ public class QuestsSystem : MonoBehaviour
 
             int guild = Random.Range(0, 4);
 
-            if (UIControls.GetComponent<Tutorial>().helpStep == 4)
-                UIControls.GetComponent<Tutorial>().GetHelp();
-
             switch (guild)
             {
                 case 0:
@@ -231,12 +228,6 @@ public class QuestsSystem : MonoBehaviour
 
                 GetComponent<GuildSystem>().removeRep(Guild.Warriors, settings.repPenalty);
 
-                if (GetComponent<GuildSystem>().GetRep(Guild.Warriors) <= settings.repMin)
-                {
-                    if (UIControls.GetComponent<Tutorial>().helpStep == 5)
-                        UIControls.GetComponent<Tutorial>().GetHelp();
-                }
-
                 warrior.GetComponent<QuestComplete>().EndQuest();
                 warriorsReady = false;
                 textWarriors.text = "";
@@ -261,12 +252,6 @@ public class QuestsSystem : MonoBehaviour
                 GetComponent<AudioSource>().Play();
 
                 GetComponent<GuildSystem>().removeRep(Guild.Bandits, settings.repPenalty);
-
-                if (GetComponent<GuildSystem>().GetRep(Guild.Bandits) <= settings.repMin)
-                {
-                    if (UIControls.GetComponent<Tutorial>().helpStep == 5)
-                        UIControls.GetComponent<Tutorial>().GetHelp();
-                }
 
                 bandit.GetComponent<QuestComplete>().EndQuest();
                 banditsReady = false;
@@ -293,12 +278,6 @@ public class QuestsSystem : MonoBehaviour
 
                 GetComponent<GuildSystem>().removeRep(Guild.Priests, settings.repPenalty);
 
-                if (GetComponent<GuildSystem>().GetRep(Guild.Priests) <= settings.repMin)
-                {
-                    if (UIControls.GetComponent<Tutorial>().helpStep == 5)
-                        UIControls.GetComponent<Tutorial>().GetHelp();
-                }
-
                 priest.GetComponent<QuestComplete>().EndQuest();
                 priestsReady = false;
                 textPriests.text = "";
@@ -323,12 +302,6 @@ public class QuestsSystem : MonoBehaviour
                 GetComponent<AudioSource>().Play();
 
                 GetComponent<GuildSystem>().removeRep(Guild.Magicians, settings.repPenalty);
-
-                if (GetComponent<GuildSystem>().GetRep(Guild.Magicians) <= settings.repMin)
-                {
-                    if (UIControls.GetComponent<Tutorial>().helpStep == 5)
-                        UIControls.GetComponent<Tutorial>().GetHelp();
-                }
 
                 magician.GetComponent<QuestComplete>().EndQuest();
                 magiciansReady = false;
