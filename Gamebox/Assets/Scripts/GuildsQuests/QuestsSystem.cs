@@ -57,6 +57,8 @@ public class QuestsSystem : MonoBehaviour
     public bool firstQuest = true;
     public int firstAmount = 0;
 
+    private int lastGuild = 5;
+
     public Quest warriorsQuest;
     public Quest banditsQuest;
     public Quest priestsQuest;
@@ -84,9 +86,12 @@ public class QuestsSystem : MonoBehaviour
 
     public void GiveFirst()
     {
-        firstAmount++;
+        int guild;
 
-        int guild = Random.Range(0, 4);
+        firstAmount++;
+        do guild = Random.Range(0, 4);
+        while (guild == lastGuild);
+        lastGuild = guild;
 
         switch (guild)
         {
@@ -236,6 +241,9 @@ public class QuestsSystem : MonoBehaviour
                 delayWarriors = settings.questPenalty;
                 questTime = settings.questDelay;
                 questStep = 0;
+
+                UIControls.GetComponent<Tutorial>().helpStep = 1;
+                UIControls.GetComponent<Tutorial>().GetHelp();
             }
             else
             {
@@ -261,6 +269,9 @@ public class QuestsSystem : MonoBehaviour
                 delayBandits = settings.questPenalty;
                 questTime = settings.questDelay;
                 questStep = 0;
+
+                UIControls.GetComponent<Tutorial>().helpStep = 1;
+                UIControls.GetComponent<Tutorial>().GetHelp();
             }
             else
             {
@@ -286,6 +297,9 @@ public class QuestsSystem : MonoBehaviour
                 delayPriests = settings.questPenalty;
                 questTime = settings.questDelay;
                 questStep = 0;
+
+                UIControls.GetComponent<Tutorial>().helpStep = 1;
+                UIControls.GetComponent<Tutorial>().GetHelp();
             }
             else
             {
@@ -311,6 +325,9 @@ public class QuestsSystem : MonoBehaviour
                 delayMagicians = settings.questPenalty;
                 questTime = settings.questDelay;
                 questStep = 0;
+
+                UIControls.GetComponent<Tutorial>().helpStep = 1;
+                UIControls.GetComponent<Tutorial>().GetHelp();
             }
             else
             {

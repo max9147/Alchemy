@@ -45,3 +45,9 @@ MonoBehaviour:
   bottleSpeed: 0.3
   camSpeed: 0.3
   helpTime: 1
+  banditsX: 50
+  banditsY: 35
+  priestsX: 5
+  priestsY: 10
+  magiciansX: 5
+  magiciansY: 20

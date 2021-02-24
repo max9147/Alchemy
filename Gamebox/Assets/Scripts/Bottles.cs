@@ -446,6 +446,11 @@ public class Bottles : MonoBehaviour
             {
                 if (toDrag.position == bottlePos[toDrag.GetComponent<BottlePotion>().takenSpace].transform.position)
                 {
+                    if (freeBottles == 0)
+                    {
+                        UIControls.GetComponent<Tutorial>().helpStep = 0;
+                        UIControls.GetComponent<Tutorial>().GetHelp();
+                    }
                     takenSpace[toDrag.GetComponent<BottlePotion>().takenSpace] = true;
                     canTake = true;
                     toDrag = null;

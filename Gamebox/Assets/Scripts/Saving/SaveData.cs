@@ -50,7 +50,8 @@ public class SaveData
 
     public bool[] bottleUsage = new bool[8];
 
-    public int helpStep;
+    public bool mainGame;
+    public bool[] helpShown = new bool[7];
 
     public bool firstQuest;
     public int firstAmount;
@@ -102,7 +103,8 @@ public class SaveData
 
         bottleUsage = bottles.bottleUsage;
 
-        helpStep = tutorial.helpStep;
+        mainGame = tutorial.mainGame;
+        helpShown = tutorial.helpShown;
 
         firstQuest = questsSystem.firstQuest;
         firstAmount = questsSystem.firstAmount;

@@ -130,7 +130,7 @@ public class QuestComplete : MonoBehaviour
                         break;
 
                     case "Bandit":
-                        if (Random.Range(0, 100) < 50 + guildSystem.GetComponent<GuildSystem>().GetRep(Guild.Bandits) / 100 * 35)
+                        if (Random.Range(0, 100) < settings.banditsX + guildSystem.GetComponent<GuildSystem>().GetRep(Guild.Bandits) / 100 * settings.banditsY)
                             moneySystem.GetComponent<MoneySystem>().AddMoney(reward);
 
                         guildSystem.GetComponent<QuestsSystem>().StopQuest(Guild.Bandits);
@@ -145,7 +145,7 @@ public class QuestComplete : MonoBehaviour
                         break;
 
                     case "Priest":
-                        if (Random.Range(0, 100) < 5 + guildSystem.GetComponent<GuildSystem>().GetRep(Guild.Priests) / 10)
+                        if (Random.Range(0, 100) < settings.priestsX + guildSystem.GetComponent<GuildSystem>().GetRep(Guild.Priests) / 100 * settings.priestsY)
                             moneySystem.GetComponent<MoneySystem>().AddMoney(reward * 2);
                         else
                             moneySystem.GetComponent<MoneySystem>().AddMoney(reward);
@@ -162,7 +162,7 @@ public class QuestComplete : MonoBehaviour
                         break;
 
                     case "Magician":
-                        if (Random.Range(0, 100) < 5 + guildSystem.GetComponent<GuildSystem>().GetRep(Guild.Magicians) / 5)
+                        if (Random.Range(0, 100) < settings.magiciansX + guildSystem.GetComponent<GuildSystem>().GetRep(Guild.Magicians) / 100 * settings.magiciansY)
                         {
                             switch (Random.Range(0,3))
                             {

@@ -103,4 +103,16 @@ public class Settings : ScriptableObject
 
     [Header("Как долго нельзя закрыть подсказку, сек.")]
     public float helpTime;
+
+    [Header("Формула шанса невыплаты бандитами: X + rep / 100 * Y")]
+    public int banditsX;
+    public int banditsY;
+
+    [Header("Формула шанса двойной награды от священников: X + rep / 100 * Y")]
+    public int priestsX;
+    public int priestsY;
+
+    [Header("Формула шанса доп. награды от магов: X + rep / 100 * Y")]
+    public int magiciansX;
+    public int magiciansY;
 }

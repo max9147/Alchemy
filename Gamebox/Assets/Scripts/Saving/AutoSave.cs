@@ -76,7 +76,8 @@ public class AutoSave : MonoBehaviour
 
             bottles.GetComponent<Bottles>().bottleUsage = save.bottleUsage;
 
-            UIControls.GetComponent<Tutorial>().helpStep = save.helpStep;
+            UIControls.GetComponent<Tutorial>().mainGame = save.mainGame;
+            UIControls.GetComponent<Tutorial>().helpShown = save.helpShown;
 
             guildSystem.GetComponent<QuestsSystem>().firstQuest = save.firstQuest;
             guildSystem.GetComponent<QuestsSystem>().firstAmount = save.firstAmount;

@@ -30,6 +30,8 @@ public class GuildSystem : MonoBehaviour
 
     public Settings settings;
 
+    public GameObject UIControls;
+
     private void Start()
     {
         sliderWarriors.value = repWarriors;
@@ -55,6 +57,11 @@ public class GuildSystem : MonoBehaviour
                 repWarriors += amount;
                 if (repWarriors > 100)
                     repWarriors = 100;
+                if (repWarriors > 75)
+                {
+                    UIControls.GetComponent<Tutorial>().helpStep = 2;
+                    UIControls.GetComponent<Tutorial>().GetHelp();
+                }
                 sliderWarriors.value = repWarriors;
                 break;
 
@@ -62,6 +69,11 @@ public class GuildSystem : MonoBehaviour
                 repBandits += amount;
                 if (repBandits > 100)
                     repBandits = 100;
+                if (repBandits > 75)
+                {
+                    UIControls.GetComponent<Tutorial>().helpStep = 2;
+                    UIControls.GetComponent<Tutorial>().GetHelp();
+                }
                 sliderBandits.value = repBandits;
                 break;
 
@@ -69,6 +81,11 @@ public class GuildSystem : MonoBehaviour
                 repPriests += amount;
                 if (repPriests > 100)
                     repPriests = 100;
+                if (repPriests > 75)
+                {
+                    UIControls.GetComponent<Tutorial>().helpStep = 2;
+                    UIControls.GetComponent<Tutorial>().GetHelp();
+                }
                 sliderPriests.value = repPriests;
                 break;
 
@@ -76,6 +93,11 @@ public class GuildSystem : MonoBehaviour
                 repMagicians += amount;
                 if (repMagicians > 100)
                     repMagicians = 100;
+                if (repMagicians > 75)
+                {
+                    UIControls.GetComponent<Tutorial>().helpStep = 2;
+                    UIControls.GetComponent<Tutorial>().GetHelp();
+                }
                 sliderMagicians.value = repMagicians;
                 break;
 
@@ -94,7 +116,11 @@ public class GuildSystem : MonoBehaviour
                     repWarriors = 0;
                 sliderWarriors.value = repWarriors;
                 if (repWarriors <= settings.repMin)
+                {
                     buyRepWarriors.interactable = true;
+                    UIControls.GetComponent<Tutorial>().helpStep = 2;
+                    UIControls.GetComponent<Tutorial>().GetHelp();
+                }
                 break;
 
             case Guild.Bandits:
@@ -103,7 +129,11 @@ public class GuildSystem : MonoBehaviour
                     repBandits = 0;
                 sliderBandits.value = repBandits;
                 if (repBandits <= settings.repMin)
+                {
                     buyRepBandits.interactable = true;
+                    UIControls.GetComponent<Tutorial>().helpStep = 2;
+                    UIControls.GetComponent<Tutorial>().GetHelp();
+                }
                 break;
 
             case Guild.Priests:
@@ -112,7 +142,11 @@ public class GuildSystem : MonoBehaviour
                     repPriests = 0;
                 sliderPriests.value = repPriests;
                 if (repPriests <= settings.repMin)
+                {
                     buyRepPriests.interactable = true;
+                    UIControls.GetComponent<Tutorial>().helpStep = 2;
+                    UIControls.GetComponent<Tutorial>().GetHelp();
+                }
                 break;
 
             case Guild.Magicians:
@@ -121,7 +155,11 @@ public class GuildSystem : MonoBehaviour
                     repMagicians = 0;
                 sliderMagicians.value = repMagicians;
                 if (repMagicians <= settings.repMin)
+                {
                     buyRepMagicians.interactable = true;
+                    UIControls.GetComponent<Tutorial>().helpStep = 2;
+                    UIControls.GetComponent<Tutorial>().GetHelp();
+                }
                 break;
 
             default:
@@ -129,7 +167,7 @@ public class GuildSystem : MonoBehaviour
         }
     }
 
-    public int GetRep(Guild guild)
+    public float GetRep(Guild guild)
     {
         switch (guild)
         {

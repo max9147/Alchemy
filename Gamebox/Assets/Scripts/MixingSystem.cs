@@ -128,6 +128,11 @@ public class MixingSystem : MonoBehaviour
                     isWrong = true;
                 inCauldron.Add(Resource.Red);
                 inCauldronColored.Add(Resource.Red);
+                if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Red) == 0)
+                {
+                    UIControls.GetComponent<Tutorial>().helpStep = 4;
+                    UIControls.GetComponent<Tutorial>().GetHelp();
+                }
                 break;
 
             case "ResourceBlue":
@@ -138,6 +143,11 @@ public class MixingSystem : MonoBehaviour
                     isWrong = true;
                 inCauldron.Add(Resource.Blue);
                 inCauldronColored.Add(Resource.Blue);
+                if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Blue) == 0)
+                {
+                    UIControls.GetComponent<Tutorial>().helpStep = 4;
+                    UIControls.GetComponent<Tutorial>().GetHelp();
+                }
                 break;
 
             case "ResourceYellow":
@@ -148,6 +158,11 @@ public class MixingSystem : MonoBehaviour
                     isWrong = true;
                 inCauldron.Add(Resource.Yellow);
                 inCauldronColored.Add(Resource.Yellow);
+                if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Yellow) == 0)
+                {
+                    UIControls.GetComponent<Tutorial>().helpStep = 4;
+                    UIControls.GetComponent<Tutorial>().GetHelp();
+                }
                 break;
 
             case "ResourceWhite":
@@ -158,6 +173,11 @@ public class MixingSystem : MonoBehaviour
                     isWrong = true;
                 inCauldron.Add(Resource.White);
                 inCauldronColored.Add(Resource.White);
+                if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.White) == 0)
+                {
+                    UIControls.GetComponent<Tutorial>().helpStep = 4;
+                    UIControls.GetComponent<Tutorial>().GetHelp();
+                }
                 break;
 
             case "ResourceLadan":
@@ -295,6 +315,8 @@ public class MixingSystem : MonoBehaviour
 
             yield return new WaitForSeconds(time / speed);
 
+            UIControls.GetComponent<Tutorial>().helpStep = 6;
+            UIControls.GetComponent<Tutorial>().GetHelp();
             drainButton.interactable = true;
             isReady = true;
             water.GetComponent<SpriteRenderer>().sprite = waterStill;

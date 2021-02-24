@@ -9,6 +9,8 @@ public class MoneySystem : MonoBehaviour
     public TextMeshProUGUI moneyTextShop;
     public TextMeshProUGUI moneyTextGuilds;
 
+    public GameObject UIControls;
+
     public int money = 99999;
 
     private void Start()
@@ -24,6 +26,11 @@ public class MoneySystem : MonoBehaviour
         moneyTextShop.text = "Деньги: " + money.ToString();
         moneyTextGuilds.text = "Деньги: " + money.ToString();
         moneyText.text = money.ToString();
+        if (money > 4000)
+        {
+            UIControls.GetComponent<Tutorial>().helpStep = 3;
+            UIControls.GetComponent<Tutorial>().GetHelp();
+        }
     }
 
     public void SpendMoney(int amount)
