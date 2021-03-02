@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum Difficulty
 {
@@ -67,6 +68,20 @@ public class QuestsSystem : MonoBehaviour
     public AudioClip newTask;
     public AudioClip failTask;
 
+    public Image warriorsIngredient1;
+    public Image warriorsIngredient2;
+    public Image banditsIngredient1;
+    public Image banditsIngredient2;
+    public Image priestsIngredient1;
+    public Image priestsIngredient2;
+    public Image magiciansIngredient1;
+    public Image magiciansIngredient2;
+
+    public Sprite red;
+    public Sprite blue;
+    public Sprite yellow;
+    public Sprite white;
+
     public float questTime;
     public int questStep = 0;
 
@@ -96,23 +111,127 @@ public class QuestsSystem : MonoBehaviour
         switch (guild)
         {
             case 0:
-                warriorsQuest = CreateQuest(Difficulty.Easy, Guild.Warriors);
-                textWarriors.text = GetPotionName(warriorsQuest) + " зелье";
+                warriorsQuest = CreateFirstQuest(Guild.Warriors);
+                warriorsIngredient1.gameObject.SetActive(true);
+                warriorsIngredient2.gameObject.SetActive(true);
+                switch (firstAmount)
+                {
+                    case 1:
+                        warriorsIngredient1.sprite = red;
+                        warriorsIngredient2.sprite = blue;
+                        break;
+                    case 2:
+                        warriorsIngredient1.sprite = red;
+                        warriorsIngredient2.sprite = yellow;
+                        break;
+                    case 3:
+                        warriorsIngredient1.sprite = blue;
+                        warriorsIngredient2.sprite = yellow;
+                        break;
+                    case 4:
+                        warriorsIngredient1.sprite = red;
+                        warriorsIngredient2.sprite = white;
+                        break;
+                    case 5:
+                        warriorsIngredient1.sprite = yellow;
+                        warriorsIngredient2.sprite = white;
+                        break;
+                    default:
+                        break;
+                }
                 rewardWarriors.text = warriorsQuest.reward.ToString();
                 break;
             case 1:
-                banditsQuest = CreateQuest(Difficulty.Easy, Guild.Bandits);
-                textBandits.text = GetPotionName(banditsQuest) + " зелье";
+                banditsQuest = CreateFirstQuest(Guild.Bandits);
+                banditsIngredient1.gameObject.SetActive(true);
+                banditsIngredient2.gameObject.SetActive(true);
+                switch (firstAmount)
+                {
+                    case 1:
+                        banditsIngredient1.sprite = red;
+                        banditsIngredient2.sprite = blue;
+                        break;
+                    case 2:
+                        banditsIngredient1.sprite = red;
+                        banditsIngredient2.sprite = yellow;
+                        break;
+                    case 3:
+                        banditsIngredient1.sprite = blue;
+                        banditsIngredient2.sprite = yellow;
+                        break;
+                    case 4:
+                        banditsIngredient1.sprite = red;
+                        banditsIngredient2.sprite = white;
+                        break;
+                    case 5:
+                        banditsIngredient1.sprite = yellow;
+                        banditsIngredient2.sprite = white;
+                        break;
+                    default:
+                        break;
+                }
                 rewardBandits.text = banditsQuest.reward.ToString();
                 break;
             case 2:
-                priestsQuest = CreateQuest(Difficulty.Easy, Guild.Priests);
-                textPriests.text = GetPotionName(priestsQuest) + " зелье";
+                priestsQuest = CreateFirstQuest(Guild.Priests);
+                priestsIngredient1.gameObject.SetActive(true);
+                priestsIngredient2.gameObject.SetActive(true);
+                switch (firstAmount)
+                {
+                    case 1:
+                        priestsIngredient1.sprite = red;
+                        priestsIngredient2.sprite = blue;
+                        break;
+                    case 2:
+                        priestsIngredient1.sprite = red;
+                        priestsIngredient2.sprite = yellow;
+                        break;
+                    case 3:
+                        priestsIngredient1.sprite = blue;
+                        priestsIngredient2.sprite = yellow;
+                        break;
+                    case 4:
+                        priestsIngredient1.sprite = red;
+                        priestsIngredient2.sprite = white;
+                        break;
+                    case 5:
+                        priestsIngredient1.sprite = yellow;
+                        priestsIngredient2.sprite = white;
+                        break;
+                    default:
+                        break;
+                }
                 rewardPriests.text = priestsQuest.reward.ToString();
                 break;
             case 3:
-                magiciansQuest = CreateQuest(Difficulty.Easy, Guild.Magicians);
-                textMagicians.text = GetPotionName(magiciansQuest) + " зелье";
+                magiciansQuest = CreateFirstQuest(Guild.Magicians);
+                magiciansIngredient1.gameObject.SetActive(true);
+                magiciansIngredient2.gameObject.SetActive(true);
+                switch (firstAmount)
+                {
+                    case 1:
+                        magiciansIngredient1.sprite = red;
+                        magiciansIngredient2.sprite = blue;
+                        break;
+                    case 2:
+                        magiciansIngredient1.sprite = red;
+                        magiciansIngredient2.sprite = yellow;
+                        break;
+                    case 3:
+                        magiciansIngredient1.sprite = blue;
+                        magiciansIngredient2.sprite = yellow;
+                        break;
+                    case 4:
+                        magiciansIngredient1.sprite = red;
+                        magiciansIngredient2.sprite = white;
+                        break;
+                    case 5:
+                        magiciansIngredient1.sprite = yellow;
+                        magiciansIngredient2.sprite = white;
+                        break;
+                    default:
+                        break;
+                }
                 rewardMagicians.text = magiciansQuest.reward.ToString();
                 break;
             default:
@@ -396,6 +515,44 @@ public class QuestsSystem : MonoBehaviour
             default:
                 break;
         }
+
+        switch (guild)
+        {
+            case Guild.Warriors:
+                warrior.GetComponent<QuestComplete>().NewQuest(quest.color, quest.effect, quest.reward);
+                break;
+
+            case Guild.Bandits:
+                bandit.GetComponent<QuestComplete>().NewQuest(quest.color, quest.effect, quest.reward);
+                break;
+
+            case Guild.Priests:
+                priest.GetComponent<QuestComplete>().NewQuest(quest.color, quest.effect, quest.reward);
+                break;
+
+            case Guild.Magicians:
+                magician.GetComponent<QuestComplete>().NewQuest(quest.color, quest.effect, quest.reward);
+                break;
+
+            default:
+                break;
+        }
+
+        return quest;
+    }
+
+    public Quest CreateFirstQuest(Guild guild)
+    {
+        Quest quest = new Quest();
+
+        quest.difficulty = Difficulty.Easy;
+        quest.guild = guild;
+
+        quest.color = (PotionColor)firstAmount;
+
+        quest.effect = PotionEffect.Normal;
+        quest.reward = settings.questRewardEasy;
+        quest.time = settings.questTimeEasy;
 
         switch (guild)
         {

@@ -5,17 +5,17 @@ using UnityEngine;
 public enum PotionColor
 {
     Empty,
-    Black,
-    Gray,
     Purple,
     Orange,
     Green,
-    Violet,
-    LightOrange,
-    Lime,
     Pink,
+    Gold,
     LightBlue,
-    Gold
+    Black,
+    Gray,
+    LightOrange,
+    Violet,
+    Lime
 }
 
 public enum PotionEffect
