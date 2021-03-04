@@ -22,5 +22,5 @@ MonoBehaviour:
   colored:
   - {fileID: 21300000, guid: e27a1dcb508f6cb4b9170ba95af69664, type: 3}
   - {fileID: 21300000, guid: 6408bae48442de741b89011748c49081, type: 3}
-  rare: {fileID: 21300000, guid: fafaec38736730940a12f495e3d31037, type: 3}
+  rare: {fileID: 21300000, guid: ebc255998f786344c874834983628bbb, type: 3}
   id: 35
