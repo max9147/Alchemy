@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class Popups : MonoBehaviour
 {
-    public Image pauseIcon;
-
     public GameObject popupShop;
     public GameObject popupGuilds;
     public GameObject popupRecipes;
@@ -77,7 +75,6 @@ public class Popups : MonoBehaviour
                 GetComponent<AudioSource>().Play();
 
                 Time.timeScale = 1;
-                pauseIcon.gameObject.SetActive(false);
                 popupOpen = true;
                 popupShop.gameObject.SetActive(true);
                 popupPause.gameObject.SetActive(false);
@@ -98,7 +95,6 @@ public class Popups : MonoBehaviour
                 GetComponent<AudioSource>().Play();
 
                 Time.timeScale = 1;
-                pauseIcon.gameObject.SetActive(false);
                 popupOpen = true;
                 popupGuilds.gameObject.SetActive(true);
                 popupPause.gameObject.SetActive(false);
@@ -111,7 +107,6 @@ public class Popups : MonoBehaviour
                 if (popupRecipes.activeInHierarchy)
                 {
                     Time.timeScale = 1;
-                    pauseIcon.gameObject.SetActive(false);
                     PopupClose();
                     popupOpen = false;
                     return;
@@ -121,7 +116,6 @@ public class Popups : MonoBehaviour
                 GetComponent<AudioSource>().Play();
 
                 Time.timeScale = 0;
-                pauseIcon.gameObject.SetActive(true);
                 popupOpen = true;
                 popupRecipes.gameObject.SetActive(true);
                 popupPause.gameObject.SetActive(false);
@@ -134,13 +128,11 @@ public class Popups : MonoBehaviour
                 if (popupPause.activeInHierarchy)
                 {
                     Time.timeScale = 1;
-                    pauseIcon.gameObject.SetActive(false);
                     PopupClose();
                     popupOpen = false;
                     return;
                 }
                 Time.timeScale = 0;
-                pauseIcon.gameObject.SetActive(true);
                 popupOpen = true;
                 popupPause.gameObject.SetActive(true);
                 popupRecipes.gameObject.SetActive(false);
@@ -165,7 +157,6 @@ public class Popups : MonoBehaviour
         popupOpenID = 0;
         popupOpen = false;
         Time.timeScale = 1;
-        pauseIcon.gameObject.SetActive(false);
         popupShop.gameObject.SetActive(false);
         popupGuilds.gameObject.SetActive(false);
         popupRecipes.gameObject.SetActive(false);

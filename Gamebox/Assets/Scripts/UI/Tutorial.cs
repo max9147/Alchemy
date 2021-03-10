@@ -9,7 +9,6 @@ using UnityEngine.UI;
 public class Tutorial : MonoBehaviour
 {
     public Image content;
-    public Image pauseIcon;
     public Sprite[] tutorials;
     public Button helpButton;
     public GameObject[] helpScreens;
@@ -31,7 +30,6 @@ public class Tutorial : MonoBehaviour
         {
             GetComponent<Popups>().popupOpen = true;
             Time.timeScale = 0;
-            pauseIcon.gameObject.SetActive(true);
             tutorial.SetActive(true);
             content.sprite = tutorials[0];
             for (int i = 0; i < helpShown.Length; i++)
@@ -70,7 +68,6 @@ public class Tutorial : MonoBehaviour
                 GetComponent<Popups>().popupOpen = false;
                 tutorial.SetActive(false);
                 Time.timeScale = 1;
-                pauseIcon.gameObject.SetActive(false);
                 break;
             default:
                 break;
@@ -84,14 +81,12 @@ public class Tutorial : MonoBehaviour
             messageShown = false;
             message.SetActive(false);
             Time.timeScale = 1;
-            pauseIcon.gameObject.SetActive(false);
         }
         else
         {
             messageShown = true;
             message.SetActive(true);
             Time.timeScale = 0;
-            pauseIcon.gameObject.SetActive(true);
             mainGame = true;
         }
     }
