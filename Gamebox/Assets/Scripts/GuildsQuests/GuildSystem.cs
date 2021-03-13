@@ -22,6 +22,7 @@ public class GuildSystem : MonoBehaviour
     public Button buyRepBandits;
     public Button buyRepPriests;
     public Button buyRepMagicians;
+    public Button helpButton;
 
     public int repWarriors;
     public int repBandits;
@@ -31,6 +32,7 @@ public class GuildSystem : MonoBehaviour
     public Settings settings;
 
     public GameObject UIControls;
+    public GameObject moneySystem;
 
     private void Start()
     {
@@ -57,7 +59,7 @@ public class GuildSystem : MonoBehaviour
                 repWarriors += amount;
                 if (repWarriors > 100)
                     repWarriors = 100;
-                if (repWarriors > 75)
+                if (repWarriors > 75 && moneySystem.GetComponent<MoneySystem>().GetMoney() >= settings.costRare && !helpButton.interactable)
                 {
                     UIControls.GetComponent<Tutorial>().helpStep = 2;
                     UIControls.GetComponent<Tutorial>().GetHelp();
@@ -69,7 +71,7 @@ public class GuildSystem : MonoBehaviour
                 repBandits += amount;
                 if (repBandits > 100)
                     repBandits = 100;
-                if (repBandits > 75)
+                if (repBandits > 75 && moneySystem.GetComponent<MoneySystem>().GetMoney() >= settings.costRare && !helpButton.interactable)
                 {
                     UIControls.GetComponent<Tutorial>().helpStep = 2;
                     UIControls.GetComponent<Tutorial>().GetHelp();
@@ -81,7 +83,7 @@ public class GuildSystem : MonoBehaviour
                 repPriests += amount;
                 if (repPriests > 100)
                     repPriests = 100;
-                if (repPriests > 75)
+                if (repPriests > 75 && moneySystem.GetComponent<MoneySystem>().GetMoney() >= settings.costRare && !helpButton.interactable)
                 {
                     UIControls.GetComponent<Tutorial>().helpStep = 2;
                     UIControls.GetComponent<Tutorial>().GetHelp();
@@ -93,7 +95,7 @@ public class GuildSystem : MonoBehaviour
                 repMagicians += amount;
                 if (repMagicians > 100)
                     repMagicians = 100;
-                if (repMagicians > 75)
+                if (repMagicians > 75 && moneySystem.GetComponent<MoneySystem>().GetMoney() >= settings.costRare && !helpButton.interactable)
                 {
                     UIControls.GetComponent<Tutorial>().helpStep = 2;
                     UIControls.GetComponent<Tutorial>().GetHelp();
@@ -115,10 +117,10 @@ public class GuildSystem : MonoBehaviour
                 if (repWarriors < 0)
                     repWarriors = 0;
                 sliderWarriors.value = repWarriors;
-                if (repWarriors <= settings.repMin)
+                if (repWarriors <= settings.repMin && moneySystem.GetComponent<MoneySystem>().GetMoney() >= settings.costRep && !helpButton.interactable)
                 {
                     buyRepWarriors.interactable = true;
-                    UIControls.GetComponent<Tutorial>().helpStep = 2;
+                    UIControls.GetComponent<Tutorial>().helpStep = 1;
                     UIControls.GetComponent<Tutorial>().GetHelp();
                 }
                 break;
@@ -128,10 +130,10 @@ public class GuildSystem : MonoBehaviour
                 if (repBandits < 0)
                     repBandits = 0;
                 sliderBandits.value = repBandits;
-                if (repBandits <= settings.repMin)
+                if (repBandits <= settings.repMin && moneySystem.GetComponent<MoneySystem>().GetMoney() >= settings.costRep && !helpButton.interactable)
                 {
                     buyRepBandits.interactable = true;
-                    UIControls.GetComponent<Tutorial>().helpStep = 2;
+                    UIControls.GetComponent<Tutorial>().helpStep = 1;
                     UIControls.GetComponent<Tutorial>().GetHelp();
                 }
                 break;
@@ -141,10 +143,10 @@ public class GuildSystem : MonoBehaviour
                 if (repPriests < 0)
                     repPriests = 0;
                 sliderPriests.value = repPriests;
-                if (repPriests <= settings.repMin)
+                if (repPriests <= settings.repMin && moneySystem.GetComponent<MoneySystem>().GetMoney() >= settings.costRep && !helpButton.interactable)
                 {
                     buyRepPriests.interactable = true;
-                    UIControls.GetComponent<Tutorial>().helpStep = 2;
+                    UIControls.GetComponent<Tutorial>().helpStep = 1;
                     UIControls.GetComponent<Tutorial>().GetHelp();
                 }
                 break;
@@ -154,10 +156,10 @@ public class GuildSystem : MonoBehaviour
                 if (repMagicians < 0)
                     repMagicians = 0;
                 sliderMagicians.value = repMagicians;
-                if (repMagicians <= settings.repMin)
+                if (repMagicians <= settings.repMin && moneySystem.GetComponent<MoneySystem>().GetMoney() >= settings.costRep && !helpButton.interactable)
                 {
                     buyRepMagicians.interactable = true;
-                    UIControls.GetComponent<Tutorial>().helpStep = 2;
+                    UIControls.GetComponent<Tutorial>().helpStep = 1;
                     UIControls.GetComponent<Tutorial>().GetHelp();
                 }
                 break;

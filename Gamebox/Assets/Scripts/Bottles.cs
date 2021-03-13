@@ -10,6 +10,7 @@ public class Bottles : MonoBehaviour
     public Camera cam;
 
     public Button drainButton;
+    public Button helpButton;
     public TextMeshProUGUI amountText;
 
     public Sprite effectFire;
@@ -29,6 +30,7 @@ public class Bottles : MonoBehaviour
     public GameObject water;
     public GameObject potionSystem;
     public GameObject bottleSpawner;
+    public GameObject moneySystem;
 
     public Settings settings;
 
@@ -446,7 +448,7 @@ public class Bottles : MonoBehaviour
             {
                 if (toDrag.position == bottlePos[toDrag.GetComponent<BottlePotion>().takenSpace].transform.position)
                 {
-                    if (freeBottles == 0)
+                    if (freeBottles == 0 && moneySystem.GetComponent<MoneySystem>().GetMoney() >= moneySystem.GetComponent<ShopSystem>().bottleCost && !helpButton.interactable)
                     {
                         UIControls.GetComponent<Tutorial>().helpStep = 0;
                         UIControls.GetComponent<Tutorial>().GetHelp();

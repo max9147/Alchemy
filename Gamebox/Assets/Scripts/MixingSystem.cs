@@ -12,6 +12,7 @@ public class MixingSystem : MonoBehaviour
     public Button drainButton;
     public Button fuelButton;
     public Button buyCauldron;
+    public Button helpButton;
     public Slider progressBar;
 
     public GameObject resourceSystem;
@@ -128,7 +129,7 @@ public class MixingSystem : MonoBehaviour
                     isWrong = true;
                 inCauldron.Add(Resource.Red);
                 inCauldronColored.Add(Resource.Red);
-                if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Red) == 0)
+                if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Red) == 0 && !helpButton.interactable)
                 {
                     UIControls.GetComponent<Tutorial>().helpStep = 4;
                     UIControls.GetComponent<Tutorial>().GetHelp();
@@ -143,7 +144,7 @@ public class MixingSystem : MonoBehaviour
                     isWrong = true;
                 inCauldron.Add(Resource.Blue);
                 inCauldronColored.Add(Resource.Blue);
-                if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Blue) == 0)
+                if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Blue) == 0 && !helpButton.interactable)
                 {
                     UIControls.GetComponent<Tutorial>().helpStep = 4;
                     UIControls.GetComponent<Tutorial>().GetHelp();
@@ -158,7 +159,7 @@ public class MixingSystem : MonoBehaviour
                     isWrong = true;
                 inCauldron.Add(Resource.Yellow);
                 inCauldronColored.Add(Resource.Yellow);
-                if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Yellow) == 0)
+                if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Yellow) == 0 && !helpButton.interactable)
                 {
                     UIControls.GetComponent<Tutorial>().helpStep = 4;
                     UIControls.GetComponent<Tutorial>().GetHelp();
@@ -173,7 +174,7 @@ public class MixingSystem : MonoBehaviour
                     isWrong = true;
                 inCauldron.Add(Resource.White);
                 inCauldronColored.Add(Resource.White);
-                if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.White) == 0)
+                if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.White) == 0 && !helpButton.interactable)
                 {
                     UIControls.GetComponent<Tutorial>().helpStep = 4;
                     UIControls.GetComponent<Tutorial>().GetHelp();
@@ -314,9 +315,11 @@ public class MixingSystem : MonoBehaviour
             water.GetComponent<SpriteRenderer>().sprite = waterBoil;
 
             yield return new WaitForSeconds(time / speed);
-
-            UIControls.GetComponent<Tutorial>().helpStep = 6;
-            UIControls.GetComponent<Tutorial>().GetHelp();
+            if (!helpButton.interactable)
+            {
+                UIControls.GetComponent<Tutorial>().helpStep = 6;
+                UIControls.GetComponent<Tutorial>().GetHelp();
+            }
             drainButton.interactable = true;
             isReady = true;
             water.GetComponent<SpriteRenderer>().sprite = waterStill;

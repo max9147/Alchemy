@@ -35,6 +35,8 @@ public class QuestsSystem : MonoBehaviour
     public TextMeshProUGUI timerPriests;
     public TextMeshProUGUI timerMagicians;
 
+    public Button helpButton;
+
     public GameObject warrior;
     public GameObject bandit;
     public GameObject priest;
@@ -360,9 +362,11 @@ public class QuestsSystem : MonoBehaviour
                 delayWarriors = settings.questPenalty;
                 questTime = settings.questDelay;
                 questStep = 0;
-
-                UIControls.GetComponent<Tutorial>().helpStep = 1;
-                UIControls.GetComponent<Tutorial>().GetHelp();
+                if (!helpButton.interactable)
+                {
+                    UIControls.GetComponent<Tutorial>().helpStep = 5;
+                    UIControls.GetComponent<Tutorial>().GetHelp();
+                }
             }
             else
             {
@@ -388,9 +392,11 @@ public class QuestsSystem : MonoBehaviour
                 delayBandits = settings.questPenalty;
                 questTime = settings.questDelay;
                 questStep = 0;
-
-                UIControls.GetComponent<Tutorial>().helpStep = 1;
-                UIControls.GetComponent<Tutorial>().GetHelp();
+                if (!helpButton.interactable)
+                {
+                    UIControls.GetComponent<Tutorial>().helpStep = 5;
+                    UIControls.GetComponent<Tutorial>().GetHelp();
+                }
             }
             else
             {
@@ -416,9 +422,11 @@ public class QuestsSystem : MonoBehaviour
                 delayPriests = settings.questPenalty;
                 questTime = settings.questDelay;
                 questStep = 0;
-
-                UIControls.GetComponent<Tutorial>().helpStep = 1;
-                UIControls.GetComponent<Tutorial>().GetHelp();
+                if (!helpButton.interactable)
+                {
+                    UIControls.GetComponent<Tutorial>().helpStep = 5;
+                    UIControls.GetComponent<Tutorial>().GetHelp();
+                }
             }
             else
             {
@@ -444,9 +452,11 @@ public class QuestsSystem : MonoBehaviour
                 delayMagicians = settings.questPenalty;
                 questTime = settings.questDelay;
                 questStep = 0;
-
-                UIControls.GetComponent<Tutorial>().helpStep = 1;
-                UIControls.GetComponent<Tutorial>().GetHelp();
+                if (!helpButton.interactable)
+                {
+                    UIControls.GetComponent<Tutorial>().helpStep = 5;
+                    UIControls.GetComponent<Tutorial>().GetHelp();
+                }
             }
             else
             {
