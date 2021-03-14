@@ -243,7 +243,7 @@ public class QuestsSystem : MonoBehaviour
 
     private void Update()
     {
-        if (firstQuest) return;
+        if (firstQuest || UIControls.GetComponent<Tutorial>().readingHelp) return;
 
         timePassed += Time.deltaTime;
 

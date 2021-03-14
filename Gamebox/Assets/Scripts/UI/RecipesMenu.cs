@@ -8,6 +8,7 @@ public class RecipesMenu : MonoBehaviour
 {
     public GameObject potionData;
     public GameObject content;
+    public GameObject UIControls;
     public Potions[] potions;
 
     public bool[] addedArr = new bool[55];
@@ -71,6 +72,7 @@ public class RecipesMenu : MonoBehaviour
             }
 
             data.transform.SetParent(content.transform);
+            data.transform.localScale = new Vector3(UIControls.GetComponent<Scaling>().tableBG.transform.localScale.x / 1.736f, 1, 1);
         }
     }
 }

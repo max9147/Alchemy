@@ -16,14 +16,6 @@ public class Popups : MonoBehaviour
     public GameObject buttonRecipes;
     public GameObject buttonPause;
 
-    public GameObject helpScreen1;
-    public GameObject helpScreen2;
-    public GameObject helpScreen3;
-    public GameObject helpScreen4;
-    public GameObject helpScreen5;
-    public GameObject helpScreen6;
-    public GameObject helpScreen7;
-
     public AudioClip openRecipes;
     public AudioClip openGuilds;
     public AudioClip openShop;
@@ -115,7 +107,8 @@ public class Popups : MonoBehaviour
                 GetComponent<AudioSource>().clip = openRecipes;
                 GetComponent<AudioSource>().Play();
 
-                Time.timeScale = 0;
+                if (!GetComponent<Tutorial>().readingHelp)
+                    Time.timeScale = 0;
                 popupOpen = true;
                 popupRecipes.gameObject.SetActive(true);
                 popupPause.gameObject.SetActive(false);
@@ -147,13 +140,6 @@ public class Popups : MonoBehaviour
 
     public void PopupClose()
     {
-        helpScreen1.SetActive(false);
-        helpScreen2.SetActive(false);
-        helpScreen3.SetActive(false);
-        helpScreen4.SetActive(false);
-        helpScreen5.SetActive(false);
-        helpScreen6.SetActive(false);
-        helpScreen7.SetActive(false);
         popupOpenID = 0;
         popupOpen = false;
         Time.timeScale = 1;

@@ -111,12 +111,6 @@ public class PotionSystem : MonoBehaviour
                     case PotionColor.Empty:
                         item.potionColor = PotionColor.Empty;
                         break;
-                    case PotionColor.Black:
-                        item.potionColor = PotionColor.Black;
-                        break;
-                    case PotionColor.Gray:
-                        item.potionColor = PotionColor.Gray;
-                        break;
                     case PotionColor.Purple:
                         item.potionColor = PotionColor.Purple;
                         break;
@@ -126,23 +120,29 @@ public class PotionSystem : MonoBehaviour
                     case PotionColor.Green:
                         item.potionColor = PotionColor.Green;
                         break;
-                    case PotionColor.Violet:
-                        item.potionColor = PotionColor.Violet;
-                        break;
-                    case PotionColor.LightOrange:
-                        item.potionColor = PotionColor.LightOrange;
-                        break;
-                    case PotionColor.Lime:
-                        item.potionColor = PotionColor.Lime;
-                        break;
                     case PotionColor.Pink:
                         item.potionColor = PotionColor.Pink;
+                        break;
+                    case PotionColor.Gold:
+                        item.potionColor = PotionColor.Gold;
                         break;
                     case PotionColor.LightBlue:
                         item.potionColor = PotionColor.LightBlue;
                         break;
-                    case PotionColor.Gold:
-                        item.potionColor = PotionColor.Gold;
+                    case PotionColor.Black:
+                        item.potionColor = PotionColor.Black;
+                        break;
+                    case PotionColor.Gray:
+                        item.potionColor = PotionColor.Gray;
+                        break;
+                    case PotionColor.LightOrange:
+                        item.potionColor = PotionColor.LightOrange;
+                        break;
+                    case PotionColor.Violet:
+                        item.potionColor = PotionColor.Violet;
+                        break;
+                    case PotionColor.Lime:
+                        item.potionColor = PotionColor.Lime;
                         break;
                     default:
                         break;

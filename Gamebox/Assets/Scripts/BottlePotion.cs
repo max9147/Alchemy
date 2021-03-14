@@ -75,7 +75,7 @@ public class BottlePotion : MonoBehaviour
         if (potionColor != PotionColor.Empty)
         {
             transform.Find("Water").gameObject.SetActive(true);
-            transform.Find("Water").GetComponent<SpriteRenderer>().color = colors[potionSystem.GetComponent<PotionSystem>().GetColor(id) - 1];
+            transform.Find("Water").GetComponent<SpriteRenderer>().color = colors[potionSystem.GetComponent<PotionSystem>().GetColor(id) + 1];
         }
 
         if (potionEffect == PotionEffect.Burning)

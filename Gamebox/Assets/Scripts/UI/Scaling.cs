@@ -9,6 +9,7 @@ public class Scaling : MonoBehaviour
     public GameObject canvas;
     public GameObject cauldron;
     public GameObject[] generic;
+    public Vector3 potionDataScale;
 
     private void Awake()
     {
