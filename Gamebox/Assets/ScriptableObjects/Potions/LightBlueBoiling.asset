@@ -12,12 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b448fc9078f69a409b898c3c383fdaf, type: 3}
   m_Name: LightBlueBoiling
   m_EditorClassIdentifier: 
-  potionName: "\u0413\u043E\u043B\u0443\u0431\u043E\u0435 \u0431\u0443\u0440\u043B\u044F\u0449\u0435\u0435
-    \u0437\u0435\u043B\u044C\u0435"
   imageBottle: {fileID: 21300000, guid: 106296a26d776a947936641678a7d4b4, type: 3}
   imageWater: {fileID: 21300000, guid: 4ecbc1b716834fe4a8e2ae2303c183b2, type: 3}
-  waterColor: {r: 0, g: 1, b: 1, a: 0.5882353}
-  rareEffect: {fileID: 21300000, guid: 5f8ec715de0e8b840a11f3fe12e2f26b, type: 3}
+  color: 6
+  effect: 3
   effectColor: {r: 0.05490196, g: 0, b: 0.5294118, a: 1}
   colored:
   - {fileID: 21300000, guid: 1ddd95f545f51ac40afbccf2dfd15308, type: 3}

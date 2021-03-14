@@ -7,7 +7,6 @@ public class BottlePotion : MonoBehaviour
     public GameObject potionSystem;
     public GameObject[] potionPos;
 
-    public Color[] colors;
     public Sprite effectFire;
     public Sprite effectSmoke;
     public Sprite effectGlow;
@@ -17,6 +16,8 @@ public class BottlePotion : MonoBehaviour
     public Color colorSmoke;
     public Color colorGlow;
     public Color colorBoil;
+
+    public Settings settings;
 
     public PotionColor potionColor = PotionColor.Empty;
     public PotionEffect potionEffect = PotionEffect.Empty;
@@ -75,7 +76,7 @@ public class BottlePotion : MonoBehaviour
         if (potionColor != PotionColor.Empty)
         {
             transform.Find("Water").gameObject.SetActive(true);
-            transform.Find("Water").GetComponent<SpriteRenderer>().color = colors[potionSystem.GetComponent<PotionSystem>().GetColor(id) + 1];
+            transform.Find("Water").GetComponent<SpriteRenderer>().color = settings.colors[potionSystem.GetComponent<PotionSystem>().GetColor(id) + 1];
         }
 
         if (potionEffect == PotionEffect.Burning)
@@ -148,7 +149,7 @@ public class BottlePotion : MonoBehaviour
                     potionColor = PotionColor.Violet;
 
                 if (inCauldronColored.Contains(Resource.Red) && inCauldronColored.Contains(Resource.Yellow) && inCauldronColored.Contains(Resource.White))
-                    potionColor = PotionColor.LightOrange;
+                    potionColor = PotionColor.Peach;
 
                 if (inCauldronColored.Contains(Resource.Blue) && inCauldronColored.Contains(Resource.Yellow) && inCauldronColored.Contains(Resource.White))
                     potionColor = PotionColor.Lime;

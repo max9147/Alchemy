@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class WaterColor : MonoBehaviour
 {
-    public Color[] colors;
-
     private Color startColor;
     public Color targetColor;
+
+    public Settings settings;
     private float time = 0.02f;
 
     private void Start()
@@ -29,19 +29,19 @@ public class WaterColor : MonoBehaviour
                     switch (components[0])
                     {
                         case Resource.Red:
-                            targetColor = colors[0];
+                            targetColor = settings.colors[11];
                             break;
 
                         case Resource.Blue:
-                            targetColor = colors[1];
+                            targetColor = settings.colors[12];
                             break;
 
                         case Resource.Yellow:
-                            targetColor = colors[2];
+                            targetColor = settings.colors[13];
                             break;
 
                         case Resource.White:
-                            targetColor = colors[3];
+                            targetColor = settings.colors[14];
                             break;
 
                         default:
@@ -51,40 +51,40 @@ public class WaterColor : MonoBehaviour
 
                 case 2:
                     if (components.Contains(Resource.Red) && components.Contains(Resource.Blue))
-                        targetColor = colors[6];
+                        targetColor = settings.colors[0];
 
                     if (components.Contains(Resource.Red) && components.Contains(Resource.Yellow))
-                        targetColor = colors[7];
+                        targetColor = settings.colors[1];
 
                     if (components.Contains(Resource.Blue) && components.Contains(Resource.Yellow))
-                        targetColor = colors[8];
+                        targetColor = settings.colors[2];
 
                     if (components.Contains(Resource.Red) && components.Contains(Resource.White))
-                        targetColor = colors[12];
+                        targetColor = settings.colors[3];
 
                     if (components.Contains(Resource.Blue) && components.Contains(Resource.White))
-                        targetColor = colors[13];
+                        targetColor = settings.colors[5];
 
                     if (components.Contains(Resource.Yellow) && components.Contains(Resource.White))
-                        targetColor = colors[14];
+                        targetColor = settings.colors[4];
                     break;
 
                 case 3:
                     if (components.Contains(Resource.Red) && components.Contains(Resource.Blue) && components.Contains(Resource.Yellow))
-                        targetColor = colors[4];
+                        targetColor = settings.colors[6];
 
                     if (components.Contains(Resource.Red) && components.Contains(Resource.Blue) && components.Contains(Resource.White))
-                        targetColor = colors[9];
+                        targetColor = settings.colors[9];
 
                     if (components.Contains(Resource.Red) && components.Contains(Resource.Yellow) && components.Contains(Resource.White))
-                        targetColor = colors[10];
+                        targetColor = settings.colors[8];
 
                     if (components.Contains(Resource.Blue) && components.Contains(Resource.Yellow) && components.Contains(Resource.White))
-                        targetColor = colors[11];
+                        targetColor = settings.colors[10];
                     break;
 
                 case 4:
-                    targetColor = colors[5];
+                    targetColor = settings.colors[7];
                     break;
 
                 default:

@@ -631,37 +631,37 @@ public class QuestsSystem : MonoBehaviour
         switch (quest.color)
         {
             case PotionColor.Black:
-                potionName = "Черное";
+                potionName = settings.colorNames[6];
                 break;
             case PotionColor.Gray:
-                potionName = "Серое";
+                potionName = settings.colorNames[7];
                 break;
             case PotionColor.Purple:
-                potionName = "Пурпурное";
+                potionName = settings.colorNames[0];
                 break;
             case PotionColor.Orange:
-                potionName = "Оранжевое";
+                potionName = settings.colorNames[1];
                 break;
             case PotionColor.Green:
-                potionName = "Зеленое";
+                potionName = settings.colorNames[2];
                 break;
             case PotionColor.Violet:
-                potionName = "Фиолетовое";
+                potionName = settings.colorNames[9];
                 break;
-            case PotionColor.LightOrange:
-                potionName = "Светло-оранжевое";
+            case PotionColor.Peach:
+                potionName = settings.colorNames[8];
                 break;
             case PotionColor.Lime:
-                potionName = "Лаймовое";
+                potionName = settings.colorNames[10];
                 break;
             case PotionColor.Pink:
-                potionName = "Розовое";
+                potionName = settings.colorNames[3];
                 break;
             case PotionColor.LightBlue:
-                potionName = "Голубое";
+                potionName = settings.colorNames[6];
                 break;
             case PotionColor.Gold:
-                potionName = "Золотое";
+                potionName = settings.colorNames[4];
                 break;
             default:
                 break;
@@ -670,16 +670,16 @@ public class QuestsSystem : MonoBehaviour
         switch (quest.effect)
         {
             case PotionEffect.Glowing:
-                potionName += " светящееся";
+                potionName += " " + settings.effectNames[0];
                 break;
             case PotionEffect.Boiling:
-                potionName += " бурлящее";
+                potionName += " " + settings.effectNames[1];
                 break;
             case PotionEffect.Burning:
-                potionName += " горящее";
+                potionName += " " + settings.effectNames[2];
                 break;
             case PotionEffect.Smoking:
-                potionName += " дымящееся";
+                potionName += " " + settings.effectNames[3];
                 break;
             default:
                 break;

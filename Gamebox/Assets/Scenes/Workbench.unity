@@ -1113,18 +1113,6 @@ MonoBehaviour:
   - {fileID: 536270038}
   - {fileID: 1132951824}
   - {fileID: 1516472617}
-  colors:
-  - {r: 0, g: 0, b: 0, a: 0.78431374}
-  - {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0.5882353}
-  - {r: 0.44313726, g: 0, b: 0.44313726, a: 0.5882353}
-  - {r: 1, g: 0.3764706, b: 0, a: 0.5882353}
-  - {r: 0, g: 0.4627451, b: 0, a: 0.5882353}
-  - {r: 0.54509807, g: 0, b: 1, a: 0.5882353}
-  - {r: 1, g: 0.6878893, b: 0, a: 0.5882353}
-  - {r: 0.5019608, g: 1, b: 0, a: 0.5882353}
-  - {r: 1, g: 0.31764707, b: 1, a: 0.5882353}
-  - {r: 0, g: 1, b: 1, a: 0.5882353}
-  - {r: 1, g: 0.827451, b: 0.23137255, a: 0.5882353}
   effectFire: {fileID: 21300000, guid: 2c5bf9c59092bd64f8224d91fb1ab14a, type: 3}
   effectSmoke: {fileID: 21300000, guid: 68dd3723d780e6646a5d6f45e454e470, type: 3}
   effectGlow: {fileID: 21300000, guid: 6264f961a8b45da41970e7f3b2b9ef27, type: 3}
@@ -1133,6 +1121,7 @@ MonoBehaviour:
   colorSmoke: {r: 0.41568628, g: 0.41568628, b: 0.41568628, a: 1}
   colorGlow: {r: 0.95686275, g: 1, b: 0, a: 1}
   colorBoil: {r: 0.05490196, g: 0, b: 0.5294118, a: 1}
+  settings: {fileID: 11400000, guid: c07b99bbbca86234ea011dc966b22d2c, type: 2}
   potionColor: 0
   potionEffect: 0
   takenSpace: 0
@@ -7838,18 +7827,6 @@ MonoBehaviour:
   - {fileID: 536270038}
   - {fileID: 1132951824}
   - {fileID: 1516472617}
-  colors:
-  - {r: 0, g: 0, b: 0, a: 0.78431374}
-  - {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0.5882353}
-  - {r: 0.44313726, g: 0, b: 0.44313726, a: 0.5882353}
-  - {r: 1, g: 0.3764706, b: 0, a: 0.5882353}
-  - {r: 0, g: 0.4627451, b: 0, a: 0.5882353}
-  - {r: 0.54509807, g: 0, b: 1, a: 0.5882353}
-  - {r: 1, g: 0.6878893, b: 0, a: 0.5882353}
-  - {r: 0.5019608, g: 1, b: 0, a: 0.5882353}
-  - {r: 1, g: 0.31764707, b: 1, a: 0.5882353}
-  - {r: 0, g: 1, b: 1, a: 0.5882353}
-  - {r: 1, g: 0.827451, b: 0.23137255, a: 0.5882353}
   effectFire: {fileID: 21300000, guid: 2c5bf9c59092bd64f8224d91fb1ab14a, type: 3}
   effectSmoke: {fileID: 21300000, guid: 68dd3723d780e6646a5d6f45e454e470, type: 3}
   effectGlow: {fileID: 21300000, guid: 6264f961a8b45da41970e7f3b2b9ef27, type: 3}
@@ -7858,6 +7835,7 @@ MonoBehaviour:
   colorSmoke: {r: 0.41568628, g: 0.41568628, b: 0.41568628, a: 1}
   colorGlow: {r: 0.95686275, g: 1, b: 0, a: 1}
   colorBoil: {r: 0.05490196, g: 0, b: 0.5294118, a: 1}
+  settings: {fileID: 11400000, guid: c07b99bbbca86234ea011dc966b22d2c, type: 2}
   potionColor: 0
   potionEffect: 0
   takenSpace: 0
@@ -9625,6 +9603,7 @@ MonoBehaviour:
     type: 3}
   content: {fileID: 1456183407}
   UIControls: {fileID: 1487778714}
+  settings: {fileID: 11400000, guid: c07b99bbbca86234ea011dc966b22d2c, type: 2}
   potions:
   - {fileID: 11400000, guid: 39e8bf3feac447d498c107ac246bd1e8, type: 2}
   - {fileID: 11400000, guid: 1d90ff41e120d4840ab8b802284bec4b, type: 2}
@@ -9681,6 +9660,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2717a2f84038b4243a5c8921811082cc, type: 2}
   - {fileID: 11400000, guid: 42ec120032b76d5429c6237210b4db93, type: 2}
   - {fileID: 11400000, guid: a9c1aaf0d353df74b8ea43d9eb7352b4, type: 2}
+  effects:
+  - {fileID: 21300000, guid: 6264f961a8b45da41970e7f3b2b9ef27, type: 3}
+  - {fileID: 21300000, guid: 5f8ec715de0e8b840a11f3fe12e2f26b, type: 3}
+  - {fileID: 21300000, guid: 2c5bf9c59092bd64f8224d91fb1ab14a, type: 3}
+  - {fileID: 21300000, guid: 68dd3723d780e6646a5d6f45e454e470, type: 3}
   addedArr: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   pass: 1
 --- !u!1 &880418091
@@ -10681,18 +10665,6 @@ MonoBehaviour:
   - {fileID: 536270038}
   - {fileID: 1132951824}
   - {fileID: 1516472617}
-  colors:
-  - {r: 0, g: 0, b: 0, a: 0.78431374}
-  - {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0.5882353}
-  - {r: 0.44313726, g: 0, b: 0.44313726, a: 0.5882353}
-  - {r: 1, g: 0.3764706, b: 0, a: 0.5882353}
-  - {r: 0, g: 0.4627451, b: 0, a: 0.5882353}
-  - {r: 0.54509807, g: 0, b: 1, a: 0.5882353}
-  - {r: 1, g: 0.6878893, b: 0, a: 0.5882353}
-  - {r: 0.5019608, g: 1, b: 0, a: 0.5882353}
-  - {r: 1, g: 0.31764707, b: 1, a: 0.5882353}
-  - {r: 0, g: 1, b: 1, a: 0.5882353}
-  - {r: 1, g: 0.827451, b: 0.23137255, a: 0.5882353}
   effectFire: {fileID: 21300000, guid: 2c5bf9c59092bd64f8224d91fb1ab14a, type: 3}
   effectSmoke: {fileID: 21300000, guid: 68dd3723d780e6646a5d6f45e454e470, type: 3}
   effectGlow: {fileID: 21300000, guid: 6264f961a8b45da41970e7f3b2b9ef27, type: 3}
@@ -10701,6 +10673,7 @@ MonoBehaviour:
   colorSmoke: {r: 0.41568628, g: 0.41568628, b: 0.41568628, a: 1}
   colorGlow: {r: 0.95686275, g: 1, b: 0, a: 1}
   colorBoil: {r: 0.05490196, g: 0, b: 0.5294118, a: 1}
+  settings: {fileID: 11400000, guid: c07b99bbbca86234ea011dc966b22d2c, type: 2}
   potionColor: 0
   potionEffect: 0
   takenSpace: 0
@@ -12528,18 +12501,6 @@ MonoBehaviour:
   - {fileID: 536270038}
   - {fileID: 1132951824}
   - {fileID: 1516472617}
-  colors:
-  - {r: 0, g: 0, b: 0, a: 0.78431374}
-  - {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0.5882353}
-  - {r: 0.44313726, g: 0, b: 0.44313726, a: 0.5882353}
-  - {r: 1, g: 0.3764706, b: 0, a: 0.5882353}
-  - {r: 0, g: 0.4627451, b: 0, a: 0.5882353}
-  - {r: 0.54509807, g: 0, b: 1, a: 0.5882353}
-  - {r: 1, g: 0.6878893, b: 0, a: 0.5882353}
-  - {r: 0.5019608, g: 1, b: 0, a: 0.5882353}
-  - {r: 1, g: 0.31764707, b: 1, a: 0.5882353}
-  - {r: 0, g: 1, b: 1, a: 0.5882353}
-  - {r: 1, g: 0.827451, b: 0.23137255, a: 0.5882353}
   effectFire: {fileID: 21300000, guid: 2c5bf9c59092bd64f8224d91fb1ab14a, type: 3}
   effectSmoke: {fileID: 21300000, guid: 68dd3723d780e6646a5d6f45e454e470, type: 3}
   effectGlow: {fileID: 21300000, guid: 6264f961a8b45da41970e7f3b2b9ef27, type: 3}
@@ -12548,6 +12509,7 @@ MonoBehaviour:
   colorSmoke: {r: 0.41568628, g: 0.41568628, b: 0.41568628, a: 1}
   colorGlow: {r: 0.95686275, g: 1, b: 0, a: 1}
   colorBoil: {r: 0.05490196, g: 0, b: 0.5294118, a: 1}
+  settings: {fileID: 11400000, guid: c07b99bbbca86234ea011dc966b22d2c, type: 2}
   potionColor: 0
   potionEffect: 0
   takenSpace: 0
@@ -16396,23 +16358,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7050718efe696d44382400b04845ba70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colors:
-  - {r: 1, g: 0, b: 0, a: 0.5882353}
-  - {r: 0, g: 0, b: 1, a: 0.5882353}
-  - {r: 1, g: 1, b: 0, a: 0.5882353}
-  - {r: 1, g: 1, b: 1, a: 0.5882353}
-  - {r: 0, g: 0, b: 0, a: 0.78431374}
-  - {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0.5882353}
-  - {r: 0.53333336, g: 0, b: 0.50980395, a: 0.5882353}
-  - {r: 1, g: 0.43137255, b: 0, a: 0.5882353}
-  - {r: 0, g: 0.5882353, b: 0, a: 0.5882353}
-  - {r: 0.74509805, g: 0, b: 1, a: 0.5882353}
-  - {r: 1, g: 0.6745098, b: 0, a: 0.5882353}
-  - {r: 0, g: 1, b: 0, a: 0.5882353}
-  - {r: 1, g: 0, b: 1, a: 0.5882353}
-  - {r: 0, g: 1, b: 1, a: 0.5882353}
-  - {r: 1, g: 0.84313726, b: 0.3137255, a: 0.5882353}
   targetColor: {r: 0, g: 0, b: 0, a: 1}
+  settings: {fileID: 11400000, guid: c07b99bbbca86234ea011dc966b22d2c, type: 2}
 --- !u!212 &1243597819
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -21447,18 +21394,6 @@ MonoBehaviour:
   - {fileID: 536270038}
   - {fileID: 1132951824}
   - {fileID: 1516472617}
-  colors:
-  - {r: 0, g: 0, b: 0, a: 0.78431374}
-  - {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0.5882353}
-  - {r: 0.44313726, g: 0, b: 0.44313726, a: 0.5882353}
-  - {r: 1, g: 0.3764706, b: 0, a: 0.5882353}
-  - {r: 0, g: 0.4627451, b: 0, a: 0.5882353}
-  - {r: 0.54509807, g: 0, b: 1, a: 0.5882353}
-  - {r: 1, g: 0.6878893, b: 0, a: 0.5882353}
-  - {r: 0.5019608, g: 1, b: 0, a: 0.5882353}
-  - {r: 1, g: 0.31764707, b: 1, a: 0.5882353}
-  - {r: 0, g: 1, b: 1, a: 0.5882353}
-  - {r: 1, g: 0.827451, b: 0.23137255, a: 0.5882353}
   effectFire: {fileID: 21300000, guid: 2c5bf9c59092bd64f8224d91fb1ab14a, type: 3}
   effectSmoke: {fileID: 21300000, guid: 68dd3723d780e6646a5d6f45e454e470, type: 3}
   effectGlow: {fileID: 21300000, guid: 6264f961a8b45da41970e7f3b2b9ef27, type: 3}
@@ -21467,6 +21402,7 @@ MonoBehaviour:
   colorSmoke: {r: 0.41568628, g: 0.41568628, b: 0.41568628, a: 1}
   colorGlow: {r: 0.95686275, g: 1, b: 0, a: 1}
   colorBoil: {r: 0.05490196, g: 0, b: 0.5294118, a: 1}
+  settings: {fileID: 11400000, guid: c07b99bbbca86234ea011dc966b22d2c, type: 2}
   potionColor: 0
   potionEffect: 0
   takenSpace: 0
@@ -26389,18 +26325,6 @@ MonoBehaviour:
   - {fileID: 536270038}
   - {fileID: 1132951824}
   - {fileID: 1516472617}
-  colors:
-  - {r: 0, g: 0, b: 0, a: 0.78431374}
-  - {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0.5882353}
-  - {r: 0.44313726, g: 0, b: 0.44313726, a: 0.5882353}
-  - {r: 1, g: 0.3764706, b: 0, a: 0.5882353}
-  - {r: 0, g: 0.4627451, b: 0, a: 0.5882353}
-  - {r: 0.54509807, g: 0, b: 1, a: 0.5882353}
-  - {r: 1, g: 0.6878893, b: 0, a: 0.5882353}
-  - {r: 0.5019608, g: 1, b: 0, a: 0.5882353}
-  - {r: 1, g: 0.31764707, b: 1, a: 0.5882353}
-  - {r: 0, g: 1, b: 1, a: 0.5882353}
-  - {r: 1, g: 0.827451, b: 0.23137255, a: 0.5882353}
   effectFire: {fileID: 21300000, guid: 2c5bf9c59092bd64f8224d91fb1ab14a, type: 3}
   effectSmoke: {fileID: 21300000, guid: 68dd3723d780e6646a5d6f45e454e470, type: 3}
   effectGlow: {fileID: 21300000, guid: 6264f961a8b45da41970e7f3b2b9ef27, type: 3}
@@ -26409,6 +26333,7 @@ MonoBehaviour:
   colorSmoke: {r: 0.41568628, g: 0.41568628, b: 0.41568628, a: 1}
   colorGlow: {r: 0.95686275, g: 1, b: 0, a: 1}
   colorBoil: {r: 0.05490196, g: 0, b: 0.5294118, a: 1}
+  settings: {fileID: 11400000, guid: c07b99bbbca86234ea011dc966b22d2c, type: 2}
   potionColor: 0
   potionEffect: 0
   takenSpace: 0
@@ -26569,18 +26494,6 @@ MonoBehaviour:
   - {fileID: 536270038}
   - {fileID: 1132951824}
   - {fileID: 1516472617}
-  colors:
-  - {r: 0, g: 0, b: 0, a: 0.78431374}
-  - {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0.5882353}
-  - {r: 0.44313726, g: 0, b: 0.44313726, a: 0.5882353}
-  - {r: 1, g: 0.3764706, b: 0, a: 0.5882353}
-  - {r: 0, g: 0.4627451, b: 0, a: 0.5882353}
-  - {r: 0.54509807, g: 0, b: 1, a: 0.5882353}
-  - {r: 1, g: 0.6878893, b: 0, a: 0.5882353}
-  - {r: 0.5019608, g: 1, b: 0, a: 0.5882353}
-  - {r: 1, g: 0.31764707, b: 1, a: 0.5882353}
-  - {r: 0, g: 1, b: 1, a: 0.5882353}
-  - {r: 1, g: 0.827451, b: 0.23137255, a: 0.5882353}
   effectFire: {fileID: 21300000, guid: 2c5bf9c59092bd64f8224d91fb1ab14a, type: 3}
   effectSmoke: {fileID: 21300000, guid: 68dd3723d780e6646a5d6f45e454e470, type: 3}
   effectGlow: {fileID: 21300000, guid: 6264f961a8b45da41970e7f3b2b9ef27, type: 3}
@@ -26589,6 +26502,7 @@ MonoBehaviour:
   colorSmoke: {r: 0.41568628, g: 0.41568628, b: 0.41568628, a: 1}
   colorGlow: {r: 0.95686275, g: 1, b: 0, a: 1}
   colorBoil: {r: 0.05490196, g: 0, b: 0.5294118, a: 1}
+  settings: {fileID: 11400000, guid: c07b99bbbca86234ea011dc966b22d2c, type: 2}
   potionColor: 0
   potionEffect: 0
   takenSpace: 0
@@ -27538,18 +27452,6 @@ MonoBehaviour:
   - {fileID: 536270038}
   - {fileID: 1132951824}
   - {fileID: 1516472617}
-  colors:
-  - {r: 0, g: 0, b: 0, a: 0.78431374}
-  - {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0.5882353}
-  - {r: 0.44313726, g: 0, b: 0.44313726, a: 0.5882353}
-  - {r: 1, g: 0.3764706, b: 0, a: 0.5882353}
-  - {r: 0, g: 0.4627451, b: 0, a: 0.5882353}
-  - {r: 0.54509807, g: 0, b: 1, a: 0.5882353}
-  - {r: 1, g: 0.6878893, b: 0, a: 0.5882353}
-  - {r: 0.5019608, g: 1, b: 0, a: 0.5882353}
-  - {r: 1, g: 0.31764707, b: 1, a: 0.5882353}
-  - {r: 0, g: 1, b: 1, a: 0.5882353}
-  - {r: 1, g: 0.827451, b: 0.23137255, a: 0.5882353}
   effectFire: {fileID: 21300000, guid: 2c5bf9c59092bd64f8224d91fb1ab14a, type: 3}
   effectSmoke: {fileID: 21300000, guid: 68dd3723d780e6646a5d6f45e454e470, type: 3}
   effectGlow: {fileID: 21300000, guid: 6264f961a8b45da41970e7f3b2b9ef27, type: 3}
@@ -27558,6 +27460,7 @@ MonoBehaviour:
   colorSmoke: {r: 0.41568628, g: 0.41568628, b: 0.41568628, a: 1}
   colorGlow: {r: 0.95686275, g: 1, b: 0, a: 1}
   colorBoil: {r: 0.05490196, g: 0, b: 0.5294118, a: 1}
+  settings: {fileID: 11400000, guid: c07b99bbbca86234ea011dc966b22d2c, type: 2}
   potionColor: 0
   potionEffect: 0
   takenSpace: 0

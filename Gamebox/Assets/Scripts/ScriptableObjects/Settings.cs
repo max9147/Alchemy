@@ -115,4 +115,13 @@ public class Settings : ScriptableObject
     [Header("Формула шанса доп. награды от магов: X + rep / 100 * Y")]
     public int magiciansX;
     public int magiciansY;
+
+    [Header("Цвета воды")]
+    public Color[] colors = new Color[15];
+
+    [Header("Названия цветов")]
+    public string[] colorNames = new string[11];
+
+    [Header("Названия эффектов")]
+    public string[] effectNames = new string[4];
 }

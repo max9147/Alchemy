@@ -9,7 +9,9 @@ public class RecipesMenu : MonoBehaviour
     public GameObject potionData;
     public GameObject content;
     public GameObject UIControls;
+    public Settings settings;
     public Potions[] potions;
+    public Sprite[] effects;
 
     public bool[] addedArr = new bool[55];
     public bool pass = false;
@@ -24,18 +26,86 @@ public class RecipesMenu : MonoBehaviour
             rt.sizeDelta = new Vector2(rt.sizeDelta.x, rt.sizeDelta.y + 250);
 
             GameObject data = Instantiate(potionData);
-            data.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = potion.potionName;
             data.transform.Find("Bottle").GetComponent<Image>().sprite = potion.imageBottle;
             data.transform.Find("Water").GetComponent<Image>().sprite = potion.imageWater;
-            data.transform.Find("Water").GetComponent<Image>().color = potion.waterColor;
+            switch (potion.color)
+            {
+                case PotionColor.Purple:
+                    data.transform.Find("Water").GetComponent<Image>().color = settings.colors[0];
+                    data.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = settings.colorNames[0];
+                    break;
+                case PotionColor.Orange:
+                    data.transform.Find("Water").GetComponent<Image>().color = settings.colors[1];
+                    data.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = settings.colorNames[1];
+                    break;
+                case PotionColor.Green:
+                    data.transform.Find("Water").GetComponent<Image>().color = settings.colors[2];
+                    data.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = settings.colorNames[2];
+                    break;
+                case PotionColor.Pink:
+                    data.transform.Find("Water").GetComponent<Image>().color = settings.colors[3];
+                    data.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = settings.colorNames[3];
+                    break;
+                case PotionColor.Gold:
+                    data.transform.Find("Water").GetComponent<Image>().color = settings.colors[4];
+                    data.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = settings.colorNames[4];
+                    break;
+                case PotionColor.LightBlue:
+                    data.transform.Find("Water").GetComponent<Image>().color = settings.colors[5];
+                    data.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = settings.colorNames[5];
+                    break;
+                case PotionColor.Black:
+                    data.transform.Find("Water").GetComponent<Image>().color = settings.colors[6];
+                    data.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = settings.colorNames[6];
+                    break;
+                case PotionColor.Gray:
+                    data.transform.Find("Water").GetComponent<Image>().color = settings.colors[7];
+                    data.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = settings.colorNames[7];
+                    break;
+                case PotionColor.Peach:
+                    data.transform.Find("Water").GetComponent<Image>().color = settings.colors[8];
+                    data.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = settings.colorNames[8];
+                    break;
+                case PotionColor.Violet:
+                    data.transform.Find("Water").GetComponent<Image>().color = settings.colors[9];
+                    data.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = settings.colorNames[9];
+                    break;
+                case PotionColor.Lime:
+                    data.transform.Find("Water").GetComponent<Image>().color = settings.colors[10];
+                    data.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = settings.colorNames[10];
+                    break;
+                default:
+                    break;
+            }
 
             if (potion.rare)
             {
+                switch (potion.effect)
+                {
+                    case PotionEffect.Glowing:
+                        data.transform.Find("Name").GetComponent<TextMeshProUGUI>().text += " " + settings.effectNames[0] + " зелье";
+                        data.transform.Find("Effect").GetComponent<Image>().sprite = effects[0];
+                        break;
+                    case PotionEffect.Boiling:
+                        data.transform.Find("Name").GetComponent<TextMeshProUGUI>().text += " " + settings.effectNames[1] + " зелье";
+                        data.transform.Find("Effect").GetComponent<Image>().sprite = effects[1];
+                        break;
+                    case PotionEffect.Burning:
+                        data.transform.Find("Name").GetComponent<TextMeshProUGUI>().text += " " + settings.effectNames[2] + " зелье";
+                        data.transform.Find("Effect").GetComponent<Image>().sprite = effects[2];
+                        break;
+                    case PotionEffect.Smoking:
+                        data.transform.Find("Name").GetComponent<TextMeshProUGUI>().text += " " + settings.effectNames[3] + " зелье";
+                        data.transform.Find("Effect").GetComponent<Image>().sprite = effects[3];
+                        break;
+                    default:
+                        break;
+                }
                 data.transform.Find("Rare").gameObject.SetActive(true);
                 data.transform.Find("Effect").gameObject.SetActive(true);
-                data.transform.Find("Effect").GetComponent<Image>().sprite = potion.rareEffect;
                 data.transform.Find("Effect").GetComponent<Image>().color = potion.effectColor;
             }
+            else data.transform.Find("Name").GetComponent<TextMeshProUGUI>().text += " зелье";
             data.transform.Find("Rare").GetComponent<Image>().sprite = potion.rare;
 
             switch (potion.colored.Length)

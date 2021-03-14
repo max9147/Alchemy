@@ -355,7 +355,7 @@ public class MixingSystem : MonoBehaviour
                     case PotionColor.Violet:
                         recipes.GetComponent<RecipesMenu>().AddPotionData(potions[53]);
                         break;
-                    case PotionColor.LightOrange:
+                    case PotionColor.Peach:
                         recipes.GetComponent<RecipesMenu>().AddPotionData(potions[28]);
                         break;
                     case PotionColor.Lime:
@@ -396,7 +396,7 @@ public class MixingSystem : MonoBehaviour
                     case PotionColor.Violet:
                         recipes.GetComponent<RecipesMenu>().AddPotionData(potions[52]);
                         break;
-                    case PotionColor.LightOrange:
+                    case PotionColor.Peach:
                         recipes.GetComponent<RecipesMenu>().AddPotionData(potions[27]);
                         break;
                     case PotionColor.Lime:
@@ -437,7 +437,7 @@ public class MixingSystem : MonoBehaviour
                     case PotionColor.Violet:
                         recipes.GetComponent<RecipesMenu>().AddPotionData(potions[50]);
                         break;
-                    case PotionColor.LightOrange:
+                    case PotionColor.Peach:
                         recipes.GetComponent<RecipesMenu>().AddPotionData(potions[25]);
                         break;
                     case PotionColor.Lime:
@@ -478,7 +478,7 @@ public class MixingSystem : MonoBehaviour
                     case PotionColor.Violet:
                         recipes.GetComponent<RecipesMenu>().AddPotionData(potions[51]);
                         break;
-                    case PotionColor.LightOrange:
+                    case PotionColor.Peach:
                         recipes.GetComponent<RecipesMenu>().AddPotionData(potions[26]);
                         break;
                     case PotionColor.Lime:
@@ -519,7 +519,7 @@ public class MixingSystem : MonoBehaviour
                     case PotionColor.Violet:
                         recipes.GetComponent<RecipesMenu>().AddPotionData(potions[54]);
                         break;
-                    case PotionColor.LightOrange:
+                    case PotionColor.Peach:
                         recipes.GetComponent<RecipesMenu>().AddPotionData(potions[29]);
                         break;
                     case PotionColor.Lime:
@@ -708,7 +708,7 @@ public class MixingSystem : MonoBehaviour
                     return PotionColor.Violet;
 
                 if (inCauldronColored.Contains(Resource.Red) && inCauldronColored.Contains(Resource.Yellow) && inCauldronColored.Contains(Resource.White))
-                    return PotionColor.LightOrange;
+                    return PotionColor.Peach;
 
                 if (inCauldronColored.Contains(Resource.Blue) && inCauldronColored.Contains(Resource.Yellow) && inCauldronColored.Contains(Resource.White))
                     return PotionColor.Lime;

@@ -13,7 +13,7 @@ public enum PotionColor
     LightBlue,
     Black,
     Gray,
-    LightOrange,
+    Peach,
     Violet,
     Lime
 }
@@ -135,8 +135,8 @@ public class PotionSystem : MonoBehaviour
                     case PotionColor.Gray:
                         item.potionColor = PotionColor.Gray;
                         break;
-                    case PotionColor.LightOrange:
-                        item.potionColor = PotionColor.LightOrange;
+                    case PotionColor.Peach:
+                        item.potionColor = PotionColor.Peach;
                         break;
                     case PotionColor.Violet:
                         item.potionColor = PotionColor.Violet;
