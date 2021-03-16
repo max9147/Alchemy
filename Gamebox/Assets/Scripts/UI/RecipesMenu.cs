@@ -12,6 +12,11 @@ public class RecipesMenu : MonoBehaviour
     public Settings settings;
     public Potions[] potions;
 
+    public Sprite burning;
+    public Sprite smoking;
+    public Sprite glowing;
+    public Sprite boiling;
+
     public bool[] addedArr = new bool[55];
     public bool pass = false;
 
@@ -83,19 +88,19 @@ public class RecipesMenu : MonoBehaviour
                 {
                     case PotionEffect.Glowing:
                         data.transform.Find("Name").GetComponent<TextMeshProUGUI>().text += " " + settings.effectNames[0] + " зелье";
-                        data.transform.Find("PSMask").Find("FirePS").GetComponent<ParticleSystem>().Play();
+                        data.transform.Find("Effect").GetComponent<Image>().sprite = glowing;
                         break;
                     case PotionEffect.Boiling:
                         data.transform.Find("Name").GetComponent<TextMeshProUGUI>().text += " " + settings.effectNames[1] + " зелье";
-                        data.transform.Find("PSMask").Find("FirePS").GetComponent<ParticleSystem>().Play();
+                        data.transform.Find("Effect").GetComponent<Image>().sprite = boiling;
                         break;
                     case PotionEffect.Burning:
                         data.transform.Find("Name").GetComponent<TextMeshProUGUI>().text += " " + settings.effectNames[2] + " зелье";
-                        data.transform.Find("PSMask").Find("FirePS").GetComponent<ParticleSystem>().Play();
+                        data.transform.Find("Effect").GetComponent<Image>().sprite = burning;
                         break;
                     case PotionEffect.Smoking:
                         data.transform.Find("Name").GetComponent<TextMeshProUGUI>().text += " " + settings.effectNames[3] + " зелье";
-                        data.transform.Find("PSMask").Find("FirePS").GetComponent<ParticleSystem>().Play();
+                        data.transform.Find("Effect").GetComponent<Image>().sprite = smoking;
                         break;
                     default:
                         break;
