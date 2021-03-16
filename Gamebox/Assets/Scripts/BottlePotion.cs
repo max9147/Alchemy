@@ -7,16 +7,6 @@ public class BottlePotion : MonoBehaviour
     public GameObject potionSystem;
     public GameObject[] potionPos;
 
-    public Sprite effectFire;
-    public Sprite effectSmoke;
-    public Sprite effectGlow;
-    public Sprite effectBoil;
-
-    public Color colorFire;
-    public Color colorSmoke;
-    public Color colorGlow;
-    public Color colorBoil;
-
     public Settings settings;
 
     public PotionColor potionColor = PotionColor.Empty;
@@ -76,29 +66,17 @@ public class BottlePotion : MonoBehaviour
         if (potionColor != PotionColor.Empty)
         {
             transform.Find("Water").gameObject.SetActive(true);
-            transform.Find("Water").GetComponent<SpriteRenderer>().color = settings.colors[potionSystem.GetComponent<PotionSystem>().GetColor(id) + 1];
+            transform.Find("Water").GetComponent<SpriteRenderer>().color = settings.colors[potionSystem.GetComponent<PotionSystem>().GetColor(id) - 1];
         }
 
         if (potionEffect == PotionEffect.Burning)
-        {
-            transform.Find("Effect").GetComponent<SpriteRenderer>().sprite = effectFire;
-            transform.Find("Effect").GetComponent<SpriteRenderer>().color = colorFire;
-        }
+            transform.Find("PSMask").Find("FirePS").GetComponent<ParticleSystem>().Play();
         if (potionEffect == PotionEffect.Boiling)
-        {
-            transform.Find("Effect").GetComponent<SpriteRenderer>().sprite = effectBoil;
-            transform.Find("Effect").GetComponent<SpriteRenderer>().color = colorBoil;
-        }
+            transform.Find("PSMask").Find("BoilPS").GetComponent<ParticleSystem>().Play();
         if (potionEffect == PotionEffect.Smoking)
-        {
-            transform.Find("Effect").GetComponent<SpriteRenderer>().sprite = effectSmoke;
-            transform.Find("Effect").GetComponent<SpriteRenderer>().color = colorSmoke;
-        }
+            transform.Find("PSMask").Find("SmokePS").GetComponent<ParticleSystem>().Play();
         if (potionEffect == PotionEffect.Glowing)
-        {
-            transform.Find("Effect").GetComponent<SpriteRenderer>().sprite = effectGlow;
-            transform.Find("Effect").GetComponent<SpriteRenderer>().color = colorGlow;
-        }
+            transform.Find("PSMask").Find("GlowPS").GetComponent<ParticleSystem>().Play();
     }
 
     public void AddPotion(List<Resource> inCauldron, List<Resource> inCauldronColored, bool isRare, int space)
@@ -143,7 +121,6 @@ public class BottlePotion : MonoBehaviour
                 if (inCauldronColored.Contains(Resource.Yellow) && inCauldronColored.Contains(Resource.White))
                     potionColor = PotionColor.Gold;
                 break;
-
             case 3:
                 if (inCauldronColored.Contains(Resource.Red) && inCauldronColored.Contains(Resource.Blue) && inCauldronColored.Contains(Resource.White))
                     potionColor = PotionColor.Violet;
@@ -157,11 +134,9 @@ public class BottlePotion : MonoBehaviour
                 if (inCauldronColored.Contains(Resource.Red) && inCauldronColored.Contains(Resource.Blue) && inCauldronColored.Contains(Resource.Yellow))
                     potionColor = PotionColor.Black;
                 break;
-
             case 4:
                 potionColor = PotionColor.Gray;
                 break;
-
             default:
                 break;
         }

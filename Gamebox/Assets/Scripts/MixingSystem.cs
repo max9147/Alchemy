@@ -18,6 +18,7 @@ public class MixingSystem : MonoBehaviour
     public GameObject resourceSystem;
     public GameObject fire;
     public GameObject water;
+    public GameObject waterBoil;
     public GameObject recipes;
     public GameObject UIControls;
 
@@ -60,15 +61,13 @@ public class MixingSystem : MonoBehaviour
     public AudioClip brewSound;
     public AudioClip takePotionSound;
 
-    public Sprite waterStill;
-    public Sprite waterBoil;
-
     public int cauldronId;
 
     public bool isRare = false;
     public bool isWrong = false;
     public bool isReady = false;
     public bool bottleIn = false;
+    public bool isBrewing = false;
 
     private bool showTimer = false;
     private bool isFueled = false;
@@ -226,6 +225,7 @@ public class MixingSystem : MonoBehaviour
         }
 
         water.GetComponent<WaterColor>().ChangeColor(inCauldronColored, isWrong);
+        waterBoil.GetComponent<WaterColor>().ChangeColor(inCauldronColored, isWrong);
 
         if (collision.gameObject.layer == LayerMask.NameToLayer("Bottle"))
             bottleIn = true;
@@ -292,6 +292,7 @@ public class MixingSystem : MonoBehaviour
         if (isWrong)
         {
             water.GetComponent<WaterColor>().ClearWater();
+            waterBoil.GetComponent<WaterColor>().ChangeColor(inCauldronColored, isWrong);
             wrongBrewText.gameObject.SetActive(true);
 
             if (isFueled)
@@ -312,7 +313,7 @@ public class MixingSystem : MonoBehaviour
         {
             GetComponent<AudioSource>().clip = brewSound;
             GetComponent<AudioSource>().Play();
-            water.GetComponent<SpriteRenderer>().sprite = waterBoil;
+            isBrewing = true;
 
             yield return new WaitForSeconds(time / speed);
             if (!helpButton.interactable)
@@ -322,7 +323,7 @@ public class MixingSystem : MonoBehaviour
             }
             drainButton.interactable = true;
             isReady = true;
-            water.GetComponent<SpriteRenderer>().sprite = waterStill;
+            isBrewing = false;
         }
 
         resourceSystem.GetComponent<DragResources>().StopMixing();
@@ -557,6 +558,7 @@ public class MixingSystem : MonoBehaviour
         progressBar.value = 0;
         drainButton.interactable = false;
         water.GetComponent<WaterColor>().ClearWater();
+        waterBoil.GetComponent<WaterColor>().ClearWater();
     }
 
     public void DrainCauldron()
@@ -615,10 +617,22 @@ public class MixingSystem : MonoBehaviour
         brewButton.interactable = false;
         progressBar.value = 0;
         water.GetComponent<WaterColor>().ClearWater();
+        waterBoil.GetComponent<WaterColor>().ClearWater();
     }
 
     private void Update()
     {
+        if (isBrewing)
+        {
+            waterBoil.GetComponent<SpriteRenderer>().color = Color.Lerp(waterBoil.GetComponent<SpriteRenderer>().color,
+                new Vector4(waterBoil.GetComponent<SpriteRenderer>().color.r, waterBoil.GetComponent<SpriteRenderer>().color.g, waterBoil.GetComponent<SpriteRenderer>().color.b, 1), 0.02f);
+        }
+        else
+        {
+            waterBoil.GetComponent<SpriteRenderer>().color = Color.Lerp(waterBoil.GetComponent<SpriteRenderer>().color,
+                new Vector4(waterBoil.GetComponent<SpriteRenderer>().color.r, waterBoil.GetComponent<SpriteRenderer>().color.g, waterBoil.GetComponent<SpriteRenderer>().color.b, 0), 0.02f);
+        }
+
         if (showTimer)
         {
             time -= Time.deltaTime * curSpeed;

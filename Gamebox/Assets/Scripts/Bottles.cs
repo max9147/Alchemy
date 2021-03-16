@@ -13,16 +13,6 @@ public class Bottles : MonoBehaviour
     public Button helpButton;
     public TextMeshProUGUI amountText;
 
-    public Sprite effectFire;
-    public Sprite effectSmoke;
-    public Sprite effectGlow;
-    public Sprite effectBoil;
-
-    public Color colorFire;
-    public Color colorSmoke;
-    public Color colorGlow;
-    public Color colorBoil;
-
     public GameObject[] bottlePos;
     public GameObject[] bottle;
     public GameObject cauldron;
@@ -183,23 +173,24 @@ public class Bottles : MonoBehaviour
                 toDrag.Find("Water").gameObject.SetActive(true);
                 toDrag.Find("Water").GetComponent<SpriteRenderer>().color = water.GetComponent<SpriteRenderer>().color;
 
+                toDrag.transform.Find("PSMask").Find("GlowPS").GetComponent<ParticleSystem>().Stop();
+                toDrag.transform.Find("PSMask").Find("BoilPS").GetComponent<ParticleSystem>().Stop();
+                toDrag.transform.Find("PSMask").Find("FirePS").GetComponent<ParticleSystem>().Stop();
+                toDrag.transform.Find("PSMask").Find("SmokePS").GetComponent<ParticleSystem>().Stop();
+
                 switch (cauldron.GetComponent<MixingSystem>().GetBrewEffect())
                 {
                     case PotionEffect.Glowing:
-                        toDrag.Find("Effect").GetComponent<SpriteRenderer>().sprite = effectGlow;
-                        toDrag.Find("Effect").GetComponent<SpriteRenderer>().color = colorGlow;
+                        toDrag.transform.Find("PSMask").Find("GlowPS").GetComponent<ParticleSystem>().Play();
                         break;
                     case PotionEffect.Boiling:
-                        toDrag.Find("Effect").GetComponent<SpriteRenderer>().sprite = effectBoil;
-                        toDrag.Find("Effect").GetComponent<SpriteRenderer>().color = colorBoil;
+                        toDrag.transform.Find("PSMask").Find("BoilPS").GetComponent<ParticleSystem>().Play();
                         break;
                     case PotionEffect.Burning:
-                        toDrag.Find("Effect").GetComponent<SpriteRenderer>().sprite = effectFire;
-                        toDrag.Find("Effect").GetComponent<SpriteRenderer>().color = colorFire;
+                        toDrag.transform.Find("PSMask").Find("FirePS").GetComponent<ParticleSystem>().Play();
                         break;
                     case PotionEffect.Smoking:
-                        toDrag.Find("Effect").GetComponent<SpriteRenderer>().sprite = effectSmoke;
-                        toDrag.Find("Effect").GetComponent<SpriteRenderer>().color = colorSmoke;
+                        toDrag.transform.Find("PSMask").Find("SmokePS").GetComponent<ParticleSystem>().Play();
                         break;
                     default:
                         break;
@@ -330,7 +321,6 @@ public class Bottles : MonoBehaviour
                         break;
                 }
 
-                toDrag.Find("Effect").GetComponent<SpriteRenderer>().sprite = null;
                 toDrag.Find("Water").GetComponent<SpriteRenderer>().color = Color.white;
                 toDrag.Find("Water").gameObject.SetActive(false);
                 toDrag.GetComponent<BottlePotion>().potionColor = PotionColor.Empty;

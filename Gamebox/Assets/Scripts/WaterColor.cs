@@ -90,6 +90,7 @@ public class WaterColor : MonoBehaviour
                 default:
                     break;
             }
+            if (name == "WaterBoil") targetColor.a = 0;
         }
     }
 
