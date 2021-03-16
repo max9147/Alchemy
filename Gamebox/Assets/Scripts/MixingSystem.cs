@@ -16,11 +16,11 @@ public class MixingSystem : MonoBehaviour
     public Slider progressBar;
 
     public GameObject resourceSystem;
-    public GameObject fire;
     public GameObject water;
     public GameObject waterBoil;
     public GameObject recipes;
     public GameObject UIControls;
+    public GameObject table;
 
     public GameObject platformRed;
     public GameObject platformBlue;
@@ -47,6 +47,9 @@ public class MixingSystem : MonoBehaviour
     public Sprite stoneEmpty;
     public Sprite sand;
     public Sprite sandEmpty;
+
+    public Sprite tableOff;
+    public Sprite tableOn;
 
     public Potions[] potions;
 
@@ -657,8 +660,8 @@ public class MixingSystem : MonoBehaviour
     {
         fuelButton.interactable = false;
         speed *= settings.woodSpeedup;
-        fire.SetActive(true);
         isFueled = true;
+        table.GetComponent<SpriteRenderer>().sprite = tableOn;
         StartCoroutine(FuelCombustion());
     }
 
@@ -668,8 +671,8 @@ public class MixingSystem : MonoBehaviour
         if (resourceSystem.GetComponent<Fuel>().GetFuelCount() > 0)
             fuelButton.interactable = true;
         speed /= settings.woodSpeedup;
-        fire.SetActive(false);
         isFueled = false;
+        table.GetComponent<SpriteRenderer>().sprite = tableOff;
     }
 
     public int GetCauldron()
