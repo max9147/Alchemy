@@ -43,6 +43,10 @@ public class QuestsSystem : MonoBehaviour
     public GameObject magician;
 
     public GameObject UIControls;
+    public GameObject resourceSystem;
+    public GameObject moneySystem;
+    public GameObject cam;
+    public GameObject orders;
 
     public Settings settings;
 
@@ -94,10 +98,31 @@ public class QuestsSystem : MonoBehaviour
 
     public string potionName;
 
+    private void Awake()
+    {
+        if (firstAmount > 0 && !UIControls.GetComponent<Tutorial>().mainGame)
+        {
+            firstAmount = 0;
+            resourceSystem.GetComponent<ResourceSystem>().RemoveResource(Resource.Red, resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Red));
+            resourceSystem.GetComponent<ResourceSystem>().RemoveResource(Resource.Blue, resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Blue));
+            resourceSystem.GetComponent<ResourceSystem>().RemoveResource(Resource.Yellow, resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Yellow));
+            resourceSystem.GetComponent<ResourceSystem>().RemoveResource(Resource.White, resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.White));
+            moneySystem.GetComponent<MoneySystem>().SpendMoney(moneySystem.GetComponent<MoneySystem>().GetMoney() - 200);
+        }
+    }
+
     private void Start()
     {
         questTime = settings.questDelay;
         timePassed = questTime - settings.questFirst + GetComponent<GuildSystem>().CalcExtraTime();
+        if (firstAmount == 0)
+        {
+            cam.transform.position = new Vector3(0, orders.transform.position.y, -1);
+            UIControls.GetComponent<CameraMovement>().dir = 2;
+            UIControls.GetComponent<Tutorial>().ToggleMessage("Добро пожаловать в игру Алхимик! Вы управляете этой лавкой и вам нужно выполнять заказы чтобы получать деньги и репутацию.");
+            UIControls.GetComponent<Tutorial>().tutorialPhase = 1;
+        }
+        else firstAmount--;
         if (firstQuest) GiveFirst();
     }
 
@@ -105,9 +130,12 @@ public class QuestsSystem : MonoBehaviour
     {
         int guild;
 
+        if (firstAmount == 1) UIControls.GetComponent<Tutorial>().ToggleMessage("Следи за репутацией вверху экрана. Если ее будет слишком мало, гильдии не будут покупать зелья и ты проиграешь.");
+
         firstAmount++;
         do guild = Random.Range(0, 4);
         while (guild == lastGuild);
+        if (firstAmount == 1) guild = 2;
         lastGuild = guild;
 
         switch (guild)
@@ -136,6 +164,10 @@ public class QuestsSystem : MonoBehaviour
                         break;
                     case 5:
                         warriorsIngredient1.sprite = yellow;
+                        warriorsIngredient2.sprite = white;
+                        break;
+                    case 6:
+                        warriorsIngredient1.sprite = blue;
                         warriorsIngredient2.sprite = white;
                         break;
                     default:
@@ -169,6 +201,10 @@ public class QuestsSystem : MonoBehaviour
                         banditsIngredient1.sprite = yellow;
                         banditsIngredient2.sprite = white;
                         break;
+                    case 6:
+                        banditsIngredient1.sprite = blue;
+                        banditsIngredient2.sprite = white;
+                        break;
                     default:
                         break;
                 }
@@ -200,6 +236,10 @@ public class QuestsSystem : MonoBehaviour
                         priestsIngredient1.sprite = yellow;
                         priestsIngredient2.sprite = white;
                         break;
+                    case 6:
+                        priestsIngredient1.sprite = blue;
+                        priestsIngredient2.sprite = white;
+                        break;
                     default:
                         break;
                 }
@@ -229,6 +269,10 @@ public class QuestsSystem : MonoBehaviour
                         break;
                     case 5:
                         magiciansIngredient1.sprite = yellow;
+                        magiciansIngredient2.sprite = white;
+                        break;
+                    case 6:
+                        magiciansIngredient1.sprite = blue;
                         magiciansIngredient2.sprite = white;
                         break;
                     default:

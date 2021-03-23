@@ -158,6 +158,8 @@ public class Bottles : MonoBehaviour
         {
             if (cauldron.GetComponent<MixingSystem>().isReady && cauldron.GetComponent<MixingSystem>().bottleIn && !justReturned)
             {
+                if (UIControls.GetComponent<Tutorial>().tutorialPhase == 1) UIControls.GetComponent<Tutorial>().ToggleMessage("Давай вернемся к нашему клиенту и отдадим ему зелье.");
+
                 justTook = true;
                 for (int i = 0; i < takenSpace.Length; i++)
                 {

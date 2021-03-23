@@ -115,10 +115,17 @@ public class MixingSystem : MonoBehaviour
             GetComponent<AudioSource>().Play();
 
             isReady = false;
-            drainButton.interactable = true;
+            if (UIControls.GetComponent<Tutorial>().tutorialPhase != 1)
+            {
+                drainButton.interactable = true;
+                brewButton.interactable = true;
+            }
+            else if (inCauldron.Count == 1)
+            {
+                brewButton.interactable = true;
+            }
             buyCauldron.interactable = false;
             Destroy(collision.gameObject);
-            brewButton.interactable = true;
         }
 
         switch (collision.transform.tag)
@@ -311,7 +318,6 @@ public class MixingSystem : MonoBehaviour
             inCauldron.Clear();
             inCauldronColored.Clear();
         }
-
         else
         {
             GetComponent<AudioSource>().clip = brewSound;
@@ -324,7 +330,8 @@ public class MixingSystem : MonoBehaviour
                 UIControls.GetComponent<Tutorial>().helpStep = 6;
                 UIControls.GetComponent<Tutorial>().GetHelp();
             }
-            drainButton.interactable = true;
+            if (UIControls.GetComponent<Tutorial>().tutorialPhase != 1) drainButton.interactable = true;
+            else UIControls.GetComponent<Tutorial>().ToggleMessage("Возьми пустую бутылку с верхней полки и налей в неё зелье, перетащив на котел.");
             isReady = true;
             isBrewing = false;
         }

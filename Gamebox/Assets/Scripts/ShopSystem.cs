@@ -8,8 +8,8 @@ public class ShopSystem : MonoBehaviour
 {
     public GameObject resourceSystem;
     public GameObject bottles;
-
     public GameObject cauldron;
+    public GameObject UIControls;
 
     public Button buttonBuyBottle;
     public TextMeshProUGUI textBuyBottle;
@@ -97,6 +97,13 @@ public class ShopSystem : MonoBehaviour
 
             default:
                 break;
+        }
+
+        if (UIControls.GetComponent<Tutorial>().tutorialPhase == 2 && resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Red) == 1 && resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Blue) == 1)
+        {
+            UIControls.GetComponent<Tutorial>().tutorialPhase = 1;
+            UIControls.GetComponent<Popups>().PopupClose();
+            UIControls.GetComponent<Tutorial>().ToggleMessage("Все готово, возвращаемся на рабочее место.");
         }
     }
 

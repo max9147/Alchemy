@@ -8,6 +8,8 @@ public class ShopMenu : MonoBehaviour
     public GameObject moneySystem;
     public GameObject cauldron;
     public GameObject bottles;
+    public GameObject UIControls;
+    public GameObject resourceSystem;
 
     public Button[] buyResX1;
     public Button[] buyResX5;
@@ -18,6 +20,14 @@ public class ShopMenu : MonoBehaviour
 
     private void Update()
     {
+        if (UIControls.GetComponent<Tutorial>().tutorialPhase == 2)
+        {
+            buyFuel.interactable = false;
+            if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Red) == 1) buyResX1[0].interactable = false;
+            if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Blue) == 1) buyResX1[1].interactable = false;
+            return;
+        }
+
         if (moneySystem.GetComponent<MoneySystem>().GetMoney() < 100)
         {
             foreach (var item in buyResX1)

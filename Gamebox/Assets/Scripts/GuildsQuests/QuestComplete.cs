@@ -62,8 +62,8 @@ public class QuestComplete : MonoBehaviour
                     guildSystem.GetComponent<QuestsSystem>().GiveFirst();
                 else if (guildSystem.GetComponent<QuestsSystem>().firstQuest)
                 {
-                    messageText.text = "Не забывай экспериментировать с ресурсами чтобы получать новые рецепты зелий";
-                    UIControls.GetComponent<Tutorial>().ToggleMessage();
+                    UIControls.GetComponent<Tutorial>().ToggleMessage("Не забывай экспериментировать с ресурсами чтобы получать новые рецепты зелий");
+                    UIControls.GetComponent<Tutorial>().mainGame = true;
                     guildSystem.GetComponent<QuestsSystem>().firstQuest = false;
                 }
 
@@ -83,7 +83,6 @@ public class QuestComplete : MonoBehaviour
                 collision.transform.Find("Water").gameObject.SetActive(false);
                 collision.GetComponent<BottlePotion>().potionColor = PotionColor.Empty;
                 collision.GetComponent<BottlePotion>().potionEffect = PotionEffect.Empty;
-                collision.transform.Find("Effect").GetComponent<SpriteRenderer>().sprite = null;
 
                 switch (collision.tag)
                 {

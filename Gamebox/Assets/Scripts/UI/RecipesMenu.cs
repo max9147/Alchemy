@@ -107,7 +107,11 @@ public class RecipesMenu : MonoBehaviour
                 }
                 data.transform.Find("Rare").gameObject.SetActive(true);
             }
-            else data.transform.Find("Name").GetComponent<TextMeshProUGUI>().text += " зелье";
+            else
+            {
+                data.transform.Find("Name").GetComponent<TextMeshProUGUI>().text += " зелье";
+                data.transform.Find("Effect").gameObject.SetActive(false);
+            }
             data.transform.Find("Rare").GetComponent<Image>().sprite = potion.rare;
 
             switch (potion.colored.Length)

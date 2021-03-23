@@ -9,6 +9,8 @@ public class CameraMovement : MonoBehaviour
 
     public GameObject tableBG;
     public GameObject ordersBG;
+    public GameObject helpTutorial1;
+    public GameObject bottles;
 
     public AnimationCurve curve;
 
@@ -33,18 +35,12 @@ public class CameraMovement : MonoBehaviour
 
     public void MoveCam()
     {
+        helpTutorial1.SetActive(false);
+        if (GetComponent<Tutorial>().tutorialPhase == 3) return;
         if (!isMoving)
         {
-            if (dir == 1)
-            {
-                destination = ordersPos;
-            }
-
-            if (dir == 2)
-            {
-                destination = tablePos;
-            }
-
+            if (dir == 1) destination = ordersPos;
+            if (dir == 2) destination = tablePos;
             timer = 0f;
             isMoving = true;
         }
@@ -73,6 +69,11 @@ public class CameraMovement : MonoBehaviour
             {
                 isMoving = false;
                 dir = 1;
+                if (GetComponent<Tutorial>().helpBuy)
+                {
+                    GetComponent<Tutorial>().helpBuy = false;
+                    GetComponent<Tutorial>().ToggleMessage("Это рабочее место. По центру находится котел, слева и справа будут располагаться ресурсы для зельеварения.");
+                }
             }
         }
 
@@ -82,6 +83,11 @@ public class CameraMovement : MonoBehaviour
             {
                 isMoving = false;
                 dir = 2;
+                if (GetComponent<Tutorial>().tutorialPhase == 1 && bottles.GetComponent<Bottles>().takenSpace[0])
+                {
+                    GetComponent<Tutorial>().tutorialPhase = 3;
+                    GetComponent<Tutorial>().ToggleMessage("Перенеси зелье заказчику чтобы он его забрал и заплатил.");
+                }
             }
         }
 
@@ -97,10 +103,7 @@ public class CameraMovement : MonoBehaviour
                 Vector3 pos = cam.ScreenToWorldPoint(touch.position);
                 RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
 
-                if (Physics2D.Raycast(pos, Vector2.zero) && hit.collider.gameObject==this.gameObject)
-                {
-                    MoveCam();
-                }
+                if (Physics2D.Raycast(pos, Vector2.zero) && hit.collider.gameObject == this.gameObject) MoveCam();
             }
         }
     }

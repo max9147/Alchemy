@@ -17,6 +17,8 @@ public class SwipeDetection : MonoBehaviour
 
     public void Swipe()
     {
+        if (GetComponent<Tutorial>().messageShown || GetComponent<Tutorial>().tutorialPhase == 2) return;
+
         if (Input.touches.Length > 0)
         {
             Touch touch = Input.GetTouch(0);
