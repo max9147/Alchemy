@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class QuestComplete : MonoBehaviour
 {
@@ -11,7 +12,8 @@ public class QuestComplete : MonoBehaviour
     public GameObject moneySystem;
     public GameObject resourceSystem;
     public GameObject UIControls;
-    public TextMeshProUGUI messageText;
+    public GameObject coinDrop;
+    public GameObject coinTarget;
     public PotionColor potionColor;
     public PotionEffect potionEffect;
     public bool haveQuest = false;
@@ -29,6 +31,7 @@ public class QuestComplete : MonoBehaviour
     public AudioClip completeTask;
 
     private int reward;
+    private GameObject curCoin;
 
     public void NewQuest(PotionColor _potionColor, PotionEffect _potionEffect, int _reward)
     {
@@ -41,6 +44,11 @@ public class QuestComplete : MonoBehaviour
     public void EndQuest()
     {
         haveQuest = false;
+    }
+
+    private void DestroyCoin()
+    {
+        Destroy(curCoin);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -74,9 +82,6 @@ public class QuestComplete : MonoBehaviour
                     guildSystem.GetComponent<QuestsSystem>().questTime -= settings.questSpeedup;
                     guildSystem.GetComponent<QuestsSystem>().questStep = 0;
                 }
-
-                GetComponent<AudioSource>().clip = completeTask;
-                GetComponent<AudioSource>().Play();
 
                 guildSystem.GetComponent<QuestsSystem>().questStep++;
 
@@ -137,6 +142,10 @@ public class QuestComplete : MonoBehaviour
                 {
                     case "Warrior":
                         moneySystem.GetComponent<MoneySystem>().AddMoney(reward);
+                        curCoin = Instantiate(coinDrop, transform.position, Quaternion.identity);
+                        curCoin.transform.DOMove(coinTarget.transform.position, 1, false).SetEase(Ease.InOutBack).OnComplete(DestroyCoin);
+                        GetComponent<AudioSource>().clip = completeTask;
+                        GetComponent<AudioSource>().Play();
 
                         guildSystem.GetComponent<QuestsSystem>().StopQuest(Guild.Warriors);
                         if (!guildSystem.GetComponent<QuestsSystem>().firstQuest)
@@ -154,7 +163,13 @@ public class QuestComplete : MonoBehaviour
 
                     case "Bandit":
                         if (Random.Range(0, 100) < settings.banditsX + guildSystem.GetComponent<GuildSystem>().GetRep(Guild.Bandits) / 100 * settings.banditsY)
+                        {
                             moneySystem.GetComponent<MoneySystem>().AddMoney(reward);
+                            curCoin = Instantiate(coinDrop, transform.position, Quaternion.identity);
+                            curCoin.transform.DOMove(coinTarget.transform.position, 1, false).SetEase(Ease.InOutBack).OnComplete(DestroyCoin);
+                            GetComponent<AudioSource>().clip = completeTask;
+                            GetComponent<AudioSource>().Play();
+                        }
 
                         guildSystem.GetComponent<QuestsSystem>().StopQuest(Guild.Bandits);
                         if (!guildSystem.GetComponent<QuestsSystem>().firstQuest)
@@ -175,6 +190,11 @@ public class QuestComplete : MonoBehaviour
                             moneySystem.GetComponent<MoneySystem>().AddMoney(reward * 2);
                         else
                             moneySystem.GetComponent<MoneySystem>().AddMoney(reward);
+
+                        curCoin = Instantiate(coinDrop, transform.position, Quaternion.identity);
+                        curCoin.transform.DOMove(coinTarget.transform.position, 1, false).SetEase(Ease.InOutBack).OnComplete(DestroyCoin);
+                        GetComponent<AudioSource>().clip = completeTask;
+                        GetComponent<AudioSource>().Play();
 
                         guildSystem.GetComponent<QuestsSystem>().StopQuest(Guild.Priests);
                         if (!guildSystem.GetComponent<QuestsSystem>().firstQuest)
@@ -212,6 +232,10 @@ public class QuestComplete : MonoBehaviour
                             }
                         }
                         moneySystem.GetComponent<MoneySystem>().AddMoney(reward);
+                        curCoin = Instantiate(coinDrop, transform.position, Quaternion.identity);
+                        curCoin.transform.DOMove(coinTarget.transform.position, 1, false).SetEase(Ease.InOutBack).OnComplete(DestroyCoin);
+                        GetComponent<AudioSource>().clip = completeTask;
+                        GetComponent<AudioSource>().Play();
 
                         guildSystem.GetComponent<QuestsSystem>().StopQuest(Guild.Magicians);
                         if (!guildSystem.GetComponent<QuestsSystem>().firstQuest)

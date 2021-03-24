@@ -739,7 +739,7 @@ public class QuestsSystem : MonoBehaviour
                 potionName = settings.colorNames[3];
                 break;
             case PotionColor.LightBlue:
-                potionName = settings.colorNames[6];
+                potionName = settings.colorNames[5];
                 break;
             case PotionColor.Gold:
                 potionName = settings.colorNames[4];
