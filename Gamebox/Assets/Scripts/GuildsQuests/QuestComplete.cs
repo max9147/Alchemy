@@ -49,6 +49,8 @@ public class QuestComplete : MonoBehaviour
         {
             if (collision.GetComponent<BottlePotion>().potionColor == potionColor && collision.GetComponent<BottlePotion>().potionEffect == potionEffect) 
             {
+                GetComponent<SpriteRenderer>().enabled = false;
+
                 warriorsIngredient1.gameObject.SetActive(false);
                 warriorsIngredient2.gameObject.SetActive(false);
                 banditsIngredient1.gameObject.SetActive(false);
@@ -58,7 +60,7 @@ public class QuestComplete : MonoBehaviour
                 magiciansIngredient1.gameObject.SetActive(false);
                 magiciansIngredient2.gameObject.SetActive(false);
 
-                if (guildSystem.GetComponent<QuestsSystem>().firstAmount < 5)
+                if (guildSystem.GetComponent<QuestsSystem>().firstAmount < 6 && !UIControls.GetComponent<Tutorial>().mainGame)
                     guildSystem.GetComponent<QuestsSystem>().GiveFirst();
                 else if (guildSystem.GetComponent<QuestsSystem>().firstQuest)
                 {

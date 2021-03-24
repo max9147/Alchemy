@@ -42,6 +42,11 @@ public class QuestsSystem : MonoBehaviour
     public GameObject priest;
     public GameObject magician;
 
+    public GameObject warriorBubble;
+    public GameObject banditBubble;
+    public GameObject priestBubble;
+    public GameObject magicianBubble;
+
     public GameObject UIControls;
     public GameObject resourceSystem;
     public GameObject moneySystem;
@@ -393,6 +398,9 @@ public class QuestsSystem : MonoBehaviour
         {
             if (timeWarriors <= 0)
             {
+                warrior.GetComponent<SpriteRenderer>().enabled = false;
+                warriorBubble.SetActive(false);
+
                 GetComponent<AudioSource>().clip = failTask;
                 GetComponent<AudioSource>().Play();
 
@@ -423,6 +431,9 @@ public class QuestsSystem : MonoBehaviour
         {
             if (timeBandits <= 0)
             {
+                bandit.GetComponent<SpriteRenderer>().enabled = false;
+                banditBubble.SetActive(false);
+
                 GetComponent<AudioSource>().clip = failTask;
                 GetComponent<AudioSource>().Play();
 
@@ -453,6 +464,9 @@ public class QuestsSystem : MonoBehaviour
         {
             if (timePriests <= 0)
             {
+                priest.GetComponent<SpriteRenderer>().enabled = false;
+                priestBubble.SetActive(false);
+
                 GetComponent<AudioSource>().clip = failTask;
                 GetComponent<AudioSource>().Play();
 
@@ -483,6 +497,9 @@ public class QuestsSystem : MonoBehaviour
         {
             if (timeMagicians <= 0)
             {
+                magician.GetComponent<SpriteRenderer>().enabled = false;
+                magicianBubble.SetActive(false);
+
                 GetComponent<AudioSource>().clip = failTask;
                 GetComponent<AudioSource>().Play();
 
@@ -574,18 +591,26 @@ public class QuestsSystem : MonoBehaviour
         {
             case Guild.Warriors:
                 warrior.GetComponent<QuestComplete>().NewQuest(quest.color, quest.effect, quest.reward);
+                warrior.GetComponent<SpriteRenderer>().enabled = true;
+                warriorBubble.SetActive(true);
                 break;
 
             case Guild.Bandits:
                 bandit.GetComponent<QuestComplete>().NewQuest(quest.color, quest.effect, quest.reward);
+                bandit.GetComponent<SpriteRenderer>().enabled = true;
+                banditBubble.SetActive(true);
                 break;
 
             case Guild.Priests:
                 priest.GetComponent<QuestComplete>().NewQuest(quest.color, quest.effect, quest.reward);
+                priest.GetComponent<SpriteRenderer>().enabled = true;
+                priestBubble.SetActive(true);
                 break;
 
             case Guild.Magicians:
                 magician.GetComponent<QuestComplete>().NewQuest(quest.color, quest.effect, quest.reward);
+                magician.GetComponent<SpriteRenderer>().enabled = true;
+                magicianBubble.SetActive(true);
                 break;
 
             default:
@@ -612,18 +637,26 @@ public class QuestsSystem : MonoBehaviour
         {
             case Guild.Warriors:
                 warrior.GetComponent<QuestComplete>().NewQuest(quest.color, quest.effect, quest.reward);
+                warrior.GetComponent<SpriteRenderer>().enabled = true;
+                warriorBubble.SetActive(true);
                 break;
 
             case Guild.Bandits:
                 bandit.GetComponent<QuestComplete>().NewQuest(quest.color, quest.effect, quest.reward);
+                bandit.GetComponent<SpriteRenderer>().enabled = true;
+                banditBubble.SetActive(true);
                 break;
 
             case Guild.Priests:
                 priest.GetComponent<QuestComplete>().NewQuest(quest.color, quest.effect, quest.reward);
+                priest.GetComponent<SpriteRenderer>().enabled = true;
+                priestBubble.SetActive(true);
                 break;
 
             case Guild.Magicians:
                 magician.GetComponent<QuestComplete>().NewQuest(quest.color, quest.effect, quest.reward);
+                magician.GetComponent<SpriteRenderer>().enabled = true;
+                magicianBubble.SetActive(true);
                 break;
 
             default:
@@ -638,6 +671,7 @@ public class QuestsSystem : MonoBehaviour
         switch (guild)
         {
             case Guild.Warriors:
+                warriorBubble.SetActive(false);
                 warriorsReady = false;
                 textWarriors.text = "";
                 rewardWarriors.text = "";
@@ -645,6 +679,7 @@ public class QuestsSystem : MonoBehaviour
                 break;
 
             case Guild.Bandits:
+                banditBubble.SetActive(false);
                 banditsReady = false;
                 textBandits.text = "";
                 rewardBandits.text = "";
@@ -652,6 +687,7 @@ public class QuestsSystem : MonoBehaviour
                 break;
 
             case Guild.Priests:
+                priestBubble.SetActive(false);
                 priestsReady = false;
                 textPriests.text = "";
                 rewardPriests.text = "";
@@ -659,6 +695,7 @@ public class QuestsSystem : MonoBehaviour
                 break;
 
             case Guild.Magicians:
+                magicianBubble.SetActive(false);
                 magiciansReady = false;
                 textMagicians.text = "";
                 rewardMagicians.text = "";
