@@ -19,7 +19,7 @@ public class MoneySystem : MonoBehaviour
 
     private void Start()
     {
-        moneyTextShop.text = "Деньги: " + money.ToString();
+        moneyTextShop.text = money.ToString();
         moneyTextGuilds.text = "Деньги: " + money.ToString();
         moneyText.text = money.ToString();
     }
@@ -27,7 +27,7 @@ public class MoneySystem : MonoBehaviour
     public void AddMoney(int amount)
     {
         money += amount;
-        moneyTextShop.text = "Деньги: " + money.ToString();
+        moneyTextShop.text = money.ToString();
         moneyTextGuilds.text = "Деньги: " + money.ToString();
         moneyText.text = money.ToString();
         if (money > 4000 && mixingSystem.GetComponent<MixingSystem>().cauldronId == 0 && !helpButton.interactable)
@@ -40,7 +40,7 @@ public class MoneySystem : MonoBehaviour
     public void SpendMoney(int amount)
     {
         money -= amount;
-        moneyTextShop.text = "Деньги: " + money.ToString();
+        moneyTextShop.text = money.ToString();
         moneyTextGuilds.text = "Деньги: " + money.ToString();
         moneyText.text = money.ToString();
     }

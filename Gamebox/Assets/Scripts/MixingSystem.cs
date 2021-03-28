@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class MixingSystem : MonoBehaviour
 {
-    public TextMeshProUGUI brewButtonText;
     public TextMeshProUGUI wrongBrewText;
     public Button brewButton;
     public Button drainButton;
@@ -340,7 +339,6 @@ public class MixingSystem : MonoBehaviour
 
         isWrong = false;
         showTimer = false;
-        brewButtonText.text = "Смешать";
         wrongBrewText.gameObject.SetActive(false);
 
         switch (GetBrewEffect())
@@ -658,8 +656,6 @@ public class MixingSystem : MonoBehaviour
                 showTime = time.ToString("F0");
                 progressBar.value = (startTime - time) / startTime;
             }
-
-            brewButtonText.text = showTime + " секунд";
         }
     }
 
