@@ -6,6 +6,11 @@ using UnityEngine.UI;
 
 public class TempStuff : MonoBehaviour
 {
+    private void Start()
+    {
+        //ClearSave();
+    }
+
     public void ClearSave()
     {
         Time.timeScale = 0;

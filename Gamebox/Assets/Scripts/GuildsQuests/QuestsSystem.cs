@@ -296,13 +296,9 @@ public class QuestsSystem : MonoBehaviour
 
         timePassed += Time.deltaTime;
 
-        if (timePassed >= questTime + GetComponent<GuildSystem>().CalcExtraTime())
+        if (timePassed >= questTime + GetComponent<GuildSystem>().CalcExtraTime() && !(warriorsReady && banditsReady && priestsReady && magiciansReady))
         {
-            if (warriorsReady && banditsReady && priestsReady && magiciansReady)
-                return;
-
             int guild = Random.Range(0, 4);
-
             switch (guild)
             {
                 case 0:

@@ -31,7 +31,7 @@ public class QuestComplete : MonoBehaviour
     public AudioClip completeTask;
 
     private int reward;
-    private GameObject curCoin;
+    private GameObject[] curCoins = new GameObject[5];
 
     public void NewQuest(PotionColor _potionColor, PotionEffect _potionEffect, int _reward)
     {
@@ -48,7 +48,10 @@ public class QuestComplete : MonoBehaviour
 
     private void DestroyCoin()
     {
-        Destroy(curCoin);
+        foreach (var item in curCoins)
+        {
+            Destroy(item);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -142,8 +145,11 @@ public class QuestComplete : MonoBehaviour
                 {
                     case "Warrior":
                         moneySystem.GetComponent<MoneySystem>().AddMoney(reward);
-                        curCoin = Instantiate(coinDrop, transform.position, Quaternion.identity);
-                        curCoin.transform.DOMove(coinTarget.transform.position, 1, false).SetEase(Ease.InOutBack).OnComplete(DestroyCoin);
+                        for (int i = 0; i < 5; i++)
+                        {
+                            curCoins[i] = Instantiate(coinDrop, transform.position + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0), Quaternion.identity);
+                            curCoins[i].transform.DOMove(coinTarget.transform.position, 1, false).SetEase(Ease.InOutBack, 0.5f).OnComplete(DestroyCoin);
+                        }
                         GetComponent<AudioSource>().clip = completeTask;
                         GetComponent<AudioSource>().Play();
 
@@ -165,8 +171,11 @@ public class QuestComplete : MonoBehaviour
                         if (Random.Range(0, 100) < settings.banditsX + guildSystem.GetComponent<GuildSystem>().GetRep(Guild.Bandits) / 100 * settings.banditsY)
                         {
                             moneySystem.GetComponent<MoneySystem>().AddMoney(reward);
-                            curCoin = Instantiate(coinDrop, transform.position, Quaternion.identity);
-                            curCoin.transform.DOMove(coinTarget.transform.position, 1, false).SetEase(Ease.InOutBack).OnComplete(DestroyCoin);
+                            for (int i = 0; i < 5; i++)
+                            {
+                                curCoins[i] = Instantiate(coinDrop, transform.position + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0), Quaternion.identity);
+                                curCoins[i].transform.DOMove(coinTarget.transform.position, 1, false).SetEase(Ease.InOutBack, 0.5f).OnComplete(DestroyCoin);
+                            }
                             GetComponent<AudioSource>().clip = completeTask;
                             GetComponent<AudioSource>().Play();
                         }
@@ -191,8 +200,11 @@ public class QuestComplete : MonoBehaviour
                         else
                             moneySystem.GetComponent<MoneySystem>().AddMoney(reward);
 
-                        curCoin = Instantiate(coinDrop, transform.position, Quaternion.identity);
-                        curCoin.transform.DOMove(coinTarget.transform.position, 1, false).SetEase(Ease.InOutBack).OnComplete(DestroyCoin);
+                        for (int i = 0; i < 5; i++)
+                        {
+                            curCoins[i] = Instantiate(coinDrop, transform.position + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0), Quaternion.identity);
+                            curCoins[i].transform.DOMove(coinTarget.transform.position, 1, false).SetEase(Ease.InOutBack, 0.5f).OnComplete(DestroyCoin);
+                        }
                         GetComponent<AudioSource>().clip = completeTask;
                         GetComponent<AudioSource>().Play();
 
@@ -232,8 +244,11 @@ public class QuestComplete : MonoBehaviour
                             }
                         }
                         moneySystem.GetComponent<MoneySystem>().AddMoney(reward);
-                        curCoin = Instantiate(coinDrop, transform.position, Quaternion.identity);
-                        curCoin.transform.DOMove(coinTarget.transform.position, 1, false).SetEase(Ease.InOutBack).OnComplete(DestroyCoin);
+                        for (int i = 0; i < 5; i++)
+                        {
+                            curCoins[i] = Instantiate(coinDrop, transform.position + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0), Quaternion.identity);
+                            curCoins[i].transform.DOMove(coinTarget.transform.position, 1, false).SetEase(Ease.InOutBack, 0.5f).OnComplete(DestroyCoin);
+                        }
                         GetComponent<AudioSource>().clip = completeTask;
                         GetComponent<AudioSource>().Play();
 
