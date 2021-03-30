@@ -36,7 +36,7 @@ public class CameraMovement : MonoBehaviour
     public void MoveCam()
     {
         helpTutorial1.SetActive(false);
-        if (GetComponent<Tutorial>().tutorialPhase == 3) return;
+        if (!GetComponent<Tutorial>().canMove) return;
         if (!isMoving)
         {
             if (dir == 1) destination = ordersPos;
@@ -83,9 +83,9 @@ public class CameraMovement : MonoBehaviour
             {
                 isMoving = false;
                 dir = 2;
-                if (GetComponent<Tutorial>().tutorialPhase == 1 && bottles.GetComponent<Bottles>().takenSpace[0])
+                if (!GetComponent<Tutorial>().mainGame && GetComponent<Tutorial>().canMove && !GetComponent<Tutorial>().mainTutorial)
                 {
-                    GetComponent<Tutorial>().tutorialPhase = 3;
+                    GetComponent<Tutorial>().canMove = false;
                     GetComponent<Tutorial>().ToggleMessage("Перенеси зелье заказчику чтобы он его забрал и заплатил.");
                 }
             }

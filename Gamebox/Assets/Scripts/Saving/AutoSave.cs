@@ -42,9 +42,17 @@ public class AutoSave : MonoBehaviour
             resourceSystem.GetComponent<ResourceSystem>().AddResource(Resource.Sand, save.amountSand);
 
             mixingSystem.GetComponent<MixingSystem>().ChangeCauldron(save.cauldronId);
-            
-            potionSystem.GetComponent<PotionSystem>().SetColor(0, (PotionColor)save.bottle1Color);
-            potionSystem.GetComponent<PotionSystem>().SetColor(1, (PotionColor)save.bottle2Color);
+
+            if (!save.mainGame)
+            {
+                potionSystem.GetComponent<PotionSystem>().SetColor(0, (PotionColor)save.bottle3Color);
+                potionSystem.GetComponent<PotionSystem>().SetColor(1, (PotionColor)save.bottle3Color);
+            }
+            else
+            {
+                potionSystem.GetComponent<PotionSystem>().SetColor(0, (PotionColor)save.bottle1Color);
+                potionSystem.GetComponent<PotionSystem>().SetColor(1, (PotionColor)save.bottle2Color);
+            }
             potionSystem.GetComponent<PotionSystem>().SetColor(2, (PotionColor)save.bottle3Color);
             potionSystem.GetComponent<PotionSystem>().SetColor(3, (PotionColor)save.bottle4Color);
             potionSystem.GetComponent<PotionSystem>().SetColor(4, (PotionColor)save.bottle5Color);
@@ -52,8 +60,16 @@ public class AutoSave : MonoBehaviour
             potionSystem.GetComponent<PotionSystem>().SetColor(6, (PotionColor)save.bottle7Color);
             potionSystem.GetComponent<PotionSystem>().SetColor(7, (PotionColor)save.bottle8Color);
 
-            potionSystem.GetComponent<PotionSystem>().SetEffect(0, (PotionEffect)save.bottle1Effect);
-            potionSystem.GetComponent<PotionSystem>().SetEffect(1, (PotionEffect)save.bottle2Effect);
+            if (!save.mainGame)
+            {
+                potionSystem.GetComponent<PotionSystem>().SetEffect(0, (PotionEffect)save.bottle3Effect);
+                potionSystem.GetComponent<PotionSystem>().SetEffect(1, (PotionEffect)save.bottle3Effect);
+            }
+            else
+            {
+                potionSystem.GetComponent<PotionSystem>().SetEffect(0, (PotionEffect)save.bottle1Effect);
+                potionSystem.GetComponent<PotionSystem>().SetEffect(1, (PotionEffect)save.bottle2Effect);
+            }
             potionSystem.GetComponent<PotionSystem>().SetEffect(2, (PotionEffect)save.bottle3Effect);
             potionSystem.GetComponent<PotionSystem>().SetEffect(3, (PotionEffect)save.bottle4Effect);
             potionSystem.GetComponent<PotionSystem>().SetEffect(4, (PotionEffect)save.bottle5Effect);
@@ -74,7 +90,10 @@ public class AutoSave : MonoBehaviour
                     recipes.GetComponent<RecipesMenu>().AddPotionData(recipes.GetComponent<RecipesMenu>().potions[i]);
             recipes.GetComponent<RecipesMenu>().pass = false;
 
-            bottles.GetComponent<Bottles>().bottleUsage = save.bottleUsage;
+            if (save.mainGame)
+                bottles.GetComponent<Bottles>().bottleUsage = save.bottleUsage;
+            else
+                bottles.GetComponent<Bottles>().bottleUsage = new bool[8] { false, false, false, false, false, false, false, false };
 
             UIControls.GetComponent<Tutorial>().mainGame = save.mainGame;
             UIControls.GetComponent<Tutorial>().helpShown = save.helpShown;

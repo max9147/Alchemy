@@ -22,7 +22,7 @@ public class Popups : MonoBehaviour
     public AudioClip openShop;
 
     public bool popupOpen = false;
-    private int popupOpenID = 0;
+    public int popupOpenID = 0;
 
     private void Update()
     {
@@ -53,7 +53,7 @@ public class Popups : MonoBehaviour
 
     public void PopupOpen(int id)
     {
-        if (GetComponent<Tutorial>().tutorialPhase == 1 || GetComponent<Tutorial>().tutorialPhase == 3) return;
+        if (!GetComponent<Tutorial>().canOpenShop) return;
 
         switch (id)
         {
@@ -79,7 +79,7 @@ public class Popups : MonoBehaviour
                 break;
 
             case 2:
-                if (GetComponent<Tutorial>().tutorialPhase == 2) return;
+                if (!GetComponent<Tutorial>().canOpenPopups) return;
                 popupOpenID = 2;
                 if (popupGuilds.activeInHierarchy)
                 {
@@ -100,7 +100,7 @@ public class Popups : MonoBehaviour
                 break;
 
             case 3:
-                if (GetComponent<Tutorial>().tutorialPhase == 2) return;
+                if (!GetComponent<Tutorial>().canOpenPopups) return;
                 popupOpenID = 3;
                 if (popupRecipes.activeInHierarchy)
                 {
@@ -123,7 +123,7 @@ public class Popups : MonoBehaviour
                 break;
 
             case 4:
-                if (GetComponent<Tutorial>().tutorialPhase == 2) return;
+                if (!GetComponent<Tutorial>().canOpenPopups) return;
                 popupOpenID = 4;
                 if (popupPause.activeInHierarchy)
                 {
@@ -147,7 +147,7 @@ public class Popups : MonoBehaviour
 
     public void PopupClose()
     {
-        if (GetComponent<Tutorial>().tutorialPhase == 2) return;
+        if (!GetComponent<Tutorial>().mainTutorial && !GetComponent<Tutorial>().mainGame) return;
         popupOpenID = 0;
         popupOpen = false;
         Time.timeScale = 1;

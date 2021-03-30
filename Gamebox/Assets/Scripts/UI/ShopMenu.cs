@@ -20,7 +20,7 @@ public class ShopMenu : MonoBehaviour
 
     private void Update()
     {
-        if (UIControls.GetComponent<Tutorial>().tutorialPhase == 2)
+        if (!UIControls.GetComponent<Tutorial>().mainTutorial)
         {
             buyFuel.interactable = false;
             if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Red) == 1) buyResX1[0].interactable = false;
@@ -71,9 +71,12 @@ public class ShopMenu : MonoBehaviour
         else
             buyBottle.interactable = true;
 
-        if (moneySystem.GetComponent<MoneySystem>().GetMoney() < moneySystem.GetComponent<ShopSystem>().cauldronCost || cauldron.GetComponent<MixingSystem>().GetCauldron() == 2)
-            buyCauldron.interactable = false;
-        else
-            buyCauldron.interactable = true;
+        if (cauldron.GetComponent<MixingSystem>().GetCauldron() != 2)
+        {
+            if (moneySystem.GetComponent<MoneySystem>().GetMoney() < moneySystem.GetComponent<ShopSystem>().cauldronCost)
+                buyCauldron.interactable = false;
+            else
+                buyCauldron.interactable = true;
+        }        
     }
 }

@@ -19,7 +19,10 @@ public class Tutorial : MonoBehaviour
     public Settings settings;
     public bool mainGame = false;
     public int helpStep;
-    public int tutorialPhase = 0;
+    public bool canMove = true;
+    public bool canOpenPopups = true;
+    public bool canOpenShop = true;
+    public bool mainTutorial = false;
     public bool[] helpShown = new bool[7];
     public bool readingHelp = false;
     public bool helpBuy = false;
@@ -61,7 +64,8 @@ public class Tutorial : MonoBehaviour
                     ToggleMessage("Давай купим ингредиенты для зелья нашего клиента.");
                     break;
                 case "Давай купим ингредиенты для зелья нашего клиента.":
-                    tutorialPhase = 2;
+                    canMove = false;
+                    canOpenShop = true;
                     helpTutorial2.SetActive(true);
                     break;
                 case "Все готово, возвращаемся на рабочее место.":
@@ -76,7 +80,10 @@ public class Tutorial : MonoBehaviour
                     resourceSystem.GetComponent<ResourceSystem>().AddResource(Resource.Yellow, 5);
                     resourceSystem.GetComponent<ResourceSystem>().AddResource(Resource.White, 5);
                     moneySystem.GetComponent<MoneySystem>().AddMoney(200);
-                    tutorialPhase = 0;
+                    canMove = true;
+                    canOpenPopups = true;
+                    canOpenShop = true;
+                    mainTutorial = true;
                     break;
                 default:
                     break;

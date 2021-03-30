@@ -114,7 +114,7 @@ public class MixingSystem : MonoBehaviour
             GetComponent<AudioSource>().Play();
 
             isReady = false;
-            if (UIControls.GetComponent<Tutorial>().tutorialPhase != 1)
+            if (UIControls.GetComponent<Tutorial>().mainGame)
             {
                 drainButton.interactable = true;
                 brewButton.interactable = true;
@@ -329,8 +329,8 @@ public class MixingSystem : MonoBehaviour
                 UIControls.GetComponent<Tutorial>().helpStep = 6;
                 UIControls.GetComponent<Tutorial>().GetHelp();
             }
-            if (UIControls.GetComponent<Tutorial>().tutorialPhase != 1) drainButton.interactable = true;
-            else UIControls.GetComponent<Tutorial>().ToggleMessage("Возьми пустую бутылку с верхней полки и налей в неё зелье, перетащив на котел.");
+            if (UIControls.GetComponent<Tutorial>().mainGame) drainButton.interactable = true;
+            else if (!UIControls.GetComponent<Tutorial>().mainTutorial) UIControls.GetComponent<Tutorial>().ToggleMessage("Возьми пустую бутылку с верхней полки и налей в неё зелье, перетащив на котел.");
             isReady = true;
             isBrewing = false;
         }
@@ -562,7 +562,6 @@ public class MixingSystem : MonoBehaviour
         isRare = false;
         inCauldron.Clear();
         inCauldronColored.Clear();
-        buyCauldron.interactable = true;
         progressBar.value = 0;
         drainButton.interactable = false;
         water.GetComponent<WaterColor>().ClearWater();

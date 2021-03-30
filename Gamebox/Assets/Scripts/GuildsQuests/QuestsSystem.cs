@@ -125,7 +125,8 @@ public class QuestsSystem : MonoBehaviour
             cam.transform.position = new Vector3(0, orders.transform.position.y, -1);
             UIControls.GetComponent<CameraMovement>().dir = 2;
             UIControls.GetComponent<Tutorial>().ToggleMessage("Добро пожаловать в игру Алхимик! Вы управляете этой лавкой и вам нужно выполнять заказы чтобы получать деньги и репутацию.");
-            UIControls.GetComponent<Tutorial>().tutorialPhase = 1;
+            UIControls.GetComponent<Tutorial>().canOpenPopups = false;
+            UIControls.GetComponent<Tutorial>().canOpenShop = false;            
         }
         else firstAmount--;
         if (firstQuest) GiveFirst();
