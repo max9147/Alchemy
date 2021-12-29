@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Popups : MonoBehaviour
@@ -53,8 +54,6 @@ public class Popups : MonoBehaviour
 
     public void PopupOpen(int id)
     {
-        if (!GetComponent<Tutorial>().canOpenShop) return;
-
         switch (id)
         {
             case 1:
@@ -79,7 +78,6 @@ public class Popups : MonoBehaviour
                 break;
 
             case 2:
-                if (!GetComponent<Tutorial>().canOpenPopups) return;
                 popupOpenID = 2;
                 if (popupGuilds.activeInHierarchy)
                 {
@@ -100,7 +98,6 @@ public class Popups : MonoBehaviour
                 break;
 
             case 3:
-                if (!GetComponent<Tutorial>().canOpenPopups) return;
                 popupOpenID = 3;
                 if (popupRecipes.activeInHierarchy)
                 {
@@ -123,7 +120,6 @@ public class Popups : MonoBehaviour
                 break;
 
             case 4:
-                if (!GetComponent<Tutorial>().canOpenPopups) return;
                 popupOpenID = 4;
                 if (popupPause.activeInHierarchy)
                 {
@@ -147,7 +143,6 @@ public class Popups : MonoBehaviour
 
     public void PopupClose()
     {
-        if (!GetComponent<Tutorial>().mainTutorial && !GetComponent<Tutorial>().mainGame) return;
         popupOpenID = 0;
         popupOpen = false;
         Time.timeScale = 1;
@@ -155,5 +150,10 @@ public class Popups : MonoBehaviour
         popupGuilds.gameObject.SetActive(false);
         popupRecipes.gameObject.SetActive(false);
         popupPause.gameObject.SetActive(false);
+    }
+
+    public void ExitToMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }

@@ -50,11 +50,7 @@ public class SaveData
 
     public bool[] bottleUsage = new bool[8];
 
-    public bool mainGame;
     public bool[] helpShown = new bool[7];
-
-    public bool firstQuest;
-    public int firstAmount;
 
     public SaveData(MoneySystem moneySystem, Bottles bottles, ShopSystem shopSystem, Fuel fuel, ResourceSystem resourceSystem, MixingSystem mixingSystem, PotionSystem potionSystem, GuildSystem guildSystem, RecipesMenu recipesMenu, Tutorial tutorial, QuestsSystem questsSystem)
     {
@@ -103,10 +99,6 @@ public class SaveData
 
         bottleUsage = bottles.bottleUsage;
 
-        mainGame = tutorial.mainGame;
         helpShown = tutorial.helpShown;
-
-        firstQuest = questsSystem.firstQuest;
-        firstAmount = questsSystem.firstAmount;
     }
 }

@@ -71,15 +71,6 @@ public class QuestComplete : MonoBehaviour
                 magiciansIngredient1.gameObject.SetActive(false);
                 magiciansIngredient2.gameObject.SetActive(false);
 
-                if (guildSystem.GetComponent<QuestsSystem>().firstAmount < 6 && !UIControls.GetComponent<Tutorial>().mainGame)
-                    guildSystem.GetComponent<QuestsSystem>().GiveFirst();
-                else if (guildSystem.GetComponent<QuestsSystem>().firstQuest)
-                {
-                    UIControls.GetComponent<Tutorial>().ToggleMessage("Не забывай экспериментировать с ресурсами чтобы получать новые рецепты зелий");
-                    UIControls.GetComponent<Tutorial>().mainGame = true;
-                    guildSystem.GetComponent<QuestsSystem>().firstQuest = false;
-                }
-
                 if (guildSystem.GetComponent<QuestsSystem>().questTime > settings.questLimit && guildSystem.GetComponent<QuestsSystem>().questStep == settings.questSpeedupStep)
                 {
                     guildSystem.GetComponent<QuestsSystem>().questTime -= settings.questSpeedup;
@@ -154,13 +145,7 @@ public class QuestComplete : MonoBehaviour
                         GetComponent<AudioSource>().Play();
 
                         guildSystem.GetComponent<QuestsSystem>().StopQuest(Guild.Warriors);
-                        if (!guildSystem.GetComponent<QuestsSystem>().firstQuest)
-                        {
-                            guildSystem.GetComponent<GuildSystem>().addRep(Guild.Warriors, settings.repReward);
-                            guildSystem.GetComponent<GuildSystem>().addRep(Guild.Priests, settings.repChangeSec);
-                            guildSystem.GetComponent<GuildSystem>().removeRep(Guild.Bandits, settings.repChangeSec);
-                            guildSystem.GetComponent<GuildSystem>().removeRep(Guild.Magicians, settings.repChangeSec);
-                        }
+
                         if (guildSystem.GetComponent<QuestsSystem>().delayWarriors > 0)
                             guildSystem.GetComponent<QuestsSystem>().delayWarriors--;
                         if (potionEffect != PotionEffect.Normal)
@@ -181,13 +166,7 @@ public class QuestComplete : MonoBehaviour
                         }
 
                         guildSystem.GetComponent<QuestsSystem>().StopQuest(Guild.Bandits);
-                        if (!guildSystem.GetComponent<QuestsSystem>().firstQuest)
-                        {
-                            guildSystem.GetComponent<GuildSystem>().addRep(Guild.Bandits, settings.repReward);
-                            guildSystem.GetComponent<GuildSystem>().addRep(Guild.Magicians, settings.repChangeSec);
-                            guildSystem.GetComponent<GuildSystem>().removeRep(Guild.Warriors, settings.repChangeSec);
-                            guildSystem.GetComponent<GuildSystem>().removeRep(Guild.Priests, settings.repChangeSec);
-                        }
+
                         if (guildSystem.GetComponent<QuestsSystem>().delayBandits > 0)
                             guildSystem.GetComponent<QuestsSystem>().delayBandits--;
                         if (potionEffect != PotionEffect.Normal)
@@ -209,13 +188,7 @@ public class QuestComplete : MonoBehaviour
                         GetComponent<AudioSource>().Play();
 
                         guildSystem.GetComponent<QuestsSystem>().StopQuest(Guild.Priests);
-                        if (!guildSystem.GetComponent<QuestsSystem>().firstQuest)
-                        {
-                            guildSystem.GetComponent<GuildSystem>().addRep(Guild.Priests, settings.repReward);
-                            guildSystem.GetComponent<GuildSystem>().addRep(Guild.Warriors, settings.repChangeSec);
-                            guildSystem.GetComponent<GuildSystem>().removeRep(Guild.Magicians, settings.repChangeSec);
-                            guildSystem.GetComponent<GuildSystem>().removeRep(Guild.Bandits, settings.repChangeSec);
-                        }
+
                         if (guildSystem.GetComponent<QuestsSystem>().delayPriests > 0)
                             guildSystem.GetComponent<QuestsSystem>().delayPriests--;
                         if (potionEffect != PotionEffect.Normal)
@@ -253,13 +226,7 @@ public class QuestComplete : MonoBehaviour
                         GetComponent<AudioSource>().Play();
 
                         guildSystem.GetComponent<QuestsSystem>().StopQuest(Guild.Magicians);
-                        if (!guildSystem.GetComponent<QuestsSystem>().firstQuest)
-                        {
-                            guildSystem.GetComponent<GuildSystem>().addRep(Guild.Magicians, settings.repReward);
-                            guildSystem.GetComponent<GuildSystem>().addRep(Guild.Bandits, settings.repChangeSec);
-                            guildSystem.GetComponent<GuildSystem>().removeRep(Guild.Priests, settings.repChangeSec);
-                            guildSystem.GetComponent<GuildSystem>().removeRep(Guild.Warriors, settings.repChangeSec);
-                        }
+
                         if (guildSystem.GetComponent<QuestsSystem>().delayMagicians > 0)
                             guildSystem.GetComponent<QuestsSystem>().delayMagicians--;
                         if (potionEffect != PotionEffect.Normal)

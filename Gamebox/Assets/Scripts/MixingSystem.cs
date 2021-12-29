@@ -114,12 +114,9 @@ public class MixingSystem : MonoBehaviour
             GetComponent<AudioSource>().Play();
 
             isReady = false;
-            if (UIControls.GetComponent<Tutorial>().mainGame)
-            {
-                drainButton.interactable = true;
-                brewButton.interactable = true;
-            }
-            else if (inCauldron.Count == 1)
+            drainButton.interactable = true;
+            brewButton.interactable = true;
+            if (inCauldron.Count == 1)
             {
                 brewButton.interactable = true;
             }
@@ -329,8 +326,7 @@ public class MixingSystem : MonoBehaviour
                 UIControls.GetComponent<Tutorial>().helpStep = 6;
                 UIControls.GetComponent<Tutorial>().GetHelp();
             }
-            if (UIControls.GetComponent<Tutorial>().mainGame) drainButton.interactable = true;
-            else if (!UIControls.GetComponent<Tutorial>().mainTutorial) UIControls.GetComponent<Tutorial>().ToggleMessage("Возьми пустую бутылку с верхней полки и налей в неё зелье, перетащив на котел.");
+            drainButton.interactable = true;
             isReady = true;
             isBrewing = false;
         }

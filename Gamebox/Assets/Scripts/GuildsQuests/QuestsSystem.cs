@@ -66,11 +66,6 @@ public class QuestsSystem : MonoBehaviour
     private bool priestsReady = false;
     private bool magiciansReady = false;
 
-    public bool firstQuest = true;
-    public int firstAmount = 0;
-
-    private int lastGuild = 5;
-
     public Quest warriorsQuest;
     public Quest banditsQuest;
     public Quest priestsQuest;
@@ -105,196 +100,21 @@ public class QuestsSystem : MonoBehaviour
 
     private void Awake()
     {
-        if (firstAmount > 0 && !UIControls.GetComponent<Tutorial>().mainGame)
-        {
-            firstAmount = 0;
-            resourceSystem.GetComponent<ResourceSystem>().RemoveResource(Resource.Red, resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Red));
-            resourceSystem.GetComponent<ResourceSystem>().RemoveResource(Resource.Blue, resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Blue));
-            resourceSystem.GetComponent<ResourceSystem>().RemoveResource(Resource.Yellow, resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Yellow));
-            resourceSystem.GetComponent<ResourceSystem>().RemoveResource(Resource.White, resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.White));
-            moneySystem.GetComponent<MoneySystem>().SpendMoney(moneySystem.GetComponent<MoneySystem>().GetMoney() - 200);
-        }
+        resourceSystem.GetComponent<ResourceSystem>().RemoveResource(Resource.Red, resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Red));
+        resourceSystem.GetComponent<ResourceSystem>().RemoveResource(Resource.Blue, resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Blue));
+        resourceSystem.GetComponent<ResourceSystem>().RemoveResource(Resource.Yellow, resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Yellow));
+        resourceSystem.GetComponent<ResourceSystem>().RemoveResource(Resource.White, resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.White));
+        moneySystem.GetComponent<MoneySystem>().SpendMoney(moneySystem.GetComponent<MoneySystem>().GetMoney() - 200);
     }
 
     private void Start()
     {
         questTime = settings.questDelay;
         timePassed = questTime - settings.questFirst + GetComponent<GuildSystem>().CalcExtraTime();
-        if (firstAmount == 0)
-        {
-            cam.transform.position = new Vector3(0, orders.transform.position.y, -1);
-            UIControls.GetComponent<CameraMovement>().dir = 2;
-            UIControls.GetComponent<Tutorial>().ToggleMessage("Добро пожаловать в игру Алхимик! Вы управляете этой лавкой и вам нужно выполнять заказы чтобы получать деньги и репутацию.");
-            UIControls.GetComponent<Tutorial>().canOpenPopups = false;
-            UIControls.GetComponent<Tutorial>().canOpenShop = false;            
-        }
-        else firstAmount--;
-        if (firstQuest) GiveFirst();
-    }
-
-    public void GiveFirst()
-    {
-        int guild;
-
-        if (firstAmount == 1) UIControls.GetComponent<Tutorial>().ToggleMessage("Следи за репутацией вверху экрана. Если ее будет слишком мало, гильдии не будут покупать зелья и ты проиграешь.");
-
-        firstAmount++;
-        do guild = Random.Range(0, 4);
-        while (guild == lastGuild);
-        if (firstAmount == 1) guild = 2;
-        lastGuild = guild;
-
-        switch (guild)
-        {
-            case 0:
-                warriorsQuest = CreateFirstQuest(Guild.Warriors);
-                warriorsIngredient1.gameObject.SetActive(true);
-                warriorsIngredient2.gameObject.SetActive(true);
-                switch (firstAmount)
-                {
-                    case 1:
-                        warriorsIngredient1.sprite = red;
-                        warriorsIngredient2.sprite = blue;
-                        break;
-                    case 2:
-                        warriorsIngredient1.sprite = red;
-                        warriorsIngredient2.sprite = yellow;
-                        break;
-                    case 3:
-                        warriorsIngredient1.sprite = blue;
-                        warriorsIngredient2.sprite = yellow;
-                        break;
-                    case 4:
-                        warriorsIngredient1.sprite = red;
-                        warriorsIngredient2.sprite = white;
-                        break;
-                    case 5:
-                        warriorsIngredient1.sprite = yellow;
-                        warriorsIngredient2.sprite = white;
-                        break;
-                    case 6:
-                        warriorsIngredient1.sprite = blue;
-                        warriorsIngredient2.sprite = white;
-                        break;
-                    default:
-                        break;
-                }
-                rewardWarriors.text = warriorsQuest.reward.ToString();
-                break;
-            case 1:
-                banditsQuest = CreateFirstQuest(Guild.Bandits);
-                banditsIngredient1.gameObject.SetActive(true);
-                banditsIngredient2.gameObject.SetActive(true);
-                switch (firstAmount)
-                {
-                    case 1:
-                        banditsIngredient1.sprite = red;
-                        banditsIngredient2.sprite = blue;
-                        break;
-                    case 2:
-                        banditsIngredient1.sprite = red;
-                        banditsIngredient2.sprite = yellow;
-                        break;
-                    case 3:
-                        banditsIngredient1.sprite = blue;
-                        banditsIngredient2.sprite = yellow;
-                        break;
-                    case 4:
-                        banditsIngredient1.sprite = red;
-                        banditsIngredient2.sprite = white;
-                        break;
-                    case 5:
-                        banditsIngredient1.sprite = yellow;
-                        banditsIngredient2.sprite = white;
-                        break;
-                    case 6:
-                        banditsIngredient1.sprite = blue;
-                        banditsIngredient2.sprite = white;
-                        break;
-                    default:
-                        break;
-                }
-                rewardBandits.text = banditsQuest.reward.ToString();
-                break;
-            case 2:
-                priestsQuest = CreateFirstQuest(Guild.Priests);
-                priestsIngredient1.gameObject.SetActive(true);
-                priestsIngredient2.gameObject.SetActive(true);
-                switch (firstAmount)
-                {
-                    case 1:
-                        priestsIngredient1.sprite = red;
-                        priestsIngredient2.sprite = blue;
-                        break;
-                    case 2:
-                        priestsIngredient1.sprite = red;
-                        priestsIngredient2.sprite = yellow;
-                        break;
-                    case 3:
-                        priestsIngredient1.sprite = blue;
-                        priestsIngredient2.sprite = yellow;
-                        break;
-                    case 4:
-                        priestsIngredient1.sprite = red;
-                        priestsIngredient2.sprite = white;
-                        break;
-                    case 5:
-                        priestsIngredient1.sprite = yellow;
-                        priestsIngredient2.sprite = white;
-                        break;
-                    case 6:
-                        priestsIngredient1.sprite = blue;
-                        priestsIngredient2.sprite = white;
-                        break;
-                    default:
-                        break;
-                }
-                rewardPriests.text = priestsQuest.reward.ToString();
-                break;
-            case 3:
-                magiciansQuest = CreateFirstQuest(Guild.Magicians);
-                magiciansIngredient1.gameObject.SetActive(true);
-                magiciansIngredient2.gameObject.SetActive(true);
-                switch (firstAmount)
-                {
-                    case 1:
-                        magiciansIngredient1.sprite = red;
-                        magiciansIngredient2.sprite = blue;
-                        break;
-                    case 2:
-                        magiciansIngredient1.sprite = red;
-                        magiciansIngredient2.sprite = yellow;
-                        break;
-                    case 3:
-                        magiciansIngredient1.sprite = blue;
-                        magiciansIngredient2.sprite = yellow;
-                        break;
-                    case 4:
-                        magiciansIngredient1.sprite = red;
-                        magiciansIngredient2.sprite = white;
-                        break;
-                    case 5:
-                        magiciansIngredient1.sprite = yellow;
-                        magiciansIngredient2.sprite = white;
-                        break;
-                    case 6:
-                        magiciansIngredient1.sprite = blue;
-                        magiciansIngredient2.sprite = white;
-                        break;
-                    default:
-                        break;
-                }
-                rewardMagicians.text = magiciansQuest.reward.ToString();
-                break;
-            default:
-                break;
-        }
     }
 
     private void Update()
     {
-        if (firstQuest || UIControls.GetComponent<Tutorial>().readingHelp) return;
-
         timePassed += Time.deltaTime;
 
         if (timePassed >= questTime + GetComponent<GuildSystem>().CalcExtraTime() && !(warriorsReady && banditsReady && priestsReady && magiciansReady))
@@ -623,8 +443,6 @@ public class QuestsSystem : MonoBehaviour
 
         quest.difficulty = Difficulty.Easy;
         quest.guild = guild;
-
-        quest.color = (PotionColor)firstAmount;
 
         quest.effect = PotionEffect.Normal;
         quest.reward = settings.questRewardEasy;

@@ -36,7 +36,6 @@ public class CameraMovement : MonoBehaviour
     public void MoveCam()
     {
         helpTutorial1.SetActive(false);
-        if (!GetComponent<Tutorial>().canMove) return;
         if (!isMoving)
         {
             if (dir == 1) destination = ordersPos;
@@ -69,11 +68,6 @@ public class CameraMovement : MonoBehaviour
             {
                 isMoving = false;
                 dir = 1;
-                if (GetComponent<Tutorial>().helpBuy)
-                {
-                    GetComponent<Tutorial>().helpBuy = false;
-                    GetComponent<Tutorial>().ToggleMessage("Это рабочее место. По центру находится котел, слева и справа будут располагаться ресурсы для зельеварения.");
-                }
             }
         }
 
@@ -83,11 +77,6 @@ public class CameraMovement : MonoBehaviour
             {
                 isMoving = false;
                 dir = 2;
-                if (!GetComponent<Tutorial>().mainGame && GetComponent<Tutorial>().canMove && !GetComponent<Tutorial>().mainTutorial)
-                {
-                    GetComponent<Tutorial>().canMove = false;
-                    GetComponent<Tutorial>().ToggleMessage("Перенеси зелье заказчику чтобы он его забрал и заплатил.");
-                }
             }
         }
 

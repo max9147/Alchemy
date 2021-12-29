@@ -20,14 +20,6 @@ public class ShopMenu : MonoBehaviour
 
     private void Update()
     {
-        if (!UIControls.GetComponent<Tutorial>().mainTutorial)
-        {
-            buyFuel.interactable = false;
-            if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Red) == 1) buyResX1[0].interactable = false;
-            if (resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Blue) == 1) buyResX1[1].interactable = false;
-            return;
-        }
-
         if (moneySystem.GetComponent<MoneySystem>().GetMoney() < 100)
         {
             foreach (var item in buyResX1)

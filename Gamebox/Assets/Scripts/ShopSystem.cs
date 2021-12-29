@@ -98,15 +98,6 @@ public class ShopSystem : MonoBehaviour
             default:
                 break;
         }
-
-        if (!UIControls.GetComponent<Tutorial>().mainGame && resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Red) == 1 && resourceSystem.GetComponent<ResourceSystem>().GetAmount(Resource.Blue) == 1)
-        {
-            UIControls.GetComponent<Tutorial>().canOpenShop = false;
-            UIControls.GetComponent<Tutorial>().ToggleMessage("Все готово, возвращаемся на рабочее место.");
-            UIControls.GetComponent<Popups>().popupOpenID = 0;
-            UIControls.GetComponent<Popups>().popupOpen = false;
-            UIControls.GetComponent<Popups>().popupShop.gameObject.SetActive(false);
-        }
     }
 
     public void BuyResourceX5(int resNumber)
